@@ -1,0 +1,31 @@
+{
+  "name": "polka-music",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunosukeY/music.git"
+  },
+  "keywords": [],
+  "author": "kimitsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YunosukeY/music/issues"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@types/jquery": "^3.5.1",
+    "@types/node": "^14.6.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}

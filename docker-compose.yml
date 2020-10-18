@@ -1,0 +1,8 @@
+version: '3'
+services:
+  polka-music:
+    image: polka-music
+    build: .
+    container_name: polka-music
+    volumes:
+       - .:/work
