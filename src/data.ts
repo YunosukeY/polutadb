@@ -1,6 +1,6 @@
-export const movies = [
+export const videos = [
   {
-    'url': 'https://www.youtube.com/watch?v=PuFk_XfNXiM',
+    'id': 'PuFk_XfNXiM',
     'title': 'POLKA♡SUMMER♡LIVE☆2020 #ぽるうた【ホロライブ/尾丸ポルカ】',
     'date': '2020/08/30'
   },
@@ -33,27 +33,27 @@ export const artists = [
 ]
 
 export const singings = [
-  { 'movieId': 0, 'songId': 0, 'time': '4m51s' },
-  { 'movieId': 0, 'songId': 1, 'time': '6m17s' },
-  { 'movieId': 0, 'songId': 2, 'time': '12m54s' },
-  { 'movieId': 0, 'songId': 3, 'time': '17m44s' },
-  { 'movieId': 0, 'songId': 4, 'time': '23m30s' },
-  { 'movieId': 0, 'songId': 5, 'time': '29m15s' },
-  { 'movieId': 0, 'songId': 6, 'time': '36m07s' },
+  { 'videoId': 0, 'songId': 0, 'start': '272' },
+  { 'videoId': 0, 'songId': 1, 'start': '377' },
+  { 'videoId': 0, 'songId': 2, 'start': '774' },
+  { 'videoId': 0, 'songId': 3, 'start': '1064' },
+  { 'videoId': 0, 'songId': 4, 'start': '1410' },
+  { 'videoId': 0, 'songId': 5, 'start': '1755' },
+  { 'videoId': 0, 'songId': 6, 'start': '2167' },
 ]
 
 export function setData() {
-  // set movie
-  let movieElement = document.getElementById('movie')!;
+  // set video
+  let videoElement = document.getElementById('video')!;
   let option = document.createElement('option');
   option.setAttribute('value', '-1');
   option.innerHTML = '-';
-  movieElement.appendChild(option);
-  for (let i in movies) {
+  videoElement.appendChild(option);
+  for (let i in videos) {
     option = document.createElement('option');
     option.setAttribute('value', i);
-    option.innerHTML = movies[i]['title'];
-    movieElement.appendChild(option);
+    option.innerHTML = videos[i]['title'];
+    videoElement.appendChild(option);
   }
 
   // set song
