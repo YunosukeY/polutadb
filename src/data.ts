@@ -1,4 +1,30 @@
-export const videos = [
+interface Video {
+  id: string;
+  title: string;
+  date: string
+}
+
+interface Song {
+  title: string;
+  artistId: number;
+  genreId: number
+}
+
+interface Genre {
+  name: string
+}
+
+interface Artist {
+  name: string
+}
+
+interface Singing {
+  videoId: number;
+  songId: number;
+  start: string
+}
+
+const videos: Video[] = [
   {
     'id': 'PuFk_XfNXiM',
     'title': 'POLKA♡SUMMER♡LIVE☆2020 #ぽるうた【ホロライブ/尾丸ポルカ】',
@@ -6,7 +32,7 @@ export const videos = [
   },
 ]
 
-export const songs = [
+const songs: Song[] = [
   { 'title': 'HOLOGRAM CIRCUS', 'artistId': 0, 'genreId': 0 },
   { 'title': 'only my railgun', 'artistId': 1, 'genreId': 1 },
   { 'title': 'Unmei♪wa♪Endless!', 'artistId': 2, 'genreId': 1 },
@@ -16,13 +42,13 @@ export const songs = [
   { 'title': 'ようこそジャパリパークへ', 'artistId': 6, 'genreId': 1 },
 ]
 
-export const genres = [
+const genres: Genre[] = [
   { 'name': 'オリジナル' },
   { 'name': 'アニソン' },
   { 'name': 'アイドル' },
 ]
 
-export const artists = [
+const artists: Artist[] = [
   { 'name': '尾丸ポルカ' },
   { 'name': 'fripSide' },
   { 'name': '放課後ティータイム' },
@@ -32,7 +58,7 @@ export const artists = [
   { 'name': 'どうぶつビスケッツ×PPP' },
 ]
 
-export const singings = [
+export const singings: Singing[] = [
   { 'videoId': 0, 'songId': 0, 'start': '272' },
   { 'videoId': 0, 'songId': 1, 'start': '377' },
   { 'videoId': 0, 'songId': 2, 'start': '774' },
@@ -81,4 +107,20 @@ export function setData() {
     option.innerHTML = artists[i]['name'];
     artistElement.appendChild(option);
   }
+}
+
+export function getUrl(videoId: number) {
+  return videos[videoId]['id']
+}
+
+export function getArtist(songId: number) {
+  return artists[songs[songId]['artistId']]['name'];
+}
+
+export function getArtistId(songId: number) {
+  return songs[songId]['artistId'];
+}
+
+export function getSong(songId: number) {
+  return songs[songId]['title'];
 }

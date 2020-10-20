@@ -4,30 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <title>テスト</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link type="text/css" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-  <div id="block">
-    <div id="blocktitle">Video</div id="blocktitle">
-    <select name="video" id="video"></select>
-  </div>
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+      <div class="block select-block">
+        <label>
+          <h6>動画</h6>
+          <select name="video" id="video"></select>
+        </label>
 
-  <div id="block">
-    <div id="blocktitle">Song</div id="blocktitle">
-    <select name="song" id="song"></select>
-  </div>
+        <label>
+          <h6>曲</h6>
+          <select name="song" id="song"></select>
+        </label>
 
-  <div id="block">
-    <div id="blocktitle">Artist</div id="blocktitle">
-    <select name="artist" id="artist"></select>
-  </div>
+        <label>
+          <h6>アーティスト</h6>
+          <select name="artist" id="artist"></select>
+        </label>
+      </div>
 
-  <div id="block">
-    <div id="blocktitle">Result</div id="blocktitle">
-    <div id="result"></div>
-  </div>
+      <div class="block result-block">
+        <label>
+          <h6>Result</h6>
+          <div id="result"></div>
+        </label>
+      </div>
 
-  <script src="dst/main.js"></script>
+      <script src="dst/main.js" type="text/javascript" charset="utf-8"></script>
+    </div>
+  </div>
 </body>
 
 </html>

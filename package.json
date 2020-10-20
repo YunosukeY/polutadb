@@ -19,6 +19,7 @@
   "homepage": "",
   "devDependencies": {
     "@types/jquery": "^3.5.1",
+    "@types/materialize-css": "^1.0.8",
     "@types/node": "^14.6.0",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
@@ -26,6 +27,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "materialize-css": "^1.0.0"
   }
 }
