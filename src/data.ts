@@ -75,10 +75,15 @@ export function setData() {
   option.setAttribute('value', '-1');
   option.innerHTML = '-';
   videoElement.appendChild(option);
-  for (let i in videos) {
+
+  // データは五十音順になっていないので，ソートしてから選択肢に追加する
+  let videoNames: any[] = [];
+  videos.forEach((video, i) => videoNames.push([video['title'], i]));
+  videoNames = videoNames.sort();
+  for (let name of videoNames) {
     option = document.createElement('option');
-    option.setAttribute('value', i);
-    option.innerHTML = videos[i]['title'];
+    option.setAttribute('value', name[1]);
+    option.innerHTML = name[0];
     videoElement.appendChild(option);
   }
 
@@ -88,10 +93,14 @@ export function setData() {
   option.setAttribute('value', '-1');
   option.innerHTML = '-';
   songElement.appendChild(option);
-  for (let i in songs) {
+
+  let songNames: any[] = [];
+  songs.forEach((song, i) => songNames.push([song['title'], i]));
+  songNames = songNames.sort();
+  for (let name of songNames) {
     option = document.createElement('option');
-    option.setAttribute('value', i);
-    option.innerHTML = songs[i]['title'];
+    option.setAttribute('value', name[1]);
+    option.innerHTML = name[0];
     songElement.appendChild(option);
   }
 
@@ -101,10 +110,14 @@ export function setData() {
   option.setAttribute('value', '-1');
   option.innerHTML = '-';
   artistElement.appendChild(option);
-  for (let i in artists) {
+
+  let artistNames: any[] = [];
+  artists.forEach((artist, i) => artistNames.push([artist['name'], i]));
+  artistNames = artistNames.sort();
+  for (let name of artistNames) {
     option = document.createElement('option');
-    option.setAttribute('value', i);
-    option.innerHTML = artists[i]['name'];
+    option.setAttribute('value', name[1]);
+    option.innerHTML = name[0];
     artistElement.appendChild(option);
   }
 }
