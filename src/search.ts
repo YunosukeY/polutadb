@@ -1,18 +1,39 @@
-import { singings, getUrl, getArtist, getSong, getArtistId } from './data';
+import { singings, getUrl, getArtist, getSong, getArtistId, Singing } from './data';
 
-function genHtml(singings: any) {
-  let res = '<table class="centered"><tbody>';
+let result: Singing[] = [];
 
-  for (let singing of singings) {
-    res += '<tr>';
-    res += `<td width="500"><iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/${getUrl(singing['videoId'])}?start=${singing['start']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>`;
-    res += `<td><h5>『${getSong(singing['songId'])}』<br>${getArtist(singing['songId'])}</h5></td>`;
-    res += '<tr>';
+function genHtml(pageNum: number) {
+  let displayNum = Number($('input:radio[name="display-num"]:checked').val() as string);
+
+  // result table
+  let html = '<table class="centered"><tbody>';
+  for (let i = (pageNum - 1) * displayNum; i < Math.min(pageNum * displayNum, result.length); i++) {
+    html += '<tr>';
+    html += `<td width="500">
+              <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/${getUrl(result[i]['videoId'])}?start=${result[i]['start']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </td>`;
+    html += `<td>
+              <h5>
+                『${getSong(result[i]['songId'])}』<br>
+                ${getArtist(result[i]['songId'])}
+              </h5>
+            </td>`;
+    html += '<tr>';
   }
+  html += '</tbody></table>';
 
-  res += '</tbody></table>';
+  // page nation
+  html += '<ul class="pagination" id="result-page">';
+  html += `${pageNum == 1 ? '<li class="disabled">' : '<li class="waves-effect">'}<a><i class="material-icons">chevron_left</i></a></li>`;
+  let lastPageNum = Math.ceil(result.length / displayNum);
+  for (let i = 1; i <= lastPageNum; i++) {
+    html += `${i == pageNum ? '<li class="active" id="current-page">' : '<li class="waves-effect">'}<a>${i}</a></li>`;
+  }
+  html += `${pageNum >= lastPageNum ? '<li class="disabled">' : '<li class="waves-effect">'}<a><i class="material-icons">chevron_right</i></a></li>`;
+  html += '</ul>';
 
-  return res;
+  return html;
 }
 
 function search() {
@@ -20,28 +41,53 @@ function search() {
   let songId = Number($('#song').val() as string);
   let artistId = Number($('#artist').val() as string);
 
-  let res = singings;
+  let tmpres = singings;
   if (videoId != -1) {
-    res = res.filter(singingInfo => singingInfo['videoId'] == videoId)
+    tmpres = tmpres.filter(singingInfo => singingInfo['videoId'] == videoId);
   }
   if (songId != -1) {
-    res = res.filter(singingInfo => singingInfo['songId'] == songId)
+    tmpres = tmpres.filter(singingInfo => singingInfo['songId'] == songId);
   }
   if (artistId != -1) {
-    res = res.filter(singingInfo => getArtistId(singingInfo['songId']) == artistId)
+    tmpres = tmpres.filter(singingInfo => getArtistId(singingInfo['songId']) == artistId);
   }
+  result = tmpres;
+}
 
-  $('#result').html(genHtml(res));
+function scroll2ResultTop() {
+  let speed = 400; // ミリ秒
+  let position = $('.result-block').offset()!.top;
+  $('body,html').animate({ scrollTop: position }, speed, 'swing');
+  return false;
+}
+
+function standbyFlippingPage() {
+  $('#result-page li').on('click', function () {
+    if ($(this).hasClass('waves-effect')) {
+      let currentPage = Number($('#current-page').text());
+
+      if ($(this).text() == 'chevron_left') {
+        $('#result').html(genHtml(currentPage - 1));
+      } else if ($(this).text() == 'chevron_right') {
+        $('#result').html(genHtml(currentPage + 1));
+      } else {
+        let nextPage = Number($(this).text());
+        $('#result').html(genHtml(nextPage));
+      }
+      scroll2ResultTop();
+      standbyFlippingPage();
+    }
+  });
 }
 
 export function searchInit() {
-  $('#video').on('change', function () {
-    search()
+  $('#video, #song, #artist').on('change', function () {
+    search();
+    $('#result').html(genHtml(1));
+    standbyFlippingPage();
   });
-  $('#song').on('change', function () {
-    search()
-  });
-  $('#artist').on('change', function () {
-    search()
+  $('input[name="display-num"]:radio').on('change', function () {
+    $('#result').html(genHtml(1));
+    standbyFlippingPage();
   });
 }

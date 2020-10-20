@@ -18,7 +18,7 @@ interface Artist {
   name: string
 }
 
-interface Singing {
+export interface Singing {
   videoId: number;
   songId: number;
   start: string
@@ -123,7 +123,7 @@ export function setData() {
 }
 
 export function getUrl(videoId: number) {
-  return videos[videoId]['id']
+  return videos[videoId]['id'];
 }
 
 export function getArtist(songId: number) {

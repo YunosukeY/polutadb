@@ -5,3 +5,9 @@
 .result-block{
   margin-top: 70px;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
