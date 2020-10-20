@@ -1,5 +1,28 @@
-.select-block {
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  color: #F1646A;
+}
+
+h5{
+  color: #F1646A;
+}
+
+.description-block{
   margin-top: 20px;
+}
+
+.select-block {
+  margin-top: 70px;
 }
 
 .result-block{

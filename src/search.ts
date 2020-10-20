@@ -6,7 +6,8 @@ function genHtml(pageNum: number) {
   let displayNum = Number($('input:radio[name="display-num"]:checked').val() as string);
 
   // result table
-  let html = '<table class="centered"><tbody>';
+  let html = `<h4>Result</h4>
+              <table class="centered"><tbody>`;
   for (let i = (pageNum - 1) * displayNum; i < Math.min(pageNum * displayNum, result.length); i++) {
     html += '<tr>';
     html += `<td width="500">
