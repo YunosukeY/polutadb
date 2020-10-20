@@ -1,4 +1,4 @@
-import { singings, getUrl, getArtist, getSong, getArtistId, Singing } from './data';
+import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing } from './data';
 
 let result: Singing[] = [];
 
@@ -41,6 +41,8 @@ function search() {
   let videoId = Number($('#video').val() as string);
   let songId = Number($('#song').val() as string);
   let artistId = Number($('#artist').val() as string);
+  let genreId = Number($('#genre').val() as string);
+  let typeId = Number($('#type').val() as string);
 
   let tmpres = singings;
   if (videoId != -1) {
@@ -51,6 +53,12 @@ function search() {
   }
   if (artistId != -1) {
     tmpres = tmpres.filter(singingInfo => getArtistId(singingInfo['songId']) == artistId);
+  }
+  if (genreId != -1) {
+    tmpres = tmpres.filter(singingInfo => getGenreId(singingInfo['songId']) == genreId);
+  }
+  if (typeId != -1) {
+    tmpres = tmpres.filter(singingInfo => getTypeId(singingInfo['videoId']) == typeId);
   }
   result = tmpres;
 }
@@ -82,7 +90,7 @@ function standbyFlippingPage() {
 }
 
 export function searchInit() {
-  $('#video, #song, #artist').on('change', function () {
+  $('#video, #song, #artist, #genre, #type').on('change', function () {
     search();
     $('#result').html(genHtml(1));
     standbyFlippingPage();

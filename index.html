@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>タイトル</title>
+  <title>ぽるうたDB</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link type="text/css" rel="stylesheet"
@@ -15,7 +15,7 @@
   <header>
     <nav>
       <div class="nav-wrapper">
-        <div class="title brand-logo center">タイトル</div>
+        <div class="title brand-logo center">ぽるうたデータベース</div>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         </ul>
       </div>
@@ -34,18 +34,38 @@
           <h4>Search</h4>
 
           <label>
+            <h6>曲ジャンル</h6>
+            <select name="genre" id="genre">
+              <option value="-1">-</option>
+            </select>
+          </label>
+
+          <label>
+            <h6>枠タイプ</h6>
+            <select name="type" id="type">
+              <option value="-1">-</option>
+            </select>
+          </label>
+
+          <label>
             <h6>動画</h6>
-            <select name="video" id="video"></select>
+            <select name="video" id="video">
+              <option value="-1">-</option>
+            </select>
           </label>
 
           <label>
             <h6>曲</h6>
-            <select name="song" id="song"></select>
+            <select name="song" id="song">
+              <option value="-1">-</option>
+            </select>
           </label>
 
           <label>
             <h6>アーティスト</h6>
-            <select name="artist" id="artist"></select>
+            <select name="artist" id="artist">
+              <option value="-1">-</option>
+            </select>
           </label>
 
           <label>
@@ -80,7 +100,7 @@
         <div class="col s12" align="right">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="https://github.com/YunosukeY/polka-music">Source Code</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/YunosukeY/polutadb">Source Code</a></li>
             <li><a class="grey-text text-lighten-3" href="https://twitter.com/k1m1tsu">Twitter</a></li>
           </ul>
         </div>
@@ -88,7 +108,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container center">
-        © 2020 君津
+        © 2020 ぽるうたデータベース
       </div>
     </div>
   </footer>
