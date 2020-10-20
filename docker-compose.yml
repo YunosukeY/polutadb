@@ -1,8 +1,8 @@
 version: '3'
 services:
-  polka-music:
-    image: polka-music
+  poluta-db:
+    image: poluta-db
     build: .
-    container_name: polka-music
+    container_name: poluta-db
     volumes:
        - .:/work

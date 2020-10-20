@@ -1,22 +1,22 @@
 {
-  "name": "polka-music",
+  "name": "poluta-db",
   "version": "1.0.0",
-  "description": "",
+  "description": "尾丸ポルカさんの歌を検索できる",
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YunosukeY/music.git"
+    "url": "git+https://github.com/YunosukeY/poluta-db"
   },
   "keywords": [],
   "author": "kimitsu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YunosukeY/music/issues"
+    "url": "https://github.com/YunosukeY/poluta-db/issues"
   },
-  "homepage": "",
+  "homepage": "polutadb.com",
   "devDependencies": {
     "@types/jquery": "^3.5.1",
     "@types/materialize-css": "^1.0.8",
