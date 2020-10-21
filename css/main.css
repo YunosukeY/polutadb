@@ -47,7 +47,7 @@ td {
 }
 
 /* レスポンシブ */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
   #song-info {
     margin-bottom: 0px;
   }
@@ -65,16 +65,19 @@ td {
     height: 100%;
   }
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 993px) {
   #song-info {
     margin: 100px auto;
     height: 50px;
   }
 }
-/* 2列表示だが文字にiframeが被るため小さくする */
-@media screen and (min-width: 601px) and (max-width: 700px) {
+@media screen and (min-width: 1501px) {
   iframe {
-    width: 400px;
-    height: 225px;
+    width: 560px;
+    height: 315px;
+  }
+  #song-info {
+    margin: 130px auto;
+    height: 50px;
   }
 }

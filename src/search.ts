@@ -10,10 +10,10 @@ function genHtml(pageNum: number) {
               <table><tbody>`;
   for (let i = (pageNum - 1) * displayNum; i < Math.min(pageNum * displayNum, result.length); i++) {
     html += `<tr><td><div class="row" id="table-block">`
-    html += `<div class="col s12 m8 l7 xl6" id="iframe-content">
+    html += `<div class="col s12 m12 l8 xl8" id="iframe-content">
               <iframe width="480" height="270" src="https://www.youtube-nocookie.com/embed/${getUrl(result[i]['videoId'])}?start=${result[i]['start']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>`;
-    html += `<div class="col s12 m4 l5 xl6" id="result-table">
+    html += `<div class="col s12 m12 l4 xl4" id="result-table">
               <h5 id="song-info">
                 『${getSong(result[i]['songId'])}』<br>
                 ${getArtist(result[i]['songId'])}
