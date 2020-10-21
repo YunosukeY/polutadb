@@ -1,36 +1,80 @@
+/* footerを下に固定する */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Lato', 'Noto Sans JP';
 }
-
 .main {
   flex: 1 0 auto;
 }
 
+.title {
+  font-size: 30px;
+  font-family: 'Comfortaa', cursive;
+}
 h4 {
-  font-family: 'Roboto', sans-serif;
+  color: #F1646A;
+  font-family: 'Comfortaa', cursive;
+}
+h5 {
   color: #F1646A;
 }
 
-h5{
-  color: #F1646A;
-}
-
-.description-block{
+.description-block {
   margin-top: 20px;
 }
-
 .select-block {
   margin-top: 70px;
 }
-
-.result-block{
+.result-block {
   margin-top: 70px;
 }
-
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#result-table {
+  text-align: center;
+}
+#iframe-content {
+  text-align: center;
+}
+td {
+  padding-top: 25px;
+  padding-bottom: 0px;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 600px) {
+  #song-info {
+    margin-bottom: 0px;
+  }
+  /* iframeを横幅いっぱいのサイズにする */
+  #iframe-content {
+    position: relative;
+    width: 100%;
+    padding: 56.25% 0 0 0;
+  }
+  #iframe-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 601px) {
+  #song-info {
+    margin: 100px auto;
+    height: 50px;
+  }
+}
+/* 2列表示だが文字にiframeが被るため小さくする */
+@media screen and (min-width: 601px) and (max-width: 700px) {
+  iframe {
+    width: 400px;
+    height: 225px;
+  }
 }
