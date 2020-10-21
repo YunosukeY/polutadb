@@ -394,12 +394,12 @@ export function setData() {
   let videoElement = document.getElementById('video')!;
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: any[] = [];
-  videos.forEach((video, i) => videoNames.push([video['title'], i]));
+  videos.forEach((video, i) => videoNames.push([video['date'], video['title'], i]));
   videoNames = videoNames.sort();
   for (let name of videoNames) {
     let option = document.createElement('option');
-    option.setAttribute('value', name[1]);
-    option.innerHTML = name[0];
+    option.setAttribute('value', name[2]);
+    option.innerHTML = `${name[0]}: ${name[1]}`;
     videoElement.appendChild(option);
   }
 
@@ -445,11 +445,17 @@ export function setData() {
   types.forEach((type, i) => typeNames.push([type['name'], i]));
   typeNames = typeNames.sort();
   for (let name of typeNames) {
-    let option = document.createElement('option');
-    option.setAttribute('value', name[1]);
-    option.innerHTML = name[0];
-    typeElement.appendChild(option);
+    if (name[0] != 'その他') {
+      let option = document.createElement('option');
+      option.setAttribute('value', name[1]);
+      option.innerHTML = name[0];
+      typeElement.appendChild(option);
+    }
   }
+  let option = document.createElement('option');
+  option.setAttribute('value', '5');
+  option.innerHTML = 'その他';
+  typeElement.appendChild(option);
 }
 
 export function getUrl(videoId: number) {
