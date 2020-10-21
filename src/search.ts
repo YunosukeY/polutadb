@@ -3,11 +3,11 @@ import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeI
 let result: Singing[] = [];
 
 function genHtml(pageNum: number) {
-  let displayNum = Number($('input:radio[name="display-num"]:checked').val() as string);
+  let html = `<h4>${result.length} Result${result.length == 1 ? '' : 's'}</h4>`;
 
   // result table
-  let html = `<h4>Result</h4>
-              <table><tbody>`;
+  let displayNum = Number($('input:radio[name="display-num"]:checked').val() as string);
+  html += `<table><tbody>`;
   for (let i = (pageNum - 1) * displayNum; i < Math.min(pageNum * displayNum, result.length); i++) {
     html += `<tr><td><div class="row" id="table-block">`
     html += `<div class="col s12 m12 l8 xl8" id="iframe-content">
@@ -24,13 +24,20 @@ function genHtml(pageNum: number) {
   html += '</tbody></table>';
 
   // page nation
-  html += '<ul class="pagination" id="result-page">';
-  html += `${pageNum == 1 ? '<li class="disabled">' : '<li class="waves-effect">'}<a><i class="material-icons">chevron_left</i></a></li>`;
   let lastPageNum = Math.ceil(result.length / displayNum);
-  for (let i = 1; i <= lastPageNum; i++) {
+  let n = 2; // 2つ隣のページまで表示させる
+  html += '<ul class="pagination" id="result-page">';
+  if (pageNum - n > 1) { // 最初のページが遠い時
+    html += `<li class="waves-effect"><a>1</a></li>`;
+    html += `<li class="disabled"><a><i class="material-icons">more_horiz</i></a></li>`;
+  }
+  for (let i = Math.max(pageNum - n, 1); i <= Math.min(pageNum + n, lastPageNum); i++) {
     html += `${i == pageNum ? '<li class="active" id="current-page">' : '<li class="waves-effect">'}<a>${i}</a></li>`;
   }
-  html += `${pageNum >= lastPageNum ? '<li class="disabled">' : '<li class="waves-effect">'}<a><i class="material-icons">chevron_right</i></a></li>`;
+  if (pageNum + n < lastPageNum) { // 最後のページが遠い時
+    html += `<li class="disabled"><a><i class="material-icons">more_horiz</i></a></li>`;
+    html += `<li class="waves-effect"><a>${lastPageNum}</a></li>`;
+  }
   html += '</ul>';
 
   return html;
@@ -72,16 +79,8 @@ function scroll2ResultTop() {
 function standbyFlippingPage() {
   $('#result-page li').on('click', function () {
     if ($(this).hasClass('waves-effect')) {
-      let currentPage = Number($('#current-page').text());
-
-      if ($(this).text() == 'chevron_left') {
-        $('#result').html(genHtml(currentPage - 1));
-      } else if ($(this).text() == 'chevron_right') {
-        $('#result').html(genHtml(currentPage + 1));
-      } else {
-        let nextPage = Number($(this).text());
-        $('#result').html(genHtml(nextPage));
-      }
+      let nextPage = Number($(this).text());
+      $('#result').html(genHtml(nextPage));
       scroll2ResultTop();
       standbyFlippingPage();
     }
