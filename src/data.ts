@@ -113,7 +113,7 @@ const types: Type[] = [
   /* 5 */ { 'name': 'その他' },
 ]
 
-const songs: Song[] = [
+export const songs: Song[] = [
   /*  0 */ { 'title': 'HOLOGRAM CIRCUS', 'artistId': 0, 'genreId': 0 },
   /*  1 */ { 'title': 'only my railgun', 'artistId': 1, 'genreId': 1 },
   /*  2 */ { 'title': 'Unmei♪wa♪Endless!', 'artistId': 2, 'genreId': 1 },
@@ -242,7 +242,7 @@ const songs: Song[] = [
   /* 125 */ { 'title': '真夜中は純潔', 'artistId': 65, 'genreId': 4 },
 ]
 
-const genres: Genre[] = [
+export const genres: Genre[] = [
   /*  0 */ { 'name': 'VTuber' },
   /*  1 */ { 'name': 'アニメ' },
   /*  2 */ { 'name': 'アイドル' },
@@ -256,7 +256,7 @@ const genres: Genre[] = [
   /* 10 */ { 'name': 'ヒップホップ' },
 ]
 
-const artists: Artist[] = [
+export const artists: Artist[] = [
   /*  0 */ { 'name': '尾丸ポルカ' },
   /*  1 */ { 'name': 'fripSide' },
   /*  2 */ { 'name': '放課後ティータイム' },
@@ -567,6 +567,10 @@ export function getSong(songId: number) {
 
 export function getGenreId(songId: number) {
   return songs[songId]['genreId'];
+}
+
+export function getGenre(songId: number) {
+  return genres[songs[songId].genreId].name;
 }
 
 export function getTypeId(videoId: number) {
