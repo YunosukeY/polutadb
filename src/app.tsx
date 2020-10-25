@@ -1,18 +1,13 @@
 import * as React from "react";
 import { mInit } from "./materialize";
 
-export class Main extends React.Component<{}, { page: string }> {
-  constructor(props: any) {
-    super(props);
-    this.state = { page: 'top' };
-  }
-
+export class Main extends React.Component {
   render() {
     return (
       <div className="main">
         <div className="row">
           <div className="col s12 m12 l10 offset-l1 xl8 offset-xl2" id="sp">
-            {this.state.page == 'top' ? <Top /> : <h1>Hello, world!</h1>}
+            <Top />
           </div>
         </div>
       </div>
@@ -20,7 +15,7 @@ export class Main extends React.Component<{}, { page: string }> {
   }
 }
 
-class Top extends React.Component<{}, { hasResult: boolean }> {
+class Top extends React.Component {
   constructor(props: any) {
     super(props);
     this.state = { hasResult: false };
@@ -31,7 +26,6 @@ class Top extends React.Component<{}, { hasResult: boolean }> {
       <div>
         <About />
         <Select />
-        {this.state.hasResult && <Result />}
       </div>
     );
   }
@@ -52,7 +46,7 @@ class About extends React.Component {
 }
 
 class Select extends React.Component {
-  componentDidUpdate() {
+  componentDidMount() {
     mInit();
   }
 
@@ -60,68 +54,103 @@ class Select extends React.Component {
     return (
       <div className="block select-block">
         <h4>Search</h4>
-
-        <label>
-          <h6>曲ジャンル</h6>
-          <select name="genre" id="genre">
-            <option value="-1">-</option>
-          </select>
-        </label>
-
-        <label>
-          <h6>枠タイプ</h6>
-          <select name="type" id="type">
-            <option value="-1">-</option>
-          </select>
-        </label>
-
-        <label>
-          <h6>動画</h6>
-          <select name="video" id="video">
-            <option value="-1">-</option>
-          </select>
-        </label>
-
-        <label>
-          <h6>曲</h6>
-          <select name="song" id="song">
-            <option value="-1">-</option>
-          </select>
-        </label>
-
-        <label>
-          <h6>アーティスト</h6>
-          <select name="artist" id="artist">
-            <option value="-1">-</option>
-          </select>
-        </label>
-
-        <label>
-          <h6>表示件数</h6>
-        </label>
-        <form action="#" className="row">
-          <label className="col s2 m1">
-            <input className="with-gap" name="display-num" type="radio" value="5" checked />
-            <span>5</span>
-          </label>
-          <label className="col s2 m1">
-            <input className="with-gap" name="display-num" type="radio" value="10" />
-            <span>10</span>
-          </label>
-          <label className="col s2 m1">
-            <input className="with-gap" name="display-num" type="radio" value="20" />
-            <span>20</span>
-          </label>
-        </form>
+        <Genre />
+        <Type />
+        <Video />
+        <Song />
+        <Artist />
+        <Number />
       </div>
     );
   }
 }
 
-class Result extends React.Component {
+class Genre extends React.Component {
+  render() {
+    return (
+      <label>
+        <h6>曲ジャンル</h6>
+        <select name="genre" id="genre">
+          <option value="-1">-</option>
+        </select>
+      </label>
+    );
+  }
+}
+
+class Type extends React.Component {
+  render() {
+    return (
+      <label>
+        <h6>枠タイプ</h6>
+        <select name="type" id="type">
+          <option value="-1">-</option>
+        </select>
+      </label>
+    );
+  }
+}
+
+class Video extends React.Component {
+  render() {
+    return (
+      <label>
+        <h6>動画</h6>
+        <select name="video" id="video">
+          <option value="-1">-</option>
+        </select>
+      </label>
+    );
+  }
+}
+
+class Song extends React.Component {
+  render() {
+    return (
+      <label>
+        <h6>曲</h6>
+        <select name="song" id="song">
+          <option value="-1">-</option>
+        </select>
+      </label>
+    );
+  }
+}
+
+class Artist extends React.Component {
+  render() {
+    return (
+      <label>
+        <h6>アーティスト</h6>
+        <select name="artist" id="artist">
+          <option value="-1">-</option>
+        </select>
+      </label>
+    );
+  }
+}
+
+function Radio(props: any) {
+  return (
+    <label className="col s2 m1">
+      <input className="with-gap" name="display-num" type="radio" value="{props.num}" />
+      <span>{props.num}</span>
+    </label>
+  );
+}
+
+class Number extends React.Component {
   render() {
     return (
       <div>
+        <label>
+          <h6>表示件数</h6>
+        </label>
+        <form action="#" className="row">
+          <Radio num="5" />
+          <Radio num="10" />
+          <Radio num="20" />
+        </form>
       </div>
     );
   }
