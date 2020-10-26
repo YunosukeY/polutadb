@@ -1,18 +1,18 @@
 import * as React from 'react';
+import { useState } from 'react';
 import * as ReactDOM from 'react-dom';
-import { Header, Footer } from './common';
-import { Main } from './app';
+import { Header, Main, Footer } from './layout';
 
-class Root extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Main />
-        <Footer />
-      </div>
-    );
-  }
+function Root() {
+  const [page, setPage] = useState('top');
+
+  return (
+    <div>
+      <Header setPage={setPage} />
+      <Main page={page} />
+      <Footer />
+    </div>
+  );
 }
 
 ReactDOM.render(<Root />, document.querySelector('#root'));

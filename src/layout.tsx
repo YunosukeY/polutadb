@@ -1,21 +1,33 @@
 import * as React from 'react';
+import { Top } from './top';
+import { Stats } from './stats'
 
-export class Header extends React.Component {
-  render() {
-    return (
-      <header>
-        <nav>
-          <div className='nav-wrapper'>
-            <a href='index.html' className='brand-logo center title'>PolutaDB</a>
-            <ul id='nav-mobile' className='right'>
-              <li><a href='index.html'>Top</a></li>
-              <li><a id='stats'>Stats</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-    );
-  }
+export function Header(props: any) {
+  return (
+    <header>
+      <nav>
+        <div className='nav-wrapper'>
+          <a className='brand-logo center title' onClick={() => props.setPage('top')}>PolutaDB</a>
+          <ul id='nav-mobile' className='right'>
+            <li><a onClick={() => props.setPage('top')}>Top</a></li>
+            <li><a onClick={() => props.setPage('stats')}>Stats</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+export function Main(props: any) {
+  return (
+    <div className='main'>
+      <div className='row'>
+        <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2' id='sp'>
+          {props.page == 'top' ? <Top /> : <Stats />}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export class Footer extends React.Component {
