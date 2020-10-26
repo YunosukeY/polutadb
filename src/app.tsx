@@ -1,5 +1,7 @@
 import * as React from "react";
+import { useState } from 'react';
 import { mInit } from "./materialize";
+import { getGenres, getTypes, getVideos, getSongs, getArtists, getGenreId } from "./data";
 
 export class Main extends React.Component {
   render() {
@@ -16,11 +18,6 @@ export class Main extends React.Component {
 }
 
 class Top extends React.Component {
-  constructor(props: any) {
-    super(props);
-    this.state = { hasResult: false };
-  }
-
   render() {
     return (
       <div>
@@ -67,11 +64,13 @@ class Select extends React.Component {
 
 class Genre extends React.Component {
   render() {
+    let genres = getGenres().map(genre => <option value={genre.i}>{genre.name}</option>);
     return (
       <label>
         <h6>曲ジャンル</h6>
         <select name="genre" id="genre">
           <option value="-1">-</option>
+          {genres}
         </select>
       </label>
     );
@@ -80,11 +79,13 @@ class Genre extends React.Component {
 
 class Type extends React.Component {
   render() {
+    let types = getTypes().map(type => <option value={type.i}>{type.name}</option>);
     return (
       <label>
         <h6>枠タイプ</h6>
         <select name="type" id="type">
           <option value="-1">-</option>
+          {types}
         </select>
       </label>
     );
@@ -93,11 +94,13 @@ class Type extends React.Component {
 
 class Video extends React.Component {
   render() {
+    let videos = getVideos().map(video => <option value={video.i}>{video.date}: {video.title}</option>);
     return (
       <label>
         <h6>動画</h6>
         <select name="video" id="video">
           <option value="-1">-</option>
+          {videos}
         </select>
       </label>
     );
@@ -106,11 +109,13 @@ class Video extends React.Component {
 
 class Song extends React.Component {
   render() {
+    let songs = getSongs().map(song => <option value={song.i}>{song.title}</option>);
     return (
       <label>
         <h6>曲</h6>
         <select name="song" id="song">
           <option value="-1">-</option>
+          {songs}
         </select>
       </label>
     );
@@ -119,11 +124,13 @@ class Song extends React.Component {
 
 class Artist extends React.Component {
   render() {
+    let artists = getArtists().map(artist => <option value={artist.i}>{artist.name}</option>);
     return (
       <label>
         <h6>アーティスト</h6>
         <select name="artist" id="artist">
           <option value="-1">-</option>
+          {artists}
         </select>
       </label>
     );
