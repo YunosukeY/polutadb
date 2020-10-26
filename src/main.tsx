@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { Header, Footer } from "./common";
-import { Main } from "./app";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Header, Footer } from './common';
+import { Main } from './app';
 
 class Root extends React.Component {
   render() {
@@ -15,4 +15,4 @@ class Root extends React.Component {
   }
 }
 
-ReactDOM.render(<Root />, document.querySelector("#root"));
+ReactDOM.render(<Root />, document.querySelector('#root'));
