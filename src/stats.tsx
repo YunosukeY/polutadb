@@ -1,8 +1,26 @@
-/* Imports */
+import * as React from 'react';
+import { useEffect } from 'react';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { songs, genres, artists, singings, getGenre, getArtist } from './data';
+
+export function Stats() {
+  useEffect(() => {
+    setChart();
+  });
+
+  return (
+    <>
+      <h4 className='center'>Genres</h4>
+      <div className='chartdiv' id='genre-stats'></div>
+      <h4 className='center'>Artists</h4>
+      <div className='chartdiv' id='artist-stats'></div>
+      <h4 className='center'>Songs</h4>
+      <div className='chartdiv' id='song-stats'></div>
+    </>
+  );
+}
 
 function calcGenreStats() {
   // インデックスシグネチャ
@@ -13,8 +31,8 @@ function calcGenreStats() {
   singings.forEach(singing => data[getGenre(singing.songId)]++);
 
   // 結果を格納
-  let res: any[] = [];
-  genres.forEach(genre => res.push({ 'genre': genre.name, 'count': data[genre.name] }));
+  let res: { genre: string, count: number }[] = [];
+  genres.forEach(genre => res.push({ genre: genre.name, count: data[genre.name] }));
   res = res.sort((a, b) => b.count - a.count);
   return res;
 }
@@ -31,14 +49,14 @@ function calcArtistStats() {
     }
   });
 
-  let res: any[] = [];
+  let res: { artist: string, count: number }[] = [];
   artists.forEach(artist => {
     if (data[artist.name] > 2) {
-      res.push({ 'artist': artist.name, 'count': data[artist.name] });
+      res.push({ artist: artist.name, count: data[artist.name] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ 'artist': 'その他', 'count': others });
+  res.push({ artist: 'その他', count: others });
 
   return res;
 }
@@ -47,7 +65,6 @@ function calcSongStats() {
   let data: { [index: string]: number; } = {};
   songs.forEach(song => data[song.title] = 0);
   singings.forEach(singing => data[songs[singing.songId].title]++);
-  console.log(data);
   // その他の計算
   let others = 0;
   songs.forEach(song => {
@@ -56,21 +73,19 @@ function calcSongStats() {
     }
   });
 
-  let res: any[] = [];
+  let res: { song: string, count: number }[] = [];
   songs.forEach(song => {
     if (data[song.title] > 1) {
-      res.push({ 'song': song.title, 'count': data[song.title] });
+      res.push({ song: song.title, count: data[song.title] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ 'song': 'その他', 'count': others });
-  console.log(res);
+  res.push({ song: 'その他', count: others });
 
   return res;
 }
 
-export function setChart() {
-  // am4core.useTheme(am4themes_frozen);
+function setChart() {
   am4core.useTheme(am4themes_animated);
 
   {

@@ -49,6 +49,9 @@ td {
   width: 100%;
   height: 500px;
 }
+#links {
+  text-align: right;
+}
 
 /* レスポンシブ */
 @media screen and (max-width: 992px) {

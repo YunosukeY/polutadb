@@ -1,36 +1,21 @@
 const webpack = require("webpack");
 
 module.exports = {
-  entry: `${__dirname}/src/main.ts`,
+  entry: `${__dirname}/src/main.tsx`,
   output: {
     path: `${__dirname}/dst`,
     filename: 'main.js'
   },
-  mode: 'development',
-  // mode: 'production',
   devtool: 'source-map',
   module: {
     rules: [
       {
-        // 拡張子 .ts の場合
-        test: /\.ts$/,
-        // TypeScript をコンパイルする
+        test: /\.tsx?$/,
         use: "ts-loader"
       }
     ]
   },
-  // import 文で .ts ファイルを解決するため
   resolve: {
-    alias: {
-      jquery: `${__dirname}/node_modules/jquery`
-    },
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".tsx", ".js"]
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "window.jQuery": "jquery"
-    })
-  ]
 };
