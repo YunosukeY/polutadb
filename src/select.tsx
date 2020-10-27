@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
-export function Select(props: any) {
+export function Select(props: { genre: number, setGenre: any, type: number, setType: any, video: number, setVideo: any, song: number, setSong: any, artist: number, setArtist: any, displaynum: number, setDisplaynum: any }) {
   useEffect(() => {
     mInit();
   });
@@ -21,7 +21,7 @@ export function Select(props: any) {
   );
 }
 
-function Genre(props: any) {
+function Genre(props: { genre: number, setGenre: any }) {
   let genres = getGenres().map(genre => <option value={genre.i}>{genre.name}</option>);
   return (
     <label>
@@ -34,7 +34,7 @@ function Genre(props: any) {
   );
 }
 
-function Type(props: any) {
+function Type(props: { type: number, setType: any }) {
   let types = getTypes().map(type => <option value={type.i}>{type.name}</option>);
   return (
     <label>
@@ -47,7 +47,7 @@ function Type(props: any) {
   );
 }
 
-function Video(props: any) {
+function Video(props: { video: number, setVideo: any }) {
   let videos = getVideos().map(video => <option value={video.i}>{video.date}: {video.title}</option>);
   return (
     <label>
@@ -60,7 +60,7 @@ function Video(props: any) {
   );
 }
 
-function Song(props: any) {
+function Song(props: { song: number, setSong: any }) {
   let songs = getSongs().map(song => <option value={song.i}>{song.title}</option>);
   return (
     <label>
@@ -73,7 +73,7 @@ function Song(props: any) {
   );
 }
 
-function Artist(props: any) {
+function Artist(props: { artist: number, setArtist: any }) {
   let artists = getArtists().map(artist => <option value={artist.i}>{artist.name}</option>);
   return (
     <label>
@@ -86,26 +86,26 @@ function Artist(props: any) {
   );
 }
 
-function Radio(props: any) {
-  return (
-    <label className='col s2 m1'>
-      <input className='with-gap' name='display-num' type='radio' value={props.num} checked={props.checked} onClick={() => props.setDisplaynum(props.num)} />
-      <span>{props.num}</span>
-    </label>
-  );
-}
-
-function Displaynum(props: any) {
+function Displaynum(props: { displaynum: number, setDisplaynum: any }) {
   return (
     <>
       <label>
         <h6>表示件数</h6>
       </label>
       <form action='#' className='row'>
-        <Radio num='5' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 5} />
-        <Radio num='10' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 10} />
-        <Radio num='20' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 20} />
+        <Radio num={5} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 5} />
+        <Radio num={10} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 10} />
+        <Radio num={20} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 20} />
       </form>
     </>
+  );
+}
+
+function Radio(props: { num: number, setDisplaynum: any, checked: boolean }) {
+  return (
+    <label className='col s2 m1'>
+      <input className='with-gap' name='display-num' type='radio' value={props.num} checked={props.checked} onChange={() => props.setDisplaynum(props.num)} />
+      <span>{props.num}</span>
+    </label>
   );
 }

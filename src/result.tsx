@@ -1,20 +1,25 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing } from './data';
 
-export function Result(props: any) {
-  const [pagenum, setPagenum] = useState(1);
+export function Result(props: { genre: number, type: number, video: number, song: number, artist: number, displaynum: number, pagenum: number, setPagenum: any }) {
+  let result = search(props.video, props.song, props.artist, props.genre, props.type); // ジャンルなどから計算できるので状態ではない
+  const ref = React.createRef<HTMLDivElement>()
+  let onPageClick = ((p: number) => {
+    props.setPagenum(p)
+    ref!.current!.scrollIntoView({ behavior: "smooth" });
+  });
 
   return (
     <>
-      <ResultHeader resultnum={props.result.length} />
-      <ResultTable table={props.result.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, props.result.length))} />
-      <Pagenation pagenum={pagenum} setPagenum={setPagenum} displaynum={props.displaynum} lastPageNum={Math.ceil(props.result.length / props.displaynum)} />
+      <div ref={ref} />
+      <ResultHeader resultnum={result.length} />
+      <ResultTable table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))} />
+      <Pagenation pagenum={props.pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(result.length / props.displaynum)} />
     </>
   );
 }
 
-function ResultHeader(props: any) {
+function ResultHeader(props: { resultnum: number }) {
   return (
     <h4>
       {props.resultnum} Result{props.resultnum == 1 ? '' : 's'}
@@ -42,7 +47,7 @@ function ResultTable(props: { table: Singing[] }) {
   )
 }
 
-function Pagenation(props: any) {
+function Pagenation(props: { pagenum: number, setPagenum: any, lastPageNum: number }) {
   let n = 2; // 2つ隣のページまで表示させる
 
   let currentAround = [];
@@ -72,7 +77,7 @@ function Pagenation(props: any) {
   );
 }
 
-export function search(videoId: number, songId: number, artistId: number, genreId: number, typeId: number) {
+function search(videoId: number, songId: number, artistId: number, genreId: number, typeId: number) {
   let tmpres = singings;
   if (videoId != -1) {
     tmpres = tmpres.filter(singingInfo => singingInfo.videoId == videoId);

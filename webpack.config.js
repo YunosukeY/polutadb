@@ -6,7 +6,6 @@ module.exports = {
     path: `${__dirname}/dst`,
     filename: 'main.js'
   },
-  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [

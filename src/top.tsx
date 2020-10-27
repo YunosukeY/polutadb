@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Select } from './select';
-import { Result, search } from './result';
-import { Singing } from './data';
+import { Result } from './result';
 
 export function Top() {
   const [genre, setGenre] = useState(-1);
@@ -11,51 +10,36 @@ export function Top() {
   const [song, setSong] = useState(-1);
   const [artist, setArtist] = useState(-1);
   const [displaynum, setDisplaynum] = useState(5);
-  const [hasResult, setHasResult] = useState(false);
-  const [result, setResult] = useState(Array<Singing>());
+  const [hasResult, setHasResult] = useState(false); // 上記の値からは分からない
+  const [pagenum, setPagenum] = useState(1);
 
-  function onGenreChange(newGenre: number) {
-    setGenre(newGenre);
-    setResult(search(video, song, artist, newGenre, type));
-    setHasResult(true);
-  };
+  // setterにhasResult, pageを更新する副作用を追加
+  function updateHasRes(setter: React.Dispatch<React.SetStateAction<number>>) {
+    return ((id: number) => {
+      setter(id);
+      setHasResult(true);
+      setPagenum(1);
+    });
+  }
 
-  function onTypeChange(newType: number) {
-    setType(newType);
-    setResult(search(video, song, artist, genre, newType));
-    setHasResult(true);
-  };
-
-  function onVideoChange(newVideo: number) {
-    setVideo(newVideo);
-    setResult(search(newVideo, song, artist, genre, type));
-    setHasResult(true);
-  };
-
-  function onSongChange(newSong: number) {
-    setSong(newSong);
-    setResult(search(video, newSong, artist, genre, type));
-    setHasResult(true);
-  };
-
-  function onArtistChange(newArtist: number) {
-    setArtist(newArtist);
-    setResult(search(video, song, newArtist, genre, type));
-    setHasResult(true);
-  };
+  // 表示件数が更新されたら1ページ目に戻す
+  function onDnumChange(newDnum: number) {
+    setDisplaynum(newDnum);
+    setPagenum(1);
+  }
 
   return (
     <>
       <About />
       <Select
-        genre={genre} setGenre={onGenreChange}
-        type={type} setType={onTypeChange}
-        video={video} setVideo={onVideoChange}
-        song={song} setSong={onSongChange}
-        artist={artist} setArtist={onArtistChange}
-        displaynum={displaynum} setDisplaynum={setDisplaynum}
+        genre={genre} setGenre={updateHasRes(setGenre)}
+        type={type} setType={updateHasRes(setType)}
+        video={video} setVideo={updateHasRes(setVideo)}
+        song={song} setSong={updateHasRes(setSong)}
+        artist={artist} setArtist={updateHasRes(setArtist)}
+        displaynum={displaynum} setDisplaynum={onDnumChange}
       />
-      {hasResult && <Result result={result} displaynum={displaynum} />}
+      {hasResult && <Result genre={genre} type={type} video={video} song={song} artist={artist} displaynum={displaynum} pagenum={pagenum} setPagenum={setPagenum} />}
     </>
   );
 }

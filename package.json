@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "尾丸ポルカさんの歌を検索できる",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w"
+    "build:prd": "webpack --mode=production",
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",

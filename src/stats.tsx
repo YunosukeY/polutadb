@@ -31,8 +31,8 @@ function calcGenreStats() {
   singings.forEach(singing => data[getGenre(singing.songId)]++);
 
   // 結果を格納
-  let res: any[] = [];
-  genres.forEach(genre => res.push({ 'genre': genre.name, 'count': data[genre.name] }));
+  let res: { genre: string, count: number }[] = [];
+  genres.forEach(genre => res.push({ genre: genre.name, count: data[genre.name] }));
   res = res.sort((a, b) => b.count - a.count);
   return res;
 }
@@ -49,14 +49,14 @@ function calcArtistStats() {
     }
   });
 
-  let res: any[] = [];
+  let res: { artist: string, count: number }[] = [];
   artists.forEach(artist => {
     if (data[artist.name] > 2) {
-      res.push({ 'artist': artist.name, 'count': data[artist.name] });
+      res.push({ artist: artist.name, count: data[artist.name] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ 'artist': 'その他', 'count': others });
+  res.push({ artist: 'その他', count: others });
 
   return res;
 }
@@ -73,19 +73,19 @@ function calcSongStats() {
     }
   });
 
-  let res: any[] = [];
+  let res: { song: string, count: number }[] = [];
   songs.forEach(song => {
     if (data[song.title] > 1) {
-      res.push({ 'song': song.title, 'count': data[song.title] });
+      res.push({ song: song.title, count: data[song.title] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ 'song': 'その他', 'count': others });
+  res.push({ song: 'その他', count: others });
 
   return res;
 }
 
-export function setChart() {
+function setChart() {
   am4core.useTheme(am4themes_animated);
 
   {
