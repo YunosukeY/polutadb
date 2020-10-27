@@ -89,7 +89,7 @@ function Artist(props: any) {
 function Radio(props: any) {
   return (
     <label className='col s2 m1'>
-      <input className='with-gap' name='display-num' type='radio' value='{props.num}' />
+      <input className='with-gap' name='display-num' type='radio' value={props.num} checked={props.checked} onClick={() => props.setDisplaynum(props.num)} />
       <span>{props.num}</span>
     </label>
   );
@@ -102,9 +102,9 @@ function Displaynum(props: any) {
         <h6>表示件数</h6>
       </label>
       <form action='#' className='row'>
-        <Radio num='5' />
-        <Radio num='10' />
-        <Radio num='20' />
+        <Radio num='5' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 5} />
+        <Radio num='10' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 10} />
+        <Radio num='20' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 20} />
       </form>
     </div>
   );
