@@ -97,7 +97,7 @@ function Radio(props: any) {
 
 function Displaynum(props: any) {
   return (
-    <div>
+    <>
       <label>
         <h6>表示件数</h6>
       </label>
@@ -106,6 +106,6 @@ function Displaynum(props: any) {
         <Radio num='10' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 10} />
         <Radio num='20' setDisplaynum={props.setDisplaynum} checked={props.displaynum == 20} />
       </form>
-    </div>
+    </>
   );
 }

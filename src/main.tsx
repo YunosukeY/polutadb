@@ -7,11 +7,11 @@ function Root() {
   const [page, setPage] = useState('top');
 
   return (
-    <div>
+    <>
       <Header setPage={setPage} />
       <Main page={page} />
       <Footer />
-    </div>
+    </>
   );
 }
 
