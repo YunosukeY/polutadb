@@ -130,7 +130,7 @@ export const songs: Song[] = [
   /* 13 */ { title: '旅立ちの日に', artistId: -1, genreId: 8 }, // artist: null
   /* 14 */ { title: 'GO!GO!MANIAC', artistId: 2, genreId: 1 },
   /* 15 */ { title: 'Q&A リサイタル!', artistId: 13, genreId: 1 },
-  /* 16 */ { title: 'サラバ、愛しき悲しみたちよ', artistId: 3, genreId: 2 },
+  /* 16 */ { title: 'サラバ、愛しき悲しみたちよ', artistId: 81, genreId: 2 },
   /* 17 */ { title: 'ミライボウル', artistId: 3, genreId: 2 },
   /* 18 */ { title: 'milk', artistId: 14, genreId: 4 },
   /* 19 */ { title: 'ビスケット', artistId: 15, genreId: 4 },
@@ -183,11 +183,11 @@ export const songs: Song[] = [
   /* 66 */ { title: '女子カ←パラダイス', artistId: 49, genreId: 2 },
   /* 67 */ { title: 'Mr.Moonlight 〜愛のビッグバンド〜', artistId: 29, genreId: 2 },
   /* 68 */ { title: '走れ!', artistId: 3, genreId: 2 },
-  /* 69 */ { title: 'オレンジノート', artistId: 3, genreId: 2 },
+  /* 69 */ { title: 'オレンジノート', artistId: 81, genreId: 2 },
   /* 70 */ { title: '行くぜっ！怪盗少女', artistId: 3, genreId: 2 },
   /* 71 */ { title: 'ピンキージョーンズ', artistId: 3, genreId: 2 },
-  /* 72 */ { title: 'Z伝説 〜終わりなき革命〜', artistId: 3, genreId: 2 },
-  /* 73 */ { title: 'PUSH', artistId: 3, genreId: 2 },
+  /* 72 */ { title: 'Z伝説 〜終わりなき革命〜', artistId: 81, genreId: 2 },
+  /* 73 */ { title: 'PUSH', artistId: 81, genreId: 2 },
   /* 74 */ { title: '君の街まで', artistId: 50, genreId: 9 },
   /* 75 */ { title: '君という花', artistId: 50, genreId: 9 },
   /* 76 */ { title: 'ごはんはおかず', artistId: 2, genreId: 1 },
@@ -338,6 +338,7 @@ export const artists: Artist[] = [
   /* 78 */ { name: 'Do As Infinity' },
   /* 79 */ { name: 'May\'n／中島愛' },
   /* 80 */ { name: 'ZONE' },
+  /* 81 */ { name: 'ももいろクローバーZ' },
 ]
 
 // 時系列順に登録？
