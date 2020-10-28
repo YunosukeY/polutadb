@@ -52,6 +52,8 @@ function ResultTable(props: { table: Singing[] }) {
             <h5 id='song-info'>
               『{getSong(singing.songId)}』<br />
               {getArtist(singing.songId)}
+              {(singing.withInst == false) && <><br /><div className='supplemental-info'>アカペラ</div></>}
+              {(singing.full == false) && <><div className='supplemental-info'>ワンコーラス</div></>}
             </h5>
           </div>
         </div></td></tr>
