@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing } from './data';
 
-export function Result(props: { genre: number, type: number, video: number, song: number, artist: number, displaynum: number, pagenum: number, setPagenum: any }) {
+export function Result(props: { genre: number, type: number, video: number, song: number, artist: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean, displaynum: number, pagenum: number, setPagenum: any }) {
   let result = search(props.video, props.song, props.artist, props.genre, props.type); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
   let onPageClick = ((p: number) => {
