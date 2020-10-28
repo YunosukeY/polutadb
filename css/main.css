@@ -35,9 +35,20 @@ h5 {
   align-items: center;
   justify-content: center;
 }
+
 #result-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#song-info {
   text-align: center;
 }
+.supplemental-info {
+  font-size: 15px;
+  margin-bottom: -5px;
+}
+
 #iframe-content {
   text-align: center;
 }
@@ -55,9 +66,6 @@ td {
 
 /* レスポンシブ */
 @media screen and (max-width: 992px) {
-  #song-info {
-    margin-bottom: 0px;
-  }
   /* iframeを横幅いっぱいのサイズにする */
   #iframe-content {
     position: relative;
@@ -72,19 +80,19 @@ td {
     height: 100%;
   }
 }
+
 @media screen and (min-width: 993px) {
-  #song-info {
-    margin: 100px auto;
-    height: 50px;
+  #result-table{
+    height: 270px;
   }
 }
+
 @media screen and (min-width: 1501px) {
   iframe {
     width: 560px;
     height: 315px;
   }
-  #song-info {
-    margin: 130px auto;
-    height: 50px;
+  #result-table {
+    height: 315px;
   }
 }

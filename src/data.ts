@@ -27,15 +27,15 @@ export class Singing {
   videoId: number;
   songId: number;
   start: string;
-  isACappella: boolean;
-  isFull: boolean;
+  withInst: boolean;
+  full: boolean;
 
-  constructor(videoId: number, songId: number, start: string, isACappella = false, isFull = true) {
+  constructor(videoId: number, songId: number, start: string, withInst = true, full = true) {
     this.videoId = videoId;
     this.songId = songId;
     this.start = start;
-    this.isACappella = isACappella;
-    this.isFull = isFull;
+    this.withInst = withInst;
+    this.full = full;
   }
 }
 
@@ -371,21 +371,21 @@ export const artists: Artist[] = [
 
 // 時系列順に登録？
 export const singings: Singing[] = [
-  new Singing(1, 0, '0', false, false),
-  new Singing(2, 7, '0', false, false),
-  new Singing(0, 0, '272', false, false),
+  new Singing(1, 0, '0', true, false),
+  new Singing(2, 7, '0', true, false),
+  new Singing(0, 0, '272', true, false),
   new Singing(0, 1, '377'),
   new Singing(0, 2, '774'),
   new Singing(0, 3, '1064'),
   new Singing(0, 4, '1410'),
   new Singing(0, 5, '1755'),
   new Singing(0, 6, '2167'),
-  new Singing(3, 8, '35', true, false),
-  new Singing(4, 9, '0'),
+  new Singing(3, 8, '35', false, false),
+  new Singing(4, 9, '0', false, false),
   new Singing(6, 11, '2206'),
   new Singing(6, 12, '2668'),
   new Singing(6, 13, '3266'),
-  new Singing(5, 10, '3'),
+  new Singing(5, 10, '3', false, false),
   new Singing(7, 14, '408'),
   new Singing(7, 15, '653'),
   new Singing(7, 16, '1089'),
@@ -411,7 +411,7 @@ export const singings: Singing[] = [
   new Singing(7, 36, '7274'),
   new Singing(7, 37, '7564'),
   new Singing(7, 38, '7995'),
-  new Singing(8, 39, '230'),
+  new Singing(8, 39, '230', false, true),
   new Singing(8, 40, '528'),
   new Singing(8, 41, '829'),
   new Singing(8, 42, '1150'),
@@ -441,7 +441,7 @@ export const singings: Singing[] = [
   new Singing(8, 66, '8142'),
   new Singing(8, 67, '8415'),
   new Singing(8, 68, '8727'),
-  new Singing(8, 69, '9050'),
+  new Singing(8, 69, '9050', true, false),
   new Singing(8, 70, '9190'),
   new Singing(8, 71, '9448'),
   new Singing(8, 72, '9752'),
@@ -506,16 +506,16 @@ export const singings: Singing[] = [
   new Singing(11, 124, '8310'),
   new Singing(11, 37, '8622'),
   new Singing(11, 85, '9050'),
-  new Singing(12, 126, '605'),
-  new Singing(12, 127, '1020'),
-  new Singing(12, 128, '1915'),
-  new Singing(12, 129, '2955'),
-  new Singing(12, 130, '3192'),
-  new Singing(12, 131, '3407'),
-  new Singing(12, 132, '3791'),
-  new Singing(12, 133, '4828'),
-  new Singing(12, 134, '5520'),
-  new Singing(12, 135, '5869'),
+  new Singing(12, 126, '605', false, false),
+  new Singing(12, 127, '1020', false, false),
+  new Singing(12, 128, '1915', false, false),
+  new Singing(12, 129, '2955', false, false),
+  new Singing(12, 130, '3192', false, false),
+  new Singing(12, 131, '3407', false, false),
+  new Singing(12, 132, '3791', false, false),
+  new Singing(12, 133, '4828', false, false),
+  new Singing(12, 134, '5520', false, true),
+  new Singing(12, 135, '5869', false, false),
 ]
 
 export function getGenres() {

@@ -1,8 +1,21 @@
 import * as React from 'react';
 import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing } from './data';
 
-export function Result(props: { genre: number, type: number, video: number, song: number, artist: number, displaynum: number, pagenum: number, setPagenum: any }) {
-  let result = search(props.video, props.song, props.artist, props.genre, props.type); // ジャンルなどから計算できるので状態ではない
+export function Result(props: {
+  genre: number,
+  type: number,
+  video: number,
+  song: number,
+  artist: number,
+  withInst: boolean,
+  aCappella: boolean,
+  full: boolean,
+  onechorus: boolean,
+  displaynum: number,
+  pagenum: number,
+  setPagenum: any
+}) {
+  let result = search(props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
   let onPageClick = ((p: number) => {
     props.setPagenum(p)
@@ -39,6 +52,8 @@ function ResultTable(props: { table: Singing[] }) {
             <h5 id='song-info'>
               『{getSong(singing.songId)}』<br />
               {getArtist(singing.songId)}
+              {(singing.withInst == false) && <><br /><div className='supplemental-info'>アカペラ</div></>}
+              {(singing.full == false) && <><div className='supplemental-info'>ワンコーラス</div></>}
             </h5>
           </div>
         </div></td></tr>
@@ -77,22 +92,29 @@ function Pagenation(props: { pagenum: number, setPagenum: any, lastPageNum: numb
   );
 }
 
-function search(videoId: number, songId: number, artistId: number, genreId: number, typeId: number) {
+function search(videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
   let tmpres = singings;
-  if (videoId != -1) {
+
+  if (videoId != -1)
     tmpres = tmpres.filter(singingInfo => singingInfo.videoId == videoId);
-  }
-  if (songId != -1) {
+  if (songId != -1)
     tmpres = tmpres.filter(singingInfo => singingInfo.songId == songId);
-  }
-  if (artistId != -1) {
+  if (artistId != -1)
     tmpres = tmpres.filter(singingInfo => getArtistId(singingInfo.songId) == artistId);
-  }
-  if (genreId != -1) {
+  if (genreId != -1)
     tmpres = tmpres.filter(singingInfo => getGenreId(singingInfo.songId) == genreId);
-  }
-  if (typeId != -1) {
+  if (typeId != -1)
     tmpres = tmpres.filter(singingInfo => getTypeId(singingInfo.videoId) == typeId);
-  }
+
+  if (withInst == false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.withInst == false);
+  if (aCappella == false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.withInst == true);
+
+  if (full == false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.full == false);
+  if (onechorus == false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.full == true);
+
   return tmpres;
 }

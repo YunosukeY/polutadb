@@ -3,10 +3,26 @@ import { useEffect } from 'react';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
-export function Select(props: { genre: number, setGenre: any, type: number, setType: any, video: number, setVideo: any, song: number, setSong: any, artist: number, setArtist: any, displaynum: number, setDisplaynum: any }) {
+export function Select(props: {
+  genre: number, setGenre: any,
+  type: number, setType: any,
+  video: number, setVideo: any,
+  song: number, setSong: any,
+  artist: number, setArtist: any,
+  withInst: boolean, setWithInst: any,
+  aCappella: boolean, setACappella: any,
+  full: boolean, setFull: any,
+  onechorus: boolean, setOnechorus: any,
+  displaynum: number, setDisplaynum: any
+}) {
   useEffect(() => {
     mInit();
   });
+
+  // checkbox
+  function onChange(setter: any) {
+    return ((event: any) => setter(event.target.checked));
+  }
 
   return (
     <div className='block select-block'>
@@ -16,6 +32,8 @@ export function Select(props: { genre: number, setGenre: any, type: number, setT
       <Video video={props.video} setVideo={props.setVideo} />
       <Song song={props.song} setSong={props.setSong} />
       <Artist artist={props.artist} setArtist={props.setArtist} />
+      <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
+      <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
       <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
     </div>
   );
@@ -82,6 +100,42 @@ function Artist(props: { artist: number, setArtist: any }) {
         <option value='-1'>-</option>
         {artists}
       </select>
+    </label>
+  );
+}
+
+function Inst(props: { withInst: boolean, setWithInst: any, aCappella: boolean, setACappella: any }) {
+  return (
+    <label>
+      <h6>伴奏</h6>
+      <div className='row'>
+        <label className='col s4 m2'>
+          <input type="checkbox" className="filled-in" checked={props.withInst} onChange={props.setWithInst} />
+          <span>あり</span>
+        </label>
+        <label className='col s8 m10'>
+          <input type="checkbox" className="filled-in" checked={props.aCappella} onChange={props.setACappella} />
+          <span>なし（アカペラ）</span>
+        </label>
+      </div>
+    </label>
+  );
+}
+
+function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOnechorus: any }) {
+  return (
+    <label>
+      <h6>尺</h6>
+      <div className='row'>
+        <label className='col s4 m2'>
+          <input type="checkbox" className="filled-in" checked={props.full} onChange={props.setFull} />
+          <span>フル</span>
+        </label>
+        <label className='col s8 m10'>
+          <input type="checkbox" className="filled-in" checked={props.onechorus} onChange={props.setOnechorus} />
+          <span>ワンコーラス</span>
+        </label>
+      </div>
     </label>
   );
 }
