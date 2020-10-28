@@ -109,11 +109,11 @@ function Inst(props: { withInst: boolean, setWithInst: any, aCappella: boolean, 
     <label>
       <h6>伴奏</h6>
       <div className='row'>
-        <label className='col s2 m1'>
+        <label className='col s4 m2'>
           <input type="checkbox" className="filled-in" checked={props.withInst} onChange={props.setWithInst} />
           <span>あり</span>
         </label>
-        <label className='col s4 m4'>
+        <label className='col s8 m10'>
           <input type="checkbox" className="filled-in" checked={props.aCappella} onChange={props.setACappella} />
           <span>なし（アカペラ）</span>
         </label>
@@ -127,11 +127,11 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
     <label>
       <h6>尺</h6>
       <div className='row'>
-        <label className='col s2 m1'>
+        <label className='col s4 m2'>
           <input type="checkbox" className="filled-in" checked={props.full} onChange={props.setFull} />
           <span>フル</span>
         </label>
-        <label className='col s4 m4'>
+        <label className='col s8 m10'>
           <input type="checkbox" className="filled-in" checked={props.onechorus} onChange={props.setOnechorus} />
           <span>ワンコーラス</span>
         </label>
