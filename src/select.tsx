@@ -3,7 +3,18 @@ import { useEffect } from 'react';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
-export function Select(props: { genre: number, setGenre: any, type: number, setType: any, video: number, setVideo: any, song: number, setSong: any, artist: number, setArtist: any, withInst: boolean, setWithInst: any, aCappella: boolean, setACappella: any, full: boolean, setFull: any, onechorus: boolean, setOnechorus: any, displaynum: number, setDisplaynum: any }) {
+export function Select(props: {
+  genre: number, setGenre: any,
+  type: number, setType: any,
+  video: number, setVideo: any,
+  song: number, setSong: any,
+  artist: number, setArtist: any,
+  withInst: boolean, setWithInst: any,
+  aCappella: boolean, setACappella: any,
+  full: boolean, setFull: any,
+  onechorus: boolean, setOnechorus: any,
+  displaynum: number, setDisplaynum: any
+}) {
   useEffect(() => {
     mInit();
   });

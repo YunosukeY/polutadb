@@ -27,15 +27,15 @@ export class Singing {
   videoId: number;
   songId: number;
   start: string;
-  isACappella: boolean;
-  isFull: boolean;
+  withInst: boolean;
+  full: boolean;
 
-  constructor(videoId: number, songId: number, start: string, isACappella = false, isFull = true) {
+  constructor(videoId: number, songId: number, start: string, withInst = true, full = true) {
     this.videoId = videoId;
     this.songId = songId;
     this.start = start;
-    this.isACappella = isACappella;
-    this.isFull = isFull;
+    this.withInst = withInst;
+    this.full = full;
   }
 }
 
@@ -371,16 +371,16 @@ export const artists: Artist[] = [
 
 // 時系列順に登録？
 export const singings: Singing[] = [
-  new Singing(1, 0, '0', false, false),
-  new Singing(2, 7, '0', false, false),
-  new Singing(0, 0, '272', false, false),
+  new Singing(1, 0, '0', true, false),
+  new Singing(2, 7, '0', true, false),
+  new Singing(0, 0, '272', true, false),
   new Singing(0, 1, '377'),
   new Singing(0, 2, '774'),
   new Singing(0, 3, '1064'),
   new Singing(0, 4, '1410'),
   new Singing(0, 5, '1755'),
   new Singing(0, 6, '2167'),
-  new Singing(3, 8, '35', true, false),
+  new Singing(3, 8, '35', false, false),
   new Singing(4, 9, '0'),
   new Singing(6, 11, '2206'),
   new Singing(6, 12, '2668'),

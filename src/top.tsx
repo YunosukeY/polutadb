@@ -47,7 +47,20 @@ export function Top() {
         onechorus={onechorus} setOnechorus={updateHasRes(setOnechorus)}
         displaynum={displaynum} setDisplaynum={onDnumChange}
       />
-      {hasResult && <Result genre={genre} type={type} video={video} song={song} artist={artist} withInst={withInst} aCappella={aCappella} full={full} onechorus={onechorus} displaynum={displaynum} pagenum={pagenum} setPagenum={setPagenum} />}
+      {hasResult && <Result
+        genre={genre}
+        type={type}
+        video={video}
+        song={song}
+        artist={artist}
+        withInst={withInst}
+        aCappella={aCappella}
+        full={full}
+        onechorus={onechorus}
+        displaynum={displaynum}
+        pagenum={pagenum}
+        setPagenum={setPagenum}
+      />}
     </>
   );
 }
