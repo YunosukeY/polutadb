@@ -64,6 +64,14 @@ td {
   text-align: right;
 }
 
+.release-date {
+  margin-top: 30px;
+}
+
+.release-content {
+  margin-top: 30px;
+}
+
 /* レスポンシブ */
 @media screen and (max-width: 992px) {
   /* iframeを横幅いっぱいのサイズにする */

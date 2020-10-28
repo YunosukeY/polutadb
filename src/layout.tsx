@@ -1,20 +1,24 @@
 import * as React from 'react';
 import { Top } from './top';
 import { Stats } from './stats'
+import { Releases } from './releases';
 
 export function Header(props: { setPage: any }) {
   return (
     <header>
-      <nav>
-        <div className='nav-wrapper'>
+      <nav className="nav-extended">
+        <div className="nav-wrapper">
           <a className='brand-logo center title' onClick={() => props.setPage('top')}>PolutaDB</a>
-          <ul id='nav-mobile' className='right'>
-            <li><a onClick={() => props.setPage('top')}>Top</a></li>
-            <li><a onClick={() => props.setPage('stats')}>Stats</a></li>
+        </div>
+        <div className="nav-content">
+          <ul className="tabs tabs-transparent">
+            <li className="tab"><a onClick={() => props.setPage('top')}>Top</a></li>
+            <li className="tab"><a onClick={() => props.setPage('stats')}>Stats</a></li>
+            <li className="tab"><a onClick={() => props.setPage('releases')}>Releases</a></li>
           </ul>
         </div>
       </nav>
-    </header>
+    </header >
   );
 }
 
@@ -23,7 +27,9 @@ export function Main(props: { page: string }) {
     <div className='main'>
       <div className='row'>
         <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2' id='sp'>
-          {props.page == 'top' ? <Top /> : <Stats />}
+          {props.page == 'top' && <Top />}
+          {props.page == 'stats' && <Stats />}
+          {props.page == 'releases' && <Releases />}
         </div>
       </div>
     </div>
