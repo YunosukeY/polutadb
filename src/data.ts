@@ -124,6 +124,12 @@ const videos: Video[] = [
     date: '2020/10/30',
     typeId: 1,
   },
+  { // 14
+    id: 'CrbMV64PmPU',
+    title: '【ホロライブ】さぷらいずぱらだいす！【どっきりラビリンス】',
+    date: '2020/10/31',
+    typeId: 3,
+  },
 ]
 
 const types: Type[] = [
@@ -295,6 +301,7 @@ export const songs: Song[] = [
   /* 156 */ { title: '天使にふれたよ!', artistId: 2, genreId: 1 },
   /* 157 */ { title: 'ルミナス', artistId: 54, genreId: 1 },
   /* 158 */ { title: 'ヒトリノ夜', artistId: 36, genreId: 1 },
+  /* 159 */ { title: 'さぷらいずぱらだいす！', artistId: 96, genreId: 0 },
 ]
 
 export const genres: Genre[] = [
@@ -409,6 +416,7 @@ export const artists: Artist[] = [
   /* 93 */ { name: '月島きらり starring 久住小春 (モーニング娘。)' },
   /* 94 */ { name: 'MONGOL800' },
   /* 95 */ { name: '平野綾' },
+  /* 96 */ { name: 'どっきりラビリンス' },
 ]
 
 // 時系列順に登録？
@@ -582,6 +590,7 @@ export const singings: Singing[] = [
   new Singing(13, 156, '5876'),
   new Singing(13, 157, '6353'),
   new Singing(13, 83, '6596'),
+  new Singing(14, 159, '0'),
 ]
 
 export function getGenres() {
