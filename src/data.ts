@@ -130,6 +130,12 @@ const videos: Video[] = [
     date: '2020/10/31',
     typeId: 3,
   },
+  { // 15
+    id: 'xrDuwnQlxLc',
+    title: 'ポルカが気圧を倒す時に始まる歌枠【ホロライブ/尾丸ポルカ】',
+    date: '2020/11/3',
+    typeId: 2,
+  },
 ]
 
 const types: Type[] = [
@@ -302,6 +308,12 @@ export const songs: Song[] = [
   /* 157 */ { title: 'ルミナス', artistId: 54, genreId: 1 },
   /* 158 */ { title: 'ヒトリノ夜', artistId: 36, genreId: 1 },
   /* 159 */ { title: 'さぷらいずぱらだいす！', artistId: 96, genreId: 0 },
+  /* 160 */ { title: 'SKILL', artistId: 97, genreId: 5 },
+  /* 161 */ { title: 'Rolling star', artistId: 38, genreId: 1 },
+  /* 162 */ { title: '脳漿炸裂ガール', artistId: 98, genreId: 3 },
+  /* 163 */ { title: '太陽曰く燃えよカオス', artistId: 99, genreId: 1 },
+  /* 164 */ { title: '魂のルフラン', artistId: 76, genreId: 1 },
+  /* 165 */ { title: 'DANZEN! ふたりはプリキュア', artistId: 100, genreId: 1 },
 ]
 
 export const genres: Genre[] = [
@@ -417,6 +429,10 @@ export const artists: Artist[] = [
   /* 94 */ { name: 'MONGOL800' },
   /* 95 */ { name: '平野綾' },
   /* 96 */ { name: 'どっきりラビリンス' },
+  /* 97 */ { name: 'JAM Project' },
+  /* 98 */ { name: 'れるりり' },
+  /* 99 */ { name: '後ろから這いより隊G' },
+  /* 100 */ { name: '五條真由美' },
 ]
 
 // 時系列順に登録？
@@ -591,6 +607,25 @@ export const singings: Singing[] = [
   new Singing(13, 157, '6353'),
   new Singing(13, 83, '6596'),
   new Singing(14, 159, '0'),
+  new Singing(15, 160, '37'),
+  new Singing(15, 51, '380'),
+  new Singing(15, 99, '603'),
+  new Singing(15, 2, '862'),
+  new Singing(15, 29, '1088'),
+  new Singing(15, 161, '1352'),
+  new Singing(15, 16, '1533'),
+  new Singing(15, 3, '1828'),
+  new Singing(15, 162, '2104'),
+  new Singing(15, 163, '2299'),
+  new Singing(15, 164, '2531'),
+  new Singing(15, 119, '2835'),
+  new Singing(15, 92, '3082'),
+  new Singing(15, 123, '3348'),
+  new Singing(15, 52, '3628'),
+  new Singing(15, 165, '3915'),
+  new Singing(15, 85, '4148'),
+  new Singing(15, 1, '4422'),
+  new Singing(15, 87, '4817'),
 ]
 
 export function getGenres() {
