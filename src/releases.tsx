@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export function Releases() {
   return (
-    <>
+    <div className='pane'>
       <h4>Release Notes</h4>
       重要度の低い情報は「細かい変更」にあります．<br />
 
@@ -42,6 +42,6 @@ export function Releases() {
 
       <h5 className='release-date'>2020/10/21</h5>
       ・本サイトを公開しました<br />
-    </>
+    </div>
   );
 }

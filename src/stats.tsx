@@ -12,12 +12,18 @@ export function Stats() {
 
   return (
     <>
-      <h4 className='center'>Genres</h4>
-      <div className='chartdiv' id='genre-stats'></div>
-      <h4 className='center'>Artists</h4>
-      <div className='chartdiv' id='artist-stats'></div>
-      <h4 className='center'>Songs</h4>
-      <div className='chartdiv' id='song-stats'></div>
+      <div className='pane'>
+        <h4 className='center'>Genres</h4>
+        <div className='chartdiv' id='genre-stats'></div>
+      </div>
+      <div className='pane'>
+        <h4 className='center'>Artists</h4>
+        <div className='chartdiv' id='artist-stats'></div>
+      </div>
+      <div className='pane'>
+        <h4 className='center'>Songs</h4>
+        <div className='chartdiv' id='song-stats'></div>
+      </div>
     </>
   );
 }

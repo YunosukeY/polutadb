@@ -67,7 +67,7 @@ export function Top() {
 
 function About() {
   return (
-    <div className='block description-block'>
+    <div className='block description-block pane'>
       <h4>About</h4>
         PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．<br />
       <br />

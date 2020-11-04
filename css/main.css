@@ -1,3 +1,10 @@
+:root {
+  --theme-color: #ee6e73;
+  --font-color: #f1646a;
+  --sub-theme-color: dodgerblue;
+  --bg-color: #f8f8f8;
+}
+
 /* footerを下に固定する */
 body {
   display: flex;
@@ -9,33 +16,36 @@ body {
   flex: 1 0 auto;
 }
 
+/* body */
+.main {
+  background-color: var(--bg-color);
+}
+.pane {
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+}
+.row {
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+/* フォント */
 .title {
   font-size: 30px;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa';
 }
 h4 {
-  color: #F1646A;
-  font-family: 'Comfortaa', cursive;
+  color: var(--font-color);
+  font-family: 'Comfortaa';
+  margin-top: 0px;
 }
 h5 {
-  color: #F1646A;
+  color: var(--font-color);
 }
 
-.description-block {
-  margin-top: 20px;
-}
-.select-block {
-  margin-top: 70px;
-}
-.result-block {
-  margin-top: 70px;
-}
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* 検索結果 */
 #result-table {
   display: flex;
   justify-content: center;
@@ -48,7 +58,11 @@ h5 {
   font-size: 15px;
   margin-bottom: -5px;
 }
-
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #iframe-content {
   text-align: center;
 }
@@ -56,20 +70,51 @@ td {
   padding-top: 25px;
   padding-bottom: 0px;
 }
+
+/* stats */
 .chartdiv {
   width: 100%;
   height: 500px;
 }
+
+/* Footer */
 #links {
   text-align: right;
 }
 
+/* 各リリースの間隔 */
 .release-date {
   margin-top: 30px;
 }
-
 .release-content {
   margin-top: 30px;
+}
+
+/* materialize-cssの上書き */
+.select-wrapper input.select-dropdown:focus {
+  border-bottom-color: var(--sub-theme-color);
+}
+.dropdown-content li>span {
+  color: var(--sub-theme-color);
+}
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  border-color: var(--sub-theme-color);
+  background-color: var(--sub-theme-color);
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: var(--sub-theme-color);
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border-color: var(--sub-theme-color);
+}
+nav {
+  background-color: var(--theme-color);
+}
+.page-footer {
+  background-color: var(--theme-color);
+}
+.pagination li.active {
+  background-color: var(--sub-theme-color);
 }
 
 /* レスポンシブ */
@@ -88,13 +133,11 @@ td {
     height: 100%;
   }
 }
-
 @media screen and (min-width: 993px) {
   #result-table{
     height: 270px;
   }
 }
-
 @media screen and (min-width: 1501px) {
   iframe {
     width: 560px;

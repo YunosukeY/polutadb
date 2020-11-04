@@ -23,12 +23,12 @@ export function Result(props: {
   });
 
   return (
-    <>
+    <div className='pane'>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
       <ResultTable table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))} />
       <Pagenation pagenum={props.pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(result.length / props.displaynum)} />
-    </>
+    </div >
   );
 }
 
