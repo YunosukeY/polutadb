@@ -6,7 +6,7 @@
 }
 
 /* footerを下に固定する */
-body {
+#root {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -25,6 +25,7 @@ body {
   margin-top: 20px;
   background-color: white;
   padding: 10px;
+  /* box-shadow: 5px 5px 5px rgba(0,0,0,0.4); */
 }
 .row {
   padding-bottom: 20px;
@@ -110,7 +111,7 @@ td {
 nav {
   background-color: var(--theme-color);
 }
-.page-footer {
+footer {
   background-color: var(--theme-color);
 }
 .pagination li.active {

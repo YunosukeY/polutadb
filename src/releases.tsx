@@ -23,11 +23,9 @@ export function Releases() {
       ・アカペラかワンコーラスの場合には結果で補足を表示するようにしました<br />
       <h6 className='release-content'>細かい変更</h6>
       ・リリースノートページを追加しました<br />
-      ・ナビゲーションバーをタブ化しました<br />
 
       <h5 className='release-date'>2020/10/27</h5>
       <h6 className='release-content'>細かい変更</h6>
-      ・フレームワークをjQueryからReactに変更しました<br />
       ・『ももいろクローバー』と『ももいろクローバーZ』を区別するようにしました<br />
 
       <h5 className='release-date'>2020/10/24</h5>

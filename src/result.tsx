@@ -19,7 +19,7 @@ export function Result(props: {
   const ref = React.createRef<HTMLDivElement>()
   let onPageClick = ((p: number) => {
     props.setPagenum(p)
-    ref!.current!.scrollIntoView({ behavior: "smooth" });
+    ref!.current!.scrollIntoView({ behavior: 'smooth' });
   });
 
   return (
@@ -44,7 +44,7 @@ function ResultTable(props: { table: Singing[] }) {
   return (
     <table><tbody>
       {props.table.map(singing => (
-        <tr><td><div className='row' id='table-block'>
+        <tr><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
             <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe>
           </div>
@@ -68,13 +68,13 @@ function Pagenation(props: { pagenum: number, setPagenum: any, lastPageNum: numb
   let currentAround = [];
   for (let i = Math.max(props.pagenum - n, 1); i <= Math.min(props.pagenum + n, props.lastPageNum); i++) {
     if (i == props.pagenum)
-      currentAround.push(<li className='active' id='current-page'><a>{i}</a></li>)
+      currentAround.push(<li className='active'><a>{i}</a></li>)
     else
       currentAround.push(<li className='waves-effect'><a onClick={() => props.setPagenum(i)}>{i}</a></li>);
   }
 
   return (
-    <ul className='pagination' id='result-page'>
+    <ul className='pagination'>
       {props.pagenum - n > 1 &&
         <>
           <li className='waves-effect'><a onClick={() => props.setPagenum(1)}>1</a></li>

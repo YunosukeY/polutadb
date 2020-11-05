@@ -6,19 +6,24 @@ import { Releases } from './releases';
 export function Header(props: { setPage: any }) {
   return (
     <header>
-      <nav className="nav-extended">
-        <div className="nav-wrapper">
+      <nav className='nav-extended'>
+        <div className='nav-wrapper'>
           <a className='brand-logo center title' onClick={() => props.setPage('top')}>PolutaDB</a>
-        </div>
-        <div className="nav-content">
-          <ul className="tabs tabs-transparent">
-            <li className="tab"><a onClick={() => props.setPage('top')}>Top</a></li>
-            <li className="tab"><a onClick={() => props.setPage('stats')}>Stats</a></li>
-            <li className="tab"><a onClick={() => props.setPage('releases')}>Releases</a></li>
+          <a href='#' data-target='mobile-demo' className='sidenav-trigger'><i className='material-icons'>menu</i></a>
+          <ul id='nav-mobile' className='right hide-on-med-and-down'>
+            <li><a onClick={() => props.setPage('top')}>Top</a></li>
+            <li><a onClick={() => props.setPage('stats')}>Stats</a></li>
+            <li><a onClick={() => props.setPage('releases')}>Releases</a></li>
           </ul>
         </div>
       </nav>
-    </header >
+
+      <ul className='sidenav' id='mobile-demo'>
+        <li><a onClick={() => props.setPage('top')}>Top</a></li>
+        <li><a onClick={() => props.setPage('stats')}>Stats</a></li>
+        <li><a onClick={() => props.setPage('releases')}>Releases</a></li>
+      </ul>
+    </header>
   );
 }
 
@@ -26,7 +31,7 @@ export function Main(props: { page: string }) {
   return (
     <div className='main'>
       <div className='row'>
-        <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2' id='sp'>
+        <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2'>
           {props.page == 'top' && <Top />}
           {props.page == 'stats' && <Stats />}
           {props.page == 'releases' && <Releases />}
@@ -53,7 +58,7 @@ export function Footer() {
       <div className='footer-copyright'>
         <div className='container center'>
           © 2020 ぽるうたデータベース
-          </div>
+        </div>
       </div>
     </footer>
   );
