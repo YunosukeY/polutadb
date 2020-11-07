@@ -4,7 +4,7 @@ import { Header, Main, Footer } from './layout';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header />
       <Main />
       <Footer />
