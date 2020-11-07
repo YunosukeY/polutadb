@@ -9,7 +9,7 @@ export function Header() {
     <header>
       <nav className='nav-extended'>
         <div className='nav-wrapper'>
-          <Link to='/' className='brand-logo center title'>Top</Link>
+          <Link to='/' className='brand-logo center title'>PolutaDB</Link>
           <a href='#' data-target='mobile-demo' className='sidenav-trigger'><i className='material-icons'>menu</i></a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li><Link to='/'>Top</Link></li>

@@ -25,7 +25,7 @@ export function Select(props: {
   }
 
   return (
-    <div className='pane'>
+    <div className='pane' id='search'>
       <h4>Search</h4>
       <Genre genre={props.genre} setGenre={props.setGenre} />
       <Type type={props.type} setType={props.setType} />
