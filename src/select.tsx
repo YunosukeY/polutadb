@@ -4,28 +4,28 @@ import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
 export function Select(props: {
-  genre: number, setGenre: any,
-  type: number, setType: any,
-  video: number, setVideo: any,
-  song: number, setSong: any,
-  artist: number, setArtist: any,
-  withInst: boolean, setWithInst: any,
-  aCappella: boolean, setACappella: any,
-  full: boolean, setFull: any,
-  onechorus: boolean, setOnechorus: any,
-  displaynum: number, setDisplaynum: any
+  genre: number, setGenre: (genre: number) => void,
+  type: number, setType: (type: number) => void,
+  video: number, setVideo: (video: number) => void,
+  song: number, setSong: (song: number) => void,
+  artist: number, setArtist: (artist: number) => void,
+  withInst: boolean, setWithInst: (withInst: boolean) => void,
+  aCappella: boolean, setACappella: (aCappella: boolean) => void,
+  full: boolean, setFull: (full: boolean) => void,
+  onechorus: boolean, setOnechorus: (onechorus: boolean) => void,
+  displaynum: number, setDisplaynum: (displaynum: number) => void
 }) {
   useEffect(() => {
     mInit();
   });
 
   // checkbox
-  function onChange(setter: any) {
+  function onChange(setter: (v: boolean) => void) {
     return ((event: any) => setter(event.target.checked));
   }
 
   return (
-    <div className='pane'>
+    <div className='pane' id='search'>
       <h4>Search</h4>
       <Genre genre={props.genre} setGenre={props.setGenre} />
       <Type type={props.type} setType={props.setType} />
@@ -39,12 +39,12 @@ export function Select(props: {
   );
 }
 
-function Genre(props: { genre: number, setGenre: any }) {
+function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
   let genres = getGenres().map(genre => <option value={genre.i}>{genre.name}</option>);
   return (
     <label>
       <h6>曲ジャンル</h6>
-      <select value={props.genre} onChange={(event) => props.setGenre(event.target.value)}>
+      <select value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
         <option value='-1'>-</option>
         {genres}
       </select>
@@ -52,12 +52,12 @@ function Genre(props: { genre: number, setGenre: any }) {
   );
 }
 
-function Type(props: { type: number, setType: any }) {
+function Type(props: { type: number, setType: (type: number) => void }) {
   let types = getTypes().map(type => <option value={type.i}>{type.name}</option>);
   return (
     <label>
       <h6>枠タイプ</h6>
-      <select value={props.type} onChange={(event) => props.setType(event.target.value)}>
+      <select value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
         <option value='-1'>-</option>
         {types}
       </select>
@@ -65,12 +65,12 @@ function Type(props: { type: number, setType: any }) {
   );
 }
 
-function Video(props: { video: number, setVideo: any }) {
+function Video(props: { video: number, setVideo: (video: number) => void }) {
   let videos = getVideos().map(video => <option value={video.i}>{video.date}: {video.title}</option>);
   return (
     <label>
       <h6>動画</h6>
-      <select value={props.video} onChange={(event) => props.setVideo(event.target.value)}>
+      <select value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
         <option value='-1'>-</option>
         {videos}
       </select>
@@ -78,12 +78,12 @@ function Video(props: { video: number, setVideo: any }) {
   );
 }
 
-function Song(props: { song: number, setSong: any }) {
+function Song(props: { song: number, setSong: (song: number) => void }) {
   let songs = getSongs().map(song => <option value={song.i}>{song.title}</option>);
   return (
     <label>
       <h6>曲</h6>
-      <select value={props.song} onChange={(event) => props.setSong(event.target.value)}>
+      <select value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
         <option value='-1'>-</option>
         {songs}
       </select>
@@ -91,12 +91,12 @@ function Song(props: { song: number, setSong: any }) {
   );
 }
 
-function Artist(props: { artist: number, setArtist: any }) {
+function Artist(props: { artist: number, setArtist: (artist: number) => void }) {
   let artists = getArtists().map(artist => <option value={artist.i}>{artist.name}</option>);
   return (
     <label>
       <h6>アーティスト</h6>
-      <select value={props.artist} onChange={(event) => props.setArtist(event.target.value)}>
+      <select value={props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
         <option value='-1'>-</option>
         {artists}
       </select>
@@ -140,7 +140,7 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
   );
 }
 
-function Displaynum(props: { displaynum: number, setDisplaynum: any }) {
+function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: number) => void }) {
   return (
     <>
       <label>
@@ -155,7 +155,7 @@ function Displaynum(props: { displaynum: number, setDisplaynum: any }) {
   );
 }
 
-function Radio(props: { num: number, setDisplaynum: any, checked: boolean }) {
+function Radio(props: { num: number, setDisplaynum: (displaynum: number) => void, checked: boolean }) {
   return (
     <label className='col s2 m1'>
       <input className='with-gap' type='radio' value={props.num} checked={props.checked} onChange={() => props.setDisplaynum(props.num)} />

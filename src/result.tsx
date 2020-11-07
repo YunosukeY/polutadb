@@ -13,7 +13,7 @@ export function Result(props: {
   onechorus: boolean,
   displaynum: number,
   pagenum: number,
-  setPagenum: any
+  setPagenum: React.Dispatch<React.SetStateAction<number>>
 }) {
   let result = search(props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
@@ -62,7 +62,7 @@ function ResultTable(props: { table: Singing[] }) {
   )
 }
 
-function Pagenation(props: { pagenum: number, setPagenum: any, lastPageNum: number }) {
+function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, lastPageNum: number }) {
   let n = 2; // 2つ隣のページまで表示させる
 
   let currentAround = [];

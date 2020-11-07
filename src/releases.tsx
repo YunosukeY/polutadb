@@ -6,6 +6,10 @@ export function Releases() {
       <h4>Release Notes</h4>
       重要度の低い情報は「細かい変更」にあります．<br />
 
+      <h5 className='release-date'>2020/11/8</h5>
+      <h6 className='release-content'>機能の追加</h6>
+      ・ページのルーティングに対応しました<br />
+
       <h5 className='release-date'>2020/11/3</h5>
       <h6 className='release-content'>データの追加</h6>
       ・『ポルカが気圧を倒す時に始まる歌枠【ホロライブ/尾丸ポルカ】』分を追加しました<br />
