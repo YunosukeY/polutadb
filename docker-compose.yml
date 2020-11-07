@@ -1,8 +1,0 @@
-version: '3'
-services:
-  poluta-db:
-    image: poluta-db
-    build: .
-    container_name: poluta-db
-    volumes:
-       - .:/work

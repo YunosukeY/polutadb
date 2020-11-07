@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import * as ReactDOM from 'react-dom';
 import { Header, Main, Footer } from './layout';
 
-function Root() {
+export function App() {
   const [page, setPage] = useState('top');
 
   return (
@@ -14,5 +13,3 @@ function Root() {
     </>
   );
 }
-
-ReactDOM.render(<Root />, document.querySelector('#root'));
