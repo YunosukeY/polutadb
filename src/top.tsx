@@ -1,29 +1,61 @@
 import * as React from 'react';
 import { useState } from 'react';
+import queryString from 'query-string';
 import { Select } from './select';
 import { Result } from './result';
 
-export function Top() {
-  const [genre, setGenre] = useState(-1);
-  const [type, setType] = useState(-1);
-  const [video, setVideo] = useState(-1);
-  const [song, setSong] = useState(-1);
-  const [artist, setArtist] = useState(-1);
-  const [withInst, setWithInst] = useState(true);
-  const [aCappella, setACappella] = useState(true);
-  const [full, setFull] = useState(true);
-  const [onechorus, setOnechorus] = useState(true);
+export function Top(props: { rowqs: string }) {
+  let rowqs = props.rowqs;
+  let qs = queryString.parse(rowqs);
+  let genre = (qs.genre == null) ? -1 : Number(qs.genre);
+  let type = (qs.type == null) ? -1 : Number(qs.type);
+  let video = (qs.video == null) ? -1 : Number(qs.video);
+  let song = (qs.song == null) ? -1 : Number(qs.song);
+  let artist = (qs.artist == null) ? -1 : Number(qs.artist);
+  let withInst = (qs.withInst == null) ? true : (qs.withInst == 'true');
+  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella == 'true');
+  let full = (qs.full == null) ? true : (qs.full == 'true');
+  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus == 'true');
+
   const [displaynum, setDisplaynum] = useState(5);
-  const [hasResult, setHasResult] = useState(false); // 上記の値からは分からない
+  let hasResult = (rowqs == '') ? false : true;
   const [pagenum, setPagenum] = useState(1);
 
-  // setterにhasResult, pageを更新する副作用を追加
-  function updateHasRes(setter: React.Dispatch<React.SetStateAction<any>>) {
-    return ((v: any) => {
-      setter(v);
-      setHasResult(true);
-      setPagenum(1);
-    });
+  function setGenre(newGenre: number) {
+    setPagenum(1);
+    window.location.href = `?genre=${newGenre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setType(newType: number) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${newType}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setVideo(newVideo: number) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${newVideo}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setSong(newSong: number) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${newSong}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setArtist(newArtist: number) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${newArtist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setWithInst(newWithInst: boolean) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${newWithInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setACappella(newACappella: boolean) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${newACappella}&full=${full}&onechorus=${onechorus}`;
+  }
+  function setFull(newFull: boolean) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${newFull}&onechorus=${onechorus}`;
+  }
+  function setOnechorus(newOnechorus: boolean) {
+    setPagenum(1);
+    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${newOnechorus}`;
   }
 
   // 表示件数が更新されたら1ページ目に戻す
@@ -36,15 +68,15 @@ export function Top() {
     <>
       <About />
       <Select
-        genre={genre} setGenre={updateHasRes(setGenre)}
-        type={type} setType={updateHasRes(setType)}
-        video={video} setVideo={updateHasRes(setVideo)}
-        song={song} setSong={updateHasRes(setSong)}
-        artist={artist} setArtist={updateHasRes(setArtist)}
-        withInst={withInst} setWithInst={updateHasRes(setWithInst)}
-        aCappella={aCappella} setACappella={updateHasRes(setACappella)}
-        full={full} setFull={updateHasRes(setFull)}
-        onechorus={onechorus} setOnechorus={updateHasRes(setOnechorus)}
+        genre={genre} setGenre={setGenre}
+        type={type} setType={setType}
+        video={video} setVideo={setVideo}
+        song={song} setSong={setSong}
+        artist={artist} setArtist={setArtist}
+        withInst={withInst} setWithInst={setWithInst}
+        aCappella={aCappella} setACappella={setACappella}
+        full={full} setFull={setFull}
+        onechorus={onechorus} setOnechorus={setOnechorus}
         displaynum={displaynum} setDisplaynum={onDnumChange}
       />
       {hasResult && <Result

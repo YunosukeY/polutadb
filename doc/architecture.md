@@ -9,8 +9,6 @@
 
 ## Reactのcomponent, state
 
-- TopとStatsの切り替えはHeaderから変えるので，page stateはRootで持つ
-- Resultの表示はSelect以下のコンポーネントから変えるので状態はTopで持つ
 - ページは，Select以下のコンポーネントの変化によっても変わるので，状態をTopで持つ
 
 <img src="./fig/component.png" width="50%">
