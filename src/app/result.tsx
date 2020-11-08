@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing } from './data';
+import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from './data';
 
 export function Result(props: {
+  query: string,
   genre: number,
   type: number,
   video: number,
@@ -15,7 +16,7 @@ export function Result(props: {
   pagenum: number,
   setPagenum: React.Dispatch<React.SetStateAction<number>>
 }) {
-  let result = search(props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
+  let result = search(props.query, props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
   let onPageClick = ((p: number) => {
     props.setPagenum(p)
@@ -92,8 +93,13 @@ function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, l
   );
 }
 
-function search(videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
+function search(query: string, videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
   let tmpres = singings;
+
+  let normalizedQuery = query.toLowerCase();
+  if (query != '') {
+    tmpres = tmpres.filter(singingInfo => fullTextFilter(singingInfo, normalizedQuery));
+  }
 
   if (videoId != -1)
     tmpres = tmpres.filter(singingInfo => singingInfo.videoId == videoId);
@@ -117,4 +123,12 @@ function search(videoId: number, songId: number, artistId: number, genreId: numb
     tmpres = tmpres.filter(singingInfo => singingInfo.full == true);
 
   return tmpres;
+}
+
+function fullTextFilter(singing: Singing, query: string) {
+  let song = getSong(singing.songId).toLowerCase();
+  let artist = getArtist(singing.songId).toLowerCase();
+  let video = getVideo(singing.videoId).toLowerCase();
+
+  return song.indexOf(query) != -1 || artist.indexOf(query) != -1 || video.indexOf(query) != -1;
 }

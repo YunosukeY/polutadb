@@ -709,3 +709,7 @@ export function getGenre(songId: number) {
 export function getTypeId(videoId: number) {
   return videos[videoId].typeId;
 }
+
+export function getVideo(videoId: number) {
+  return videos[videoId].title;
+}

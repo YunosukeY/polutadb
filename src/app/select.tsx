@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
 export function Select(props: {
+  query: string, setQuery: (query: string) => void,
   genre: number, setGenre: (genre: number) => void,
   type: number, setType: (type: number) => void,
   video: number, setVideo: (video: number) => void,
@@ -27,6 +28,7 @@ export function Select(props: {
   return (
     <div className='pane' id='search'>
       <h4>Search</h4>
+      <FullTextSearch query={props.query} setQuery={props.setQuery} />
       <Genre genre={props.genre} setGenre={props.setGenre} />
       <Type type={props.type} setType={props.setType} />
       <Video video={props.video} setVideo={props.setVideo} />
@@ -37,6 +39,25 @@ export function Select(props: {
       <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
     </div>
   );
+}
+
+function FullTextSearch(props: { query: string, setQuery: (query: string) => void }) {
+  // textをqueryで初期化
+  const [text, setText] = useState(props.query);
+
+  function onKeyDown(e: any) {
+    if (e.key === "Enter" && e.keyCode === 13) {
+      props.setQuery(text);
+    }
+  }
+
+  return (
+    <div className="input-field">
+      <i className="material-icons prefix">search</i> {/* queryにtextをセット */}
+      <input id="icon_prefix" type="text" className="validate" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
+      <label htmlFor="icon_prefix">全文検索</label>
+    </div>
+  )
 }
 
 function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
