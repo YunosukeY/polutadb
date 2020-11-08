@@ -9,6 +9,8 @@ export function Releases() {
       <Date date='2020/11/9' />
       <ContentType type='データの追加' />
       <Content content='『30万人に聞かせるリクエストボイス【ホロライブ/尾丸ポルカ】』分を追加しました' />
+      <ContentType type='機能の追加' />
+      <Content content='全文検索を追加しました' />
 
       <Date date='2020/11/8' />
       <ContentType type='機能の追加' />
