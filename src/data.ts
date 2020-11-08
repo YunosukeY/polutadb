@@ -136,6 +136,12 @@ const videos: Video[] = [
     date: '2020/11/3',
     typeId: 2,
   },
+  { // 16
+    id: 'UeTl2y9Vqg8',
+    title: '30万人に聞かせるリクエストボイス【ホロライブ/尾丸ポルカ】',
+    date: '2020/10/12',
+    typeId: 5,
+  },
 ]
 
 const types: Type[] = [
@@ -516,6 +522,8 @@ export const singings: Singing[] = [
   new Singing(8, 75, '10735'),
   new Singing(8, 76, '11105'),
   new Singing(8, 77, '11295'),
+  new Singing(16, 51, '7028'),
+  new Singing(16, 0, '7253', true, false),
   new Singing(9, 2, '172'),
   new Singing(9, 78, '406'),
   new Singing(9, 79, '687'),
