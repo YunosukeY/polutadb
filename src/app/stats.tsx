@@ -91,6 +91,7 @@ function calcSongStats() {
   return res;
 }
 
+// see https://www.amcharts.com/demos/pie-chart/
 function setChart() {
   am4core.useTheme(am4themes_animated);
 
