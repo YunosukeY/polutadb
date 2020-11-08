@@ -7,55 +7,60 @@ import { Result } from './result';
 export function Top(props: { rowqs: string }) {
   let rowqs = props.rowqs;
   let qs = queryString.parse(rowqs);
+  let query = (qs.query == null) ? '' : String(qs.query);
   let genre = (qs.genre == null) ? -1 : Number(qs.genre);
   let type = (qs.type == null) ? -1 : Number(qs.type);
   let video = (qs.video == null) ? -1 : Number(qs.video);
   let song = (qs.song == null) ? -1 : Number(qs.song);
   let artist = (qs.artist == null) ? -1 : Number(qs.artist);
-  let withInst = (qs.withInst == null) ? true : (qs.withInst == 'true');
-  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella == 'true');
-  let full = (qs.full == null) ? true : (qs.full == 'true');
-  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus == 'true');
+  let withInst = (qs.withInst == null) ? true : (qs.withInst === 'true');
+  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella === 'true');
+  let full = (qs.full == null) ? true : (qs.full === 'true');
+  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus === 'true');
 
   const [displaynum, setDisplaynum] = useState(5);
-  let hasResult = (rowqs == '') ? false : true;
+  let hasResult = (rowqs === '') ? false : true;
   const [pagenum, setPagenum] = useState(1);
 
+  function setQuery(newQuery: string) {
+    setPagenum(1);
+    window.location.href = `?query=${newQuery}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+  }
   function setGenre(newGenre: number) {
     setPagenum(1);
-    window.location.href = `?genre=${newGenre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${newGenre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setType(newType: number) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${newType}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${newType}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setVideo(newVideo: number) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${newVideo}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${newVideo}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setSong(newSong: number) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${newSong}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${newSong}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setArtist(newArtist: number) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${newArtist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${newArtist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setWithInst(newWithInst: boolean) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${newWithInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${newWithInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setACappella(newACappella: boolean) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${newACappella}&full=${full}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${newACappella}&full=${full}&onechorus=${onechorus}#search`;
   }
   function setFull(newFull: boolean) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${newFull}&onechorus=${onechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${newFull}&onechorus=${onechorus}#search`;
   }
   function setOnechorus(newOnechorus: boolean) {
     setPagenum(1);
-    window.location.href = `?genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${newOnechorus}#search`;
+    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${newOnechorus}#search`;
   }
 
   // 表示件数が更新されたら1ページ目に戻す
@@ -68,6 +73,7 @@ export function Top(props: { rowqs: string }) {
     <>
       <About />
       <Select
+        query={query} setQuery={setQuery}
         genre={genre} setGenre={setGenre}
         type={type} setType={setType}
         video={video} setVideo={setVideo}
@@ -80,6 +86,7 @@ export function Top(props: { rowqs: string }) {
         displaynum={displaynum} setDisplaynum={onDnumChange}
       />
       {hasResult && <Result
+        query={query}
         genre={genre}
         type={type}
         video={video}

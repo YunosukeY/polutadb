@@ -646,7 +646,7 @@ export function getGenres() {
 export function getTypes() {
   let typeNames: { name: string, i: number }[] = [];
   types.forEach((type, i) => {
-    if (type.name != 'その他') {
+    if (type.name !== 'その他') {
       typeNames.push({ name: type.name, i: i });
     }
   });
@@ -687,7 +687,7 @@ export function getUrl(videoId: number) {
 
 export function getArtist(songId: number) {
   let artistId = songs[songId].artistId;
-  return (artistId == -1 ? '' : artists[artistId].name);
+  return (artistId === -1 ? '' : artists[artistId].name);
 }
 
 export function getArtistId(songId: number) {
@@ -708,4 +708,8 @@ export function getGenre(songId: number) {
 
 export function getTypeId(videoId: number) {
   return videos[videoId].typeId;
+}
+
+export function getVideo(videoId: number) {
+  return videos[videoId].title;
 }
