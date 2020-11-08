@@ -36,7 +36,7 @@ export function Result(props: {
 function ResultHeader(props: { resultnum: number }) {
   return (
     <h4>
-      {props.resultnum} Result{props.resultnum == 1 ? '' : 's'}
+      {props.resultnum} Result{props.resultnum === 1 ? '' : 's'}
     </h4>
   );
 }
@@ -44,17 +44,17 @@ function ResultHeader(props: { resultnum: number }) {
 function ResultTable(props: { table: Singing[] }) {
   return (
     <table><tbody>
-      {props.table.map(singing => (
-        <tr><td><div className='row'>
+      {props.table.map((singing, i) => (
+        <tr key={i}><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
-            <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe>
+            <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen title={getVideo(singing.videoId)}></iframe>
           </div>
           <div className='col s12 m12 l4 xl4' id='result-table'>
             <h5 id='song-info'>
               『{getSong(singing.songId)}』<br />
               {getArtist(singing.songId)}
-              {(singing.withInst == false) && <><br /><div className='supplemental-info'>アカペラ</div></>}
-              {(singing.full == false) && <><div className='supplemental-info'>ワンコーラス</div></>}
+              {(singing.withInst === false) && <><br /><div className='supplemental-info'>アカペラ</div></>}
+              {(singing.full === false) && <><div className='supplemental-info'>ワンコーラス</div></>}
             </h5>
           </div>
         </div></td></tr>
@@ -68,18 +68,18 @@ function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, l
 
   let currentAround = [];
   for (let i = Math.max(props.pagenum - n, 1); i <= Math.min(props.pagenum + n, props.lastPageNum); i++) {
-    if (i == props.pagenum)
-      currentAround.push(<li className='active'><a>{i}</a></li>)
+    if (i === props.pagenum)
+      currentAround.push(<li className='active' key={i}><a>{i}</a></li>)
     else
-      currentAround.push(<li className='waves-effect'><a onClick={() => props.setPagenum(i)}>{i}</a></li>);
+      currentAround.push(<li className='waves-effect' key={i}><a onClick={() => props.setPagenum(i)}>{i}</a></li>);
   }
 
   return (
     <ul className='pagination'>
       {props.pagenum - n > 1 &&
         <>
-          <li className='waves-effect'><a onClick={() => props.setPagenum(1)}>1</a></li>
-          <li className='disabled'><a><i className='material-icons'>more_horiz</i></a></li>
+          <li className='waves-effect' key='1'><a onClick={() => props.setPagenum(1)}>1</a></li>
+          <li className='disabled' key='1'><a><i className='material-icons'>more_horiz</i></a></li>
         </>
       }
       {currentAround}
@@ -97,30 +97,30 @@ function search(query: string, videoId: number, songId: number, artistId: number
   let tmpres = singings;
 
   let normalizedQuery = query.toLowerCase();
-  if (query != '') {
+  if (query !== '') {
     tmpres = tmpres.filter(singingInfo => fullTextFilter(singingInfo, normalizedQuery));
   }
 
-  if (videoId != -1)
-    tmpres = tmpres.filter(singingInfo => singingInfo.videoId == videoId);
-  if (songId != -1)
-    tmpres = tmpres.filter(singingInfo => singingInfo.songId == songId);
-  if (artistId != -1)
-    tmpres = tmpres.filter(singingInfo => getArtistId(singingInfo.songId) == artistId);
-  if (genreId != -1)
-    tmpres = tmpres.filter(singingInfo => getGenreId(singingInfo.songId) == genreId);
-  if (typeId != -1)
-    tmpres = tmpres.filter(singingInfo => getTypeId(singingInfo.videoId) == typeId);
+  if (videoId !== -1)
+    tmpres = tmpres.filter(singingInfo => singingInfo.videoId === videoId);
+  if (songId !== -1)
+    tmpres = tmpres.filter(singingInfo => singingInfo.songId === songId);
+  if (artistId !== -1)
+    tmpres = tmpres.filter(singingInfo => getArtistId(singingInfo.songId) === artistId);
+  if (genreId !== -1)
+    tmpres = tmpres.filter(singingInfo => getGenreId(singingInfo.songId) === genreId);
+  if (typeId !== -1)
+    tmpres = tmpres.filter(singingInfo => getTypeId(singingInfo.videoId) === typeId);
 
-  if (withInst == false)
-    tmpres = tmpres.filter(singingInfo => singingInfo.withInst == false);
-  if (aCappella == false)
-    tmpres = tmpres.filter(singingInfo => singingInfo.withInst == true);
+  if (withInst === false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.withInst === false);
+  if (aCappella === false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.withInst === true);
 
-  if (full == false)
-    tmpres = tmpres.filter(singingInfo => singingInfo.full == false);
-  if (onechorus == false)
-    tmpres = tmpres.filter(singingInfo => singingInfo.full == true);
+  if (full === false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.full === false);
+  if (onechorus === false)
+    tmpres = tmpres.filter(singingInfo => singingInfo.full === true);
 
   return tmpres;
 }
@@ -130,5 +130,5 @@ function fullTextFilter(singing: Singing, query: string) {
   let artist = getArtist(singing.songId).toLowerCase();
   let video = getVideo(singing.videoId).toLowerCase();
 
-  return song.indexOf(query) != -1 || artist.indexOf(query) != -1 || video.indexOf(query) != -1;
+  return song.indexOf(query) !== -1 || artist.indexOf(query) !== -1 || video.indexOf(query) !== -1;
 }

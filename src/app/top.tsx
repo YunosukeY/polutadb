@@ -13,13 +13,13 @@ export function Top(props: { rowqs: string }) {
   let video = (qs.video == null) ? -1 : Number(qs.video);
   let song = (qs.song == null) ? -1 : Number(qs.song);
   let artist = (qs.artist == null) ? -1 : Number(qs.artist);
-  let withInst = (qs.withInst == null) ? true : (qs.withInst == 'true');
-  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella == 'true');
-  let full = (qs.full == null) ? true : (qs.full == 'true');
-  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus == 'true');
+  let withInst = (qs.withInst == null) ? true : (qs.withInst === 'true');
+  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella === 'true');
+  let full = (qs.full == null) ? true : (qs.full === 'true');
+  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus === 'true');
 
   const [displaynum, setDisplaynum] = useState(5);
-  let hasResult = (rowqs == '') ? false : true;
+  let hasResult = (rowqs === '') ? false : true;
   const [pagenum, setPagenum] = useState(1);
 
   function setQuery(newQuery: string) {

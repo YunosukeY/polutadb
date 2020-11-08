@@ -61,12 +61,12 @@ function FullTextSearch(props: { query: string, setQuery: (query: string) => voi
 }
 
 function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
-  let genres = getGenres().map(genre => <option value={genre.i}>{genre.name}</option>);
+  let genres = getGenres().map(genre => <option value={genre.i} key={genre.i}>{genre.name}</option>);
   return (
     <label>
       <h6>曲ジャンル</h6>
       <select value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
-        <option value='-1'>-</option>
+        <option value='-1' key='-1'>-</option>
         {genres}
       </select>
     </label>
@@ -74,12 +74,12 @@ function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
 }
 
 function Type(props: { type: number, setType: (type: number) => void }) {
-  let types = getTypes().map(type => <option value={type.i}>{type.name}</option>);
+  let types = getTypes().map(type => <option value={type.i} key={type.i}>{type.name}</option>);
   return (
     <label>
       <h6>枠タイプ</h6>
       <select value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
-        <option value='-1'>-</option>
+        <option value='-1' key='-1'>-</option>
         {types}
       </select>
     </label>
@@ -87,12 +87,12 @@ function Type(props: { type: number, setType: (type: number) => void }) {
 }
 
 function Video(props: { video: number, setVideo: (video: number) => void }) {
-  let videos = getVideos().map(video => <option value={video.i}>{video.date}: {video.title}</option>);
+  let videos = getVideos().map(video => <option value={video.i} key={video.i}>{video.date}: {video.title}</option>);
   return (
     <label>
       <h6>動画</h6>
       <select value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
-        <option value='-1'>-</option>
+        <option value='-1' key='-1'>-</option>
         {videos}
       </select>
     </label>
@@ -100,12 +100,12 @@ function Video(props: { video: number, setVideo: (video: number) => void }) {
 }
 
 function Song(props: { song: number, setSong: (song: number) => void }) {
-  let songs = getSongs().map(song => <option value={song.i}>{song.title}</option>);
+  let songs = getSongs().map(song => <option value={song.i} key={song.i}>{song.title}</option>);
   return (
     <label>
       <h6>曲</h6>
       <select value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
-        <option value='-1'>-</option>
+        <option value='-1' key='-1'>-</option>
         {songs}
       </select>
     </label>
@@ -113,12 +113,12 @@ function Song(props: { song: number, setSong: (song: number) => void }) {
 }
 
 function Artist(props: { artist: number, setArtist: (artist: number) => void }) {
-  let artists = getArtists().map(artist => <option value={artist.i}>{artist.name}</option>);
+  let artists = getArtists().map(artist => <option value={artist.i} key={artist.i}>{artist.name}</option>);
   return (
     <label>
       <h6>アーティスト</h6>
       <select value={props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
-        <option value='-1'>-</option>
+        <option value='-1' key='-1'>-</option>
         {artists}
       </select>
     </label>
@@ -168,9 +168,9 @@ function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: num
         <h6>表示件数</h6>
       </label>
       <form action='#' className='row'>
-        <Radio num={5} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 5} />
-        <Radio num={10} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 10} />
-        <Radio num={20} setDisplaynum={props.setDisplaynum} checked={props.displaynum == 20} />
+        <Radio num={5} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 5} />
+        <Radio num={10} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 10} />
+        <Radio num={20} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 20} />
       </form>
     </>
   );
