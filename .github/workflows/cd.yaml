@@ -34,7 +34,7 @@ jobs:
     - run: yarn build
       env:
         CI: false
-    - name: Setup git
+    - name: Setup SSH key
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
       run: |
@@ -42,8 +42,6 @@ jobs:
         touch ~/.ssh/id_rsa
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
     - name: deploy
       run: |
         cd ../
@@ -52,5 +50,5 @@ jobs:
         rm -rf static
         cp -r ../poluta-db/build/ .
         git add -A
-        git commit -m "CD"
+        git -c user.name="GitHub Actions" -c user.email="action@github.com"commit -m "CD"
         git push origin master
