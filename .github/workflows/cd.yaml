@@ -1,4 +1,4 @@
-name: CD to github.io
+name: CD to github.io repo
 # on:
 #   push:
 #     branches:
@@ -48,7 +48,7 @@ jobs:
         git clone git@github.com:YunosukeY/YunosukeY.github.io.git
         cd YunosukeY.github.io
         rm -rf static
-        cp -r ../poluta-db/build/ .
+        cp -r ../poluta-db/build/* .
         git add -A
         git -c user.name="GitHub Actions" -c user.email="action@github.com" commit -m "CD"
         git push origin master
