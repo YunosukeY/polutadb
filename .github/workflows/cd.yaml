@@ -2,7 +2,7 @@ name: CD to github.io repo
 on:
   push:
     branches:
-      - main
+      - master
     path:
       - package.json
       - yarn.lock
