@@ -26,7 +26,7 @@ export function Select(props: {
   }
 
   return (
-    <div className='pane' id='search'>
+    <div className='pane' id='select'>
       <h4>Search</h4>
       <FullTextSearch query={props.query} setQuery={props.setQuery} />
       <Genre genre={props.genre} setGenre={props.setGenre} />
@@ -65,7 +65,7 @@ function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
   return (
     <label>
       <h6>曲ジャンル</h6>
-      <select value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
+      <select id='genre-selector' value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {genres}
       </select>
@@ -78,7 +78,7 @@ function Type(props: { type: number, setType: (type: number) => void }) {
   return (
     <label>
       <h6>枠タイプ</h6>
-      <select value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
+      <select id='type-selector' value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {types}
       </select>
@@ -91,7 +91,7 @@ function Video(props: { video: number, setVideo: (video: number) => void }) {
   return (
     <label>
       <h6>動画</h6>
-      <select value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
+      <select id='video-selector' value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {videos}
       </select>
@@ -104,7 +104,7 @@ function Song(props: { song: number, setSong: (song: number) => void }) {
   return (
     <label>
       <h6>曲</h6>
-      <select value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
+      <select id='song-selector' value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {songs}
       </select>
@@ -117,7 +117,7 @@ function Artist(props: { artist: number, setArtist: (artist: number) => void }) 
   return (
     <label>
       <h6>アーティスト</h6>
-      <select value={props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
+      <select id='artist-selector' value={props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {artists}
       </select>

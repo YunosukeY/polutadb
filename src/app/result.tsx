@@ -24,7 +24,7 @@ export function Result(props: {
   });
 
   return (
-    <div className='pane'>
+    <div className='pane' id='result'>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
       <ResultTable table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))} />
@@ -35,7 +35,7 @@ export function Result(props: {
 
 function ResultHeader(props: { resultnum: number }) {
   return (
-    <h4>
+    <h4 id='result-header'>
       {props.resultnum} Result{props.resultnum === 1 ? '' : 's'}
     </h4>
   );

@@ -12,12 +12,12 @@
   flex-direction: column;
   font-family: 'Lato', 'Noto Sans JP';
 }
-.main {
+#main {
   flex: 1 0 auto;
 }
 
 /* body */
-.main {
+#main {
   background-color: var(--bg-color);
 }
 .pane {

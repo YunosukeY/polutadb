@@ -39,7 +39,7 @@ export class Singing {
   }
 }
 
-const videos: Video[] = [
+export const videos: Video[] = [
   { // 0
     id: 'PuFk_XfNXiM',
     title: 'POLKA♡SUMMER♡LIVE☆2020 #ぽるうた【ホロライブ/尾丸ポルカ】',
@@ -144,7 +144,7 @@ const videos: Video[] = [
   },
 ]
 
-const types: Type[] = [
+export const types: Type[] = [
   /* 0 */ { name: '歌ってみた' },
   /* 1 */ { name: 'ライブ' },
   /* 2 */ { name: '歌枠' },
