@@ -38,17 +38,16 @@ jobs:
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
       run: |
-        echo "$DEPLOY_KEY" > ~/deploy_key.pem
-        chmod 600 ~/deploy_key.pem
-        git config --global user.email "yunosuke@ueda.info.waseda.ac.jp"
-        git config --global user.name "YunosukeY"
+        echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     - name: deploy
       run: |
         cd ../
-        git clone https://github.com/YunosukeY/YunosukeY.github.io.git
+        git clone git@github.com:YunosukeY/YunosukeY.github.io.git
         cd YunosukeY.github.io
         rm -rf static
         cp -r ../poluta-db/build/ .
         git add -A
-        git commit -m "CD"
         git push origin master
