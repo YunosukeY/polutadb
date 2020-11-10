@@ -1,12 +1,14 @@
 name: CD to github.io repo
-# on:
-#   push:
-#     branches:
-#       - main
 on:
-  pull_request:
+  push:
     branches:
-      - '*'
+      - main
+    path:
+      - package.json
+      - yarn.lock
+      - src/index.tsx
+      - src/app/*
+      - src/css/*
 jobs:
   deploy:
     runs-on: ubuntu-latest
