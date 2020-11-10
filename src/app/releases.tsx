@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export function Releases() {
   return (
-    <div className='pane'>
+    <div className='pane' id='releases'>
       <h4>Release Notes</h4>
       重要度の低い情報は「細かい変更」にあります．<br />
 

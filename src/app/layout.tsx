@@ -30,7 +30,7 @@ export function Header() {
 
 export function Main() {
   return (
-    <div className='main'>
+    <div id='main'>
       <div className='row'>
         <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2'>
           <Switch>
