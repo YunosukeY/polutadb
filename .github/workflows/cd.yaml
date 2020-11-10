@@ -1,10 +1,16 @@
-name: CI
+name: CD to github.io repo
 on:
-  pull_request:
+  push:
     branches:
-      - '*'
+      - main
+    path:
+      - package.json
+      - yarn.lock
+      - src/index.tsx
+      - src/app/*
+      - src/css/*
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -27,4 +33,24 @@ jobs:
       with:
         node-version: '14.x'
     - run: yarn install --pure-lockfile
-    - run: yarn test --watchAll=false
+    - run: yarn build
+      env:
+        CI: false
+    - name: Setup SSH key
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      run: |
+        mkdir ~/.ssh
+        touch ~/.ssh/id_rsa
+        echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+    - name: deploy
+      run: |
+        cd ../
+        git clone git@github.com:YunosukeY/YunosukeY.github.io.git
+        cd YunosukeY.github.io
+        rm -rf static
+        cp -r ../poluta-db/build/* .
+        git add -A
+        git -c user.name="GitHub Actions" -c user.email="action@github.com" commit -m "CD"
+        git push origin master
