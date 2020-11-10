@@ -48,7 +48,7 @@ jobs:
         git clone https://github.com/YunosukeY/YunosukeY.github.io.git
         cd YunosukeY.github.io
         rm -rf static
-        cp -r ../ts/poluta-db/build/ .
+        cp -r ../poluta-db/build/ .
         git add -A
         git commit -m "CD"
         git push origin master
