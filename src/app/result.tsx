@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from './data';
 
-export function Result(props: {
+export default function Result(props: {
   query: string,
   genre: number,
   type: number,

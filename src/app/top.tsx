@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useState } from 'react';
 import queryString from 'query-string';
 import { Select } from './select';
-import { Result } from './result';
+import Result from './result';
 
-export function Top(props: { rowqs: string }) {
+export default function Top(props: { rowqs: string }) {
   let rowqs = props.rowqs;
   let qs = queryString.parse(rowqs);
   let query = (qs.query == null) ? '' : String(qs.query);
@@ -104,7 +104,7 @@ export function Top(props: { rowqs: string }) {
   );
 }
 
-export function About() {
+function About() {
   return (
     <div className='pane' id='about'>
       <h4>About</h4>

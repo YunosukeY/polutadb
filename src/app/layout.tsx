@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { Top } from './top';
-import { Stats } from './stats'
-import { Releases } from './releases';
+import Top from './top';
+import Stats from './stats'
+import Releases from './releases';
 
 export function Header() {
   return (

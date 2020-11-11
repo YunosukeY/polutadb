@@ -5,7 +5,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { songs, genres, artists, singings, getGenre, getArtist } from './data';
 
-export function Stats() {
+export default function Stats() {
   useEffect(() => {
     setChart();
   });

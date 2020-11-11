@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function Releases() {
+export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
