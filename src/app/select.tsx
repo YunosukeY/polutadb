@@ -65,7 +65,7 @@ function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
   let genres = getGenres().map(genre => <option value={genre.i} key={genre.i}>{genre.name}</option>);
   return (
     <label>
-      <h6>曲ジャンル</h6>
+      <h6 className='text' >曲ジャンル</h6>
       <select id='genre-selector' value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {genres}
@@ -78,7 +78,7 @@ function Type(props: { type: number, setType: (type: number) => void }) {
   let types = getTypes().map(type => <option value={type.i} key={type.i}>{type.name}</option>);
   return (
     <label>
-      <h6>枠タイプ</h6>
+      <h6 className='text'>枠タイプ</h6>
       <select id='type-selector' value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {types}
@@ -91,7 +91,7 @@ function Video(props: { video: number, setVideo: (video: number) => void }) {
   let videos = getVideos().map(video => <option value={video.i} key={video.i}>{video.date}: {video.title}</option>);
   return (
     <label>
-      <h6>動画</h6>
+      <h6 className='text'>動画</h6>
       <select id='video-selector' value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {videos}
@@ -104,7 +104,7 @@ function Song(props: { song: number, setSong: (song: number) => void }) {
   let songs = getSongs().map(song => <option value={song.i} key={song.i}>{song.title}</option>);
   return (
     <label>
-      <h6>曲</h6>
+      <h6 className='text'>曲</h6>
       <select id='song-selector' value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {songs}
@@ -117,7 +117,7 @@ function Artist(props: { artist: number, setArtist: (artist: number) => void }) 
   let artists = getArtists().map(artist => <option value={artist.i} key={artist.i}>{artist.name}</option>);
   return (
     <label>
-      <h6>アーティスト</h6>
+      <h6 className='text'>アーティスト</h6>
       <select id='artist-selector' value={props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
         <option value='-1' key='-1'>-</option>
         {artists}
@@ -129,15 +129,15 @@ function Artist(props: { artist: number, setArtist: (artist: number) => void }) 
 function Inst(props: { withInst: boolean, setWithInst: any, aCappella: boolean, setACappella: any }) {
   return (
     <label>
-      <h6>伴奏</h6>
+      <h6 className='text'>伴奏</h6>
       <div className='row'>
         <label className='col s4 m2'>
           <input type='checkbox' className='filled-in' checked={props.withInst} onChange={props.setWithInst} />
-          <span>あり</span>
+          <span className='text'>あり</span>
         </label>
         <label className='col s8 m10'>
           <input type='checkbox' className='filled-in' checked={props.aCappella} onChange={props.setACappella} />
-          <span>なし（アカペラ）</span>
+          <span className='text'>なし（アカペラ）</span>
         </label>
       </div>
     </label>
@@ -147,15 +147,15 @@ function Inst(props: { withInst: boolean, setWithInst: any, aCappella: boolean, 
 function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOnechorus: any }) {
   return (
     <label>
-      <h6>尺</h6>
+      <h6 className='text'>尺</h6>
       <div className='row'>
         <label className='col s4 m2'>
           <input type='checkbox' className='filled-in' checked={props.full} onChange={props.setFull} />
-          <span>フル</span>
+          <span className='text'>フル</span>
         </label>
         <label className='col s8 m10'>
           <input type='checkbox' className='filled-in' checked={props.onechorus} onChange={props.setOnechorus} />
-          <span>ワンコーラス</span>
+          <span className='text'>ワンコーラス</span>
         </label>
       </div>
     </label>
@@ -166,7 +166,7 @@ function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: num
   return (
     <>
       <label>
-        <h6>表示件数</h6>
+        <h6 className='text'>表示件数</h6>
       </label>
       <form action='#' className='row'>
         <Radio num={5} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 5} />
@@ -181,7 +181,7 @@ function Radio(props: { num: number, setDisplaynum: (displaynum: number) => void
   return (
     <label className='col s2 m1'>
       <input className='with-gap' type='radio' value={props.num} checked={props.checked} onChange={() => props.setDisplaynum(props.num)} />
-      <span>{props.num}</span>
+      <span className='text'>{props.num}</span>
     </label>
   );
 }

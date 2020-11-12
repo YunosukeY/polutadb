@@ -45,6 +45,9 @@ h4 {
 h5 {
   color: var(--font-color);
 }
+.text {
+  color: #404040;
+}
 
 /* 検索結果 */
 #result-table {
