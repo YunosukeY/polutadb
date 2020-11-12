@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from './data';
 
 export default function Result(props: {
@@ -79,13 +80,13 @@ function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, l
       {props.pagenum - n > 1 &&
         <>
           <li className='waves-effect' key='1'><a onClick={() => props.setPagenum(1)}>1</a></li>
-          <li className='disabled' key='1'><a><i className='material-icons'>more_horiz</i></a></li>
+          <li className='disabled' key='1'><a><MoreHorizIcon color='disabled' style={{ fontSize: 30 }} /></a></li>
         </>
       }
       {currentAround}
       {props.pagenum + n < props.lastPageNum &&
         <>
-          <li className='disabled'><a><i className='material-icons'>more_horiz</i></a></li>
+          <li className='disabled'><a><MoreHorizIcon color='disabled' style={{ fontSize: 30 }} /></a></li>
           <li className='waves-effect'><a onClick={() => props.setPagenum(props.lastPageNum)}>{props.lastPageNum}</a></li>
         </>
       }

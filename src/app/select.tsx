@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import SearchIcon from '@material-ui/icons/Search';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 
@@ -46,16 +47,16 @@ function FullTextSearch(props: { query: string, setQuery: (query: string) => voi
   const [text, setText] = useState(props.query);
 
   function onKeyDown(e: any) {
-    if (e.key === "Enter" && e.keyCode === 13) {
+    if (e.key === 'Enter' && e.keyCode === 13) {
       props.setQuery(text);
     }
   }
 
   return (
-    <div className="input-field">
-      <i className="material-icons prefix">search</i> {/* queryにtextをセット */}
-      <input id="icon_prefix" type="text" className="validate" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
-      <label htmlFor="icon_prefix">全文検索</label>
+    <div className='input-field'>
+      <SearchIcon color='action' className='material-icons prefix' style={{ fontSize: 28 }} /> {/* queryにtextをセット */}
+      <input id='icon_prefix' type='text' className='validate' value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
+      <label htmlFor='icon_prefix'>全文検索</label>
     </div>
   )
 }

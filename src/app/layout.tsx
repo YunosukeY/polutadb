@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import Box from '@material-ui/core/Box';
 import Top from './top';
 import Stats from './stats'
 import Releases from './releases';
@@ -10,7 +12,7 @@ export function Header() {
       <nav className='nav-extended'>
         <div className='nav-wrapper'>
           <Link to='/' className='brand-logo center title'>PolutaDB</Link>
-          <a href='#' data-target='mobile-demo' className='sidenav-trigger'><i className='material-icons'>menu</i></a>
+          <a href='#' data-target='mobile-demo' className='sidenav-trigger'><Box pt={1}><MenuIcon style={{ fontSize: 24 }} /></Box></a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li><Link to='/'>Top</Link></li>
             <li><Link to='/stats'>Stats</Link></li>
