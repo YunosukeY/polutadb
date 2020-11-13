@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, lazy } from 'react';
 import queryString from 'query-string';
 import { Select } from './select';
-import Result from './result';
+const Result = lazy(() => import('./result'));
 
 export default function Top(props: { rowqs: string }) {
   let rowqs = props.rowqs;
@@ -71,7 +71,7 @@ export default function Top(props: { rowqs: string }) {
 
   return (
     <>
-      <About />
+      { !hasResult && <  About />}
       <Select
         query={query} setQuery={setQuery}
         genre={genre} setGenre={setGenre}

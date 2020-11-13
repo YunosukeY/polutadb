@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { Suspense, lazy } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import Top from './top';
-import Stats from './stats'
-import Releases from './releases';
+const Top = lazy(() => import('./top'));
+const Stats = lazy(() => import('./stats'));
+const Releases = lazy(() => import('./releases'));
 
 export function Header() {
   return (
@@ -35,19 +36,29 @@ export function Main() {
     <div id='main'>
       <div className='row'>
         <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2'>
-          <Switch>
-            <Route exact path='/' render={(props) =>
-              <Top
-                rowqs={props.location.search}
-              />
-            } />
-            <Route path='/stats' component={Stats} />
-            <Route path='/releases' component={Releases} />
-          </Switch>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path='/' render={(props) =>
+                <Top
+                  rowqs={props.location.search}
+                />
+              } />
+              <Route path='/stats' component={Stats} />
+              <Route path='/releases' component={Releases} />
+            </Switch>
+          </Suspense>
         </div>
       </div>
     </div>
   );
+}
+
+function Loading() {
+  return (
+    <div className='pane'>
+      <h4 className='center'>Loading...</h4>
+    </div>
+  )
 }
 
 export function Footer() {
