@@ -95,7 +95,7 @@ function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, l
 }
 
 function search(query: string, videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
-  let tmpres = singings;
+  let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));;
 
   let normalizedQuery = query.toLowerCase();
   if (query !== '') {
@@ -123,6 +123,7 @@ function search(query: string, videoId: number, songId: number, artistId: number
   if (onechorus === false)
     tmpres = tmpres.filter(singingInfo => singingInfo.full === true);
 
+  tmpres.reverse();
   return tmpres;
 }
 

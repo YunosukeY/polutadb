@@ -133,7 +133,7 @@ export const videos: Video[] = [
   { // 15
     id: 'xrDuwnQlxLc',
     title: 'ポルカが気圧を倒す時に始まる歌枠【ホロライブ/尾丸ポルカ】',
-    date: '2020/11/3',
+    date: '2020/11/03',
     typeId: 2,
   },
   { // 16
@@ -141,6 +141,18 @@ export const videos: Video[] = [
     title: '30万人に聞かせるリクエストボイス【ホロライブ/尾丸ポルカ】',
     date: '2020/10/12',
     typeId: 5,
+  },
+  { // 17
+    id: 'oK35hzQRrMQ',
+    title: '寝具 a song【尾丸ポルカ/ホロライブ】',
+    date: '2020/11/14',
+    typeId: 2,
+  },
+  { // 18
+    id: 'ekFreTJ3xx8',
+    title: '戯画「ガラス姫と鏡の従者」オープニングムービー',
+    date: '2020/11/13',
+    typeId: 3,
   },
 ]
 
@@ -320,6 +332,32 @@ export const songs: Song[] = [
   /* 163 */ { title: '太陽曰く燃えよカオス', artistId: 99, genreId: 1 },
   /* 164 */ { title: '魂のルフラン', artistId: 76, genreId: 1 },
   /* 165 */ { title: 'DANZEN! ふたりはプリキュア', artistId: 100, genreId: 1 },
+  /* 166 */ { title: 'モーニングコーヒー', artistId: 29, genreId: 2 },
+  /* 167 */ { title: 'Memory 青春の光', artistId: 29, genreId: 2 },
+  /* 168 */ { title: '抱いてHOLD ON ME!', artistId: 29, genreId: 2 },
+  /* 169 */ { title: '長い夢', artistId: 15, genreId: 4 },
+  /* 170 */ { title: 'ローリンガール', artistId: 87, genreId: 3 },
+  /* 171 */ { title: 'スノースマイル', artistId: 47, genreId: 4 },
+  /* 172 */ { title: 'オンリー ロンリー グローリー', artistId: 47, genreId: 4 },
+  /* 173 */ { title: 'アルエ', artistId: 47, genreId: 4 },
+  /* 174 */ { title: 'K', artistId: 47, genreId: 4 },
+  /* 175 */ { title: 'ランプ', artistId: 47, genreId: 4 },
+  /* 176 */ { title: '黒毛和牛上塩タン焼680円', artistId: 101, genreId: 1 },
+  /* 177 */ { title: 'キラキラ', artistId: 14, genreId: 4 },
+  /* 178 */ { title: 'メランコリック', artistId: 102, genreId: 3 },
+  /* 179 */ { title: 'にんじゃりばんばん', artistId: 31, genreId: 6 },
+  /* 180 */ { title: 'インベーダーインベーダー', artistId: 31, genreId: 6 },
+  /* 181 */ { title: 'ポリリズム', artistId: 103, genreId: 6 },
+  /* 182 */ { title: 'ワンルーム・ディスコ', artistId: 103, genreId: 6 },
+  /* 183 */ { title: 'チョコレイト・ディスコ', artistId: 103, genreId: 6 },
+  /* 184 */ { title: 'ナチュラルに恋して', artistId: 103, genreId: 6 },
+  /* 185 */ { title: '不自然なガール', artistId: 103, genreId: 6 },
+  /* 186 */ { title: 'COLORS', artistId: 104, genreId: 4 },
+  /* 187 */ { title: 'Beautiful World', artistId: 104, genreId: 1 },
+  /* 188 */ { title: 'かもめが翔んだ日', artistId: 105, genreId: 4 },
+  /* 189 */ { title: '十面相', artistId: 106, genreId: 3 },
+  /* 190 */ { title: 'BOY MEETS GIRL', artistId: 107, genreId: 1 },
+  /* 191 */ { title: 'キミだけのプリンセス', artistId: 108, genreId: 5 },
 ]
 
 export const genres: Genre[] = [
@@ -439,6 +477,14 @@ export const artists: Artist[] = [
   /* 98 */ { name: 'れるりり' },
   /* 99 */ { name: '後ろから這いより隊G' },
   /* 100 */ { name: '五條真由美' },
+  /* 101 */ { name: '大塚愛' },
+  /* 102 */ { name: 'Junky' },
+  /* 103 */ { name: 'Perfume' },
+  /* 104 */ { name: '宇多田ヒカル' },
+  /* 105 */ { name: '渡辺真知子' },
+  /* 106 */ { name: 'YM' },
+  /* 107 */ { name: 'Prizmmy☆' },
+  /* 108 */ { name: 'AZKi・尾丸ポルカ' },
 ]
 
 // 時系列順に登録？
@@ -634,6 +680,43 @@ export const singings: Singing[] = [
   new Singing(15, 85, '4148'),
   new Singing(15, 1, '4422'),
   new Singing(15, 87, '4817'),
+  new Singing(18, 191, '0', true, false),
+  new Singing(17, 166, '759'),
+  new Singing(17, 167, '1043'),
+  new Singing(17, 168, '1381'),
+  new Singing(17, 169, '1684'),
+  new Singing(17, 170, '2038'),
+  new Singing(17, 25, '2273'),
+  new Singing(17, 171, '2532'),
+  new Singing(17, 172, '2908'),
+  new Singing(17, 173, '3270'),
+  new Singing(17, 174, '3538'),
+  new Singing(17, 175, '3811'),
+  new Singing(17, 60, '4137'),
+  new Singing(17, 176, '4478'),
+  new Singing(17, 177, '4734'),
+  new Singing(17, 18, '5042'),
+  new Singing(17, 65, '5346'),
+  new Singing(17, 178, '5633'),
+  new Singing(17, 179, '5856'),
+  new Singing(17, 180, '6115'),
+  new Singing(17, 181, '6424'),
+  new Singing(17, 182, '6718'),
+  new Singing(17, 183, '7031'),
+  new Singing(17, 184, '7294'),
+  new Singing(17, 185, '7790'),
+  new Singing(17, 84, '8105'),
+  new Singing(17, 32, '8421'),
+  new Singing(17, 186, '8774', true, false),
+  new Singing(17, 187, '8891'),
+  new Singing(17, 188, '9263'),
+  new Singing(17, 79, '9461'),
+  new Singing(17, 21, '9840'),
+  new Singing(17, 189, '10170'),
+  new Singing(17, 190, '10402'),
+  new Singing(17, 23, '10696'),
+  new Singing(17, 37, '10953'),
+  new Singing(17, 0, '11675', true, false),
 ]
 
 export function getGenres() {
@@ -660,9 +743,9 @@ export function getVideos() {
   let videoNames: { date: string, title: string, i: number }[] = [];
   videos.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
   videoNames = videoNames.sort((a, b) => {
-    if (a.date > b.date) return 1;
-    else if (a.date < b.date) return -1;
-    else return a.title > b.title ? 1 : -1;
+    if (a.date > b.date) return -1;
+    else if (a.date < b.date) return 1;
+    else return a.title > b.title ? -1 : 1;
   });
   return videoNames;
 }

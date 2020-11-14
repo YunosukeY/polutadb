@@ -44,49 +44,53 @@ function calcGenreStats() {
 }
 
 function calcArtistStats() {
+  let border = 3;
+
   let data: { [index: string]: number; } = {};
   artists.forEach(artist => data[artist.name] = 0);
   singings.forEach(singing => data[getArtist(singing.songId)]++);
   // その他の計算
   let others = 0;
   artists.forEach(artist => {
-    if (data[artist.name] <= 2) {
+    if (data[artist.name] <= border) {
       others++;
     }
   });
 
   let res: { artist: string, count: number }[] = [];
   artists.forEach(artist => {
-    if (data[artist.name] > 2) {
+    if (data[artist.name] > border) {
       res.push({ artist: artist.name, count: data[artist.name] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ artist: 'その他', count: others });
+  res.push({ artist: `その他（${border}回以下）`, count: others });
 
   return res;
 }
 
 function calcSongStats() {
+  let border = 2;
+
   let data: { [index: string]: number; } = {};
   songs.forEach(song => data[song.title] = 0);
   singings.forEach(singing => data[songs[singing.songId].title]++);
   // その他の計算
   let others = 0;
   songs.forEach(song => {
-    if (data[song.title] <= 1) {
+    if (data[song.title] <= border) {
       others++;
     }
   });
 
   let res: { song: string, count: number }[] = [];
   songs.forEach(song => {
-    if (data[song.title] > 1) {
+    if (data[song.title] > border) {
       res.push({ song: song.title, count: data[song.title] });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
-  res.push({ song: 'その他', count: others });
+  res.push({ song: `その他（${border}回以下）`, count: others });
 
   return res;
 }
