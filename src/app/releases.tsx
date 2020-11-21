@@ -6,6 +6,10 @@ export default function Releases() {
       <h4>Release Notes</h4>
       重要度の低い情報は「細かい変更」にあります．<br />
 
+      <Date date='2020/11/21' />
+      <ContentType type='データの追加' />
+      <Content content='『楽しみすぎて穏やかじゃない【ホロライブ/尾丸ポルカ】』分を追加しました' />
+
       <Date date='2020/11/14' />
       <ContentType type='データの追加' />
       <Content content='『戯画「ガラス姫と鏡の従者」オープニングムービー』分を追加しました' />

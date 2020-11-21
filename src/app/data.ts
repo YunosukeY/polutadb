@@ -154,6 +154,12 @@ export const videos: Video[] = [
     date: '2020/11/13',
     typeId: 3,
   },
+  { // 19
+    id: 'lyX7v3FlitQ',
+    title: '楽しみすぎて穏やかじゃない【ホロライブ/尾丸ポルカ】',
+    date: '2020/11/21',
+    typeId: 5,
+  },
 ]
 
 export const types: Type[] = [
@@ -358,6 +364,7 @@ export const songs: Song[] = [
   /* 189 */ { title: '十面相', artistId: 106, genreId: 3 },
   /* 190 */ { title: 'BOY MEETS GIRL', artistId: 107, genreId: 1 },
   /* 191 */ { title: 'キミだけのプリンセス', artistId: 108, genreId: 5 },
+  /* 192 */ { title: '紅蓮華', artistId: 57, genreId: 1 },
 ]
 
 export const genres: Genre[] = [
@@ -717,6 +724,9 @@ export const singings: Singing[] = [
   new Singing(17, 23, '10696'),
   new Singing(17, 37, '10953'),
   new Singing(17, 0, '11675', true, false),
+  new Singing(19, 86, '2346'),
+  new Singing(19, 27, '2677'),
+  new Singing(19, 192, '2936'),
 ]
 
 export function getGenres() {
