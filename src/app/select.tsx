@@ -62,7 +62,7 @@ function FullTextSearch(props: { query: string, setQuery: (query: string) => voi
 }
 
 function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
-  let genres = getGenres().map(genre => <option value={genre.i} key={genre.i}>{genre.name}</option>);
+  const genres = getGenres().map(genre => <option value={genre.i} key={genre.i}>{genre.name}</option>);
   return (
     <label>
       <h6 className='text' >曲ジャンル</h6>
@@ -75,7 +75,7 @@ function Genre(props: { genre: number, setGenre: (genre: number) => void }) {
 }
 
 function Type(props: { type: number, setType: (type: number) => void }) {
-  let types = getTypes().map(type => <option value={type.i} key={type.i}>{type.name}</option>);
+  const types = getTypes().map(type => <option value={type.i} key={type.i}>{type.name}</option>);
   return (
     <label>
       <h6 className='text'>枠タイプ</h6>
@@ -88,7 +88,7 @@ function Type(props: { type: number, setType: (type: number) => void }) {
 }
 
 function Video(props: { video: number, setVideo: (video: number) => void }) {
-  let videos = getVideos().map(video => <option value={video.i} key={video.i}>{video.date}: {video.title}</option>);
+  const videos = getVideos().map(video => <option value={video.i} key={video.i}>{video.date}: {video.title}</option>);
   return (
     <label>
       <h6 className='text'>動画</h6>
@@ -101,7 +101,7 @@ function Video(props: { video: number, setVideo: (video: number) => void }) {
 }
 
 function Song(props: { song: number, setSong: (song: number) => void }) {
-  let songs = getSongs().map(song => <option value={song.i} key={song.i}>{song.title}</option>);
+  const songs = getSongs().map(song => <option value={song.i} key={song.i}>{song.title}</option>);
   return (
     <label>
       <h6 className='text'>曲</h6>
@@ -114,7 +114,7 @@ function Song(props: { song: number, setSong: (song: number) => void }) {
 }
 
 function Artist(props: { artist: number, setArtist: (artist: number) => void }) {
-  let artists = getArtists().map(artist => <option value={artist.i} key={artist.i}>{artist.name}</option>);
+  const artists = getArtists().map(artist => <option value={artist.i} key={artist.i}>{artist.name}</option>);
   return (
     <label>
       <h6 className='text'>アーティスト</h6>

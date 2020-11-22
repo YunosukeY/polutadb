@@ -779,7 +779,7 @@ export function getUrl(videoId: number) {
 }
 
 export function getArtist(songId: number) {
-  let artistId = songs[songId].artistId;
+  const artistId = songs[songId].artistId;
   return (artistId === -1 ? '' : artists[artistId].name);
 }
 

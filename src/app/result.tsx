@@ -17,9 +17,9 @@ export default function Result(props: {
   pagenum: number,
   setPagenum: React.Dispatch<React.SetStateAction<number>>
 }) {
-  let result = search(props.query, props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
+  const result = search(props.query, props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
-  let onPageClick = ((p: number) => {
+  const onPageClick = ((p: number) => {
     props.setPagenum(p)
     ref!.current!.scrollIntoView({ behavior: 'smooth' });
   });
@@ -65,9 +65,9 @@ function ResultTable(props: { table: Singing[] }) {
 }
 
 function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, lastPageNum: number }) {
-  let n = 2; // 2つ隣のページまで表示させる
+  const n = 2; // 2つ隣のページまで表示させる
 
-  let currentAround = [];
+  const currentAround = [];
   for (let i = Math.max(props.pagenum - n, 1); i <= Math.min(props.pagenum + n, props.lastPageNum); i++) {
     if (i === props.pagenum)
       currentAround.push(<li className='active' key={i}><a>{i}</a></li>)
@@ -95,9 +95,9 @@ function Pagenation(props: { pagenum: number, setPagenum: (p: number) => void, l
 }
 
 function search(query: string, videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
-  let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));;
+  let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));
 
-  let normalizedQuery = query.toLowerCase();
+  const normalizedQuery = query.toLowerCase();
   if (query !== '') {
     tmpres = tmpres.filter(singingInfo => fullTextFilter(singingInfo, normalizedQuery));
   }
@@ -128,9 +128,9 @@ function search(query: string, videoId: number, songId: number, artistId: number
 }
 
 function fullTextFilter(singing: Singing, query: string) {
-  let song = getSong(singing.songId).toLowerCase();
-  let artist = getArtist(singing.songId).toLowerCase();
-  let video = getVideo(singing.videoId).toLowerCase();
+  const song = getSong(singing.songId).toLowerCase();
+  const artist = getArtist(singing.songId).toLowerCase();
+  const video = getVideo(singing.videoId).toLowerCase();
 
   return song.indexOf(query) !== -1 || artist.indexOf(query) !== -1 || video.indexOf(query) !== -1;
 }

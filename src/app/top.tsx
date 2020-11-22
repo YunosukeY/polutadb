@@ -5,21 +5,21 @@ import { Select } from './select';
 const Result = lazy(() => import('./result'));
 
 export default function Top(props: { rowqs: string }) {
-  let rowqs = props.rowqs;
-  let qs = queryString.parse(rowqs);
-  let query = (qs.query == null) ? '' : String(qs.query);
-  let genre = (qs.genre == null) ? -1 : Number(qs.genre);
-  let type = (qs.type == null) ? -1 : Number(qs.type);
-  let video = (qs.video == null) ? -1 : Number(qs.video);
-  let song = (qs.song == null) ? -1 : Number(qs.song);
-  let artist = (qs.artist == null) ? -1 : Number(qs.artist);
-  let withInst = (qs.withInst == null) ? true : (qs.withInst === 'true');
-  let aCappella = (qs.aCappella == null) ? true : (qs.aCappella === 'true');
-  let full = (qs.full == null) ? true : (qs.full === 'true');
-  let onechorus = (qs.onechorus == null) ? true : (qs.onechorus === 'true');
+  const rowqs = props.rowqs;
+  const qs = queryString.parse(rowqs);
+  const query = (qs.query == null) ? '' : String(qs.query);
+  const genre = (qs.genre == null) ? -1 : Number(qs.genre);
+  const type = (qs.type == null) ? -1 : Number(qs.type);
+  const video = (qs.video == null) ? -1 : Number(qs.video);
+  const song = (qs.song == null) ? -1 : Number(qs.song);
+  const artist = (qs.artist == null) ? -1 : Number(qs.artist);
+  const withInst = (qs.withInst == null) ? true : (qs.withInst === 'true');
+  const aCappella = (qs.aCappella == null) ? true : (qs.aCappella === 'true');
+  const full = (qs.full == null) ? true : (qs.full === 'true');
+  const onechorus = (qs.onechorus == null) ? true : (qs.onechorus === 'true');
 
   const [displaynum, setDisplaynum] = useState(5);
-  let hasResult = (rowqs === '') ? false : true;
+  const hasResult = (rowqs === '') ? false : true;
   const [pagenum, setPagenum] = useState(1);
 
   function setQuery(newQuery: string) {

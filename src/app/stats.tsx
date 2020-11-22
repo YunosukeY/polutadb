@@ -30,7 +30,7 @@ export default function Stats() {
 
 function calcGenreStats() {
   // インデックスシグネチャ
-  let data: { [index: string]: number; } = {};
+  const data: { [index: string]: number; } = {};
   // 各ジャンルを初期化
   genres.forEach(genre => data[genre.name] = 0);
   // 集計
@@ -44,9 +44,9 @@ function calcGenreStats() {
 }
 
 function calcArtistStats() {
-  let border = 3;
+  const border = 3;
 
-  let data: { [index: string]: number; } = {};
+  const data: { [index: string]: number; } = {};
   artists.forEach(artist => data[artist.name] = 0);
   singings.forEach(singing => data[getArtist(singing.songId)]++);
   // その他の計算
@@ -70,9 +70,9 @@ function calcArtistStats() {
 }
 
 function calcSongStats() {
-  let border = 2;
+  const border = 2;
 
-  let data: { [index: string]: number; } = {};
+  const data: { [index: string]: number; } = {};
   songs.forEach(song => data[song.title] = 0);
   singings.forEach(singing => data[songs[singing.songId].title]++);
   // その他の計算
@@ -100,9 +100,9 @@ function setChart() {
   am4core.useTheme(am4themes_animated);
 
   {
-    let chart = am4core.create('genre-stats', am4charts.PieChart);
+    const chart = am4core.create('genre-stats', am4charts.PieChart);
     chart.data = calcGenreStats();
-    let pieSeries = chart.series.push(new am4charts.PieSeries());
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = 'count';
     pieSeries.dataFields.category = 'genre';
     pieSeries.slices.template.stroke = am4core.color('#fff');
@@ -113,9 +113,9 @@ function setChart() {
     chart.hiddenState.properties.radius = am4core.percent(0);
   }
   {
-    let chart = am4core.create('artist-stats', am4charts.PieChart);
+    const chart = am4core.create('artist-stats', am4charts.PieChart);
     chart.data = calcArtistStats();
-    let pieSeries = chart.series.push(new am4charts.PieSeries());
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = 'count';
     pieSeries.dataFields.category = 'artist';
     pieSeries.slices.template.stroke = am4core.color('#fff');
@@ -126,9 +126,9 @@ function setChart() {
     chart.hiddenState.properties.radius = am4core.percent(0);
   }
   {
-    let chart = am4core.create('song-stats', am4charts.PieChart);
+    const chart = am4core.create('song-stats', am4charts.PieChart);
     chart.data = calcSongStats();
-    let pieSeries = chart.series.push(new am4charts.PieSeries());
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = 'count';
     pieSeries.dataFields.category = 'song';
     pieSeries.slices.template.stroke = am4core.color('#fff');
