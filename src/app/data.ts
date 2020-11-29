@@ -160,6 +160,12 @@ export const videos: Video[] = [
     date: '2020/11/21',
     typeId: 5,
   },
+  { // 20
+    id: 'l1uB8w7e0SA',
+    title: 'POLKA≡November≡LIVE≡2020 #ぽるうた【尾丸ポルカ/ホロライブ】',
+    date: '2020/11/28',
+    typeId: 1,
+  },
 ]
 
 export const types: Type[] = [
@@ -365,6 +371,15 @@ export const songs: Song[] = [
   /* 190 */ { title: 'BOY MEETS GIRL', artistId: 107, genreId: 1 },
   /* 191 */ { title: 'キミだけのプリンセス', artistId: 108, genreId: 5 },
   /* 192 */ { title: '紅蓮華', artistId: 57, genreId: 1 },
+  /* 193 */ { title: 'モザイクロール', artistId: 109, genreId: 3 },
+  /* 194 */ { title: 'SNOW! SNOW! SNOW!', artistId: 59, genreId: 4 },
+  /* 195 */ { title: '愛のかたまり', artistId: 59, genreId: 4 },
+  /* 196 */ { title: 'うれしい！たのしい！大好き！', artistId: 39, genreId: 4 },
+  /* 197 */ { title: '結ンデ開イテ羅刹ト骸', artistId: 110, genreId: 3 },
+  /* 198 */ { title: 'シザーハンズ', artistId: 111, genreId: 3 },
+  /* 199 */ { title: '天ノ弱', artistId: 112, genreId: 3 },
+  /* 200 */ { title: 'Just Be Friends', artistId: 113, genreId: 3 },
+  /* 201 */ { title: 'ココロオドル', artistId: 114, genreId: 1 },
 ]
 
 export const genres: Genre[] = [
@@ -492,6 +507,12 @@ export const artists: Artist[] = [
   /* 106 */ { name: 'YM' },
   /* 107 */ { name: 'Prizmmy☆' },
   /* 108 */ { name: 'AZKi・尾丸ポルカ' },
+  /* 109 */ { name: 'DECO*27' },
+  /* 110 */ { name: 'ハチ' },
+  /* 111 */ { name: 'Nem' },
+  /* 112 */ { name: '164' },
+  /* 113 */ { name: 'Dixie Flatline' },
+  /* 114 */ { name: 'nobodyknows+' },
 ]
 
 // 時系列順に登録？
@@ -727,6 +748,29 @@ export const singings: Singing[] = [
   new Singing(19, 86, '2346'),
   new Singing(19, 27, '2677'),
   new Singing(19, 192, '2936'),
+  new Singing(20, 77, '243'),
+  new Singing(20, 20, '475'),
+  new Singing(20, 54, '729'),
+  new Singing(20, 193, '912'),
+  new Singing(20, 194, '1385'),
+  new Singing(20, 195, '1648'),
+  new Singing(20, 170, '1935'),
+  new Singing(20, 68, '2126'),
+  new Singing(20, 69, '2403'),
+  new Singing(20, 196, '2888'),
+  new Singing(20, 31, '3137'),
+  new Singing(20, 197, '3377'),
+  new Singing(20, 198, '3632'),
+  new Singing(20, 199, '3902'),
+  new Singing(20, 200, '4089'),
+  new Singing(20, 187, '4383'),
+  new Singing(20, 201, '4792'),
+  new Singing(20, 67, '5045'),
+  new Singing(20, 57, '5344'),
+  new Singing(20, 161, '5663'),
+  new Singing(20, 192, '5853'),
+  new Singing(20, 111, '6199'),
+  new Singing(20, 32, '6460'),
 ]
 
 export function getGenres() {
