@@ -13,15 +13,15 @@ export default function Stats() {
   return (
     <div id='stats'>
       <div className='pane'>
-        <h4 className='center'>Genres</h4>
+        <h4 className='center'>{genres.length} Genres</h4>
         <div className='chartdiv' id='genre-stats'></div>
       </div>
       <div className='pane'>
-        <h4 className='center'>Artists</h4>
+        <h4 className='center'>{artists.length} Artists</h4>
         <div className='chartdiv' id='artist-stats'></div>
       </div>
       <div className='pane'>
-        <h4 className='center'>Songs</h4>
+        <h4 className='center'>{songs.length} Songs</h4>
         <div className='chartdiv' id='song-stats'></div>
       </div>
     </div>
@@ -44,7 +44,7 @@ function calcGenreStats() {
 }
 
 function calcArtistStats() {
-  const border = 3;
+  const border = 4;
 
   const data: { [index: string]: number; } = {};
   artists.forEach(artist => data[artist.name] = 0);

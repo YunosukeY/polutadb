@@ -4,7 +4,10 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
-      重要度の低い情報は「細かい変更」にあります．<br />
+      <Date date='2020/12/13' />
+      <ContentType type='データの追加' />
+      <Content content='『アカペラで 狂乱戦記～日常ノ神サマ～【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <Content content='『歌で銀河が救えるわけないでしょ【尾丸ポルカ/ホロライブ】』分を追加しました' />
 
       <Date date='2020/11/29' />
       <ContentType type='データの追加' />
