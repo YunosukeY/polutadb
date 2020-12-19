@@ -178,6 +178,12 @@ export const videos: Video[] = [
     date: '2020/12/10',
     typeId: 2,
   },
+  { // 23
+    id: 'c_ss-YVM82E',
+    title: 'いつものカラオケ #気圧敗北部【尾丸ポルカ/ホロライブ】',
+    date: '2020/12/19',
+    typeId: 2,
+  },
 ]
 
 export const types: Type[] = [
@@ -849,6 +855,24 @@ export const singings: Singing[] = [
   new Singing(22, 225, '9615', false, true),
   new Singing(22, 123, '10001'),
   new Singing(22, 84, '10296'),
+  new Singing(23, 5, '130'),
+  new Singing(23, 24, '459'),
+  new Singing(23, 23, '802'),
+  new Singing(23, 86, '1048'),
+  new Singing(23, 88, '1475'),
+  new Singing(23, 113, '1725'),
+  new Singing(23, 33, '2045'),
+  new Singing(23, 16, '2457'),
+  new Singing(23, 17, '2764'),
+  new Singing(23, 3, '3035'),
+  new Singing(23, 14, '3617'),
+  new Singing(23, 2, '3922'),
+  new Singing(23, 76, '4160'),
+  new Singing(23, 81, '4346'),
+  new Singing(23, 147, '4874'),
+  new Singing(23, 142, '5158'),
+  new Singing(23, 82, '5389'),
+  new Singing(23, 87, '5886'),
 ]
 
 export function getGenres() {
