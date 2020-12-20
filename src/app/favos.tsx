@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Singing, singings } from './data';
 import { ResultTable, Pagenation } from './result';
 import { Displaynum } from './select';
@@ -20,6 +20,12 @@ export default function Favos(props: { isFavo: (singingId: number) => boolean, t
   const onPageClick = ((p: number) => {
     setPagenum(p)
     ref!.current!.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  useEffect(() => {
+    if (favoList.length === (pagenum - 1) * displaynum) {
+      setPagenum(pagenum - 1);
+    }
   });
 
   return (
