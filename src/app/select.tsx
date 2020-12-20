@@ -162,7 +162,7 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
   );
 }
 
-function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: number) => void }) {
+export function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: number) => void }) {
   return (
     <>
       <label>

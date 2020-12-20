@@ -1,4 +1,4 @@
-import { songs, artists } from '../app/data';
+import { songs, artists, singings } from '../app/data';
 
 describe('データに重複がないか', () => {
   test('曲名', () => {
@@ -25,5 +25,9 @@ describe('データに重複がないか', () => {
     })
     diff = Array.from(new Set(diff));
     expect(diff).toEqual(Array<string>());
+  });
+
+  test('歌ID', () => {
+    singings.forEach((singing, i) => expect(singing.id).toEqual(i));
   });
 });

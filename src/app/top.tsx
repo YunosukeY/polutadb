@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import { Select } from './select';
 const Result = lazy(() => import('./result'));
 
-export default function Top(props: { rowqs: string }) {
+export default function Top(props: { rowqs: string, isFavo: (singingId: number) => boolean, toggleFavo: (singingId: number) => void }) {
   const rowqs = props.rowqs;
   const qs = queryString.parse(rowqs);
   const query = (qs.query == null) ? '' : String(qs.query);
@@ -99,6 +99,8 @@ export default function Top(props: { rowqs: string }) {
         displaynum={displaynum}
         pagenum={pagenum}
         setPagenum={setPagenum}
+        isFavo={props.isFavo}
+        toggleFavo={props.toggleFavo}
       />}
     </>
   );

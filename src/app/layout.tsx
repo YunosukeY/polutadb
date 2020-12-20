@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
 const Top = lazy(() => import('./top'));
+const Favos = lazy(() => import('./favos'));
 const Stats = lazy(() => import('./stats'));
 const Releases = lazy(() => import('./releases'));
 
@@ -16,6 +17,7 @@ export function Header() {
           <a href='#' data-target='mobile-demo' className='sidenav-trigger'><Box pt={1}><MenuIcon style={{ fontSize: 24 }} /></Box></a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li><Link to='/'>Top</Link></li>
+            <li><Link to='/favos'>Favos</Link></li>
             <li><Link to='/stats'>Stats</Link></li>
             <li><Link to='/releases'>Releases</Link></li>
           </ul>
@@ -24,6 +26,7 @@ export function Header() {
 
       <ul className='sidenav' id='mobile-demo'>
         <li><Link to='/'>Top</Link></li>
+        <li><Link to='/favos'>Favos</Link></li>
         <li><Link to='/stats'>Stats</Link></li>
         <li><Link to='/releases'>Releases</Link></li>
       </ul>
@@ -32,6 +35,29 @@ export function Header() {
 }
 
 export function Main() {
+  const [favos, setFavos] = useState(() => {
+    const stickyValue = window.localStorage.getItem('favos');
+    return stickyValue !== null
+      ? new Map(JSON.parse(stickyValue)) as Map<number, boolean>
+      : new Map<number, boolean>();
+  });
+  useEffect(() => {
+    window.localStorage.setItem('favos', JSON.stringify([...favos]));
+  });
+
+  const isFavo = (singingId: number) => {
+    favos as Map<number, boolean>;
+    return favos.has(singingId) && (favos.get(singingId) as boolean);
+  };
+  const toggleFavo = (singingId: number) => {
+    if (favos.has(singingId)) {
+      const f = favos.get(singingId) as boolean;
+      setFavos(new Map(favos.set(singingId, !f)));
+    } else {
+      setFavos(new Map(favos.set(singingId, true)));
+    }
+  };
+
   return (
     <div id='main'>
       <div className='row'>
@@ -41,6 +67,14 @@ export function Main() {
               <Route exact path='/' render={(props) =>
                 <Top
                   rowqs={props.location.search}
+                  isFavo={isFavo}
+                  toggleFavo={toggleFavo}
+                />
+              } />
+              <Route path='/favos' render={() =>
+                <Favos
+                  isFavo={isFavo}
+                  toggleFavo={toggleFavo}
                 />
               } />
               <Route path='/stats' component={Stats} />
