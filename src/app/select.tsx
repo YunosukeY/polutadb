@@ -55,7 +55,7 @@ function FullTextSearch(props: { query: string, setQuery: (query: string) => voi
   return (
     <div className='input-field'>
       <SearchIcon color='action' className='material-icons prefix' style={{ fontSize: 28 }} /> {/* queryにtextをセット */}
-      <input id='icon_prefix' type='text' className='validate' value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
+      <input id='icon_prefix' type='text' value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
       <label htmlFor='icon_prefix'>全文検索</label>
     </div>
   )
