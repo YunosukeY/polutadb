@@ -1,65 +1,66 @@
 import * as React from 'react';
+import { getVideo } from './data';
 
 export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
       <Date date='2020/12/25' />
-      <ContentType type='データの追加' />
-      <Content content='『【オリジナル曲】『BLUE CLAPPER』試聴動画 【雪花ラミィ, 桃鈴ねね, 獅白ぼたん, 尾丸ポルカ】』分を追加しました' />
-      <Content content='『All Night Polka Party【尾丸ポルカ/ホロライブ】』分を追加しました' />
-      <Content content='『【#ホロライブクリスマス】🌊⛱皆で満喫しちゃうクリスマスリレー😎🏖【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={24} />
+      <AddVideo videoId={25} />
+      <AddVideo videoId={26} />
 
       <Date date='2020/12/20' />
-      <ContentType type='機能の追加' />
+      <AddFeature />
       <Content content='お気に入り機能を追加しました' />
       <Content content='ツイート機能を追加しました' />
 
       <Date date='2020/12/19' />
-      <ContentType type='データの追加' />
-      <Content content='『いつものカラオケ #気圧敗北部【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={23} />
 
       <Date date='2020/12/13' />
-      <ContentType type='データの追加' />
-      <Content content='『アカペラで 狂乱戦記～日常ノ神サマ～【尾丸ポルカ/ホロライブ】』分を追加しました' />
-      <Content content='『歌で銀河が救えるわけないでしょ【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={21} />
+      <AddVideo videoId={22} />
 
       <Date date='2020/11/29' />
-      <ContentType type='データの追加' />
-      <Content content='『POLKA≡November≡LIVE≡2020 #ぽるうた【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={20} />
 
       <Date date='2020/11/21' />
-      <ContentType type='データの追加' />
-      <Content content='『楽しみすぎて穏やかじゃない【ホロライブ/尾丸ポルカ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={19} />
 
       <Date date='2020/11/14' />
-      <ContentType type='データの追加' />
-      <Content content='『戯画「ガラス姫と鏡の従者」オープニングムービー』分を追加しました' />
-      <Content content='『寝具 a song【尾丸ポルカ/ホロライブ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={18} />
+      <AddVideo videoId={17} />
 
       <Date date='2020/11/09' />
-      <ContentType type='データの追加' />
-      <Content content='『30万人に聞かせるリクエストボイス【ホロライブ/尾丸ポルカ】』分を追加しました' />
-      <ContentType type='機能の追加' />
+      <AddData />
+      <AddVideo videoId={16} />
+      <AddFeature />
       <Content content='全文検索を追加しました' />
 
       <Date date='2020/11/08' />
-      <ContentType type='機能の追加' />
+      <AddFeature />
       <Content content='ページのルーティングに対応しました' />
 
       <Date date='2020/11/03' />
-      <ContentType type='データの追加' />
-      <Content content='『ポルカが気圧を倒す時に始まる歌枠【ホロライブ/尾丸ポルカ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={15} />
 
       <Date date='2020/10/31' />
-      <ContentType type='データの追加' />
-      <Content content='『POLKA◆October◆LIVE◆2020 #ぽるうた 【ホロライブ/尾丸ポルカ】』分を追加しました' />
-      <Content content='『【ホロライブ】さぷらいずぱらだいす！【どっきりラビリンス】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={13} />
+      <AddVideo videoId={14} />
 
       <Date date='2020/10/28' />
-      <ContentType type='データの追加' />
-      <Content content='『酔いどれポルカのアイカツ！語り～アカペラもあるｙｐ～【ホロライブ/尾丸ポルカ】』分を追加しました' />
-      <ContentType type='機能の追加' />
+      <AddData />
+      <AddVideo videoId={12} />
+      <AddFeature />
       <Content content='伴奏の有無、歌の長さでの検索を追加しました' />
       <Content content='アカペラかワンコーラスの場合には結果で補足を表示するようにしました' />
       <ContentType type='細かい変更' />
@@ -74,8 +75,8 @@ export default function Releases() {
       <Content content='統計情報ページを追加しました' />
 
       <Date date='2020/10/23' />
-      <ContentType type='データの追加' />
-      <Content content='『ポルカじゃない人の朝歌ゲリラ【ホロライブ/尾丸ポルカ】』分を追加しました' />
+      <AddData />
+      <AddVideo videoId={11} />
       <ContentType type='細かい変更' />
       <Content content='『桜高軽音部』と『放課後ティータイム』を区別するようにしました' />
 
@@ -87,6 +88,20 @@ export default function Releases() {
 
 function Date(props: { date: string }) {
   return (<h5 className='release-date'>{props.date}</h5>);
+}
+
+function AddData() {
+  return (<ContentType type='データの追加' />);
+}
+
+function AddFeature() {
+  return (<ContentType type='機能の追加' />);
+}
+
+function AddVideo(props: { videoId: number }) {
+  return (
+    <Content content={`『${getVideo(props.videoId)}』分を追加しました`} />
+  );
 }
 
 function ContentType(props: { type: string }) {
