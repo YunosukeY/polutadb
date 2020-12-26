@@ -204,6 +204,12 @@ export const videos: Video[] = [
     date: '2020/12/25',
     typeId: 2,
   },
+  { // 27
+    id: 'LQ_eazT56FA',
+    title: '【ORIGINAL SONG+MV】HOLOGRAM CIRCUS - Omaru Polka【尾丸ポルカ/ホロライブ】',
+    date: '2020/12/26',
+    typeId: 3,
+  },
 ]
 
 export const types: Type[] = [
@@ -945,6 +951,7 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 26, 89, 1054),
   new Singing(Iota.get(), 26, 95, 1283),
   new Singing(Iota.get(), 26, 32, 1533),
+  new Singing(Iota.get(), 27, 0, 0),
 ]
 
 export function getGenres() {
