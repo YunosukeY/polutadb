@@ -58,7 +58,9 @@ export function ResultTable(props: { table: Singing[], isFavo: (singingId: numbe
       {props.table.map((singing, i) => (
         <tr key={i}><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
-            <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen title={getVideo(singing.videoId)}></iframe>
+            <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
+              <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen title={getVideo(singing.videoId)}></iframe>
+            </div>
           </div>
           <div className='col s12 m12 l4 xl4' id='result-table'>
             <h5 id='song-info'>
