@@ -210,6 +210,12 @@ export const videos: Video[] = [
     date: '2020/12/26',
     typeId: 3,
   },
+  { // 28
+    id: '8KgFVpzjRrg',
+    title: 'POLKA▲December▲LIVE▲2020 #ぽるうた 【ホロライブ/尾丸ポルカ】',
+    date: '2020/12/29',
+    typeId: 1,
+  },
 ]
 
 export const types: Type[] = [
@@ -462,6 +468,13 @@ export const songs: Song[] = [
   /* 237 */ { title: 'ねぇ', artistId: 103, genreId: 6 },
   /* 238 */ { title: '夏祭り', artistId: 129, genreId: 4 },
   /* 239 */ { title: '夏色えがおで1,2,Jump!', artistId: 55, genreId: 1 },
+  /* 240 */ { title: '射手座☆午後九時Don\'t be late', artistId: 42, genreId: 1 },
+  /* 241 */ { title: '生きてこそ', artistId: 130, genreId: 4 },
+  /* 242 */ { title: '月のワルツ', artistId: 131, genreId: 4 },
+  /* 243 */ { title: 'Zzz', artistId: 132, genreId: 1 },
+  /* 244 */ { title: '輝夜の城で踊りたい', artistId: 55, genreId: 1 },
+  /* 245 */ { title: 'イドラのサーカス', artistId: 133, genreId: 3 },
+  /* 246 */ { title: 'ブリキノダンス', artistId: 134, genreId: 3 },
 ]
 
 export const genres: Genre[] = [
@@ -610,6 +623,11 @@ export const artists: Artist[] = [
   /* 127 */ { name: 'CHEMISTRY' },
   /* 128 */ { name: 'BEGIN' },
   /* 129 */ { name: 'JITTERIN\'JINN' },
+  /* 130 */ { name: 'Kiroro' },
+  /* 131 */ { name: '諫山実生' },
+  /* 132 */ { name: '佐咲紗花' },
+  /* 133 */ { name: 'Neru' },
+  /* 134 */ { name: '日向電工' },
 ]
 
 class Iota {
@@ -952,6 +970,19 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 26, 95, 1283),
   new Singing(Iota.get(), 26, 32, 1533),
   new Singing(Iota.get(), 27, 0, 0),
+  new Singing(Iota.get(), 28, 225, 195),
+  new Singing(Iota.get(), 28, 240, 535),
+  new Singing(Iota.get(), 28, 74, 872),
+  new Singing(Iota.get(), 28, 169, 1085),
+  new Singing(Iota.get(), 28, 19, 1391),
+  new Singing(Iota.get(), 28, 241, 1707),
+  new Singing(Iota.get(), 28, 49, 1967),
+  new Singing(Iota.get(), 28, 242, 2217),
+  new Singing(Iota.get(), 28, 243, 2486),
+  new Singing(Iota.get(), 28, 244, 2741),
+  new Singing(Iota.get(), 28, 245, 3017),
+  new Singing(Iota.get(), 28, 246, 3232),
+  new Singing(Iota.get(), 28, 0, 3557),
 ]
 
 export function getGenres() {
