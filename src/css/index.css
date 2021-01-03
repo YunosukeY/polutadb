@@ -2,7 +2,7 @@
   --theme-color: #ee6e73;
   --font-color: #f1646a;
   --sub-theme-color: dodgerblue;
-  --bg-color: #f8f8f8;
+  --bg-color: rgba(251, 251, 251, 0.9);
 }
 
 /* footerを下に固定する */
@@ -17,13 +17,17 @@
 }
 
 /* body */
+body {
+  background-image: url("bg.png");
+  background-attachment: fixed;
+}
 #main {
   background-color: var(--bg-color);
 }
 .pane {
   border-radius: 10px;
   margin-top: 20px;
-  background-color: white;
+  background-color:rgba(255, 255, 255, 0.8);
   padding: 10px;
   /* box-shadow: 5px 5px 5px rgba(0,0,0,0.4); */
 }
