@@ -114,8 +114,7 @@ export function Footer() {
           <div className='col s12' id='links'>
             <h5 className='white-text'>Links</h5>
             <ul>
-              <li><a className='grey-text text-lighten-3' href='https://github.com/YunosukeY/poluta-db'>Source Code</a></li>
-              <li><a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>Twitter</a></li>
+              <li><a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>管理人Twitter</a></li>
             </ul>
           </div>
         </div>
