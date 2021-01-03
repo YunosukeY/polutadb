@@ -1018,7 +1018,14 @@ export function getVideos() {
 
 export function getSongs() {
   let songNames: { title: string, i: number }[] = [];
-  songs.forEach((song, i) => songNames.push({ title: song.title, i: i }));
+  songs.forEach((song, i) => {
+    const artist = getArtist(i);
+    if (artist === '') {
+      songNames.push({ title: song.title, i: i });
+    } else {
+      songNames.push({ title: `${song.title}（${artist}）`, i: i });
+    }
+  });
   songNames = songNames.sort((a, b) => a.title > b.title ? 1 : -1);
   return songNames;
 }
