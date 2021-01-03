@@ -85,7 +85,7 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
         onechorus={onechorus} setOnechorus={setOnechorus}
         displaynum={displaynum} setDisplaynum={onDnumChange}
       />
-      {hasResult && <Result
+      <Result
         query={query}
         genre={genre}
         type={type}
@@ -101,7 +101,7 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
         setPagenum={setPagenum}
         isFavo={props.isFavo}
         toggleFavo={props.toggleFavo}
-      />}
+      />
     </>
   );
 }
