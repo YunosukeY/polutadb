@@ -4,9 +4,13 @@ import { Singing, singings } from './data';
 import { ResultTable, Pagenation } from './result';
 import { Displaynum } from './select';
 
-export default function Favos(props: { isFavo: (singingId: number) => boolean, toggleFavo: (singingId: number) => void }) {
+export default function Favos(props: {
+  isFavo: (singingId: number) => boolean,
+  toggleFavo: (singingId: number) => void,
+  displaynum: number,
+  setDisplaynum: (displaynum: number) => void
+}) {
   const [pagenum, setPagenum] = useState(1);
-  const [displaynum, setDisplaynum] = useState(5);
 
   const favoList = new Array<Singing>();
   singings.forEach((singing) => {
@@ -23,7 +27,7 @@ export default function Favos(props: { isFavo: (singingId: number) => boolean, t
   });
 
   useEffect(() => {
-    if (favoList.length === (pagenum - 1) * displaynum) {
+    if (favoList.length === (pagenum - 1) * props.displaynum) {
       setPagenum(pagenum - 1);
     }
   });
@@ -31,20 +35,20 @@ export default function Favos(props: { isFavo: (singingId: number) => boolean, t
   return (
     <div className='pane' id='favo'>
       <Displaynum
-        displaynum={displaynum}
+        displaynum={props.displaynum}
         setDisplaynum={(displaynum: number) => {
-          setDisplaynum(displaynum);
+          props.setDisplaynum(displaynum);
           setPagenum(1);
         }}
       />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
       <ResultTable
-        table={favoList.slice((pagenum - 1) * displaynum, Math.min(pagenum * displaynum, favoList.length))}
+        table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
         isFavo={props.isFavo}
         toggleFavo={props.toggleFavo}
       />
-      <Pagenation pagenum={pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(favoList.length / displaynum)} />
+      <Pagenation pagenum={pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(favoList.length / props.displaynum)} />
     </div>
   );
 }

@@ -41,8 +41,15 @@ export function Main() {
       ? new Map(JSON.parse(stickyValue)) as Map<number, boolean>
       : new Map<number, boolean>();
   });
+  const [displaynum, setDisplaynum] = useState(() => {
+    const stickyValue = window.localStorage.getItem('displaynum');
+    return stickyValue !== null
+      ? Number(stickyValue)
+      : 5;
+  });
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...favos]));
+    window.localStorage.setItem('displaynum', String(displaynum));
   });
 
   const isFavo = (singingId: number) => {
@@ -69,12 +76,16 @@ export function Main() {
                   rowqs={props.location.search}
                   isFavo={isFavo}
                   toggleFavo={toggleFavo}
+                  displaynum={displaynum}
+                  setDisplaynum={setDisplaynum}
                 />
               } />
               <Route path='/favos' render={() =>
                 <Favos
                   isFavo={isFavo}
                   toggleFavo={toggleFavo}
+                  displaynum={displaynum}
+                  setDisplaynum={setDisplaynum}
                 />
               } />
               <Route path='/stats' component={Stats} />

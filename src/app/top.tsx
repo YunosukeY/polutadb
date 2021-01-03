@@ -4,7 +4,13 @@ import queryString from 'query-string';
 import { Select } from './select';
 const Result = lazy(() => import('./result'));
 
-export default function Top(props: { rowqs: string, isFavo: (singingId: number) => boolean, toggleFavo: (singingId: number) => void }) {
+export default function Top(props: {
+  rowqs: string,
+  isFavo: (singingId: number) => boolean,
+  toggleFavo: (singingId: number) => void,
+  displaynum: number,
+  setDisplaynum: (displaynum: number) => void
+}) {
   const rowqs = props.rowqs;
   const qs = queryString.parse(rowqs);
   const query = (qs.query == null) ? '' : String(qs.query);
@@ -18,7 +24,6 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
   const full = (qs.full == null) ? true : (qs.full === 'true');
   const onechorus = (qs.onechorus == null) ? true : (qs.onechorus === 'true');
 
-  const [displaynum, setDisplaynum] = useState(5);
   const hasResult = (rowqs === '') ? false : true;
   const [pagenum, setPagenum] = useState(1);
 
@@ -65,7 +70,7 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
 
   // 表示件数が更新されたら1ページ目に戻す
   function onDnumChange(newDnum: number) {
-    setDisplaynum(newDnum);
+    props.setDisplaynum(newDnum);
     setPagenum(1);
   }
 
@@ -83,7 +88,7 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
         aCappella={aCappella} setACappella={setACappella}
         full={full} setFull={setFull}
         onechorus={onechorus} setOnechorus={setOnechorus}
-        displaynum={displaynum} setDisplaynum={onDnumChange}
+        displaynum={props.displaynum} setDisplaynum={onDnumChange}
       />
       <Result
         query={query}
@@ -96,7 +101,7 @@ export default function Top(props: { rowqs: string, isFavo: (singingId: number) 
         aCappella={aCappella}
         full={full}
         onechorus={onechorus}
-        displaynum={displaynum}
+        displaynum={props.displaynum}
         pagenum={pagenum}
         setPagenum={setPagenum}
         isFavo={props.isFavo}
