@@ -5,6 +5,9 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
+      <Date date='2021/01/04' />
+      ・Puunyan様（<a href='https://twitter.com/Puunyannyan'>@Puunyannyan</a>）のイラストを使わせていただけることになりました
+
       <Date date='2020/12/30' />
       <AddData />
       <AddVideo videoId={28} />

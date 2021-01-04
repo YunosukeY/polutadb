@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState, lazy } from 'react';
 import queryString from 'query-string';
 import { Select } from './select';
+import card from './card.svg'
+import cardSmallerCredit from './card-smaller-credit.svg'
 const Result = lazy(() => import('./result'));
 
 export default function Top(props: {
@@ -76,6 +78,7 @@ export default function Top(props: {
 
   return (
     <>
+      <Card />
       { !hasResult && <  About />}
       <Select
         query={query} setQuery={setQuery}
@@ -115,10 +118,28 @@ function About() {
   return (
     <div className='pane' id='about'>
       <h4>About</h4>
-        PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．<br />
-      <br />
-        ・表示件数を増やすと重くなる場合があります<br />
-        ・不具合，ご要望は<a href='https://twitter.com/k1m1tsu'>管理人Twitter</a>までご連絡ください<br />
+      <Describe style={{}} />
     </div>
   );
+}
+
+function Describe(props: { style: any }) {
+  return (
+    <div style={props.style}>
+      PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．<br />
+      <br />
+      ・表示件数を増やすと重くなる場合があります<br />
+      ・お気に入り情報はブラウザに保存されるため，キャッシュクリアにご注意ください<br />
+      ・不具合，ご要望は<a href='https://twitter.com/k1m1tsu'>管理人Twitter</a>までご連絡ください<br />
+    </div>
+  )
+}
+
+function Card() {
+  return (
+    <div className='pane' id='Card'>
+      {screen.width > 500 && <img src={cardSmallerCredit} alt="OmaruPolka" title="OmaruPolka" style={{ maxHeight: "400px" }} />}
+      {screen.width <= 500 && <img src={card} alt="OmaruPolka" title="OmaruPolka" />}
+    </div>
+  )
 }
