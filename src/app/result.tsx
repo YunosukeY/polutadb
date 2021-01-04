@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useState } from 'react';
+import Modal from '@material-ui/core/Modal';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import StarIcon from '@material-ui/icons/Star';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -77,7 +79,15 @@ export function ResultTable(props: ResultTableProps) {
         <tr key={i}><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
             <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
-              <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen title={getVideo(singing.videoId)}></iframe>
+              <iframe
+                width='480'
+                height='270'
+                src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`}
+                frameBorder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+                title={getVideo(singing.videoId)}
+              />
             </div>
           </div>
           <div className='col s12 m12 l4 xl4' id='result-table'>
@@ -100,35 +110,72 @@ export function SimpleResultTable(props: ResultTableProps) {
   const fontsize = 28;
   return (
     <table><tbody>
-      {props.table.map((singing, i) => (
-        <tr key={i}><td><div className='row' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div className='col s12 m9' style={{ textAlign: 'center' }}>
-            <h6>
-              『{getSong(singing.songId)}』
-              {getArtist(singing.songId)} <br />
-              {(singing.withInst === false) && <>アカペラ</>}
-              {(singing.withInst === false && singing.full === false) && <> </>}
-              {(singing.full === false) && <>ワンコーラス</>}
-            </h6>
-          </div>
-          <div className='col s12 m3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Youtube fontsize={fontsize} />
-            <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} fontsize={fontsize} />
-            <Tweet singing={singing} fontsize={fontsize} />
-          </div>
-        </div></td></tr>
-      ))}
-    </tbody></table>
+      {props.table.map((singing, i) => {
+        return (
+          <tr key={i}><td><div className='row' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='col s12 m9' style={{ textAlign: 'center' }}>
+              <h6>
+                『{getSong(singing.songId)}』
+                {getArtist(singing.songId)} <br />
+                {(singing.withInst === false) && <>アカペラ</>}
+                {(singing.withInst === false && singing.full === false) && <> </>}
+                {(singing.full === false) && <>ワンコーラス</>}
+              </h6>
+            </div>
+            <div className='col s12 m3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Youtube singing={singing} fontsize={fontsize} />
+              <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} fontsize={fontsize} />
+              <Tweet singing={singing} fontsize={fontsize} />
+            </div>
+          </div></td></tr>
+        )
+      })}
+    </tbody></table >
   );
 }
 
-function Youtube(props: { fontsize: number }) {
+function Youtube(props: { singing: Singing, fontsize: number }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const body = (
+    <div id='iframe-content' style={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    }}>
+      <iframe
+        width='800'
+        height='450'
+        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${props.singing.start}`}
+        frameBorder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowFullScreen
+        title={getVideo(props.singing.videoId)}
+      />
+    </div>
+  );
   const color = '#ff0f1a'
 
   return (
-    <IconButton style={{ background: 'white' }}>
-      <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
-    </IconButton >
+    <>
+      <IconButton onClick={handleOpen} style={{ background: 'white' }}>
+        <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
+      </IconButton >
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </>
   );
 }
 
