@@ -79,7 +79,7 @@ export function ResultTable(props: ResultTableProps) {
         <tr key={i}><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
             <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
-              <iframe
+              <iframe id='usual-iframe'
                 width='480'
                 height='270'
                 src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`}
@@ -107,12 +107,17 @@ export function ResultTable(props: ResultTableProps) {
 }
 
 export function SimpleResultTable(props: ResultTableProps) {
+  const centering = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };
   const fontsize = 28;
   return (
     <table><tbody>
       {props.table.map((singing, i) => {
         return (
-          <tr key={i}><td><div className='row' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <tr key={i}><td><div className='row' style={centering}>
             <div className='col s12 m9' style={{ textAlign: 'center' }}>
               <h6>
                 『{getSong(singing.songId)}』
@@ -122,7 +127,7 @@ export function SimpleResultTable(props: ResultTableProps) {
                 {(singing.full === false) && <>ワンコーラス</>}
               </h6>
             </div>
-            <div className='col s12 m3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='col s12 m3' style={centering}>
               <Youtube singing={singing} fontsize={fontsize} />
               <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} fontsize={fontsize} />
               <Tweet singing={singing} fontsize={fontsize} />
@@ -149,7 +154,7 @@ function Youtube(props: { singing: Singing, fontsize: number }) {
       left: '50%',
       transform: 'translate(-50%, -50%)',
     }}>
-      <iframe
+      <iframe id='simple-iframe'
         width='800'
         height='450'
         src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${props.singing.start}`}
