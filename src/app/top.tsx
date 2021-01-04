@@ -108,6 +108,7 @@ export default function Top(props: {
         full={full}
         onechorus={onechorus}
         displaynum={props.displaynum}
+        displayMode={props.displayMode}
         pagenum={pagenum}
         setPagenum={setPagenum}
         isFavo={props.isFavo}
