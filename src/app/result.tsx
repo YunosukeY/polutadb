@@ -102,13 +102,14 @@ export function SimpleResultTable(props: ResultTableProps) {
     <table><tbody>
       {props.table.map((singing, i) => (
         <tr key={i}><td><div className='row' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div className='col s12 m9'>
-            <h5 id='song-info'>
-              『{getSong(singing.songId)}』<br />
+          <div className='col s12 m9' style={{ textAlign: 'center' }}>
+            <h6>
+              『{getSong(singing.songId)}』
               {getArtist(singing.songId)} <br />
-              {(singing.withInst === false) && <div className='supplemental-info'>アカペラ</div>}
-              {(singing.full === false) && <div className='supplemental-info'>ワンコーラス</div>}
-            </h5>
+              {(singing.withInst === false) && <>アカペラ</>}
+              {(singing.withInst === false && singing.full === false) && <> </>}
+              {(singing.full === false) && <>ワンコーラス</>}
+            </h6>
           </div>
           <div className='col s12 m3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Youtube fontsize={fontsize} />
