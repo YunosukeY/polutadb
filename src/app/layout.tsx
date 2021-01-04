@@ -64,6 +64,7 @@ export function Main() {
       setFavos(new Map(favos.set(singingId, true)));
     }
   };
+  const [displayMode, setDisplayMode] = useState(0);
 
   return (
     <div id='main'>
@@ -78,6 +79,8 @@ export function Main() {
                   toggleFavo={toggleFavo}
                   displaynum={displaynum}
                   setDisplaynum={setDisplaynum}
+                  displayMode={displayMode}
+                  setDisplayMode={setDisplayMode}
                 />
               } />
               <Route path='/favos' render={() =>

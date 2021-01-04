@@ -15,7 +15,8 @@ export function Select(props: {
   aCappella: boolean, setACappella: (aCappella: boolean) => void,
   full: boolean, setFull: (full: boolean) => void,
   onechorus: boolean, setOnechorus: (onechorus: boolean) => void,
-  displaynum: number, setDisplaynum: (displaynum: number) => void
+  displaynum: number, setDisplaynum: (displaynum: number) => void,
+  displayMode: number, setDisplayMode: (mode: number) => void
 }) {
   useEffect(() => {
     mInit();
@@ -38,6 +39,7 @@ export function Select(props: {
       <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
       <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
       <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
+      <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
     </div>
   );
 }
@@ -163,25 +165,41 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
 }
 
 export function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: number) => void }) {
+  const onChange = (newValue: string) => props.setDisplaynum(Number(newValue));
+  const colsize = 's2 m1';
   return (
     <>
       <label>
         <h6 className='text'>表示件数</h6>
       </label>
       <form action='#' className='row'>
-        <Radio num={5} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 5} />
-        <Radio num={10} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 10} />
-        <Radio num={20} setDisplaynum={props.setDisplaynum} checked={props.displaynum === 20} />
+        <Radio text='5' onChange={onChange} checked={props.displaynum === 5} colsize={colsize} />
+        <Radio text='10' onChange={onChange} checked={props.displaynum === 10} colsize={colsize} />
+        <Radio text='20' onChange={onChange} checked={props.displaynum === 20} colsize={colsize} />
       </form>
     </>
   );
 }
 
-function Radio(props: { num: number, setDisplaynum: (displaynum: number) => void, checked: boolean }) {
+export function DisplayFormat(props: { displayMode: number, setDisplayMode: (mode: number) => void }) {
   return (
-    <label className='col s2 m1'>
-      <input className='with-gap' type='radio' value={props.num} checked={props.checked} onChange={() => props.setDisplaynum(props.num)} />
-      <span className='text'>{props.num}</span>
+    <>
+      <label>
+        <h6 className='text'>表示形式</h6>
+      </label>
+      <form action='#' className='row'>
+        <Radio text='通常' onChange={() => props.setDisplayMode(0)} checked={props.displayMode === 0} colsize='s4 m2' />
+        <Radio text='簡易表示' onChange={() => props.setDisplayMode(1)} checked={props.displayMode === 1} colsize='s8 m10' />
+      </form>
+    </>
+  );
+}
+
+function Radio(props: { text: string, onChange: (newValue: string) => void, checked: boolean, colsize: string }) {
+  return (
+    <label className={`col ${props.colsize}`}>
+      <input className='with-gap' type='radio' value={props.text} checked={props.checked} onChange={() => props.onChange(props.text)} />
+      <span className='text'>{props.text}</span>
     </label>
   );
 }
