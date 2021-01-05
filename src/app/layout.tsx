@@ -7,6 +7,8 @@ const Top = lazy(() => import('./top'));
 const Favos = lazy(() => import('./favos'));
 const Stats = lazy(() => import('./stats'));
 const Releases = lazy(() => import('./releases'));
+import card from './card.svg';
+import cardSmallerCredit from './card-smaller-credit.svg';
 
 export function Header() {
   return (
@@ -30,8 +32,19 @@ export function Header() {
         <li><Link to='/stats'>Stats</Link></li>
         <li><Link to='/releases'>Releases</Link></li>
       </ul>
+
+      <Card />
     </header>
   );
+}
+
+function Card() {
+  return (
+    <div style={{ backgroundColor: '#fff8f8' }}>
+      {screen.width > 500 && <img src={cardSmallerCredit} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px' }} />}
+      {screen.width <= 500 && <img src={card} alt='OmaruPolka' title='OmaruPolka' />}
+    </div>
+  )
 }
 
 export function Main() {
