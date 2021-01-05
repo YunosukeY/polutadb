@@ -123,7 +123,7 @@ export function SimpleResultTable(props: ResultTableProps) {
                 <div className='col s12 m9' style={{ textAlign: 'center' }}>
                   <h6>
                     『{getSong(singing.songId)}』
-                {getArtist(singing.songId)} <br />
+                    {getArtist(singing.songId)} <br />
                     {(singing.withInst === false) && <>アカペラ</>}
                     {(singing.withInst === false && singing.full === false) && <> </>}
                     {(singing.full === false) && <>ワンコーラス</>}
