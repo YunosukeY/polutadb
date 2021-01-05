@@ -47,9 +47,16 @@ export function Main() {
       ? Number(stickyValue)
       : 5;
   });
+  const [displayMode, setDisplayMode] = useState(() => {
+    const stickyValue = window.localStorage.getItem('displayMode');
+    return stickyValue !== null
+      ? Number(stickyValue)
+      : 0;
+  });
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...favos]));
     window.localStorage.setItem('displaynum', String(displaynum));
+    window.localStorage.setItem('displayMode', String(displayMode));
   });
 
   const isFavo = (singingId: number) => {
@@ -78,6 +85,8 @@ export function Main() {
                   toggleFavo={toggleFavo}
                   displaynum={displaynum}
                   setDisplaynum={setDisplaynum}
+                  displayMode={displayMode}
+                  setDisplayMode={setDisplayMode}
                 />
               } />
               <Route path='/favos' render={() =>
@@ -86,6 +95,8 @@ export function Main() {
                   toggleFavo={toggleFavo}
                   displaynum={displaynum}
                   setDisplaynum={setDisplaynum}
+                  displayMode={displayMode}
+                  setDisplayMode={setDisplayMode}
                 />
               } />
               <Route path='/stats' component={Stats} />

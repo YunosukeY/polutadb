@@ -11,7 +11,9 @@ export default function Top(props: {
   isFavo: (singingId: number) => boolean,
   toggleFavo: (singingId: number) => void,
   displaynum: number,
-  setDisplaynum: (displaynum: number) => void
+  setDisplaynum: (displaynum: number) => void,
+  displayMode: number,
+  setDisplayMode: (mode: number) => void
 }) {
   const rowqs = props.rowqs;
   const qs = queryString.parse(rowqs);
@@ -92,6 +94,7 @@ export default function Top(props: {
         full={full} setFull={setFull}
         onechorus={onechorus} setOnechorus={setOnechorus}
         displaynum={props.displaynum} setDisplaynum={onDnumChange}
+        displayMode={props.displayMode} setDisplayMode={props.setDisplayMode}
       />
       <Result
         query={query}
@@ -105,6 +108,7 @@ export default function Top(props: {
         full={full}
         onechorus={onechorus}
         displaynum={props.displaynum}
+        displayMode={props.displayMode}
         pagenum={pagenum}
         setPagenum={setPagenum}
         isFavo={props.isFavo}
@@ -138,8 +142,8 @@ function Describe(props: { style: any }) {
 function Card() {
   return (
     <div className='pane' id='Card'>
-      {screen.width > 500 && <img src={cardSmallerCredit} alt="OmaruPolka" title="OmaruPolka" style={{ maxHeight: "400px" }} />}
-      {screen.width <= 500 && <img src={card} alt="OmaruPolka" title="OmaruPolka" />}
+      {screen.width > 500 && <img src={cardSmallerCredit} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px' }} />}
+      {screen.width <= 500 && <img src={card} alt='OmaruPolka' title='OmaruPolka' />}
     </div>
   )
 }

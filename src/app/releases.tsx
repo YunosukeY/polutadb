@@ -5,6 +5,10 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
+      <Date date='2021/01/05' />
+      <AddFeature />
+      <Content content='簡易表示モードを追加しました' />
+
       <Date date='2021/01/04' />
       ・Puunyan様（<a href='https://twitter.com/Puunyannyan'>@Puunyannyan</a>）のイラストを使わせていただけることになりました
 

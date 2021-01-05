@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Singing, singings } from './data';
-import { ResultTable, Pagenation } from './result';
-import { Displaynum } from './select';
+import { ResultTable, SimpleResultTable, Pagenation } from './result';
+import { Displaynum, DisplayFormat } from './select';
 
 export default function Favos(props: {
   isFavo: (singingId: number) => boolean,
   toggleFavo: (singingId: number) => void,
-  displaynum: number,
-  setDisplaynum: (displaynum: number) => void
+  displaynum: number, setDisplaynum: (displaynum: number) => void,
+  displayMode: number, setDisplayMode: (mode: number) => void
 }) {
   const [pagenum, setPagenum] = useState(1);
 
@@ -41,13 +41,23 @@ export default function Favos(props: {
           setPagenum(1);
         }}
       />
+      <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
-      <ResultTable
-        table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
-        isFavo={props.isFavo}
-        toggleFavo={props.toggleFavo}
-      />
+      {props.displayMode == 0 &&
+        <ResultTable
+          table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
+          isFavo={props.isFavo}
+          toggleFavo={props.toggleFavo}
+        />
+      }
+      {props.displayMode == 1 &&
+        <SimpleResultTable
+          table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
+          isFavo={props.isFavo}
+          toggleFavo={props.toggleFavo}
+        />
+      }
       <Pagenation pagenum={pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(favoList.length / props.displaynum)} />
     </div>
   );

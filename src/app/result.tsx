@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { useState } from 'react';
+import Modal from '@material-ui/core/Modal';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import StarIcon from '@material-ui/icons/Star';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
@@ -18,6 +21,7 @@ export default function Result(props: {
   full: boolean,
   onechorus: boolean,
   displaynum: number,
+  displayMode: number,
   pagenum: number,
   setPagenum: React.Dispatch<React.SetStateAction<number>>,
   isFavo: (singingId: number) => boolean,
@@ -34,11 +38,20 @@ export default function Result(props: {
     <div className='pane' id='result'>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
-      <ResultTable
-        table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))}
-        isFavo={props.isFavo}
-        toggleFavo={props.toggleFavo}
-      />
+      {props.displayMode == 0 &&
+        <ResultTable
+          table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))}
+          isFavo={props.isFavo}
+          toggleFavo={props.toggleFavo}
+        />
+      }
+      {props.displayMode == 1 &&
+        <SimpleResultTable
+          table={result.slice((props.pagenum - 1) * props.displaynum, Math.min(props.pagenum * props.displaynum, result.length))}
+          isFavo={props.isFavo}
+          toggleFavo={props.toggleFavo}
+        />
+      }
       <Pagenation pagenum={props.pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(result.length / props.displaynum)} />
     </div >
   );
@@ -52,14 +65,29 @@ function ResultHeader(props: { resultnum: number }) {
   );
 }
 
-export function ResultTable(props: { table: Singing[], isFavo: (singingId: number) => boolean, toggleFavo: (singingId: number) => void }) {
+interface ResultTableProps {
+  table: Singing[];
+  isFavo: (singingId: number) => boolean;
+  toggleFavo: (singingId: number) => void;
+}
+
+export function ResultTable(props: ResultTableProps) {
+  const fontsize = 24
   return (
     <table><tbody>
       {props.table.map((singing, i) => (
         <tr key={i}><td><div className='row'>
           <div className='col s12 m12 l8 xl8' id='iframe-content'>
             <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
-              <iframe width='480' height='270' src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen title={getVideo(singing.videoId)}></iframe>
+              <iframe id='usual-iframe'
+                width='480'
+                height='270'
+                src={`https://www.youtube-nocookie.com/embed/${getUrl(singing.videoId)}?start=${singing.start}`}
+                frameBorder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+                title={getVideo(singing.videoId)}
+              />
             </div>
           </div>
           <div className='col s12 m12 l4 xl4' id='result-table'>
@@ -68,8 +96,8 @@ export function ResultTable(props: { table: Singing[], isFavo: (singingId: numbe
               {getArtist(singing.songId)} <br />
               {(singing.withInst === false) && <div className='supplemental-info'>アカペラ</div>}
               {(singing.full === false) && <div className='supplemental-info'>ワンコーラス</div>}
-              <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} />
-              <Tweet singing={singing} />
+              <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} fontsize={fontsize} />
+              <Tweet singing={singing} fontsize={fontsize} />
             </h5>
           </div>
         </div></td></tr>
@@ -78,20 +106,101 @@ export function ResultTable(props: { table: Singing[], isFavo: (singingId: numbe
   )
 }
 
-const fontSize = 24
+export function SimpleResultTable(props: ResultTableProps) {
+  const centering = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };
+  const fontsize = 28;
+  return (
+    <table><tbody>
+      {props.table.map((singing, i) => {
+        return (
+          <tr key={i}>
+            <td style={{ paddingTop: 0 }}>
+              <div className='row' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: 0 }}>
+                <div className='col s12 m9' style={{ textAlign: 'center' }}>
+                  <h6>
+                    『{getSong(singing.songId)}』
+                    {getArtist(singing.songId)} <br />
+                    {(singing.withInst === false) && <>アカペラ</>}
+                    {(singing.withInst === false && singing.full === false) && <> </>}
+                    {(singing.full === false) && <>ワンコーラス</>}
+                  </h6>
+                </div>
+                <div className='col s12 m3' style={centering}>
+                  <Youtube singing={singing} fontsize={fontsize} />
+                  <Star isFavo={props.isFavo(singing.id)} onClick={() => props.toggleFavo(singing.id)} fontsize={fontsize} />
+                  <Tweet singing={singing} fontsize={fontsize} />
+                </div>
+              </div>
+            </td>
+          </tr>
+        )
+      })}
+    </tbody></table >
+  );
+}
 
-function Star(props: { isFavo: boolean, onClick: () => void }) {
+function Youtube(props: { singing: Singing, fontsize: number }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const body = (
+    <div id='iframe-content' style={{
+      position: 'absolute',
+      backgroundColor: 'black',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    }}>
+      <iframe id='simple-iframe'
+        width='800'
+        height='450'
+        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${props.singing.start}`}
+        frameBorder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowFullScreen
+        title={getVideo(props.singing.videoId)}
+      />
+    </div>
+  );
+  const color = '#ff0f1a'
+
+  return (
+    <>
+      <IconButton onClick={handleOpen} style={{ background: 'white' }}>
+        <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
+      </IconButton >
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </>
+  );
+}
+
+function Star(props: { isFavo: boolean, onClick: () => void, fontsize: number }) {
   const color = 'gold'
 
   return (
     <IconButton onClick={props.onClick} style={{ background: 'white' }}>
-      { props.isFavo && <StarIcon style={{ fontSize: fontSize, color: color }} />}
-      { !props.isFavo && <StarBorderIcon style={{ fontSize: fontSize, color: color }} />}
+      { props.isFavo && <StarIcon style={{ fontSize: props.fontsize, color: color }} />}
+      { !props.isFavo && <StarBorderIcon style={{ fontSize: props.fontsize, color: color }} />}
     </IconButton >
   );
 }
 
-function Tweet(props: { singing: Singing }) {
+function Tweet(props: { singing: Singing, fontsize: number }) {
   const youtubeURL = `https://youtu.be/${getUrl(props.singing.videoId)}?t=${props.singing.start}`
   const tweetURL = `https://twitter.com/intent/tweet?text=${getSong(props.singing.songId)} / ${getArtist(props.singing.songId)}&url=${youtubeURL}&hashtags=ぽるうた,尾丸ポルカ`;
   const onClick = () => {
@@ -100,7 +209,7 @@ function Tweet(props: { singing: Singing }) {
   return (
     <IconButton onClick={onClick} style={{ background: 'white' }
     }>
-      <TwitterIcon style={{ fontSize: fontSize, color: 'rgb(0,172,237)' }} />
+      <TwitterIcon style={{ fontSize: props.fontsize, color: 'rgb(0,172,237)' }} />
     </IconButton >
   );
 }
