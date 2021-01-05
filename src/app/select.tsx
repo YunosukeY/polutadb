@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { mInit } from './materialize';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 export function Select(props: {
   query: string, setQuery: (query: string) => void,
@@ -18,8 +20,16 @@ export function Select(props: {
   displaynum: number, setDisplaynum: (displaynum: number) => void,
   displayMode: number, setDisplayMode: (mode: number) => void
 }) {
+  const [isHidden, setIsHidden] = useState(() => {
+    const stickyValue = window.localStorage.getItem('isHidden');
+    return stickyValue !== null
+      ? stickyValue === 'true'
+      : false;
+  });
+
   useEffect(() => {
     mInit();
+    window.localStorage.setItem('isHidden', String(isHidden));
   });
 
   // checkbox
@@ -27,19 +37,30 @@ export function Select(props: {
     return ((event: any) => setter(event.target.checked));
   }
 
+  const onClick = () => {
+    setIsHidden(!isHidden);
+  }
+
+  const fontsize = 28;
+
   return (
     <div className='pane' id='select'>
-      <h4>Search</h4>
-      <FullTextSearch query={props.query} setQuery={props.setQuery} />
-      <Genre genre={props.genre} setGenre={props.setGenre} />
-      <Type type={props.type} setType={props.setType} />
-      <Video video={props.video} setVideo={props.setVideo} />
-      <Song song={props.song} setSong={props.setSong} />
-      <Artist artist={props.artist} setArtist={props.setArtist} />
-      <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
-      <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
-      <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
-      <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+      {isHidden && <h4 onClick={onClick} style={{ marginBottom: 0 }}><ArrowRightIcon style={{ fontSize: fontsize }} />Search</h4>}
+      {!isHidden &&
+        <>
+          <h4 onClick={onClick}><ArrowDropDownIcon style={{ fontSize: fontsize }} />Search</h4>
+          <FullTextSearch query={props.query} setQuery={props.setQuery} />
+          <Genre genre={props.genre} setGenre={props.setGenre} />
+          <Type type={props.type} setType={props.setType} />
+          <Video video={props.video} setVideo={props.setVideo} />
+          <Song song={props.song} setSong={props.setSong} />
+          <Artist artist={props.artist} setArtist={props.setArtist} />
+          <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
+          <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
+          <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
+          <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+        </>
+      }
     </div>
   );
 }
