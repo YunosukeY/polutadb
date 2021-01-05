@@ -95,6 +95,8 @@ export function Main() {
                   toggleFavo={toggleFavo}
                   displaynum={displaynum}
                   setDisplaynum={setDisplaynum}
+                  displayMode={displayMode}
+                  setDisplayMode={setDisplayMode}
                 />
               } />
               <Route path='/stats' component={Stats} />
