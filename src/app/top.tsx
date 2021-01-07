@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useState, lazy } from 'react';
+import { useState } from 'react';
 import queryString from 'query-string';
 import { Select } from './select';
-const Result = lazy(() => import('./result'));
+import Result from './result';
 
 export default function Top(props: {
   rowqs: string,

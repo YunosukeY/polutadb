@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-const Top = lazy(() => import('./top'));
-const Favos = lazy(() => import('./favos'));
-const Stats = lazy(() => import('./stats'));
-const Releases = lazy(() => import('./releases'));
+import Top from './top';
+import Stats from './stats';
+import Releases from './releases';
+import Favos from './favos';
 import card from './card.svg';
 import cardSmallerCredit from './card-smaller-credit.svg';
 
@@ -89,45 +89,35 @@ export function Main() {
     <div id='main'>
       <div className='row'>
         <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2'>
-          <Suspense fallback={<Loading />}>
-            <Switch>
-              <Route exact path='/' render={(props) =>
-                <Top
-                  rowqs={props.location.search}
-                  isFavo={isFavo}
-                  toggleFavo={toggleFavo}
-                  displaynum={displaynum}
-                  setDisplaynum={setDisplaynum}
-                  displayMode={displayMode}
-                  setDisplayMode={setDisplayMode}
-                />
-              } />
-              <Route path='/favos' render={() =>
-                <Favos
-                  isFavo={isFavo}
-                  toggleFavo={toggleFavo}
-                  displaynum={displaynum}
-                  setDisplaynum={setDisplaynum}
-                  displayMode={displayMode}
-                  setDisplayMode={setDisplayMode}
-                />
-              } />
-              <Route path='/stats' component={Stats} />
-              <Route path='/releases' component={Releases} />
-            </Switch>
-          </Suspense>
+          <Switch>
+            <Route exact path='/' render={(props) =>
+              <Top
+                rowqs={props.location.search}
+                isFavo={isFavo}
+                toggleFavo={toggleFavo}
+                displaynum={displaynum}
+                setDisplaynum={setDisplaynum}
+                displayMode={displayMode}
+                setDisplayMode={setDisplayMode}
+              />
+            } />
+            <Route path='/favos' render={() =>
+              <Favos
+                isFavo={isFavo}
+                toggleFavo={toggleFavo}
+                displaynum={displaynum}
+                setDisplaynum={setDisplaynum}
+                displayMode={displayMode}
+                setDisplayMode={setDisplayMode}
+              />
+            } />
+            <Route path='/stats' component={Stats} />
+            <Route path='/releases' component={Releases} />
+          </Switch>
         </div>
       </div>
     </div>
   );
-}
-
-function Loading() {
-  return (
-    <div className='pane'>
-      <h4 className='center'>Loading...</h4>
-    </div>
-  )
 }
 
 export function Footer() {
