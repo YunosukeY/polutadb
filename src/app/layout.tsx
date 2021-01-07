@@ -41,8 +41,17 @@ export function Header() {
 function Card() {
   return (
     <div style={{ backgroundColor: '#fff8f8' }}>
-      {screen.width > 500 && <img src={cardSmallerCredit} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px' }} />}
-      {screen.width <= 500 && <img src={card} alt='OmaruPolka' title='OmaruPolka' />}
+      {screen.width <= 760 &&
+        <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '52.5%' }}>
+          {screen.width > 500 && <img src={cardSmallerCredit} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }} />}
+          {screen.width <= 500 && <img src={card} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }} />}
+        </div>
+      }
+      {screen.width > 760 &&
+        <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '400px' }}>
+          <img src={cardSmallerCredit} alt='OmaruPolka' title='OmaruPolka' style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }} />
+        </div>
+      }
     </div>
   )
 }
