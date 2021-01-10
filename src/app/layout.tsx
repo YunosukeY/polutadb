@@ -137,6 +137,7 @@ export function Footer() {
           <div className='col s12' id='links'>
             <h5 className='white-text'>Links</h5>
             <ul>
+              <li><a className='grey-text text-lighten-3' href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>原曲プレイリスト（Spotify）</a></li>
               <li><a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>管理人Twitter</a></li>
             </ul>
           </div>

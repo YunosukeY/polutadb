@@ -216,6 +216,18 @@ export const videos: Video[] = [
     date: '2020/12/29',
     typeId: 1,
   },
+  { // 29
+    id: 'GnW76d1A3YQ',
+    title: '【#尾丸ポルカ3D】尾丸ポルカ3Dお披露目するか！ポルカおるよ！【ホロライブ】',
+    date: '2021/01/10',
+    typeId: 6,
+  },
+  { // 30
+    id: 'syhlmTNW_a8',
+    title: 'メンヘラじゃないもん！ - 尾丸ポルカ(cover)',
+    date: '2021/01/10',
+    typeId: 1,
+  },
 ]
 
 export const types: Type[] = [
@@ -225,6 +237,7 @@ export const types: Type[] = [
   /* 3 */ { name: 'オリジナル' },
   /* 4 */ { name: 'GB' },
   /* 5 */ { name: 'その他' },
+  /* 6 */ { name: '3D' },
 ]
 
 export const songs: Song[] = [
@@ -475,6 +488,8 @@ export const songs: Song[] = [
   /* 244 */ { title: '輝夜の城で踊りたい', artistId: 55, genreId: 1 },
   /* 245 */ { title: 'イドラのサーカス', artistId: 133, genreId: 3 },
   /* 246 */ { title: 'ブリキノダンス', artistId: 134, genreId: 3 },
+  /* 247 */ { title: 'Shiny Smily Story', artistId: 124, genreId: 0 },
+  /* 248 */ { title: 'メンヘラじゃないもん！', artistId: 135, genreId: 3 },
 ]
 
 export const genres: Genre[] = [
@@ -628,6 +643,7 @@ export const artists: Artist[] = [
   /* 132 */ { name: '佐咲紗花' },
   /* 133 */ { name: 'Neru' },
   /* 134 */ { name: '日向電工' },
+  /* 135 */ { name: '勇魚' },
 ]
 
 class Iota {
@@ -983,6 +999,9 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 28, 245, 3017),
   new Singing(Iota.get(), 28, 246, 3232),
   new Singing(Iota.get(), 28, 0, 3557),
+  new Singing(Iota.get(), 29, 0, 700),
+  new Singing(Iota.get(), 29, 247, 3431),
+  new Singing(Iota.get(), 30, 248, 0),
 ]
 
 export function getGenres() {

@@ -5,6 +5,14 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
+      <Date date='2020/01/10' />
+      <AddData />
+      <AddVideo videoId={29} />
+      <AddVideo videoId={30} />
+      <ContentType type='細かい変更' />
+      <Content content='ジャンルに3Dを追加しました' />
+      <Content content='リンクに原曲プレイリスト（Spotify）を追加しました' />
+
       <Date date='2021/01/05' />
       <AddFeature />
       <Content content='簡易表示モードを追加しました' />
