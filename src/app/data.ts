@@ -228,6 +228,13 @@ export const videos: Video[] = [
     date: '2021/01/10',
     typeId: 1,
   },
+  { // 31
+    id: '1voDsccdrNA',
+    title: 'ENDLESS BLUE CLAPPER #気圧敗北部【尾丸ポルカ/ホロライブ】',
+    date: '2021/01/14',
+    typeId: 2,
+  },
+
 ]
 
 export const types: Type[] = [
@@ -1002,6 +1009,36 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 29, 0, 700),
   new Singing(Iota.get(), 29, 247, 3431),
   new Singing(Iota.get(), 30, 248, 0),
+  new Singing(Iota.get(), 31, 226, 74),
+  new Singing(Iota.get(), 31, 226, 327),
+  new Singing(Iota.get(), 31, 226, 577),
+  new Singing(Iota.get(), 31, 226, 827),
+  new Singing(Iota.get(), 31, 226, 1074),
+  new Singing(Iota.get(), 31, 226, 1326),
+  new Singing(Iota.get(), 31, 226, 1576),
+  new Singing(Iota.get(), 31, 226, 1825),
+  new Singing(Iota.get(), 31, 226, 2076),
+  new Singing(Iota.get(), 31, 226, 2326),
+  new Singing(Iota.get(), 31, 226, 2576),
+  new Singing(Iota.get(), 31, 226, 2826),
+  new Singing(Iota.get(), 31, 226, 3076),
+  new Singing(Iota.get(), 31, 226, 3324),
+  new Singing(Iota.get(), 31, 226, 3576),
+  new Singing(Iota.get(), 31, 226, 3826),
+  new Singing(Iota.get(), 31, 226, 4076),
+  new Singing(Iota.get(), 31, 226, 4326),
+  new Singing(Iota.get(), 31, 226, 4576),
+  new Singing(Iota.get(), 31, 226, 4826),
+  new Singing(Iota.get(), 31, 226, 5076),
+  new Singing(Iota.get(), 31, 226, 5326),
+  new Singing(Iota.get(), 31, 226, 5575),
+  new Singing(Iota.get(), 31, 226, 5822),
+  new Singing(Iota.get(), 31, 226, 6075),
+  new Singing(Iota.get(), 31, 226, 6325),
+  new Singing(Iota.get(), 31, 226, 6575),
+  new Singing(Iota.get(), 31, 226, 6825),
+  new Singing(Iota.get(), 31, 226, 7075),
+  new Singing(Iota.get(), 31, 226, 7322),
 ]
 
 export function getGenres() {
