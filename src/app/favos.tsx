@@ -34,14 +34,20 @@ export default function Favos(props: {
 
   return (
     <div className='pane' id='favo'>
-      <Displaynum
-        displaynum={props.displaynum}
-        setDisplaynum={(displaynum: number) => {
-          props.setDisplaynum(displaynum);
-          setPagenum(1);
-        }}
-      />
-      <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+      <div className='row' style={{ paddingBottom: 0 }}>
+        <div className='col m6 s12'>
+          <Displaynum
+            displaynum={props.displaynum}
+            setDisplaynum={(displaynum: number) => {
+              props.setDisplaynum(displaynum);
+              setPagenum(1);
+            }}
+          />
+        </div>
+        <div className='col m6 s12'>
+          <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+        </div>
+      </div>
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
       {props.displayMode == 0 &&

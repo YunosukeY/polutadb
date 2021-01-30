@@ -5,6 +5,11 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
+      <Date date='2020/01/30' />
+      <AddData />
+      <AddVideo videoId={32} />
+      <AddVideo videoId={33} />
+
       <Date date='2020/01/15' />
       <AddData />
       <AddVideo videoId={31} />

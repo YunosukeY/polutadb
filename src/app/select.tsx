@@ -50,15 +50,39 @@ export function Select(props: {
         <>
           <h4 onClick={onClick}><ArrowDropDownIcon style={{ fontSize: fontsize }} />Search</h4>
           <FullTextSearch query={props.query} setQuery={props.setQuery} />
-          <Genre genre={props.genre} setGenre={props.setGenre} />
-          <Type type={props.type} setType={props.setType} />
+          <div className='row' style={{ paddingBottom: 0 }}>
+            <div className='col m6 s12'>
+              <Genre genre={props.genre} setGenre={props.setGenre} />
+            </div>
+            <div className='col m6 s12'>
+              <Type type={props.type} setType={props.setType} />
+            </div>
+          </div>
           <Video video={props.video} setVideo={props.setVideo} />
-          <Song song={props.song} setSong={props.setSong} />
-          <Artist artist={props.artist} setArtist={props.setArtist} />
-          <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
-          <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
-          <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
-          <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+          <div className='row' style={{ paddingBottom: 0 }}>
+            <div className='col m6 s12'>
+              <Song song={props.song} setSong={props.setSong} />
+            </div>
+            <div className='col m6 s12'>
+              <Artist artist={props.artist} setArtist={props.setArtist} />
+            </div>
+          </div>
+          <div className='row' style={{ paddingBottom: 0 }}>
+            <div className='col m6 s12'>
+              <Inst withInst={props.withInst} setWithInst={onChange(props.setWithInst)} aCappella={props.aCappella} setACappella={onChange(props.setACappella)} />
+            </div>
+            <div className='col m6 s12'>
+              <Length full={props.full} setFull={onChange(props.setFull)} onechorus={props.onechorus} setOnechorus={onChange(props.setOnechorus)} />
+            </div>
+          </div>
+          <div className='row' style={{ paddingBottom: 0 }}>
+            <div className='col m6 s12'>
+              <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
+            </div>
+            <div className='col m6 s12'>
+              <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+            </div>
+          </div>
         </>
       }
     </div>
@@ -154,11 +178,11 @@ function Inst(props: { withInst: boolean, setWithInst: any, aCappella: boolean, 
     <label>
       <h6 className='text'>伴奏</h6>
       <div className='row'>
-        <label className='col s4 m2'>
+        <label className='col s4'>
           <input type='checkbox' className='filled-in' checked={props.withInst} onChange={props.setWithInst} />
           <span className='text'>あり</span>
         </label>
-        <label className='col s8 m10'>
+        <label className='col s8'>
           <input type='checkbox' className='filled-in' checked={props.aCappella} onChange={props.setACappella} />
           <span className='text'>なし（アカペラ）</span>
         </label>
@@ -172,11 +196,11 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
     <label>
       <h6 className='text'>尺</h6>
       <div className='row'>
-        <label className='col s4 m2'>
+        <label className='col s4'>
           <input type='checkbox' className='filled-in' checked={props.full} onChange={props.setFull} />
           <span className='text'>フル</span>
         </label>
-        <label className='col s8 m10'>
+        <label className='col s8'>
           <input type='checkbox' className='filled-in' checked={props.onechorus} onChange={props.setOnechorus} />
           <span className='text'>ワンコーラス</span>
         </label>
@@ -187,7 +211,7 @@ function Length(props: { full: boolean, setFull: any, onechorus: boolean, setOne
 
 export function Displaynum(props: { displaynum: number, setDisplaynum: (displaynum: number) => void }) {
   const onChange = (newValue: string) => props.setDisplaynum(Number(newValue));
-  const colsize = 's2 m1';
+  const colsize = 's2';
   return (
     <>
       <label>
@@ -210,8 +234,8 @@ export function DisplayFormat(props: { displayMode: number, setDisplayMode: (mod
         <h6 className='text'>表示形式</h6>
       </label>
       <form action='#' className='row'>
-        <Radio text='通常' onChange={() => props.setDisplayMode(0)} checked={props.displayMode === 0} colsize='s4 m2' />
-        <Radio text='簡易表示' onChange={() => props.setDisplayMode(1)} checked={props.displayMode === 1} colsize='s8 m10' />
+        <Radio text='通常' onChange={() => props.setDisplayMode(0)} checked={props.displayMode === 0} colsize='s4' />
+        <Radio text='簡易表示' onChange={() => props.setDisplayMode(1)} checked={props.displayMode === 1} colsize='s8' />
       </form>
     </>
   );

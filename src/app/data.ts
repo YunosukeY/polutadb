@@ -234,7 +234,18 @@ export const videos: Video[] = [
     date: '2021/01/14',
     typeId: 2,
   },
-
+  { // 32
+    id: 'E2CJV9UqTRM',
+    title: '【#尾丸ポルカ爆誕祭​​】激烈モーレツ3D歌ライブパッションバースデー【ホロライブ】',
+    date: '2021/01/30',
+    typeId: 6,
+  },
+  { // 33
+    id: 'NdHPnTd2Jd8',
+    title: 'ルーザーガール - 尾丸ポルカ(cover)',
+    date: '2021/01/30',
+    typeId: 0,
+  },
 ]
 
 export const types: Type[] = [
@@ -497,6 +508,9 @@ export const songs: Song[] = [
   /* 246 */ { title: 'ブリキノダンス', artistId: 134, genreId: 3 },
   /* 247 */ { title: 'Shiny Smily Story', artistId: 124, genreId: 0 },
   /* 248 */ { title: 'メンヘラじゃないもん！', artistId: 135, genreId: 3 },
+  /* 249 */ { title: '花に亡霊', artistId: 41, genreId: 9 },
+  /* 250 */ { title: 'シルシ', artistId: 57, genreId: 1 },
+  /* 251 */ { title: 'ルーザーガール', artistId: 136, genreId: 4 },
 ]
 
 export const genres: Genre[] = [
@@ -651,6 +665,7 @@ export const artists: Artist[] = [
   /* 133 */ { name: 'Neru' },
   /* 134 */ { name: '日向電工' },
   /* 135 */ { name: '勇魚' },
+  /* 136 */ { name: '真っ白なキャンバス' },
 ]
 
 class Iota {
@@ -1039,6 +1054,13 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 31, 226, 6825),
   new Singing(Iota.get(), 31, 226, 7075),
   new Singing(Iota.get(), 31, 226, 7322),
+  new Singing(Iota.get(), 32, 248, 120),
+  new Singing(Iota.get(), 32, 219, 1155),
+  new Singing(Iota.get(), 32, 221, 1444),
+  new Singing(Iota.get(), 32, 249, 1839),
+  new Singing(Iota.get(), 32, 250, 2109),
+  new Singing(Iota.get(), 32, 6, 4054),
+  new Singing(Iota.get(), 33, 251, 0),
 ]
 
 export function getGenres() {
