@@ -246,6 +246,12 @@ export const videos: Video[] = [
     date: '2021/01/30',
     typeId: 0,
   },
+  { // 34
+    id: 'Mm97x8_uy7o',
+    title: '尾丸ポルカ - シルシ(cover) / THE HOLO TAKE',
+    date: '2021/02/06',
+    typeId: 0,
+  },
 ]
 
 export const types: Type[] = [
@@ -1061,6 +1067,7 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 32, 250, 2109),
   new Singing(Iota.get(), 32, 6, 4054),
   new Singing(Iota.get(), 33, 251, 0),
+  new Singing(Iota.get(), 34, 250, 57),
 ]
 
 export function getGenres() {
