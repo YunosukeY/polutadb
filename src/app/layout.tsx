@@ -75,10 +75,17 @@ export function Main() {
       ? Number(stickyValue)
       : 0;
   });
+  const [sortedBy, setSortedBy] = useState(() => {
+    const stickyValue = window.localStorage.getItem('sortedBy');
+    return stickyValue !== null
+      ? Number(stickyValue)
+      : 0;
+  });
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...favos]));
     window.localStorage.setItem('displaynum', String(displaynum));
     window.localStorage.setItem('displayMode', String(displayMode));
+    window.localStorage.setItem('sortedBy', String(displayMode));
   });
 
   const isFavo = (singingId: number) => {
@@ -108,6 +115,8 @@ export function Main() {
                 setDisplaynum={setDisplaynum}
                 displayMode={displayMode}
                 setDisplayMode={setDisplayMode}
+                sortedBy={sortedBy}
+                setSortedBy={setSortedBy}
               />
             } />
             <Route path='/favos' render={() =>

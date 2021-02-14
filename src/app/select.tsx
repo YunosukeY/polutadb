@@ -18,7 +18,8 @@ export function Select(props: {
   full: boolean, setFull: (full: boolean) => void,
   onechorus: boolean, setOnechorus: (onechorus: boolean) => void,
   displaynum: number, setDisplaynum: (displaynum: number) => void,
-  displayMode: number, setDisplayMode: (mode: number) => void
+  displayMode: number, setDisplayMode: (mode: number) => void,
+  sortedBy: number, setSortedBy: (sortedBy: number) => void,
 }) {
   const [isHidden, setIsHidden] = useState(() => {
     const stickyValue = window.localStorage.getItem('isHidden');
@@ -83,6 +84,7 @@ export function Select(props: {
               <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
             </div>
           </div>
+          <Sort sortedBy={props.sortedBy} setSortedBy={props.setSortedBy}/>
         </>
       }
     </div>
@@ -236,6 +238,21 @@ export function DisplayFormat(props: { displayMode: number, setDisplayMode: (mod
       <form action='#' className='row'>
         <Radio text='通常' onChange={() => props.setDisplayMode(0)} checked={props.displayMode === 0} colsize='s4' />
         <Radio text='簡易表示' onChange={() => props.setDisplayMode(1)} checked={props.displayMode === 1} colsize='s8' />
+      </form>
+    </>
+  );
+}
+
+export function Sort(props: {sortedBy: number, setSortedBy: (sortedBy: number ) => void}) {
+  return (
+    <>
+      <label>
+        <h6 className='text'>ソート</h6>
+      </label>
+      <form action='#' className='row'>
+        <Radio text='時系列' onChange={() => props.setSortedBy(0)} checked={props.sortedBy === 0} colsize='s4 m2' />
+        <Radio text='曲名' onChange={() => props.setSortedBy(1)} checked={props.sortedBy === 1} colsize='s3 m2' />
+        <Radio text='アーティスト名' onChange={() => props.setSortedBy(2)} checked={props.sortedBy === 2} colsize='s5 m8' />
       </form>
     </>
   );

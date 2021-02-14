@@ -20,6 +20,7 @@ export default function Result(props: {
   aCappella: boolean,
   full: boolean,
   onechorus: boolean,
+  sortedBy: number,
   displaynum: number,
   displayMode: number,
   pagenum: number,
@@ -27,7 +28,7 @@ export default function Result(props: {
   isFavo: (singingId: number) => boolean,
   toggleFavo: (singingId: number) => void
 }) {
-  const result = search(props.query, props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus); // ジャンルなどから計算できるので状態ではない
+  const result = search(props.query, props.video, props.song, props.artist, props.genre, props.type, props.withInst, props.aCappella, props.full, props.onechorus, props.sortedBy); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>()
   const onPageClick = ((p: number) => {
     props.setPagenum(p)
@@ -244,7 +245,7 @@ export function Pagenation(props: { pagenum: number, setPagenum: (p: number) => 
   );
 }
 
-function search(query: string, videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean) {
+function search(query: string, videoId: number, songId: number, artistId: number, genreId: number, typeId: number, withInst: boolean, aCappella: boolean, full: boolean, onechorus: boolean, sortedBy: number) {
   let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));
 
   const normalizedQuery = query.toLowerCase();
@@ -274,6 +275,12 @@ function search(query: string, videoId: number, songId: number, artistId: number
     tmpres = tmpres.filter(singingInfo => singingInfo.full === true);
 
   tmpres.reverse();
+  if (sortedBy === 1) {
+    tmpres.sort(compBySongTitle);
+  } else if (sortedBy === 2) {
+    tmpres.sort(compByArtistName);
+  }
+
   return tmpres;
 }
 
@@ -283,4 +290,22 @@ function fullTextFilter(singing: Singing, query: string) {
   const video = getVideo(singing.videoId).toLowerCase();
 
   return song.indexOf(query) !== -1 || artist.indexOf(query) !== -1 || video.indexOf(query) !== -1;
+}
+
+function compBySongTitle(x: Singing, y: Singing) {
+  const xTitle = getSong(x.songId);
+  const yTitle = getSong(y.songId);
+
+  if (xTitle > yTitle) return 1;
+  else if (xTitle < yTitle) return -1;
+  else return 0;
+}
+
+function compByArtistName(x: Singing, y: Singing) {
+  const xArtist = getArtist(x.songId);
+  const yArtist = getArtist(y.songId);
+
+  if (xArtist > yArtist) return 1;
+  else if (xArtist < yArtist) return -1;
+  else return 0;
 }

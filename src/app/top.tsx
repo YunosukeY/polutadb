@@ -11,7 +11,9 @@ export default function Top(props: {
   displaynum: number,
   setDisplaynum: (displaynum: number) => void,
   displayMode: number,
-  setDisplayMode: (mode: number) => void
+  setDisplayMode: (mode: number) => void,
+  sortedBy: number,
+  setSortedBy: (sortedBy: number) => void,
 }) {
   const rowqs = props.rowqs;
   const qs = queryString.parse(rowqs);
@@ -92,6 +94,7 @@ export default function Top(props: {
         onechorus={onechorus} setOnechorus={setOnechorus}
         displaynum={props.displaynum} setDisplaynum={onDnumChange}
         displayMode={props.displayMode} setDisplayMode={props.setDisplayMode}
+        sortedBy={props.sortedBy} setSortedBy={props.setSortedBy}
       />
       <Result
         query={query}
@@ -104,6 +107,7 @@ export default function Top(props: {
         aCappella={aCappella}
         full={full}
         onechorus={onechorus}
+        sortedBy={props.sortedBy}
         displaynum={props.displaynum}
         displayMode={props.displayMode}
         pagenum={pagenum}
