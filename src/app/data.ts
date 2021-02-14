@@ -42,223 +42,259 @@ export class Singing {
 }
 
 export const videos: Video[] = [
-  { // 0
+  {
+    // 0
     id: 'PuFk_XfNXiM',
     title: 'POLKA♡SUMMER♡LIVE☆2020 #ぽるうた【ホロライブ/尾丸ポルカ】',
     date: '2020/08/30',
     typeId: 1,
   },
-  { // 1
+  {
+    // 1
     id: 'd0oDMXWMs8o',
     title: 'HOLOGRAM CIRCUS - 尾丸ポルカ (short ver.)',
     date: '2020/08/16',
     typeId: 3,
   },
-  { // 2
+  {
+    // 2
     id: 'IixAr5W3TIc',
     title: '【おちゃめ機能】ほろふぁいぶが吹っ切れた【5人で歌ってみた】',
     date: '2020/08/16',
     typeId: 0,
   },
-  { // 3
+  {
+    // 3
     id: 'Eq_LQukPyqE',
     title: 'Reach Out To The Truth',
     date: '2020/09/10',
     typeId: 4,
   },
-  { // 4
+  {
+    // 4
     id: 'yzEogcLd4ac',
     title: 'インドア系ならトラックメイカー',
     date: '2020/09/12',
     typeId: 4,
   },
-  { // 5
+  {
+    // 5
     id: 'KQvHEo_dazE',
     title: 'Tulip',
     date: '2020/09/22',
     typeId: 4,
   },
-  { // 6
+  {
+    // 6
     id: 'fz0SCIPbKhw',
     title: '駄目よ！20時にポルカの1ヶ月配信があるの！【ホロライブ/尾丸ポルカ】',
     date: '2020/09/16',
     typeId: 5,
   },
-  { // 7
+  {
+    // 7
     id: '-79A0I8_2vw',
     title: 'POLKA●SEPTEMBER●LIVE⇔2020 #ぽるうた【ホロライブ/尾丸ポルカ】',
     date: '2020/09/25',
     typeId: 1,
   },
-  { // 8
+  {
+    // 8
     id: 'Es2ZdDDxS1s',
     title: '早起きは三文の歌枠しっとり～♪【ホロライブ/尾丸ポルカ】',
     date: '2020/10/11',
     typeId: 2,
   },
-  { // 9
+  {
+    // 9
     id: 'jPxfqgAkGMM',
     title: 'ごめん、歌います【ホロライブ/尾丸ポルカ】',
     date: '2020/10/13',
     typeId: 2,
   },
-  { // 10
+  {
+    // 10
     id: 'jqyinvEhLdg',
     title: '味をしめた者の朝歌枠ゲリラ【ホロライブ/尾丸ポルカ】',
     date: '2020/10/20',
     typeId: 2,
   },
-  { // 11
+  {
+    // 11
     id: 'f1sG1ffExJc',
     title: 'ポルカじゃない人の朝歌ゲリラ【ホロライブ/尾丸ポルカ】',
     date: '2020/10/22',
     typeId: 2,
   },
-  { // 12
+  {
+    // 12
     id: 'sqrobkkImgg',
     title: '酔いどれポルカのアイカツ！語り～アカペラもあるｙｐ～【ホロライブ/尾丸ポルカ】',
     date: '2020/10/28',
     typeId: 5,
   },
-  { // 13
+  {
+    // 13
     id: 'ZJRYxAbB96Q',
     title: 'POLKA◆October◆LIVE◆2020 #ぽるうた 【ホロライブ/尾丸ポルカ】',
     date: '2020/10/30',
     typeId: 1,
   },
-  { // 14
+  {
+    // 14
     id: 'CrbMV64PmPU',
     title: '【ホロライブ】さぷらいずぱらだいす！【どっきりラビリンス】',
     date: '2020/10/31',
     typeId: 3,
   },
-  { // 15
+  {
+    // 15
     id: 'xrDuwnQlxLc',
     title: 'ポルカが気圧を倒す時に始まる歌枠【ホロライブ/尾丸ポルカ】',
     date: '2020/11/03',
     typeId: 2,
   },
-  { // 16
+  {
+    // 16
     id: 'UeTl2y9Vqg8',
     title: '30万人に聞かせるリクエストボイス【ホロライブ/尾丸ポルカ】',
     date: '2020/10/12',
     typeId: 5,
   },
-  { // 17
+  {
+    // 17
     id: 'oK35hzQRrMQ',
     title: '寝具 a song【尾丸ポルカ/ホロライブ】',
     date: '2020/11/14',
     typeId: 2,
   },
-  { // 18
+  {
+    // 18
     id: 'ekFreTJ3xx8',
     title: '戯画「ガラス姫と鏡の従者」オープニングムービー',
     date: '2020/11/13',
     typeId: 3,
   },
-  { // 19
+  {
+    // 19
     id: 'lyX7v3FlitQ',
     title: '楽しみすぎて穏やかじゃない【ホロライブ/尾丸ポルカ】',
     date: '2020/11/21',
     typeId: 5,
   },
-  { // 20
+  {
+    // 20
     id: 'l1uB8w7e0SA',
     title: 'POLKA≡November≡LIVE≡2020 #ぽるうた【尾丸ポルカ/ホロライブ】',
     date: '2020/11/28',
     typeId: 1,
   },
-  { // 21
+  {
+    // 21
     id: 'yEttl2nfhsQ',
     title: 'アカペラで 狂乱戦記～日常ノ神サマ～【尾丸ポルカ/ホロライブ】',
     date: '2020/12/09',
     typeId: 5,
   },
-  { // 22
+  {
+    // 22
     id: 'ZN9HLAYvmdI',
     title: '歌で銀河が救えるわけないでしょ【尾丸ポルカ/ホロライブ】',
     date: '2020/12/10',
     typeId: 2,
   },
-  { // 23
+  {
+    // 23
     id: 'c_ss-YVM82E',
     title: 'いつものカラオケ #気圧敗北部【尾丸ポルカ/ホロライブ】',
     date: '2020/12/19',
     typeId: 2,
   },
-  { // 24
+  {
+    // 24
     id: '3qkXc6zheig',
     title: '【オリジナル曲】『BLUE CLAPPER』試聴動画 【雪花ラミィ, 桃鈴ねね, 獅白ぼたん, 尾丸ポルカ】',
     date: '2020/12/23',
     typeId: 3,
   },
-  { // 25
+  {
+    // 25
     id: 'pnGTk-gbqF4',
     title: 'All Night Polka Party【尾丸ポルカ/ホロライブ】',
     date: '2020/12/25',
     typeId: 2,
   },
-  { // 26
+  {
+    // 26
     id: '_cp8KqmStOA',
     title: '【#ホロライブクリスマス】🌊⛱皆で満喫しちゃうクリスマスリレー😎🏖【尾丸ポルカ/ホロライブ】',
     date: '2020/12/25',
     typeId: 2,
   },
-  { // 27
+  {
+    // 27
     id: 'LQ_eazT56FA',
     title: '【ORIGINAL SONG+MV】HOLOGRAM CIRCUS - Omaru Polka【尾丸ポルカ/ホロライブ】',
     date: '2020/12/26',
     typeId: 3,
   },
-  { // 28
+  {
+    // 28
     id: '8KgFVpzjRrg',
     title: 'POLKA▲December▲LIVE▲2020 #ぽるうた 【ホロライブ/尾丸ポルカ】',
     date: '2020/12/29',
     typeId: 1,
   },
-  { // 29
+  {
+    // 29
     id: 'GnW76d1A3YQ',
     title: '【#尾丸ポルカ3D】尾丸ポルカ3Dお披露目するか！ポルカおるよ！【ホロライブ】',
     date: '2021/01/10',
     typeId: 6,
   },
-  { // 30
+  {
+    // 30
     id: 'syhlmTNW_a8',
     title: 'メンヘラじゃないもん！ - 尾丸ポルカ(cover)',
     date: '2021/01/10',
     typeId: 1,
   },
-  { // 31
+  {
+    // 31
     id: '1voDsccdrNA',
     title: 'ENDLESS BLUE CLAPPER #気圧敗北部【尾丸ポルカ/ホロライブ】',
     date: '2021/01/14',
     typeId: 2,
   },
-  { // 32
+  {
+    // 32
     id: 'E2CJV9UqTRM',
     title: '【#尾丸ポルカ爆誕祭​​】激烈モーレツ3D歌ライブパッションバースデー【ホロライブ】',
     date: '2021/01/30',
     typeId: 6,
   },
-  { // 33
+  {
+    // 33
     id: 'NdHPnTd2Jd8',
     title: 'ルーザーガール - 尾丸ポルカ(cover)',
     date: '2021/01/30',
     typeId: 0,
   },
-  { // 34
+  {
+    // 34
     id: 'Mm97x8_uy7o',
     title: '尾丸ポルカ - シルシ(cover) / THE HOLO TAKE',
     date: '2021/02/06',
     typeId: 0,
   },
-  { // 35
+  {
+    // 35
     id: 'tglackBwvyQ',
     title: 'KARAOKE DA【尾丸ポルカ/ホロライブ】',
     date: '2021/02/11',
     typeId: 2,
   },
-]
+];
 
 export const types: Type[] = [
   /* 0 */ { name: '歌ってみた' },
@@ -268,7 +304,7 @@ export const types: Type[] = [
   /* 4 */ { name: 'GB' },
   /* 5 */ { name: 'その他' },
   /* 6 */ { name: '3D' },
-]
+];
 
 export const songs: Song[] = [
   /*  0 */ { title: 'HOLOGRAM CIRCUS', artistId: 0, genreId: 0 },
@@ -495,12 +531,12 @@ export const songs: Song[] = [
   /* 221 */ { title: 'あした地球がこなごなになっても', artistId: 122, genreId: 2 },
   /* 222 */ { title: 'ねこ日記', artistId: 51, genreId: 1 },
   /* 223 */ { title: '蒼のエーテル', artistId: 51, genreId: 1 },
-  /* 224 */ { title: 'What \'bout my star?', artistId: 42, genreId: 1 },
+  /* 224 */ { title: "What 'bout my star?", artistId: 42, genreId: 1 },
   /* 225 */ { title: 'ダイアモンド クレバス', artistId: 42, genreId: 1 },
   /* 226 */ { title: 'BLUE CLAPPER', artistId: 124, genreId: 0 },
   /* 227 */ { title: '炉心融解', artistId: 125, genreId: 3 },
   /* 228 */ { title: 'クリスマス・イブRap', artistId: 62, genreId: 10 },
-  /* 229 */ { title: 'Driver\'s High', artistId: 67, genreId: 9 },
+  /* 229 */ { title: "Driver's High", artistId: 67, genreId: 9 },
   /* 230 */ { title: '週末Not yet', artistId: 126, genreId: 2 },
   /* 231 */ { title: '波乗りかき氷', artistId: 126, genreId: 2 },
   /* 232 */ { title: 'It Takes Two', artistId: 127, genreId: 4 },
@@ -511,7 +547,7 @@ export const songs: Song[] = [
   /* 237 */ { title: 'ねぇ', artistId: 103, genreId: 6 },
   /* 238 */ { title: '夏祭り', artistId: 129, genreId: 4 },
   /* 239 */ { title: '夏色えがおで1,2,Jump!', artistId: 55, genreId: 1 },
-  /* 240 */ { title: '射手座☆午後九時Don\'t be late', artistId: 42, genreId: 1 },
+  /* 240 */ { title: "射手座☆午後九時Don't be late", artistId: 42, genreId: 1 },
   /* 241 */ { title: '生きてこそ', artistId: 130, genreId: 4 },
   /* 242 */ { title: '月のワルツ', artistId: 131, genreId: 4 },
   /* 243 */ { title: 'Zzz', artistId: 132, genreId: 1 },
@@ -528,11 +564,11 @@ export const songs: Song[] = [
   /* 254 */ { title: 'ワールズエンド・ダンスホール', artistId: 87, genreId: 3 },
   /* 255 */ { title: '初音ミクの暴走', artistId: 92, genreId: 3 },
   /* 256 */ { title: 'LEVEL5-judgelight-', artistId: 1, genreId: 1 },
-  /* 257 */ { title: 'I can\'t stop my love for you♥', artistId: 138, genreId: 1 },
+  /* 257 */ { title: "I can't stop my love for you♥", artistId: 138, genreId: 1 },
   /* 258 */ { title: 'ギブス', artistId: 65, genreId: 4 },
   /* 259 */ { title: 'レーザービーム', artistId: 103, genreId: 6 },
   /* 260 */ { title: '修羅場', artistId: 20, genreId: 4 },
-]
+];
 
 export const genres: Genre[] = [
   /*  0 */ { name: 'VTuber' },
@@ -547,7 +583,7 @@ export const genres: Genre[] = [
   /*  9 */ { name: 'ロック' },
   /* 10 */ { name: 'ヒップホップ' },
   /* 11 */ { name: 'アイカツ！' },
-]
+];
 
 export const artists: Artist[] = [
   /*  0 */ { name: '尾丸ポルカ' },
@@ -592,7 +628,7 @@ export const artists: Artist[] = [
   /* 39 */ { name: 'DREAMS COME TRUE' },
   /* 40 */ { name: 'スガシカオ' },
   /* 41 */ { name: 'ヨルシカ' },
-  /* 42 */ { name: 'シェリル・ノーム starring May\'n' },
+  /* 42 */ { name: "シェリル・ノーム starring May'n" },
   /* 43 */ { name: '40㍍P' },
   /* 44 */ { name: 'DECO*27' },
   /* 45 */ { name: '一青窈' },
@@ -605,7 +641,7 @@ export const artists: Artist[] = [
   /* 52 */ { name: 'doriko' },
   /* 53 */ { name: '泉こなた, 柊かがみ, 柊つかさ, 高良みゆき' },
   /* 54 */ { name: 'ClariS' },
-  /* 55 */ { name: 'μ\'s' },
+  /* 55 */ { name: "μ's" },
   /* 56 */ { name: 'AKINO from bless4' },
   /* 57 */ { name: 'LiSA' },
   /* 58 */ { name: '浜崎あゆみ' },
@@ -617,7 +653,7 @@ export const artists: Artist[] = [
   /* 64 */ { name: '桜高軽音部' },
   /* 65 */ { name: '椎名林檎' },
   /* 66 */ { name: 'トーマ' },
-  /* 67 */ { name: 'L\'Arc〜en〜Ciel' },
+  /* 67 */ { name: "L'Arc〜en〜Ciel" },
   /* 68 */ { name: '堂本剛' },
   /* 69 */ { name: 'ENDLICHERI☆ENDLICHERI' },
   /* 70 */ { name: 'ORANGE RANGE' },
@@ -629,7 +665,7 @@ export const artists: Artist[] = [
   /* 76 */ { name: '高橋洋子' },
   /* 77 */ { name: '倉木麻衣' },
   /* 78 */ { name: 'Do As Infinity' },
-  /* 79 */ { name: 'シェリル・ノーム starring May\'n／ランカ・リー＝中島 愛' },
+  /* 79 */ { name: "シェリル・ノーム starring May'n／ランカ・リー＝中島 愛" },
   /* 80 */ { name: 'ZONE' },
   /* 81 */ { name: 'ももいろクローバーZ' },
   /* 82 */ { name: 'STAR☆ANIS' },
@@ -679,7 +715,7 @@ export const artists: Artist[] = [
   /* 126 */ { name: 'Not yet' },
   /* 127 */ { name: 'CHEMISTRY' },
   /* 128 */ { name: 'BEGIN' },
-  /* 129 */ { name: 'JITTERIN\'JINN' },
+  /* 129 */ { name: "JITTERIN'JINN" },
   /* 130 */ { name: 'Kiroro' },
   /* 131 */ { name: '諫山実生' },
   /* 132 */ { name: '佐咲紗花' },
@@ -691,7 +727,7 @@ export const artists: Artist[] = [
   /* 138 */ { name: '愛内里菜' },
   /* 139 */ { name: '宮崎歩' },
   /* 140 */ { name: '' },
-]
+];
 
 class Iota {
   static count = 0;
@@ -1111,30 +1147,30 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 35, 153, 6811),
   new Singing(Iota.get(), 35, 154, 7014),
   new Singing(Iota.get(), 35, 192, 8002),
-]
+];
 
 export function getGenres() {
-  let genreNames: { name: string, i: number }[] = [];
+  let genreNames: { name: string; i: number }[] = [];
   genres.forEach((genre, i) => genreNames.push({ name: genre.name, i: i }));
-  genreNames = genreNames.sort((a, b) => a.name > b.name ? 1 : -1);
+  genreNames = genreNames.sort((a, b) => (a.name > b.name ? 1 : -1));
   return genreNames;
 }
 
 export function getTypes() {
-  let typeNames: { name: string, i: number }[] = [];
+  let typeNames: { name: string; i: number }[] = [];
   types.forEach((type, i) => {
     if (type.name !== 'その他') {
       typeNames.push({ name: type.name, i: i });
     }
   });
-  typeNames = typeNames.sort((a, b) => a.name > b.name ? 1 : -1);
+  typeNames = typeNames.sort((a, b) => (a.name > b.name ? 1 : -1));
   typeNames.push({ name: 'その他', i: 5 });
   return typeNames;
 }
 
 export function getVideos() {
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
-  let videoNames: { date: string, title: string, i: number }[] = [];
+  let videoNames: { date: string; title: string; i: number }[] = [];
   videos.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
   videoNames = videoNames.sort((a, b) => {
     if (a.date > b.date) return -1;
@@ -1145,7 +1181,7 @@ export function getVideos() {
 }
 
 export function getSongs() {
-  let songNames: { title: string, i: number }[] = [];
+  let songNames: { title: string; i: number }[] = [];
   songs.forEach((song, i) => {
     const artist = getArtist(i);
     if (artist === '') {
@@ -1154,14 +1190,14 @@ export function getSongs() {
       songNames.push({ title: `${song.title}（${artist}）`, i: i });
     }
   });
-  songNames = songNames.sort((a, b) => a.title > b.title ? 1 : -1);
+  songNames = songNames.sort((a, b) => (a.title > b.title ? 1 : -1));
   return songNames;
 }
 
 export function getArtists() {
-  let artistNames: { name: string, i: number }[] = [];
+  let artistNames: { name: string; i: number }[] = [];
   artists.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
-  artistNames = artistNames.sort((a, b) => a.name > b.name ? 1 : -1);
+  artistNames = artistNames.sort((a, b) => (a.name > b.name ? 1 : -1));
   return artistNames;
 }
 
@@ -1171,7 +1207,7 @@ export function getUrl(videoId: number) {
 
 export function getArtist(songId: number) {
   const artistId = songs[songId].artistId;
-  return (artistId === -1 ? '' : artists[artistId].name);
+  return artistId === -1 ? '' : artists[artistId].name;
 }
 
 export function getArtistId(songId: number) {

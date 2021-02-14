@@ -5,10 +5,12 @@ import { ResultTable, SimpleResultTable, Pagenation } from './result';
 import { Displaynum, DisplayFormat } from './select';
 
 export default function Favos(props: {
-  isFavo: (singingId: number) => boolean,
-  toggleFavo: (singingId: number) => void,
-  displaynum: number, setDisplaynum: (displaynum: number) => void,
-  displayMode: number, setDisplayMode: (mode: number) => void
+  isFavo: (singingId: number) => boolean;
+  toggleFavo: (singingId: number) => void;
+  displaynum: number;
+  setDisplaynum: (displaynum: number) => void;
+  displayMode: number;
+  setDisplayMode: (mode: number) => void;
 }) {
   const [pagenum, setPagenum] = useState(1);
 
@@ -20,11 +22,11 @@ export default function Favos(props: {
   });
   favoList.reverse();
 
-  const ref = React.createRef<HTMLDivElement>()
-  const onPageClick = ((p: number) => {
-    setPagenum(p)
+  const ref = React.createRef<HTMLDivElement>();
+  const onPageClick = (p: number) => {
+    setPagenum(p);
     ref!.current!.scrollIntoView({ behavior: 'smooth' });
-  });
+  };
 
   useEffect(() => {
     if (favoList.length === (pagenum - 1) * props.displaynum) {
@@ -50,21 +52,31 @@ export default function Favos(props: {
       </div>
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
-      {props.displayMode == 0 &&
+      {props.displayMode == 0 && (
         <ResultTable
-          table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
+          table={favoList.slice(
+            (pagenum - 1) * props.displaynum,
+            Math.min(pagenum * props.displaynum, favoList.length),
+          )}
           isFavo={props.isFavo}
           toggleFavo={props.toggleFavo}
         />
-      }
-      {props.displayMode == 1 &&
+      )}
+      {props.displayMode == 1 && (
         <SimpleResultTable
-          table={favoList.slice((pagenum - 1) * props.displaynum, Math.min(pagenum * props.displaynum, favoList.length))}
+          table={favoList.slice(
+            (pagenum - 1) * props.displaynum,
+            Math.min(pagenum * props.displaynum, favoList.length),
+          )}
           isFavo={props.isFavo}
           toggleFavo={props.toggleFavo}
         />
-      }
-      <Pagenation pagenum={pagenum} setPagenum={onPageClick} lastPageNum={Math.ceil(favoList.length / props.displaynum)} />
+      )}
+      <Pagenation
+        pagenum={pagenum}
+        setPagenum={onPageClick}
+        lastPageNum={Math.ceil(favoList.length / props.displaynum)}
+      />
     </div>
   );
 }

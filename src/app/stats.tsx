@@ -30,15 +30,15 @@ export default function Stats() {
 
 function calcGenreStats() {
   // インデックスシグネチャ
-  const data: { [index: string]: number; } = {};
+  const data: { [index: string]: number } = {};
   // 各ジャンルを初期化
-  genres.forEach(genre => data[genre.name] = 0);
+  genres.forEach((genre) => (data[genre.name] = 0));
   // 集計
-  singings.forEach(singing => data[getGenre(singing.songId)]++);
+  singings.forEach((singing) => data[getGenre(singing.songId)]++);
 
   // 結果を格納
-  let res: { genre: string, count: number }[] = [];
-  genres.forEach(genre => res.push({ genre: genre.name, count: data[genre.name] }));
+  let res: { genre: string; count: number }[] = [];
+  genres.forEach((genre) => res.push({ genre: genre.name, count: data[genre.name] }));
   res = res.sort((a, b) => b.count - a.count);
   return res;
 }
@@ -46,19 +46,19 @@ function calcGenreStats() {
 function calcArtistStats() {
   const border = 4;
 
-  const data: { [index: string]: number; } = {};
-  artists.forEach(artist => data[artist.name] = 0);
-  singings.forEach(singing => data[getArtist(singing.songId)]++);
+  const data: { [index: string]: number } = {};
+  artists.forEach((artist) => (data[artist.name] = 0));
+  singings.forEach((singing) => data[getArtist(singing.songId)]++);
   // その他の計算
   let others = 0;
-  artists.forEach(artist => {
+  artists.forEach((artist) => {
     if (data[artist.name] <= border) {
       others++;
     }
   });
 
-  let res: { artist: string, count: number }[] = [];
-  artists.forEach(artist => {
+  let res: { artist: string; count: number }[] = [];
+  artists.forEach((artist) => {
     if (data[artist.name] > border) {
       res.push({ artist: artist.name, count: data[artist.name] });
     }
@@ -72,19 +72,19 @@ function calcArtistStats() {
 function calcSongStats() {
   const border = 2;
 
-  const data: { [index: string]: number; } = {};
-  songs.forEach(song => data[song.title] = 0);
-  singings.forEach(singing => data[songs[singing.songId].title]++);
+  const data: { [index: string]: number } = {};
+  songs.forEach((song) => (data[song.title] = 0));
+  singings.forEach((singing) => data[songs[singing.songId].title]++);
   // その他の計算
   let others = 0;
-  songs.forEach(song => {
+  songs.forEach((song) => {
     if (data[song.title] <= border) {
       others++;
     }
   });
 
-  let res: { song: string, count: number }[] = [];
-  songs.forEach(song => {
+  let res: { song: string; count: number }[] = [];
+  songs.forEach((song) => {
     if (data[song.title] > border) {
       res.push({ song: song.title, count: data[song.title] });
     }
