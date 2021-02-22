@@ -294,6 +294,13 @@ export const videos: Video[] = [
     date: '2021/02/11',
     typeId: 2,
   },
+  {
+    // 36
+    id: 'UpoysjZfWrU',
+    title: 'エンヴィーベイビー - 尾丸ポルカ(cover)',
+    date: '2021/02/22',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
@@ -568,6 +575,7 @@ export const songs: Song[] = [
   /* 258 */ { title: 'ギブス', artistId: 65, genreId: 4 },
   /* 259 */ { title: 'レーザービーム', artistId: 103, genreId: 6 },
   /* 260 */ { title: '修羅場', artistId: 20, genreId: 4 },
+  /* 261 */ { title: 'エンヴィーベイビー', artistId: 140, genreId: 3 },
 ];
 
 export const genres: Genre[] = [
@@ -726,7 +734,7 @@ export const artists: Artist[] = [
   /* 137 */ { name: '柊キライ' },
   /* 138 */ { name: '愛内里菜' },
   /* 139 */ { name: '宮崎歩' },
-  /* 140 */ { name: '' },
+  /* 140 */ { name: 'Kanaria' },
 ];
 
 class Iota {
@@ -1147,6 +1155,7 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 35, 153, 6811),
   new Singing(Iota.get(), 35, 154, 7014),
   new Singing(Iota.get(), 35, 192, 8002),
+  new Singing(Iota.get(), 36, 261, 0),
 ];
 
 export function getGenres() {

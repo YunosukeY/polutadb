@@ -5,6 +5,9 @@ export default function Releases() {
   return (
     <div className='pane' id='releases'>
       <h4>Release Notes</h4>
+      <Date date='2020/02/22' />
+      <AddData />
+      <AddVideo videoId={36} />
       <Date date='2021/02/14' />
       <AddFeature />
       <Content content='ソート機能を追加しました' />
