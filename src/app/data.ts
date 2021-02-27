@@ -301,6 +301,13 @@ export const videos: Video[] = [
     date: '2021/02/22',
     typeId: 0,
   },
+  {
+    // 37
+    id: 'F1QiNAhQ9jU',
+    title: '【歌枠】KARAOKE急に歌うよ【尾丸ポルカ/ホロライブ】',
+    date: '2021/02/27',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
@@ -576,6 +583,11 @@ export const songs: Song[] = [
   /* 259 */ { title: 'レーザービーム', artistId: 103, genreId: 6 },
   /* 260 */ { title: '修羅場', artistId: 20, genreId: 4 },
   /* 261 */ { title: 'エンヴィーベイビー', artistId: 140, genreId: 3 },
+  /* 262 */ { title: 'ロキ', artistId: 141, genreId: 3 },
+  /* 263 */ { title: 'シャルル', artistId: 142, genreId: 3 },
+  /* 264 */ { title: 'パンダヒーロー', artistId: 109, genreId: 3 },
+  /* 265 */ { title: '1/2', artistId: 143, genreId: 1 },
+  /* 266 */ { title: '夜に駆ける', artistId: 144, genreId: 4 },
 ];
 
 export const genres: Genre[] = [
@@ -735,6 +747,10 @@ export const artists: Artist[] = [
   /* 138 */ { name: '愛内里菜' },
   /* 139 */ { name: '宮崎歩' },
   /* 140 */ { name: 'Kanaria' },
+  /* 141 */ { name: 'みきとP' },
+  /* 142 */ { name: 'バルーン' },
+  /* 143 */ { name: '川本真琴' },
+  /* 144 */ { name: 'YOASOBI' },
 ];
 
 class Iota {
@@ -1156,6 +1172,48 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 35, 154, 7014),
   new Singing(Iota.get(), 35, 192, 8002),
   new Singing(Iota.get(), 36, 261, 0),
+  new Singing(Iota.get(), 37, 86, 477),
+  new Singing(Iota.get(), 37, 88, 854),
+  new Singing(Iota.get(), 37, 37, 1104),
+  new Singing(Iota.get(), 37, 121, 1453),
+  new Singing(Iota.get(), 37, 152, 1734),
+  new Singing(Iota.get(), 37, 262, 2099),
+  new Singing(Iota.get(), 37, 263, 2360),
+  new Singing(Iota.get(), 37, 264, 2629),
+  new Singing(Iota.get(), 37, 102, 2902),
+  new Singing(Iota.get(), 37, 265, 3113),
+  new Singing(Iota.get(), 37, 5, 3442),
+  new Singing(Iota.get(), 37, 24, 3697),
+  new Singing(Iota.get(), 37, 72, 4065),
+  new Singing(Iota.get(), 37, 70, 4398),
+  new Singing(Iota.get(), 37, 185, 4668),
+  new Singing(Iota.get(), 37, 235, 4925),
+  new Singing(Iota.get(), 37, 219, 5517),
+  new Singing(Iota.get(), 37, 221, 5837),
+  new Singing(Iota.get(), 37, 250, 6267),
+  new Singing(Iota.get(), 37, 249, 6777),
+  new Singing(Iota.get(), 37, 124, 7062),
+  new Singing(Iota.get(), 37, 187, 7475),
+  new Singing(Iota.get(), 37, 203, 7828),
+  new Singing(Iota.get(), 37, 33, 8095),
+  new Singing(Iota.get(), 37, 201, 8355),
+  new Singing(Iota.get(), 37, 1, 8624),
+  new Singing(Iota.get(), 37, 256, 8868),
+  new Singing(Iota.get(), 37, 32, 9158),
+  new Singing(Iota.get(), 37, 111, 9410),
+  new Singing(Iota.get(), 37, 266, 9780),
+  new Singing(Iota.get(), 37, 170, 10115),
+  new Singing(Iota.get(), 37, 227, 10311),
+  new Singing(Iota.get(), 37, 156, 10655),
+  new Singing(Iota.get(), 37, 76, 10930),
+  new Singing(Iota.get(), 37, 99, 11120),
+  new Singing(Iota.get(), 37, 2, 11388),
+  new Singing(Iota.get(), 37, 51, 11623),
+  new Singing(Iota.get(), 37, 83, 11850),
+  new Singing(Iota.get(), 37, 87, 12125),
+  new Singing(Iota.get(), 37, 192, 12371),
+  new Singing(Iota.get(), 37, 226, 12725),
+  new Singing(Iota.get(), 37, 247, 13321),
 ];
 
 export function getGenres() {

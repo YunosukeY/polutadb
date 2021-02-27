@@ -70,7 +70,7 @@ function calcArtistStats() {
 }
 
 function calcSongStats() {
-  const border = 2;
+  const border = 3;
 
   const data: { [index: string]: number } = {};
   songs.forEach((song) => (data[song.title] = 0));
