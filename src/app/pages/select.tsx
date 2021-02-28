@@ -56,7 +56,7 @@ export function Select(props: {
   const fontsize = 28;
 
   return (
-    <div className='pane' id='select'>
+    <div className='pane' id='search'>
       {isHidden && (
         <h4 onClick={onClick} style={{ marginBottom: 0 }}>
           <ArrowRightIcon style={{ fontSize: fontsize }} />
