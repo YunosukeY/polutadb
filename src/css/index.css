@@ -237,23 +237,27 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 @media screen and (min-width: 993px) {
   #result-table {
-    height: 270px;
-  }
-  #iframe-wrapper {
-    width: 480px;
-    height: 270px;
-  }
-}
-@media screen and (min-width: 1501px) {
-  #iframe-wrapper {
-    width: 560px;
     height: 315px;
   }
   #usual-iframe {
     width: 560px;
     height: 315px;
   }
-  #result-table {
+  #iframe-wrapper {
+    width: 560px;
     height: 315px;
+  }
+}
+@media screen and (min-width: 1501px) {
+  #iframe-wrapper {
+    width: 640px;
+    height: 360px;
+  }
+  #usual-iframe {
+    width: 640px;
+    height: 360px;
+  }
+  #result-table {
+    height: 360px;
   }
 }

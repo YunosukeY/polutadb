@@ -145,7 +145,7 @@ export function Main() {
   return (
     <div id='main'>
       <div className='row'>
-        <div className='col s12 m12 l10 offset-l1 xl8 offset-xl2'>
+        <div className='col s12 m12 l12 xl10 offset-xl1'>
           <Switch>
             <Route
               exact
