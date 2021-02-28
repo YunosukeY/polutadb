@@ -105,7 +105,7 @@ export function ResultTable(props: ResultTableProps) {
             <td>
               <div className='row'>
                 <div className='col s12 m12 l8 xl8' id='iframe-content'>
-                  <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
+                  <div style={{ borderRadius: 10, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
                     <iframe
                       id='usual-iframe'
                       width='480'
