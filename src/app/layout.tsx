@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import Top from './top';
-import Stats from './stats';
-import Releases from './releases';
-import Favos from './favos';
+import Top from './pages/top';
+import Stats from './pages/stats';
+import Releases from './pages/releases';
+import Favos from './pages/favos';
 import card from './card.svg';
 import cardSmallerCredit from './card-smaller-credit.svg';
 

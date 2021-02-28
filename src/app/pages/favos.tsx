@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Singing, singings } from './data';
 import { ResultTable, SimpleResultTable, Pagenation } from './result';
 import { Displaynum, DisplayFormat } from './select';
+import { Singing } from '../data/utils';
+import { singings } from '../data/singings';
 
 export default function Favos(props: {
   isFavo: (singingId: number) => boolean;

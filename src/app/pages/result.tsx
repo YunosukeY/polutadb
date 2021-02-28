@@ -7,7 +7,8 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
-import { singings, getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from './data';
+import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from '../data/utils';
+import { singings } from '../data/singings';
 
 export default function Result(props: {
   query: string;

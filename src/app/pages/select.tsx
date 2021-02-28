@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import { mInit } from './materialize';
-import { getGenres, getTypes, getVideos, getSongs, getArtists } from './data';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import { mInit } from '../materialize';
+import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
 
 export function Select(props: {
   query: string;
