@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
 import Top from './pages/top';
@@ -60,13 +63,58 @@ export function Header() {
           <Link to='/releases'>Releases</Link>
         </li>
       </ul>
-
-      <Card />
     </header>
   );
 }
 
-function Card() {
+export function PickUp() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  return (
+    <div className='pickup'>
+      <Slider {...settings} style={{ margin: '0 auto', maxWidth: 1120 }}>
+        <PickUpIframe id='UpoysjZfWrU' />
+        <PickUpIframe id='NdHPnTd2Jd8' />
+        <PickUpIframe id='syhlmTNW_a8' />
+        <PickUpIframe id='LQ_eazT56FA' />
+      </Slider>
+    </div>
+  );
+}
+
+function PickUpIframe(props: { id: string }) {
+  return (
+    <>
+      {screen.width < 1200 && (
+        <iframe
+          width={screen.width}
+          height={screen.width * 0.5625}
+          src={`https://www.youtube.com/embed/${props.id}`}
+          frameBorder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+      )}
+      {1200 <= screen.width && (
+        <iframe
+          width='1120'
+          height='630'
+          src={`https://www.youtube.com/embed/${props.id}`}
+          frameBorder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+      )}
+    </>
+  );
+}
+
+export function Deformed() {
   return (
     <div style={{ backgroundColor: '#fff8f8' }}>
       {screen.width <= 760 && (
@@ -129,6 +177,11 @@ export function Main() {
     window.localStorage.setItem('sortedBy', String(displayMode));
   });
 
+  const location = useLocation();
+  const isTop = () => {
+    return location.pathname === '/' && location.search === '';
+  };
+
   const isFavo = (singingId: number) => {
     favos as Map<number, boolean>;
     return favos.has(singingId) && (favos.get(singingId) as boolean);
@@ -143,46 +196,50 @@ export function Main() {
   };
 
   return (
-    <div id='main'>
-      <div className='row'>
-        <div className='col s12 m12 l12 xl10 offset-xl1'>
-          <Switch>
-            <Route
-              exact
-              path='/'
-              render={(props) => (
-                <Top
-                  rowqs={props.location.search}
-                  isFavo={isFavo}
-                  toggleFavo={toggleFavo}
-                  displaynum={displaynum}
-                  setDisplaynum={setDisplaynum}
-                  displayMode={displayMode}
-                  setDisplayMode={setDisplayMode}
-                  sortedBy={sortedBy}
-                  setSortedBy={setSortedBy}
-                />
-              )}
-            />
-            <Route
-              path='/favos'
-              render={() => (
-                <Favos
-                  isFavo={isFavo}
-                  toggleFavo={toggleFavo}
-                  displaynum={displaynum}
-                  setDisplaynum={setDisplaynum}
-                  displayMode={displayMode}
-                  setDisplayMode={setDisplayMode}
-                />
-              )}
-            />
-            <Route path='/stats' component={Stats} />
-            <Route path='/releases' component={Releases} />
-          </Switch>
+    <>
+      {isTop() && <PickUp />}
+      {!isTop() && <Deformed />}
+      <div id='main'>
+        <div className='row'>
+          <div className='col s12 m12 l12 xl10 offset-xl1'>
+            <Switch>
+              <Route
+                exact
+                path='/'
+                render={(props) => (
+                  <Top
+                    rowqs={props.location.search}
+                    isFavo={isFavo}
+                    toggleFavo={toggleFavo}
+                    displaynum={displaynum}
+                    setDisplaynum={setDisplaynum}
+                    displayMode={displayMode}
+                    setDisplayMode={setDisplayMode}
+                    sortedBy={sortedBy}
+                    setSortedBy={setSortedBy}
+                  />
+                )}
+              />
+              <Route
+                path='/favos'
+                render={() => (
+                  <Favos
+                    isFavo={isFavo}
+                    toggleFavo={toggleFavo}
+                    displaynum={displaynum}
+                    setDisplaynum={setDisplaynum}
+                    displayMode={displayMode}
+                    setDisplayMode={setDisplayMode}
+                  />
+                )}
+              />
+              <Route path='/stats' component={Stats} />
+              <Route path='/releases' component={Releases} />
+            </Switch>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

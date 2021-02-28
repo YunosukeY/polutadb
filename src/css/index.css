@@ -24,6 +24,11 @@ body {
 #main {
   background-color: var(--bg-color);
 }
+.pickup {
+  background-color: var(--bg-color);
+  padding: 20px 0;
+}
+
 .pane {
   border: solid 1px #dcdbdc;
   border-radius: 10px;
@@ -39,6 +44,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.slick-prev {
+  left: 25px !important;
+  z-index: 1 !important;
+}
+.slick-next {
+  right: 25px !important;
+  z-index: 1 !important;
 }
 .row {
   padding-bottom: 20px;
@@ -206,6 +219,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 /* レスポンシブ */
+@media screen and (max-width: 1120px) {
+  .slick-slide iframe,
+  .slick-slide img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
 @media screen and (max-width: 992px) {
   /* iframeを横幅いっぱいのサイズにする */
   #iframe-content {

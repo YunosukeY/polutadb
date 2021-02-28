@@ -216,7 +216,7 @@ export const videos: Video[] = [
     id: 'syhlmTNW_a8',
     title: 'メンヘラじゃないもん！ - 尾丸ポルカ(cover)',
     date: '2021/01/10',
-    typeId: 1,
+    typeId: 0,
   },
   {
     // 31
