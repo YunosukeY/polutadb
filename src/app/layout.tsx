@@ -28,6 +28,9 @@ export function Header() {
               <Link to='/'>Top</Link>
             </li>
             <li>
+              <Link to='/?dummy'>Search</Link>
+            </li>
+            <li>
               <Link to='/favos'>Favos</Link>
             </li>
             <li>
@@ -43,6 +46,9 @@ export function Header() {
       <ul className='sidenav' id='mobile-demo'>
         <li>
           <Link to='/'>Top</Link>
+        </li>
+        <li>
+          <Link to='/?dummy'>Search</Link>
         </li>
         <li>
           <Link to='/favos'>Favos</Link>

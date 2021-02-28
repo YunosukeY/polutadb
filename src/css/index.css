@@ -28,8 +28,17 @@ body {
   border: solid 1px #dcdbdc;
   border-radius: 10px;
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   padding: 10px;
+}
+.MuiPaper-root {
+  border: solid 1px #dcdbdc;
+  margin-top: 20px;
+}
+.MuiCardContent-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .row {
   padding-bottom: 20px;
