@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
 import { Displaynum, DisplayFormat } from '../components/select';
 import { ScrollToTopOnMount } from '../components/scroll';
-import { Singing } from '../data/utils';
-import { singings } from '../data/singings';
+import { Singing, singings } from '../data/singings';
 
 export default function Favos(props: {
   isFavo: (singingId: number) => boolean;

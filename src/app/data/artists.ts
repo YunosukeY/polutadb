@@ -1,4 +1,6 @@
-import { Artist } from './utils';
+export interface Artist {
+  name: string;
+}
 
 export const artists: Artist[] = [
   /*  0 */ { name: '尾丸ポルカ' },

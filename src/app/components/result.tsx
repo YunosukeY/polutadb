@@ -9,8 +9,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
 
 import { Query } from '../lib/query';
-import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from '../data/utils';
-import { singings } from '../data/singings';
+import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
+import { Singing, singings } from '../data/singings';
 
 export default function Result(props: {
   query: Query;

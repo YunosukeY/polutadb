@@ -1,4 +1,13 @@
-import { Video, Type } from './utils';
+export interface Video {
+  id: string;
+  title: string;
+  date: string;
+  typeId: number;
+}
+
+export interface Type {
+  name: string;
+}
 
 export const videos: Video[] = [
   {

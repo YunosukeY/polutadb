@@ -2,49 +2,6 @@ import { videos, types } from './videos';
 import { artists } from './artists';
 import { songs, genres } from './songs';
 
-export interface Video {
-  id: string;
-  title: string;
-  date: string;
-  typeId: number;
-}
-
-export interface Song {
-  title: string;
-  artistId: number;
-  genreId: number;
-}
-
-export interface Genre {
-  name: string;
-}
-
-export interface Artist {
-  name: string;
-}
-
-export interface Type {
-  name: string;
-}
-
-export class Singing {
-  id: number;
-  videoId: number;
-  songId: number;
-  start: number;
-  withInst: boolean;
-  full: boolean;
-
-  constructor(id: number, videoId: number, songId: number, start: number, withInst = true, full = true) {
-    this.id = id;
-    this.videoId = videoId;
-    this.songId = songId;
-    this.start = start;
-    this.withInst = withInst;
-    this.full = full;
-  }
-}
-
 export function getGenres() {
   let genreNames: { name: string; i: number }[] = [];
   genres.forEach((genre, i) => genreNames.push({ name: genre.name, i: i }));

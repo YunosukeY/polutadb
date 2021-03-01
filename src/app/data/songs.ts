@@ -1,4 +1,12 @@
-import { Song, Genre } from './utils';
+export interface Song {
+  title: string;
+  artistId: number;
+  genreId: number;
+}
+
+export interface Genre {
+  name: string;
+}
 
 export const songs: Song[] = [
   /*  0 */ { title: 'HOLOGRAM CIRCUS', artistId: 0, genreId: 0 },

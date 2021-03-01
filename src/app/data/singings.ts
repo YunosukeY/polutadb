@@ -1,4 +1,20 @@
-import { Singing } from './utils';
+export class Singing {
+  id: number;
+  videoId: number;
+  songId: number;
+  start: number;
+  withInst: boolean;
+  full: boolean;
+
+  constructor(id: number, videoId: number, songId: number, start: number, withInst = true, full = true) {
+    this.id = id;
+    this.videoId = videoId;
+    this.songId = songId;
+    this.start = start;
+    this.withInst = withInst;
+    this.full = full;
+  }
+}
 
 class Iota {
   static count = 0;
