@@ -16,35 +16,37 @@ import cardSmallerCredit from './card-smaller-credit.svg';
 export function Header() {
   return (
     <header>
-      <nav className='nav-extended'>
-        <div className='nav-wrapper'>
-          <Link to='/' className='brand-logo center title'>
-            PolutaDB
-          </Link>
-          <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
-            <Box pt={1}>
-              <MenuIcon style={{ fontSize: 24 }} />
-            </Box>
-          </a>
-          <ul id='nav-mobile' className='right hide-on-med-and-down'>
-            <li>
-              <Link to='/'>Top</Link>
-            </li>
-            <li>
-              <Link to='/?dummy'>Search</Link>
-            </li>
-            <li>
-              <Link to='/favos'>Favos</Link>
-            </li>
-            <li>
-              <Link to='/stats'>Stats</Link>
-            </li>
-            <li>
-              <Link to='/releases'>Releases</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div className='navbar-fixed'>
+        <nav className='nav-extended'>
+          <div className='nav-wrapper'>
+            <Link to='/' className='brand-logo center title'>
+              PolutaDB
+            </Link>
+            <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
+              <Box pt={1}>
+                <MenuIcon style={{ fontSize: 24 }} />
+              </Box>
+            </a>
+            <ul id='nav-mobile' className='right hide-on-med-and-down'>
+              <li>
+                <Link to='/'>Top</Link>
+              </li>
+              <li>
+                <Link to='/?dummy'>Search</Link>
+              </li>
+              <li>
+                <Link to='/favos'>Favos</Link>
+              </li>
+              <li>
+                <Link to='/stats'>Stats</Link>
+              </li>
+              <li>
+                <Link to='/releases'>Releases</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
       <ul className='sidenav' id='mobile-demo'>
         <li>
