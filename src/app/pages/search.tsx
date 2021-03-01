@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import { Query } from '../lib/query';
 import { Select } from '../components/select';
 import Result from '../components/result';
+import { ScrollToSearch } from '../components/scroll';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Search(props: {
@@ -82,6 +83,7 @@ export default function Search(props: {
 
   return (
     <>
+      <ScrollToSearch />
       <Select
         query={query}
         setQuery={setQuery}

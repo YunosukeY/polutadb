@@ -8,6 +8,7 @@ import { getGenre, getArtist } from '../data/utils';
 import { artists } from '../data/artists';
 import { songs, genres } from '../data/songs';
 import { singings } from '../data/singings';
+import { ScrollToTopOnMount } from '../components/scroll';
 
 export default function Stats() {
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function Stats() {
 
   return (
     <div id='stats'>
+      <ScrollToTopOnMount />
       <div className='pane'>
         <h4 className='center'>{genres.length} Genres</h4>
         <div className='chartdiv' id='genre-stats'></div>

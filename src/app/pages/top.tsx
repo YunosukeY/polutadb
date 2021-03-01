@@ -9,6 +9,7 @@ import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 import Search from './search';
+import { ScrollToTopOnMount } from '../components/scroll';
 
 export default function Top(props: {
   rowqs: string;
@@ -46,6 +47,7 @@ export default function Top(props: {
 function About() {
   return (
     <>
+      <ScrollToTopOnMount />
       <div className='pane' id='about'>
         <h4>About</h4>
         <Describe />
