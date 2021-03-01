@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { getVideo } from '../data/utils';
 
+// eslint-disable-next-line max-lines-per-function
 export default function Releases() {
   return (
     <div className='pane' id='releases'>

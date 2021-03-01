@@ -8,6 +8,7 @@ import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/ut
 import { Query } from '../lib/query';
 import { mInit } from '../lib/materialize';
 
+// eslint-disable-next-line max-lines-per-function
 export function Select(props: {
   query: Query;
   setQuery: (query: string) => void;

@@ -26,7 +26,7 @@ export default function Result(props: {
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     props.setPagenum(p);
-    ref!.current!.scrollIntoView({ behavior: 'smooth' });
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

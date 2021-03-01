@@ -27,3 +27,26 @@ rules:
   no-unused-vars: error
   no-unreachable: error
   no-undef: error
+  max-lines-per-function:
+    - warn
+    - 100
+  '@typescript-eslint/naming-convention':
+    - warn
+    - selector:
+        - function
+      format:
+        - camelCase
+        - PascalCase
+    - selector:
+        - variable
+        - parameter
+        - property
+        - method
+      format:
+        - camelCase
+    - selector:
+        - class
+        - interface
+        - typeAlias
+      format:
+        - PascalCase

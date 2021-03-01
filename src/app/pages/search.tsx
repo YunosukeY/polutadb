@@ -6,6 +6,7 @@ import { Query } from '../lib/query';
 import { Select } from '../components/select';
 import Result from '../components/result';
 
+// eslint-disable-next-line max-lines-per-function
 export default function Search(props: {
   rowqs: string;
   displaynum: number;

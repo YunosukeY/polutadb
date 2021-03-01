@@ -27,7 +27,7 @@ export default function Favos(props: {
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     setPagenum(p);
-    ref!.current!.scrollIntoView({ behavior: 'smooth' });
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
