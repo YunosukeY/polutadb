@@ -36,6 +36,12 @@ body {
   background-color: white;
   padding: 10px;
 }
+.row {
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+/* mui card */
 .MuiPaper-root {
   border: solid 1px #dcdbdc;
   margin-top: 20px;
@@ -45,6 +51,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* react-slick */
+.slick-slider {
+  margin: 0 auto;
+  max-width: 1120px;
+}
 .slick-prev {
   left: 25px !important;
   z-index: 1 !important;
@@ -52,10 +64,6 @@ body {
 .slick-next {
   right: 25px !important;
   z-index: 1 !important;
-}
-.row {
-  padding-bottom: 20px;
-  margin-bottom: 0px;
 }
 
 /* フォント */
