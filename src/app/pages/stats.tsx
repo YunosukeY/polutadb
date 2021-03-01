@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+
 import { getGenre, getArtist } from '../data/utils';
 import { artists } from '../data/artists';
 import { songs, genres } from '../data/songs';

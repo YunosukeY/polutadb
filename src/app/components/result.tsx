@@ -7,20 +7,13 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
+
+import { Query } from '../lib/query';
 import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, Singing, getVideo } from '../data/utils';
 import { singings } from '../data/singings';
 
 export default function Result(props: {
-  query: string;
-  genre: number;
-  type: number;
-  video: number;
-  song: number;
-  artist: number;
-  withInst: boolean;
-  aCappella: boolean;
-  full: boolean;
-  onechorus: boolean;
+  query: Query;
   sortedBy: number;
   displaynum: number;
   displayMode: number;
@@ -29,19 +22,7 @@ export default function Result(props: {
   isFavo: (singingId: number) => boolean;
   toggleFavo: (singingId: number) => void;
 }) {
-  const result = search(
-    props.query,
-    props.video,
-    props.song,
-    props.artist,
-    props.genre,
-    props.type,
-    props.withInst,
-    props.aCappella,
-    props.full,
-    props.onechorus,
-    props.sortedBy,
-  ); // ジャンルなどから計算できるので状態ではない
+  const result = search(props.query, props.sortedBy); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     props.setPagenum(p);
@@ -312,37 +293,25 @@ export function Pagenation(props: { pagenum: number; setPagenum: (p: number) => 
   );
 }
 
-function search(
-  query: string,
-  videoId: number,
-  songId: number,
-  artistId: number,
-  genreId: number,
-  typeId: number,
-  withInst: boolean,
-  aCappella: boolean,
-  full: boolean,
-  onechorus: boolean,
-  sortedBy: number,
-) {
+function search(query: Query, sortedBy: number) {
   let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));
 
-  const normalizedQuery = query.toLowerCase();
-  if (query !== '') {
+  const normalizedQuery = query.query.toLowerCase();
+  if (query.query !== '') {
     tmpres = tmpres.filter((singingInfo) => fullTextFilter(singingInfo, normalizedQuery));
   }
 
-  if (videoId !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.videoId === videoId);
-  if (songId !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.songId === songId);
-  if (artistId !== -1) tmpres = tmpres.filter((singingInfo) => getArtistId(singingInfo.songId) === artistId);
-  if (genreId !== -1) tmpres = tmpres.filter((singingInfo) => getGenreId(singingInfo.songId) === genreId);
-  if (typeId !== -1) tmpres = tmpres.filter((singingInfo) => getTypeId(singingInfo.videoId) === typeId);
+  if (query.video !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.videoId === query.video);
+  if (query.song !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.songId === query.song);
+  if (query.artist !== -1) tmpres = tmpres.filter((singingInfo) => getArtistId(singingInfo.songId) === query.artist);
+  if (query.genre !== -1) tmpres = tmpres.filter((singingInfo) => getGenreId(singingInfo.songId) === query.genre);
+  if (query.type !== -1) tmpres = tmpres.filter((singingInfo) => getTypeId(singingInfo.videoId) === query.type);
 
-  if (withInst === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === false);
-  if (aCappella === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === true);
+  if (query.withInst === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === false);
+  if (query.aCappella === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === true);
 
-  if (full === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === false);
-  if (onechorus === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === true);
+  if (query.full === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === false);
+  if (query.onechorus === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === true);
 
   tmpres.reverse();
   if (sortedBy === 1) {

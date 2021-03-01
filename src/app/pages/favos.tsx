@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { ResultTable, SimpleResultTable, Pagenation } from './result';
-import { Displaynum, DisplayFormat } from './select';
+
+import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
+import { Displaynum, DisplayFormat } from '../components/select';
 import { Singing } from '../data/utils';
 import { singings } from '../data/singings';
 

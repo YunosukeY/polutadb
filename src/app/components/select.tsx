@@ -3,29 +3,22 @@ import { useState, useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { mInit } from '../materialize';
+
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
+import { Query } from '../lib/query';
+import { mInit } from '../lib/materialize';
 
 export function Select(props: {
-  query: string;
+  query: Query;
   setQuery: (query: string) => void;
-  genre: number;
   setGenre: (genre: number) => void;
-  type: number;
   setType: (type: number) => void;
-  video: number;
   setVideo: (video: number) => void;
-  song: number;
   setSong: (song: number) => void;
-  artist: number;
   setArtist: (artist: number) => void;
-  withInst: boolean;
   setWithInst: (withInst: boolean) => void;
-  aCappella: boolean;
   setACappella: (aCappella: boolean) => void;
-  full: boolean;
   setFull: (full: boolean) => void;
-  onechorus: boolean;
   setOnechorus: (onechorus: boolean) => void;
   displaynum: number;
   setDisplaynum: (displaynum: number) => void;
@@ -69,38 +62,38 @@ export function Select(props: {
             <ArrowDropDownIcon style={{ fontSize: fontsize }} />
             Search
           </h4>
-          <FullTextSearch query={props.query} setQuery={props.setQuery} />
+          <FullTextSearch query={props.query.query} setQuery={props.setQuery} />
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Genre genre={props.genre} setGenre={props.setGenre} />
+              <Genre genre={props.query.genre} setGenre={props.setGenre} />
             </div>
             <div className='col m6 s12'>
-              <Type type={props.type} setType={props.setType} />
+              <Type type={props.query.type} setType={props.setType} />
             </div>
           </div>
-          <Video video={props.video} setVideo={props.setVideo} />
+          <Video video={props.query.video} setVideo={props.setVideo} />
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Song song={props.song} setSong={props.setSong} />
+              <Song song={props.query.song} setSong={props.setSong} />
             </div>
             <div className='col m6 s12'>
-              <Artist artist={props.artist} setArtist={props.setArtist} />
+              <Artist artist={props.query.artist} setArtist={props.setArtist} />
             </div>
           </div>
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
               <Inst
-                withInst={props.withInst}
+                withInst={props.query.withInst}
                 setWithInst={onChange(props.setWithInst)}
-                aCappella={props.aCappella}
+                aCappella={props.query.aCappella}
                 setACappella={onChange(props.setACappella)}
               />
             </div>
             <div className='col m6 s12'>
               <Length
-                full={props.full}
+                full={props.query.full}
                 setFull={onChange(props.setFull)}
-                onechorus={props.onechorus}
+                onechorus={props.query.onechorus}
                 setOnechorus={onChange(props.setOnechorus)}
               />
             </div>

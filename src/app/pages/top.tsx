@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import queryString from 'query-string';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,8 +7,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import { Select } from './select';
-import Result from './result';
+
+import Search from './search';
 
 export default function Top(props: {
   rowqs: string;
@@ -105,130 +103,5 @@ function Describe() {
       までご連絡ください．
       <br />
     </div>
-  );
-}
-
-function Search(props: {
-  rowqs: string;
-  displaynum: number;
-  setDisplaynum: (displaynum: number) => void;
-  displayMode: number;
-  setDisplayMode: (mode: number) => void;
-  sortedBy: number;
-  setSortedBy: (sortedBy: number) => void;
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-}) {
-  const qs = queryString.parse(props.rowqs);
-  const query = qs.query == null ? '' : String(qs.query);
-  const genre = qs.genre == null ? -1 : Number(qs.genre);
-  const type = qs.type == null ? -1 : Number(qs.type);
-  const video = qs.video == null ? -1 : Number(qs.video);
-  const song = qs.song == null ? -1 : Number(qs.song);
-  const artist = qs.artist == null ? -1 : Number(qs.artist);
-  const withInst = qs.withInst == null ? true : qs.withInst === 'true';
-  const aCappella = qs.aCappella == null ? true : qs.aCappella === 'true';
-  const full = qs.full == null ? true : qs.full === 'true';
-  const onechorus = qs.onechorus == null ? true : qs.onechorus === 'true';
-
-  const [pagenum, setPagenum] = useState(1);
-
-  function setQuery(newQuery: string) {
-    setPagenum(1);
-    window.location.href = `?query=${newQuery}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setGenre(newGenre: number) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${newGenre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setType(newType: number) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${newType}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setVideo(newVideo: number) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${newVideo}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setSong(newSong: number) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${newSong}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setArtist(newArtist: number) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${newArtist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setWithInst(newWithInst: boolean) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${newWithInst}&aCappella=${aCappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setACappella(newACappella: boolean) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${newACappella}&full=${full}&onechorus=${onechorus}#search`;
-  }
-  function setFull(newFull: boolean) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${newFull}&onechorus=${onechorus}#search`;
-  }
-  function setOnechorus(newOnechorus: boolean) {
-    setPagenum(1);
-    window.location.href = `?query=${query}&genre=${genre}&type=${type}&video=${video}&song=${song}&artist=${artist}&withInst=${withInst}&aCappella=${aCappella}&full=${full}&onechorus=${newOnechorus}#search`;
-  }
-
-  // 表示件数が更新されたら1ページ目に戻す
-  function onDnumChange(newDnum: number) {
-    props.setDisplaynum(newDnum);
-    setPagenum(1);
-  }
-
-  return (
-    <>
-      <Select
-        query={query}
-        setQuery={setQuery}
-        genre={genre}
-        setGenre={setGenre}
-        type={type}
-        setType={setType}
-        video={video}
-        setVideo={setVideo}
-        song={song}
-        setSong={setSong}
-        artist={artist}
-        setArtist={setArtist}
-        withInst={withInst}
-        setWithInst={setWithInst}
-        aCappella={aCappella}
-        setACappella={setACappella}
-        full={full}
-        setFull={setFull}
-        onechorus={onechorus}
-        setOnechorus={setOnechorus}
-        displaynum={props.displaynum}
-        setDisplaynum={onDnumChange}
-        displayMode={props.displayMode}
-        setDisplayMode={props.setDisplayMode}
-        sortedBy={props.sortedBy}
-        setSortedBy={props.setSortedBy}
-      />
-      <Result
-        query={query}
-        genre={genre}
-        type={type}
-        video={video}
-        song={song}
-        artist={artist}
-        withInst={withInst}
-        aCappella={aCappella}
-        full={full}
-        onechorus={onechorus}
-        sortedBy={props.sortedBy}
-        displaynum={props.displaynum}
-        displayMode={props.displayMode}
-        pagenum={pagenum}
-        setPagenum={setPagenum}
-        isFavo={props.isFavo}
-        toggleFavo={props.toggleFavo}
-      />
-    </>
   );
 }

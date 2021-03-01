@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { getVideo } from '../data/utils';
 
 export default function Releases() {
