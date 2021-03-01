@@ -268,6 +268,21 @@ export const songs: Song[] = [
   /* 264 */ { title: 'パンダヒーロー', artistId: 109, genreId: 3 },
   /* 265 */ { title: '1/2', artistId: 143, genreId: 1 },
   /* 266 */ { title: '夜に駆ける', artistId: 144, genreId: 4 },
+  /* 267 */ { title: 'ゴーストルール', artistId: 44, genreId: 3 },
+  /* 268 */ { title: 'ヒバナ', artistId: 44, genreId: 3 },
+  /* 269 */ { title: '小夜子', artistId: 141, genreId: 3 },
+  /* 270 */ { title: 'ドーナツホール', artistId: 109, genreId: 3 },
+  /* 271 */ { title: '砂の惑星', artistId: 109, genreId: 3 },
+  /* 272 */ { title: 'Shangri-La', artistId: 145, genreId: 1 },
+  /* 273 */ { title: 'oath sign', artistId: 57, genreId: 1 },
+  /* 274 */ { title: 'ギミー！レボリューション', artistId: 146, genreId: 1 },
+  /* 275 */ { title: 'シリウス', artistId: 147, genreId: 1 },
+  /* 276 */ { title: 'Os-宇宙人', artistId: 148, genreId: 1 },
+  /* 277 */ { title: '恋は渾沌の隷也', artistId: 99, genreId: 1 },
+  /* 278 */ { title: 'はっぴぃ にゅう にゃあ', artistId: 149, genreId: 1 },
+  /* 279 */ { title: '熱烈歓迎わんだーらんど', artistId: 150, genreId: 1 },
+  /* 280 */ { title: "bloooomin'", artistId: 151, genreId: 1 },
+  /* 281 */ { title: '恋愛サーキュレーション', artistId: 152, genreId: 1 },
 ];
 
 export const genres: Genre[] = [

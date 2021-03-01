@@ -267,6 +267,13 @@ export const videos: Video[] = [
     date: '2021/02/27',
     typeId: 2,
   },
+  {
+    // 38
+    id: 'XOZJ2Vv3pfY',
+    title: 'POLKA＋February＋LIVE＋2021 #ぽるうた​【尾丸ポルカ/ホロライブ】',
+    date: '2021/02/28',
+    typeId: 1,
+  },
 ];
 
 export const types: Type[] = [

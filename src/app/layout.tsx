@@ -78,10 +78,10 @@ export function PickUp() {
   return (
     <div className='pickup'>
       <Slider {...settings} style={{ margin: '0 auto', maxWidth: 1120 }}>
+        <PickUpIframe id='LQ_eazT56FA' />
         <PickUpIframe id='UpoysjZfWrU' />
         <PickUpIframe id='NdHPnTd2Jd8' />
         <PickUpIframe id='syhlmTNW_a8' />
-        <PickUpIframe id='LQ_eazT56FA' />
       </Slider>
     </div>
   );
