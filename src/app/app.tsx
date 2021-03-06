@@ -12,6 +12,8 @@ import Top from './pages/top';
 import Stats from './pages/stats';
 import Releases from './pages/releases';
 import Favos from './pages/favos';
+import { Youtube } from './components/result';
+import { Singing } from './data/singings';
 import card from '../fig/card.svg';
 import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
@@ -93,45 +95,61 @@ function PickUp() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
   };
   return (
     <div className='pickup'>
       <Slider {...settings}>
-        <PickUpIframe id='LQ_eazT56FA' />
-        <PickUpIframe id='UpoysjZfWrU' />
-        <PickUpIframe id='NdHPnTd2Jd8' />
-        <PickUpIframe id='syhlmTNW_a8' />
+        <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
+        <PickUpThumbnail id='UpoysjZfWrU' singing={new Singing(0, 36, 0, 0)} />
+        <PickUpThumbnail id='NdHPnTd2Jd8' singing={new Singing(0, 33, 0, 0)} />
+        <PickUpThumbnail id='syhlmTNW_a8' singing={new Singing(0, 30, 0, 0)} />
       </Slider>
     </div>
   );
 }
 
-function PickUpIframe(props: { id: string }) {
+function PickUpThumbnail(props: { id: string; singing: Singing }) {
   return (
-    <>
-      {screen.width < 1200 && (
-        <iframe
-          width={screen.width}
-          height={screen.width * 0.5625}
-          src={`https://www.youtube.com/embed/${props.id}`}
-          frameBorder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen
-        />
-      )}
-      {1200 <= screen.width && (
-        <iframe
-          width='1120'
-          height='630'
-          src={`https://www.youtube.com/embed/${props.id}`}
-          frameBorder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen
-        />
-      )}
-    </>
+    <div style={{ position: 'relative' }}>
+      <div style={{ backgroundColor: '#000000' }}>
+        <img src={`http://img.youtube.com/vi/${props.id}/maxresdefault.jpg`} style={{ width: '100%', opacity: 0.7 }} />
+      </div>
+      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+        <Youtube singing={props.singing} fontsize={70} />
+      </div>
+    </div>
   );
 }
+
+// function PickUpIframe(props: { id: string }) {
+//   return (
+//     <>
+//       {screen.width < 1200 && (
+//         <iframe
+//           width={screen.width}
+//           height={screen.width * 0.5625}
+//           src={`https://www.youtube.com/embed/${props.id}`}
+//           frameBorder='0'
+//           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+//           allowFullScreen
+//         />
+//       )}
+//       {1200 <= screen.width && (
+//         <iframe
+//           width='1120'
+//           height='630'
+//           src={`https://www.youtube.com/embed/${props.id}`}
+//           frameBorder='0'
+//           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+//           allowFullScreen
+//         />
+//       )}
+//     </>
+//   );
+// }
 
 function Deformed() {
   return (
