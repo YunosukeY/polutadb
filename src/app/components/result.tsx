@@ -167,7 +167,7 @@ export function SimpleResultTable(props: ResultTableProps) {
   );
 }
 
-function Youtube(props: { singing: Singing; fontsize: number }) {
+export function Youtube(props: { singing: Singing; fontsize: number }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -177,7 +177,7 @@ function Youtube(props: { singing: Singing; fontsize: number }) {
   };
   const body = (
     <div
-      id='iframe-content'
+      id='simple-iframe-parent'
       style={{
         position: 'absolute',
         backgroundColor: 'black',
@@ -188,9 +188,11 @@ function Youtube(props: { singing: Singing; fontsize: number }) {
     >
       <iframe
         id='simple-iframe'
-        width='800'
-        height='450'
-        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${props.singing.start}`}
+        width='1120'
+        height='630'
+        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${
+          props.singing.start
+        }&autoplay=1`}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
@@ -202,7 +204,7 @@ function Youtube(props: { singing: Singing; fontsize: number }) {
 
   return (
     <>
-      <IconButton onClick={handleOpen} style={{ background: 'white' }}>
+      <IconButton onClick={handleOpen} style={{ background: 'rgba(0,0,0,0)' }}>
         <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
       </IconButton>
       <Modal
@@ -221,7 +223,7 @@ function Star(props: { isFavo: boolean; onClick: () => void; fontsize: number })
   const color = 'gold';
 
   return (
-    <IconButton onClick={props.onClick} style={{ background: 'white' }}>
+    <IconButton onClick={props.onClick} style={{ background: 'rgba(0,0,0,0)' }}>
       {props.isFavo && <StarIcon style={{ fontSize: props.fontsize, color: color }} />}
       {!props.isFavo && <StarBorderIcon style={{ fontSize: props.fontsize, color: color }} />}
     </IconButton>
@@ -237,7 +239,7 @@ function Tweet(props: { singing: Singing; fontsize: number }) {
     window.open(encodeURI(decodeURI(tweetURL)));
   };
   return (
-    <IconButton onClick={onClick} style={{ background: 'white' }}>
+    <IconButton onClick={onClick} style={{ background: 'rgba(0,0,0,0)' }}>
       <TwitterIcon style={{ fontSize: props.fontsize, color: 'rgb(0,172,237)' }} />
     </IconButton>
   );
