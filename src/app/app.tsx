@@ -211,7 +211,7 @@ function Main() {
     window.localStorage.setItem('favos', JSON.stringify([...favos]));
     window.localStorage.setItem('displaynum', String(displaynum));
     window.localStorage.setItem('displayMode', String(displayMode));
-    window.localStorage.setItem('sortedBy', String(displayMode));
+    window.localStorage.setItem('sortedBy', String(sortedBy));
   });
 
   const location = useLocation();
