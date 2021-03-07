@@ -291,6 +291,8 @@ export const songs: Song[] = [
   /* 279 */ { title: '熱烈歓迎わんだーらんど', artistId: 150, genreId: 1 },
   /* 280 */ { title: "bloooomin'", artistId: 151, genreId: 1 },
   /* 281 */ { title: '恋愛サーキュレーション', artistId: 152, genreId: 1 },
+  /* 282 */ { title: '消せない罪', artistId: 153, genreId: 1 },
+  /* 283 */ { title: '乙女解剖', artistId: 44, genreId: 3 },
 ];
 
 export const genres: Genre[] = [

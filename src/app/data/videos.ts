@@ -283,6 +283,13 @@ export const videos: Video[] = [
     date: '2021/02/28',
     typeId: 1,
   },
+  {
+    // 39
+    id: 'WBjez9yHM-Q',
+    title: '【お前らが耐久】歌うから60万人いくまで寝ないでゲリラ【尾丸ポルカ/ホロライブ】',
+    date: '2021/03/06',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
