@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import M from 'materialize-css';
 
 import Top from './pages/top';
 import Stats from './pages/stats';
@@ -19,10 +18,6 @@ import card from '../fig/card.svg';
 import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
 export default function App() {
-  useEffect(() => {
-    M.AutoInit();
-  });
-
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* basenameはgithubioでの表示に必要 */}

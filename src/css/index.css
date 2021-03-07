@@ -219,6 +219,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
   -webkit-box-shadow: 0 1px 0 0 var(--sub-theme-color);
   box-shadow: 0 1px 0 0 var(--sub-theme-color);
 }
+.input-field {
+  margin-bottom: 10px;
+}
 .input-field .prefix {
   color: #949494;
 }

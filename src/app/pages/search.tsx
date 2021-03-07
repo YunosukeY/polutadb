@@ -3,7 +3,7 @@ import { useState } from 'react';
 import queryString from 'query-string';
 
 import { Query } from '../lib/query';
-import { Select } from '../components/select';
+import { Selects } from '../components/select';
 import Result from '../components/result';
 import { ScrollToSearch } from '../components/scroll';
 
@@ -84,7 +84,7 @@ export default function Search(props: {
   return (
     <>
       <ScrollToSearch />
-      <Select
+      <Selects
         query={query}
         setQuery={setQuery}
         setGenre={setGenre}

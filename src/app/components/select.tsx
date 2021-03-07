@@ -1,15 +1,29 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
 import { Query } from '../lib/query';
-import { mInit } from '../lib/materialize';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    formControl: {
+      padding: theme.spacing(1),
+      width: '100%',
+      height: '5rem',
+    },
+  }),
+);
 
 // eslint-disable-next-line max-lines-per-function
-export function Select(props: {
+export function Selects(props: {
   query: Query;
   setQuery: (query: string) => void;
   setGenre: (genre: number) => void;
@@ -34,7 +48,6 @@ export function Select(props: {
   });
 
   useEffect(() => {
-    mInit();
     window.localStorage.setItem('isHidden', String(isHidden));
   });
 
@@ -141,101 +154,97 @@ function FullTextSearch(props: { query: string; setQuery: (query: string) => voi
 }
 
 function Genre(props: { genre: number; setGenre: (genre: number) => void }) {
+  const classes = useStyles();
+
   const genres = getGenres().map((genre) => (
-    <option value={genre.i} key={genre.i}>
+    <MenuItem value={genre.i} key={genre.i}>
       {genre.name}
-    </option>
+    </MenuItem>
   ));
   return (
-    <label>
-      <h6 className='text'>曲ジャンル</h6>
-      <select id='genre-selector' value={props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
-        <option value='-1' key='-1'>
-          -
-        </option>
+    <FormControl className={classes.formControl}>
+      <InputLabel>曲ジャンル</InputLabel>
+      <Select value={props.genre === -1 ? '' : props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
+        <MenuItem value={-1}>-</MenuItem>
         {genres}
-      </select>
-    </label>
+      </Select>
+    </FormControl>
   );
 }
 
 function Type(props: { type: number; setType: (type: number) => void }) {
+  const classes = useStyles();
+
   const types = getTypes().map((type) => (
-    <option value={type.i} key={type.i}>
+    <MenuItem value={type.i} key={type.i}>
       {type.name}
-    </option>
+    </MenuItem>
   ));
   return (
-    <label>
-      <h6 className='text'>枠タイプ</h6>
-      <select id='type-selector' value={props.type} onChange={(event) => props.setType(Number(event.target.value))}>
-        <option value='-1' key='-1'>
-          -
-        </option>
+    <FormControl className={classes.formControl}>
+      <InputLabel>枠タイプ</InputLabel>
+      <Select value={props.type === -1 ? '' : props.type} onChange={(event) => props.setType(Number(event.target.value))}>
+        <MenuItem value={-1}>-</MenuItem>
         {types}
-      </select>
-    </label>
+      </Select>
+    </FormControl>
   );
 }
 
 function Video(props: { video: number; setVideo: (video: number) => void }) {
+  const classes = useStyles();
+
   const videos = getVideos().map((video) => (
-    <option value={video.i} key={video.i}>
+    <MenuItem value={video.i} key={video.i}>
       {video.date}: {video.title}
-    </option>
+    </MenuItem>
   ));
   return (
-    <label>
-      <h6 className='text'>動画</h6>
-      <select id='video-selector' value={props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
-        <option value='-1' key='-1'>
-          -
-        </option>
+    <FormControl className={classes.formControl}>
+      <InputLabel>動画</InputLabel>
+      <Select value={props.video === -1 ? '' : props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
+        <MenuItem value={-1}>-</MenuItem>
         {videos}
-      </select>
-    </label>
+      </Select>
+    </FormControl>
   );
 }
 
 function Song(props: { song: number; setSong: (song: number) => void }) {
+  const classes = useStyles();
+
   const songs = getSongs().map((song) => (
-    <option value={song.i} key={song.i}>
+    <MenuItem value={song.i} key={song.i}>
       {song.title}
-    </option>
+    </MenuItem>
   ));
   return (
-    <label>
-      <h6 className='text'>曲</h6>
-      <select id='song-selector' value={props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
-        <option value='-1' key='-1'>
-          -
-        </option>
+    <FormControl className={classes.formControl}>
+      <InputLabel>曲</InputLabel>
+      <Select value={props.song === -1 ? '' : props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
+        <MenuItem value={-1}>-</MenuItem>
         {songs}
-      </select>
-    </label>
+      </Select>
+    </FormControl>
   );
 }
 
 function Artist(props: { artist: number; setArtist: (artist: number) => void }) {
+  const classes = useStyles();
+
   const artists = getArtists().map((artist) => (
-    <option value={artist.i} key={artist.i}>
+    <MenuItem value={artist.i} key={artist.i}>
       {artist.name}
-    </option>
+    </MenuItem>
   ));
   return (
-    <label>
-      <h6 className='text'>アーティスト</h6>
-      <select
-        id='artist-selector'
-        value={props.artist}
-        onChange={(event) => props.setArtist(Number(event.target.value))}
-      >
-        <option value='-1' key='-1'>
-          -
-        </option>
+    <FormControl className={classes.formControl}>
+      <InputLabel>アーティスト</InputLabel>
+      <Select value={props.artist === -1 ? '' : props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
+        <MenuItem value={-1}>-</MenuItem>
         {artists}
-      </select>
-    </label>
+      </Select>
+    </FormControl>
   );
 }
 
