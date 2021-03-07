@@ -5,8 +5,12 @@
     {
       "src": "tent-f1646a.png",
       "sizes": "256x256 192x192 64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "display": "standalone"
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#F1646A",
+  "background_color": "white"
 }
