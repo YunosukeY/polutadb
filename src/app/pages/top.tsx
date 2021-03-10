@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,22 +8,9 @@ import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
-import Search from './search';
 import { ScrollToTopOnMount } from '../components/scroll';
 
 export default function Top() {
-  const location = useLocation();
-  const hasResult = location.search === '' ? false : true;
-
-  return (
-    <>
-      {!hasResult && <About />}
-      {hasResult && <Search />}
-    </>
-  );
-}
-
-function About() {
   return (
     <>
       <ScrollToTopOnMount />
@@ -32,7 +19,7 @@ function About() {
         <Describe />
       </div>
       <div className='row'>
-        <MyCard link='/?dummy' title='Search' icon={SearchIcon} />
+        <MyCard link='/search' title='Search' icon={SearchIcon} />
         <MyCard link='/favos' title='Favorites' icon={StarIcon} />
         <MyCard link='/stats' title='Statistics' icon={DonutLargeIcon} />
         <MyCard link='/releases' title='Release Notes' icon={ImportContactsIcon} />

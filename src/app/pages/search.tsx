@@ -17,7 +17,7 @@ export default function Search() {
 
   function setLocationSearch(newQuery: Query) {
     setPagenum(1);
-    history.push(`/?${newQuery}#search`);
+    history.push(`/search?${newQuery}`);
   }
 
   return (

@@ -10,6 +10,7 @@ import Top from './pages/top';
 import Stats from './pages/stats';
 import Releases from './pages/releases';
 import Favos from './pages/favos';
+import Search from './pages/search';
 import { Youtube } from './components/result';
 import { Singing } from './data/singings';
 import { getVideo } from './data/utils';
@@ -49,7 +50,7 @@ function Header() {
                 <Link to='/'>Top</Link>
               </li>
               <li>
-                <Link to='/?dummy'>Search</Link>
+                <Link to='/search'>Search</Link>
               </li>
               <li>
                 <Link to='/favos'>Favos</Link>
@@ -70,7 +71,7 @@ function Header() {
           <Link to='/'>Top</Link>
         </li>
         <li>
-          <Link to='/?dummy'>Search</Link>
+          <Link to='/search'>Search</Link>
         </li>
         <li>
           <Link to='/favos'>Favos</Link>
@@ -166,7 +167,7 @@ function Deformed() {
 function Main() {
   const location = useLocation();
   const isTop = () => {
-    return location.pathname === '/' && location.search === '';
+    return location.pathname === '/';
   };
 
   return (
@@ -178,6 +179,7 @@ function Main() {
           <div className='col s12 m12 l12 xl10 offset-xl1'>
             <Switch>
               <Route exact path='/' component={Top} />
+              <Route path='/search' component={Search} />
               <Route path='/favos' component={Favos} />
               <Route path='/stats' component={Stats} />
               <Route path='/releases' component={Releases} />
