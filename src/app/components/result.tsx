@@ -8,7 +8,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
 
-import { useAppState } from '../lib/appStateContext';
+import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
 import { Query } from '../lib/query';
 import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
 import { Singing, singings } from '../data/singings';
@@ -17,10 +17,10 @@ export default function Result(props: {
   query: Query;
   pagenum: number;
   setPagenum: React.Dispatch<React.SetStateAction<number>>;
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
 }) {
   const appState = useAppState();
+  const setAppState = useSetAppState();
+  const [isFavo, toggleFavo] = getAppStateUtils(appState, setAppState);
 
   const result = search(props.query, appState.sortedBy); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>();
@@ -39,8 +39,8 @@ export default function Result(props: {
             (props.pagenum - 1) * appState.displaynum,
             Math.min(props.pagenum * appState.displaynum, result.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
       {appState.displayMode == 1 && (
@@ -49,8 +49,8 @@ export default function Result(props: {
             (props.pagenum - 1) * appState.displaynum,
             Math.min(props.pagenum * appState.displaynum, result.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
       <Pagenation

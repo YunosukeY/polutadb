@@ -61,3 +61,29 @@ export function AppStateProvider(props: { initialState?: AppState; children: Rea
     </AppStateContext.Provider>
   );
 }
+
+export function getAppStateUtils(
+  appState: AppState,
+  setAppState: React.Dispatch<React.SetStateAction<AppState>>,
+): [(singingId: number) => boolean, (singingId: number) => void] {
+  const isFavo = (singingId: number) => {
+    return appState.favos.has(singingId) && (appState.favos.get(singingId) as boolean);
+  };
+
+  const toggleFavo = (singingId: number) => {
+    if (appState.favos.has(singingId)) {
+      const f = appState.favos.get(singingId) as boolean;
+      setAppState((state) => ({
+        ...state,
+        favos: new Map(state.favos.set(singingId, !f)),
+      }));
+    } else {
+      setAppState((state) => ({
+        ...state,
+        favos: new Map(appState.favos.set(singingId, true)),
+      }));
+    }
+  };
+
+  return [isFavo, toggleFavo];
+}

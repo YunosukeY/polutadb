@@ -8,11 +8,7 @@ import Result from '../components/result';
 import { ScrollToSearch } from '../components/scroll';
 
 // eslint-disable-next-line max-lines-per-function
-export default function Search(props: {
-  rowqs: string;
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-}) {
+export default function Search(props: { rowqs: string }) {
   const qs = queryString.parse(props.rowqs);
   const query = new Query(qs);
 
@@ -86,13 +82,7 @@ export default function Search(props: {
         setOnechorus={setOnechorus}
         setPagenum={setPagenum}
       />
-      <Result
-        query={query}
-        pagenum={pagenum}
-        setPagenum={setPagenum}
-        isFavo={props.isFavo}
-        toggleFavo={props.toggleFavo}
-      />
+      <Result query={query} pagenum={pagenum} setPagenum={setPagenum} />
     </>
   );
 }

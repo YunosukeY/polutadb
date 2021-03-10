@@ -11,17 +11,13 @@ import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import Search from './search';
 import { ScrollToTopOnMount } from '../components/scroll';
 
-export default function Top(props: {
-  rowqs: string;
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-}) {
+export default function Top(props: { rowqs: string }) {
   const hasResult = props.rowqs === '' ? false : true;
 
   return (
     <>
       {!hasResult && <About />}
-      {hasResult && <Search rowqs={props.rowqs} isFavo={props.isFavo} toggleFavo={props.toggleFavo} />}
+      {hasResult && <Search rowqs={props.rowqs} />}
     </>
   );
 }

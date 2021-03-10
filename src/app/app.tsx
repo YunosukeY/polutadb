@@ -14,7 +14,7 @@ import { Youtube } from './components/result';
 import { Singing } from './data/singings';
 import { getVideo } from './data/utils';
 import { useTracking } from './lib/useTracking';
-import { AppStateProvider, useAppState, useSetAppState } from './lib/appStateContext';
+import { AppStateProvider } from './lib/appStateContext';
 import card from '../fig/card.svg';
 import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
@@ -164,30 +164,9 @@ function Deformed() {
 }
 
 function Main() {
-  const appState = useAppState();
-  const setAppState = useSetAppState();
-
   const location = useLocation();
   const isTop = () => {
     return location.pathname === '/' && location.search === '';
-  };
-
-  const isFavo = (singingId: number) => {
-    return appState.favos.has(singingId) && (appState.favos.get(singingId) as boolean);
-  };
-  const toggleFavo = (singingId: number) => {
-    if (appState.favos.has(singingId)) {
-      const f = appState.favos.get(singingId) as boolean;
-      setAppState((state) => ({
-        ...state,
-        favos: new Map(state.favos.set(singingId, !f)),
-      }));
-    } else {
-      setAppState((state) => ({
-        ...state,
-        favos: new Map(appState.favos.set(singingId, true)),
-      }));
-    }
   };
 
   return (
@@ -198,12 +177,8 @@ function Main() {
         <div className='row'>
           <div className='col s12 m12 l12 xl10 offset-xl1'>
             <Switch>
-              <Route
-                exact
-                path='/'
-                render={(props) => <Top rowqs={props.location.search} isFavo={isFavo} toggleFavo={toggleFavo} />}
-              />
-              <Route path='/favos' render={() => <Favos isFavo={isFavo} toggleFavo={toggleFavo} />} />
+              <Route exact path='/' render={(props) => <Top rowqs={props.location.search} />} />
+              <Route path='/favos' render={() => <Favos />} />
               <Route path='/stats' component={Stats} />
               <Route path='/releases' component={Releases} />
             </Switch>

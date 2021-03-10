@@ -1,24 +1,22 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
-import { useAppState, useSetAppState } from '../lib/appStateContext';
+import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
 import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
 import { Displaynum, DisplayFormat } from '../components/select';
 import { ScrollToTopOnMount } from '../components/scroll';
 import { Singing, singings } from '../data/singings';
 
-export default function Favos(props: {
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-}) {
+export default function Favos() {
   const appState = useAppState();
   const setAppState = useSetAppState();
+  const [isFavo, toggleFavo] = getAppStateUtils(appState, setAppState);
 
   const [pagenum, setPagenum] = useState(1);
 
   const favoList = new Array<Singing>();
   singings.forEach((singing) => {
-    if (props.isFavo(singing.id)) {
+    if (isFavo(singing.id)) {
       favoList.push(singing);
     }
   });
@@ -66,8 +64,8 @@ export default function Favos(props: {
             (pagenum - 1) * appState.displaynum,
             Math.min(pagenum * appState.displaynum, favoList.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
       {appState.displayMode == 1 && (
@@ -76,8 +74,8 @@ export default function Favos(props: {
             (pagenum - 1) * appState.displaynum,
             Math.min(pagenum * appState.displaynum, favoList.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
       <Pagenation
