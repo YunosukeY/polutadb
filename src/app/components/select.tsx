@@ -164,7 +164,10 @@ function Genre(props: { genre: number; setGenre: (genre: number) => void }) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>曲ジャンル</InputLabel>
-      <Select value={props.genre === -1 ? '' : props.genre} onChange={(event) => props.setGenre(Number(event.target.value))}>
+      <Select
+        value={props.genre === -1 ? '' : props.genre}
+        onChange={(event) => props.setGenre(Number(event.target.value))}
+      >
         <MenuItem value={-1}>-</MenuItem>
         {genres}
       </Select>
@@ -183,7 +186,10 @@ function Type(props: { type: number; setType: (type: number) => void }) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>枠タイプ</InputLabel>
-      <Select value={props.type === -1 ? '' : props.type} onChange={(event) => props.setType(Number(event.target.value))}>
+      <Select
+        value={props.type === -1 ? '' : props.type}
+        onChange={(event) => props.setType(Number(event.target.value))}
+      >
         <MenuItem value={-1}>-</MenuItem>
         {types}
       </Select>
@@ -202,7 +208,10 @@ function Video(props: { video: number; setVideo: (video: number) => void }) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>動画</InputLabel>
-      <Select value={props.video === -1 ? '' : props.video} onChange={(event) => props.setVideo(Number(event.target.value))}>
+      <Select
+        value={props.video === -1 ? '' : props.video}
+        onChange={(event) => props.setVideo(Number(event.target.value))}
+      >
         <MenuItem value={-1}>-</MenuItem>
         {videos}
       </Select>
@@ -221,7 +230,10 @@ function Song(props: { song: number; setSong: (song: number) => void }) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>曲</InputLabel>
-      <Select value={props.song === -1 ? '' : props.song} onChange={(event) => props.setSong(Number(event.target.value))}>
+      <Select
+        value={props.song === -1 ? '' : props.song}
+        onChange={(event) => props.setSong(Number(event.target.value))}
+      >
         <MenuItem value={-1}>-</MenuItem>
         {songs}
       </Select>
@@ -240,7 +252,10 @@ function Artist(props: { artist: number; setArtist: (artist: number) => void }) 
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>アーティスト</InputLabel>
-      <Select value={props.artist === -1 ? '' : props.artist} onChange={(event) => props.setArtist(Number(event.target.value))}>
+      <Select
+        value={props.artist === -1 ? '' : props.artist}
+        onChange={(event) => props.setArtist(Number(event.target.value))}
+      >
         <MenuItem value={-1}>-</MenuItem>
         {artists}
       </Select>

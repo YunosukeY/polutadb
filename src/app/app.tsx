@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Link, Route, Switch, useLocation } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -14,17 +14,19 @@ import Favos from './pages/favos';
 import { Youtube } from './components/result';
 import { Singing } from './data/singings';
 import { getVideo } from './data/utils';
+import { useTracking } from './lib/useTracking';
 import card from '../fig/card.svg';
 import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
 export default function App() {
+  useTracking('G-3PTTKZQQDT');
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {/* basenameはgithubioでの表示に必要 */}
+    <>
       <Header />
       <Main />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
@@ -123,33 +125,6 @@ function PickUpThumbnail(props: { id: string; singing: Singing }) {
     </div>
   );
 }
-
-// function PickUpIframe(props: { id: string }) {
-//   return (
-//     <>
-//       {screen.width < 1200 && (
-//         <iframe
-//           width={screen.width}
-//           height={screen.width * 0.5625}
-//           src={`https://www.youtube.com/embed/${props.id}`}
-//           frameBorder='0'
-//           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-//           allowFullScreen
-//         />
-//       )}
-//       {1200 <= screen.width && (
-//         <iframe
-//           width='1120'
-//           height='630'
-//           src={`https://www.youtube.com/embed/${props.id}`}
-//           frameBorder='0'
-//           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-//           allowFullScreen
-//         />
-//       )}
-//     </>
-//   );
-// }
 
 function Deformed() {
   return (
