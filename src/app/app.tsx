@@ -87,6 +87,70 @@ function Header() {
   );
 }
 
+function Main() {
+  return (
+    <>
+      <KeyVisual />
+      <div id='main'>
+        <div className='row'>
+          <div className='col s12 m12 l12 xl10 offset-xl1'>
+            <Switch>
+              <Route exact path='/' component={Top} />
+              <Route path='/search' component={Search} />
+              <Route path='/favos' component={Favos} />
+              <Route path='/stats' component={Stats} />
+              <Route path='/releases' component={Releases} />
+            </Switch>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className='page-footer'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col s12' id='links'>
+            <h5 className='white-text'>Links</h5>
+            <ul>
+              <li>
+                <a className='grey-text text-lighten-3' href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>
+                  原曲プレイリスト（Spotify）
+                </a>
+              </li>
+              <li>
+                <a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>
+                  管理人Twitter
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className='footer-copyright'>
+        <div className='container center'>© 2020 ぽるうたデータベース</div>
+      </div>
+    </footer>
+  );
+}
+
+function KeyVisual() {
+  const location = useLocation();
+  const isTop = () => {
+    return location.pathname === '/';
+  };
+
+  return (
+    <>
+      {isTop() && <PickUp />}
+      {!isTop() && <Deformed />}
+    </>
+  )
+}
+
 function PickUp() {
   const settings = {
     dots: true,
@@ -161,69 +225,5 @@ function Deformed() {
         </div>
       )}
     </div>
-  );
-}
-
-function KeyVisual() {
-  const location = useLocation();
-  const isTop = () => {
-    return location.pathname === '/';
-  };
-
-  return (
-    <>
-      {isTop() && <PickUp />}
-      {!isTop() && <Deformed />}
-    </>
-  )
-}
-
-function Main() {
-  return (
-    <>
-      <KeyVisual />
-      <div id='main'>
-        <div className='row'>
-          <div className='col s12 m12 l12 xl10 offset-xl1'>
-            <Switch>
-              <Route exact path='/' component={Top} />
-              <Route path='/search' component={Search} />
-              <Route path='/favos' component={Favos} />
-              <Route path='/stats' component={Stats} />
-              <Route path='/releases' component={Releases} />
-            </Switch>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className='page-footer'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col s12' id='links'>
-            <h5 className='white-text'>Links</h5>
-            <ul>
-              <li>
-                <a className='grey-text text-lighten-3' href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>
-                  原曲プレイリスト（Spotify）
-                </a>
-              </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>
-                  管理人Twitter
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className='footer-copyright'>
-        <div className='container center'>© 2020 ぽるうたデータベース</div>
-      </div>
-    </footer>
   );
 }

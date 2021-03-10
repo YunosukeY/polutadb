@@ -32,6 +32,51 @@ export default function Stats() {
   );
 }
 
+// see https://www.amcharts.com/demos/pie-chart/
+function setChart() {
+  am4core.useTheme(am4themes_animated);
+
+  {
+    const chart = am4core.create('genre-stats', am4charts.PieChart);
+    chart.data = calcGenreStats();
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = 'count';
+    pieSeries.dataFields.category = 'genre';
+    pieSeries.slices.template.stroke = am4core.color('#fff');
+    pieSeries.slices.template.strokeOpacity = 1;
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+    chart.hiddenState.properties.radius = am4core.percent(0);
+  }
+  {
+    const chart = am4core.create('artist-stats', am4charts.PieChart);
+    chart.data = calcArtistStats();
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = 'count';
+    pieSeries.dataFields.category = 'artist';
+    pieSeries.slices.template.stroke = am4core.color('#fff');
+    pieSeries.slices.template.strokeOpacity = 1;
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+    chart.hiddenState.properties.radius = am4core.percent(0);
+  }
+  {
+    const chart = am4core.create('song-stats', am4charts.PieChart);
+    chart.data = calcSongStats();
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = 'count';
+    pieSeries.dataFields.category = 'song';
+    pieSeries.slices.template.stroke = am4core.color('#fff');
+    pieSeries.slices.template.strokeOpacity = 1;
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+    chart.hiddenState.properties.radius = am4core.percent(0);
+  }
+}
+
 function calcGenreStats() {
   // インデックスシグネチャ
   const data: { [index: string]: number } = {};
@@ -97,49 +142,4 @@ function calcSongStats() {
   res.push({ song: `その他（${border}回以下）`, count: others });
 
   return res;
-}
-
-// see https://www.amcharts.com/demos/pie-chart/
-function setChart() {
-  am4core.useTheme(am4themes_animated);
-
-  {
-    const chart = am4core.create('genre-stats', am4charts.PieChart);
-    chart.data = calcGenreStats();
-    const pieSeries = chart.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = 'count';
-    pieSeries.dataFields.category = 'genre';
-    pieSeries.slices.template.stroke = am4core.color('#fff');
-    pieSeries.slices.template.strokeOpacity = 1;
-    pieSeries.hiddenState.properties.opacity = 1;
-    pieSeries.hiddenState.properties.endAngle = -90;
-    pieSeries.hiddenState.properties.startAngle = -90;
-    chart.hiddenState.properties.radius = am4core.percent(0);
-  }
-  {
-    const chart = am4core.create('artist-stats', am4charts.PieChart);
-    chart.data = calcArtistStats();
-    const pieSeries = chart.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = 'count';
-    pieSeries.dataFields.category = 'artist';
-    pieSeries.slices.template.stroke = am4core.color('#fff');
-    pieSeries.slices.template.strokeOpacity = 1;
-    pieSeries.hiddenState.properties.opacity = 1;
-    pieSeries.hiddenState.properties.endAngle = -90;
-    pieSeries.hiddenState.properties.startAngle = -90;
-    chart.hiddenState.properties.radius = am4core.percent(0);
-  }
-  {
-    const chart = am4core.create('song-stats', am4charts.PieChart);
-    chart.data = calcSongStats();
-    const pieSeries = chart.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = 'count';
-    pieSeries.dataFields.category = 'song';
-    pieSeries.slices.template.stroke = am4core.color('#fff');
-    pieSeries.slices.template.strokeOpacity = 1;
-    pieSeries.hiddenState.properties.opacity = 1;
-    pieSeries.hiddenState.properties.endAngle = -90;
-    pieSeries.hiddenState.properties.startAngle = -90;
-    chart.hiddenState.properties.radius = am4core.percent(0);
-  }
 }
