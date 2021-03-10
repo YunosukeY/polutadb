@@ -1,13 +1,11 @@
 import * as React from 'react';
 
 import { getVideo } from '../data/utils';
-import { ScrollToTopOnMount } from '../components/scroll';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Releases() {
   return (
     <div className='pane' id='releases'>
-      <ScrollToTopOnMount />
       <h4>Release Notes</h4>
       <>
         <Date date='2021/03/07' />

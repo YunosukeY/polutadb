@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
 import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
 import { Displaynum, DisplayFormat } from '../components/select';
-import { ScrollToTopOnMount } from '../components/scroll';
 import { Singing, singings } from '../data/singings';
 
 export default function Favos() {
@@ -36,7 +35,6 @@ export default function Favos() {
 
   return (
     <div className='pane' id='favo'>
-      <ScrollToTopOnMount />
       <div className='row' style={{ paddingBottom: 0 }}>
         <div className='col m6 s12'>
           <Displaynum

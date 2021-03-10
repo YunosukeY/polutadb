@@ -164,7 +164,7 @@ function Deformed() {
   );
 }
 
-function Main() {
+function KeyVisual() {
   const location = useLocation();
   const isTop = () => {
     return location.pathname === '/';
@@ -174,6 +174,14 @@ function Main() {
     <>
       {isTop() && <PickUp />}
       {!isTop() && <Deformed />}
+    </>
+  )
+}
+
+function Main() {
+  return (
+    <>
+      <KeyVisual />
       <div id='main'>
         <div className='row'>
           <div className='col s12 m12 l12 xl10 offset-xl1'>

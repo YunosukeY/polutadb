@@ -8,12 +8,9 @@ import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
-import { ScrollToTopOnMount } from '../components/scroll';
-
 export default function Top() {
   return (
     <>
-      <ScrollToTopOnMount />
       <div className='pane' id='about'>
         <h4>About</h4>
         <Describe />
