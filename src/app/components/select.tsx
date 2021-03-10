@@ -26,16 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 // eslint-disable-next-line max-lines-per-function
 export function Selects(props: {
   query: Query;
-  setQuery: (query: string) => void;
-  setGenre: (genre: number) => void;
-  setType: (type: number) => void;
-  setVideo: (video: number) => void;
-  setSong: (song: number) => void;
-  setArtist: (artist: number) => void;
-  setWithInst: (withInst: boolean) => void;
-  setACappella: (aCappella: boolean) => void;
-  setFull: (full: boolean) => void;
-  setOnechorus: (onechorus: boolean) => void;
+  setLocationSearch: (newQuery: Query) => void;
   setPagenum: (pagenum: number) => void;
 }) {
   const appState = useAppState();
@@ -49,11 +40,6 @@ export function Selects(props: {
   useEffect(() => {
     window.localStorage.setItem('isHidden', String(isHidden));
   });
-
-  // checkbox
-  function onChange(setter: (v: boolean) => void) {
-    return (event: any) => setter(event.target.checked);
-  }
 
   const onClick = () => {
     setIsHidden(!isHidden);
@@ -81,40 +67,30 @@ export function Selects(props: {
             <ArrowDropDownIcon style={{ fontSize: fontsize }} />
             Search
           </h4>
-          <FullTextSearch query={props.query.query} setQuery={props.setQuery} />
+          <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Genre genre={props.query.genre} setGenre={props.setGenre} />
+              <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
             <div className='col m6 s12'>
-              <Type type={props.query.type} setType={props.setType} />
+              <Type query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
           </div>
-          <Video video={props.query.video} setVideo={props.setVideo} />
+          <Video query={props.query} setLocationSearch={props.setLocationSearch} />
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Song song={props.query.song} setSong={props.setSong} />
+              <Song query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
             <div className='col m6 s12'>
-              <Artist artist={props.query.artist} setArtist={props.setArtist} />
+              <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
           </div>
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Inst
-                withInst={props.query.withInst}
-                setWithInst={onChange(props.setWithInst)}
-                aCappella={props.query.aCappella}
-                setACappella={onChange(props.setACappella)}
-              />
+              <Inst query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
             <div className='col m6 s12'>
-              <Length
-                full={props.query.full}
-                setFull={onChange(props.setFull)}
-                onechorus={props.query.onechorus}
-                setOnechorus={onChange(props.setOnechorus)}
-              />
+              <Length query={props.query} setLocationSearch={props.setLocationSearch} />
             </div>
           </div>
           <div className='row' style={{ paddingBottom: 0 }}>
@@ -142,13 +118,16 @@ export function Selects(props: {
   );
 }
 
-function FullTextSearch(props: { query: string; setQuery: (query: string) => void }) {
+type EachSelectProps = { query: Query; setLocationSearch: (newQuery: Query) => void };
+
+function FullTextSearch(props: EachSelectProps) {
   // textをqueryで初期化
-  const [text, setText] = useState(props.query);
+  const [text, setText] = useState(props.query.query);
 
   function onKeyDown(e: any) {
     if (e.key === 'Enter' && e.keyCode === 13) {
-      props.setQuery(text);
+      props.query.query = text;
+      props.setLocationSearch(props.query);
     }
   }
 
@@ -168,7 +147,7 @@ function FullTextSearch(props: { query: string; setQuery: (query: string) => voi
   );
 }
 
-function Genre(props: { genre: number; setGenre: (genre: number) => void }) {
+function Genre(props: EachSelectProps) {
   const classes = useStyles();
 
   const genres = getGenres().map((genre) => (
@@ -180,8 +159,11 @@ function Genre(props: { genre: number; setGenre: (genre: number) => void }) {
     <FormControl className={classes.formControl}>
       <InputLabel>曲ジャンル</InputLabel>
       <Select
-        value={props.genre === -1 ? '' : props.genre}
-        onChange={(event) => props.setGenre(Number(event.target.value))}
+        value={props.query.genre === -1 ? '' : props.query.genre}
+        onChange={(event) => {
+          props.query.genre = Number(event.target.value);
+          props.setLocationSearch(props.query);
+        }}
       >
         <MenuItem value={-1}>-</MenuItem>
         {genres}
@@ -190,7 +172,7 @@ function Genre(props: { genre: number; setGenre: (genre: number) => void }) {
   );
 }
 
-function Type(props: { type: number; setType: (type: number) => void }) {
+function Type(props: EachSelectProps) {
   const classes = useStyles();
 
   const types = getTypes().map((type) => (
@@ -202,8 +184,11 @@ function Type(props: { type: number; setType: (type: number) => void }) {
     <FormControl className={classes.formControl}>
       <InputLabel>枠タイプ</InputLabel>
       <Select
-        value={props.type === -1 ? '' : props.type}
-        onChange={(event) => props.setType(Number(event.target.value))}
+        value={props.query.type === -1 ? '' : props.query.type}
+        onChange={(event) => {
+          props.query.type = Number(event.target.value);
+          props.setLocationSearch(props.query);
+        }}
       >
         <MenuItem value={-1}>-</MenuItem>
         {types}
@@ -212,7 +197,7 @@ function Type(props: { type: number; setType: (type: number) => void }) {
   );
 }
 
-function Video(props: { video: number; setVideo: (video: number) => void }) {
+function Video(props: EachSelectProps) {
   const classes = useStyles();
 
   const videos = getVideos().map((video) => (
@@ -224,8 +209,11 @@ function Video(props: { video: number; setVideo: (video: number) => void }) {
     <FormControl className={classes.formControl}>
       <InputLabel>動画</InputLabel>
       <Select
-        value={props.video === -1 ? '' : props.video}
-        onChange={(event) => props.setVideo(Number(event.target.value))}
+        value={props.query.video === -1 ? '' : props.query.video}
+        onChange={(event) => {
+          props.query.video = Number(event.target.value);
+          props.setLocationSearch(props.query);
+        }}
       >
         <MenuItem value={-1}>-</MenuItem>
         {videos}
@@ -234,7 +222,7 @@ function Video(props: { video: number; setVideo: (video: number) => void }) {
   );
 }
 
-function Song(props: { song: number; setSong: (song: number) => void }) {
+function Song(props: EachSelectProps) {
   const classes = useStyles();
 
   const songs = getSongs().map((song) => (
@@ -246,8 +234,11 @@ function Song(props: { song: number; setSong: (song: number) => void }) {
     <FormControl className={classes.formControl}>
       <InputLabel>曲</InputLabel>
       <Select
-        value={props.song === -1 ? '' : props.song}
-        onChange={(event) => props.setSong(Number(event.target.value))}
+        value={props.query.song === -1 ? '' : props.query.song}
+        onChange={(event) => {
+          props.query.song = Number(event.target.value);
+          props.setLocationSearch(props.query);
+        }}
       >
         <MenuItem value={-1}>-</MenuItem>
         {songs}
@@ -256,7 +247,7 @@ function Song(props: { song: number; setSong: (song: number) => void }) {
   );
 }
 
-function Artist(props: { artist: number; setArtist: (artist: number) => void }) {
+function Artist(props: EachSelectProps) {
   const classes = useStyles();
 
   const artists = getArtists().map((artist) => (
@@ -268,8 +259,11 @@ function Artist(props: { artist: number; setArtist: (artist: number) => void }) 
     <FormControl className={classes.formControl}>
       <InputLabel>アーティスト</InputLabel>
       <Select
-        value={props.artist === -1 ? '' : props.artist}
-        onChange={(event) => props.setArtist(Number(event.target.value))}
+        value={props.query.artist === -1 ? '' : props.query.artist}
+        onChange={(event) => {
+          props.query.artist = Number(event.target.value);
+          props.setLocationSearch(props.query);
+        }}
       >
         <MenuItem value={-1}>-</MenuItem>
         {artists}
@@ -278,17 +272,33 @@ function Artist(props: { artist: number; setArtist: (artist: number) => void }) 
   );
 }
 
-function Inst(props: { withInst: boolean; setWithInst: any; aCappella: boolean; setACappella: any }) {
+function Inst(props: EachSelectProps) {
   return (
     <label>
       <h6 className='text'>伴奏</h6>
       <div className='row'>
         <label className='col s4'>
-          <input type='checkbox' className='filled-in' checked={props.withInst} onChange={props.setWithInst} />
+          <input
+            type='checkbox'
+            className='filled-in'
+            checked={props.query.withInst}
+            onChange={(event) => {
+              props.query.withInst = event.target.checked;
+              props.setLocationSearch(props.query);
+            }}
+          />
           <span className='text'>あり</span>
         </label>
         <label className='col s8'>
-          <input type='checkbox' className='filled-in' checked={props.aCappella} onChange={props.setACappella} />
+          <input
+            type='checkbox'
+            className='filled-in'
+            checked={props.query.aCappella}
+            onChange={(event) => {
+              props.query.aCappella = event.target.checked;
+              props.setLocationSearch(props.query);
+            }}
+          />
           <span className='text'>なし（アカペラ）</span>
         </label>
       </div>
@@ -296,17 +306,33 @@ function Inst(props: { withInst: boolean; setWithInst: any; aCappella: boolean; 
   );
 }
 
-function Length(props: { full: boolean; setFull: any; onechorus: boolean; setOnechorus: any }) {
+function Length(props: EachSelectProps) {
   return (
     <label>
       <h6 className='text'>尺</h6>
       <div className='row'>
         <label className='col s4'>
-          <input type='checkbox' className='filled-in' checked={props.full} onChange={props.setFull} />
+          <input
+            type='checkbox'
+            className='filled-in'
+            checked={props.query.full}
+            onChange={(event) => {
+              props.query.full = event.target.checked;
+              props.setLocationSearch(props.query);
+            }}
+          />
           <span className='text'>フル</span>
         </label>
         <label className='col s8'>
-          <input type='checkbox' className='filled-in' checked={props.onechorus} onChange={props.setOnechorus} />
+          <input
+            type='checkbox'
+            className='filled-in'
+            checked={props.query.onechorus}
+            onChange={(event) => {
+              props.query.onechorus = event.target.checked;
+              props.setLocationSearch(props.query);
+            }}
+          />
           <span className='text'>ワンコーラス</span>
         </label>
       </div>

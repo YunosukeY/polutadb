@@ -14,74 +14,15 @@ export default function Search(props: { rowqs: string }) {
 
   const [pagenum, setPagenum] = useState(1);
 
-  function setQuery(newQuery: string) {
+  function setLocationSearch(newQuery: Query) {
     setPagenum(1);
-    query.query = newQuery;
-    window.location.href = `?${query}#search`;
-  }
-  function setGenre(newGenre: number) {
-    setPagenum(1);
-    query.genre = newGenre;
-    window.location.href = `?${query}#search`;
-  }
-  function setType(newType: number) {
-    setPagenum(1);
-    query.type = newType;
-    window.location.href = `?${query}#search`;
-  }
-  function setVideo(newVideo: number) {
-    setPagenum(1);
-    query.video = newVideo;
-    window.location.href = `?${query}#search`;
-  }
-  function setSong(newSong: number) {
-    setPagenum(1);
-    query.song = newSong;
-    window.location.href = `?${query}#search`;
-  }
-  function setArtist(newArtist: number) {
-    setPagenum(1);
-    query.artist = newArtist;
-    window.location.href = `?${query}#search`;
-  }
-  function setWithInst(newWithInst: boolean) {
-    setPagenum(1);
-    query.withInst = newWithInst;
-    window.location.href = `?${query}#search`;
-  }
-  function setACappella(newACappella: boolean) {
-    setPagenum(1);
-    query.aCappella = newACappella;
-    window.location.href = `?${query}#search`;
-  }
-  function setFull(newFull: boolean) {
-    setPagenum(1);
-    query.full = newFull;
-    window.location.href = `?${query}#search`;
-  }
-  function setOnechorus(newOnechorus: boolean) {
-    setPagenum(1);
-    query.onechorus = newOnechorus;
-    window.location.href = `?${query}#search`;
+    window.location.href = `?${newQuery}#search`;
   }
 
   return (
     <>
       <ScrollToSearch />
-      <Selects
-        query={query}
-        setQuery={setQuery}
-        setGenre={setGenre}
-        setType={setType}
-        setVideo={setVideo}
-        setSong={setSong}
-        setArtist={setArtist}
-        setWithInst={setWithInst}
-        setACappella={setACappella}
-        setFull={setFull}
-        setOnechorus={setOnechorus}
-        setPagenum={setPagenum}
-      />
+      <Selects query={query} setLocationSearch={setLocationSearch} setPagenum={setPagenum} />
       <Result query={query} pagenum={pagenum} setPagenum={setPagenum} />
     </>
   );
