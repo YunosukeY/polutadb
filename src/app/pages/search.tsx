@@ -8,17 +8,7 @@ import Result from '../components/result';
 import { ScrollToSearch } from '../components/scroll';
 
 // eslint-disable-next-line max-lines-per-function
-export default function Search(props: {
-  rowqs: string;
-  displaynum: number;
-  setDisplaynum: (displaynum: number) => void;
-  displayMode: number;
-  setDisplayMode: (mode: number) => void;
-  sortedBy: number;
-  setSortedBy: (sortedBy: number) => void;
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-}) {
+export default function Search(props: { rowqs: string }) {
   const qs = queryString.parse(props.rowqs);
   const query = new Query(qs);
 
@@ -75,12 +65,6 @@ export default function Search(props: {
     window.location.href = `?${query}#search`;
   }
 
-  // 表示件数が更新されたら1ページ目に戻す
-  function onDnumChange(newDnum: number) {
-    props.setDisplaynum(newDnum);
-    setPagenum(1);
-  }
-
   return (
     <>
       <ScrollToSearch />
@@ -96,23 +80,9 @@ export default function Search(props: {
         setACappella={setACappella}
         setFull={setFull}
         setOnechorus={setOnechorus}
-        displaynum={props.displaynum}
-        setDisplaynum={onDnumChange}
-        displayMode={props.displayMode}
-        setDisplayMode={props.setDisplayMode}
-        sortedBy={props.sortedBy}
-        setSortedBy={props.setSortedBy}
-      />
-      <Result
-        query={query}
-        sortedBy={props.sortedBy}
-        displaynum={props.displaynum}
-        displayMode={props.displayMode}
-        pagenum={pagenum}
         setPagenum={setPagenum}
-        isFavo={props.isFavo}
-        toggleFavo={props.toggleFavo}
       />
+      <Result query={query} pagenum={pagenum} setPagenum={setPagenum} />
     </>
   );
 }

@@ -9,8 +9,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
-import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
+import { useAppState, useSetAppState } from '../lib/appStateContext';
 import { Query } from '../lib/query';
+import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,13 +36,11 @@ export function Selects(props: {
   setACappella: (aCappella: boolean) => void;
   setFull: (full: boolean) => void;
   setOnechorus: (onechorus: boolean) => void;
-  displaynum: number;
-  setDisplaynum: (displaynum: number) => void;
-  displayMode: number;
-  setDisplayMode: (mode: number) => void;
-  sortedBy: number;
-  setSortedBy: (sortedBy: number) => void;
+  setPagenum: (pagenum: number) => void;
 }) {
+  const appState = useAppState();
+  const setAppState = useSetAppState();
+
   const [isHidden, setIsHidden] = useState(() => {
     const stickyValue = window.localStorage.getItem('isHidden');
     return stickyValue !== null ? stickyValue === 'true' : false;
@@ -59,6 +58,12 @@ export function Selects(props: {
   const onClick = () => {
     setIsHidden(!isHidden);
   };
+
+  // 表示件数が更新されたら1ページ目に戻す
+  function onDnumChange(newDnum: number) {
+    setAppState((state) => ({ ...state, displaynum: newDnum }));
+    props.setPagenum(1);
+  }
 
   const fontsize = 28;
 
@@ -114,13 +119,23 @@ export function Selects(props: {
           </div>
           <div className='row' style={{ paddingBottom: 0 }}>
             <div className='col m6 s12'>
-              <Displaynum displaynum={props.displaynum} setDisplaynum={props.setDisplaynum} />
+              <Displaynum displaynum={appState.displaynum} setDisplaynum={onDnumChange} />
             </div>
             <div className='col m6 s12'>
-              <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+              <DisplayFormat
+                displayMode={appState.displayMode}
+                setDisplayMode={(displayMode: number) => {
+                  setAppState((state) => ({ ...state, displayMode: displayMode }));
+                }}
+              />
             </div>
           </div>
-          <Sort sortedBy={props.sortedBy} setSortedBy={props.setSortedBy} />
+          <Sort
+            sortedBy={appState.sortedBy}
+            setSortedBy={(sortedBy: number) => {
+              setAppState((state) => ({ ...state, sortedBy: sortedBy }));
+            }}
+          />
         </>
       )}
     </div>

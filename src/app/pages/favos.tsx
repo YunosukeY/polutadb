@@ -1,24 +1,22 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
+import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
 import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
 import { Displaynum, DisplayFormat } from '../components/select';
 import { ScrollToTopOnMount } from '../components/scroll';
 import { Singing, singings } from '../data/singings';
 
-export default function Favos(props: {
-  isFavo: (singingId: number) => boolean;
-  toggleFavo: (singingId: number) => void;
-  displaynum: number;
-  setDisplaynum: (displaynum: number) => void;
-  displayMode: number;
-  setDisplayMode: (mode: number) => void;
-}) {
+export default function Favos() {
+  const appState = useAppState();
+  const setAppState = useSetAppState();
+  const [isFavo, toggleFavo] = getAppStateUtils(appState, setAppState);
+
   const [pagenum, setPagenum] = useState(1);
 
   const favoList = new Array<Singing>();
   singings.forEach((singing) => {
-    if (props.isFavo(singing.id)) {
+    if (isFavo(singing.id)) {
       favoList.push(singing);
     }
   });
@@ -31,7 +29,7 @@ export default function Favos(props: {
   };
 
   useEffect(() => {
-    if (favoList.length === (pagenum - 1) * props.displaynum) {
+    if (favoList.length === (pagenum - 1) * appState.displaynum) {
       setPagenum(pagenum - 1);
     }
   });
@@ -42,43 +40,48 @@ export default function Favos(props: {
       <div className='row' style={{ paddingBottom: 0 }}>
         <div className='col m6 s12'>
           <Displaynum
-            displaynum={props.displaynum}
+            displaynum={appState.displaynum}
             setDisplaynum={(displaynum: number) => {
-              props.setDisplaynum(displaynum);
+              setAppState((state) => ({ ...state, displaynum: displaynum }));
               setPagenum(1);
             }}
           />
         </div>
         <div className='col m6 s12'>
-          <DisplayFormat displayMode={props.displayMode} setDisplayMode={props.setDisplayMode} />
+          <DisplayFormat
+            displayMode={appState.displayMode}
+            setDisplayMode={(displayMode: number) => {
+              setAppState((state) => ({ ...state, displayMode: displayMode }));
+            }}
+          />
         </div>
       </div>
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
-      {props.displayMode == 0 && (
+      {appState.displayMode == 0 && (
         <ResultTable
           table={favoList.slice(
-            (pagenum - 1) * props.displaynum,
-            Math.min(pagenum * props.displaynum, favoList.length),
+            (pagenum - 1) * appState.displaynum,
+            Math.min(pagenum * appState.displaynum, favoList.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
-      {props.displayMode == 1 && (
+      {appState.displayMode == 1 && (
         <SimpleResultTable
           table={favoList.slice(
-            (pagenum - 1) * props.displaynum,
-            Math.min(pagenum * props.displaynum, favoList.length),
+            (pagenum - 1) * appState.displaynum,
+            Math.min(pagenum * appState.displaynum, favoList.length),
           )}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
+          isFavo={isFavo}
+          toggleFavo={toggleFavo}
         />
       )}
       <Pagenation
         pagenum={pagenum}
         setPagenum={onPageClick}
-        lastPageNum={Math.ceil(favoList.length / props.displaynum)}
+        lastPageNum={Math.ceil(favoList.length / appState.displaynum)}
       />
     </div>
   );

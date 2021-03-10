@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -15,6 +14,7 @@ import { Youtube } from './components/result';
 import { Singing } from './data/singings';
 import { getVideo } from './data/utils';
 import { useTracking } from './lib/useTracking';
+import { AppStateProvider } from './lib/appStateContext';
 import card from '../fig/card.svg';
 import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
@@ -22,11 +22,11 @@ export default function App() {
   useTracking('G-3PTTKZQQDT');
 
   return (
-    <>
+    <AppStateProvider>
       <Header />
       <Main />
       <Footer />
-    </>
+    </AppStateProvider>
   );
 }
 
@@ -164,47 +164,9 @@ function Deformed() {
 }
 
 function Main() {
-  const [favos, setFavos] = useState(() => {
-    const stickyValue = window.localStorage.getItem('favos');
-    return stickyValue !== null
-      ? (new Map(JSON.parse(stickyValue)) as Map<number, boolean>)
-      : new Map<number, boolean>();
-  });
-  const [displaynum, setDisplaynum] = useState(() => {
-    const stickyValue = window.localStorage.getItem('displaynum');
-    return stickyValue !== null ? Number(stickyValue) : 5;
-  });
-  const [displayMode, setDisplayMode] = useState(() => {
-    const stickyValue = window.localStorage.getItem('displayMode');
-    return stickyValue !== null ? Number(stickyValue) : 0;
-  });
-  const [sortedBy, setSortedBy] = useState(() => {
-    const stickyValue = window.localStorage.getItem('sortedBy');
-    return stickyValue !== null ? Number(stickyValue) : 0;
-  });
-  useEffect(() => {
-    window.localStorage.setItem('favos', JSON.stringify([...favos]));
-    window.localStorage.setItem('displaynum', String(displaynum));
-    window.localStorage.setItem('displayMode', String(displayMode));
-    window.localStorage.setItem('sortedBy', String(sortedBy));
-  });
-
   const location = useLocation();
   const isTop = () => {
     return location.pathname === '/' && location.search === '';
-  };
-
-  const isFavo = (singingId: number) => {
-    favos as Map<number, boolean>;
-    return favos.has(singingId) && (favos.get(singingId) as boolean);
-  };
-  const toggleFavo = (singingId: number) => {
-    if (favos.has(singingId)) {
-      const f = favos.get(singingId) as boolean;
-      setFavos(new Map(favos.set(singingId, !f)));
-    } else {
-      setFavos(new Map(favos.set(singingId, true)));
-    }
   };
 
   return (
@@ -215,36 +177,8 @@ function Main() {
         <div className='row'>
           <div className='col s12 m12 l12 xl10 offset-xl1'>
             <Switch>
-              <Route
-                exact
-                path='/'
-                render={(props) => (
-                  <Top
-                    rowqs={props.location.search}
-                    isFavo={isFavo}
-                    toggleFavo={toggleFavo}
-                    displaynum={displaynum}
-                    setDisplaynum={setDisplaynum}
-                    displayMode={displayMode}
-                    setDisplayMode={setDisplayMode}
-                    sortedBy={sortedBy}
-                    setSortedBy={setSortedBy}
-                  />
-                )}
-              />
-              <Route
-                path='/favos'
-                render={() => (
-                  <Favos
-                    isFavo={isFavo}
-                    toggleFavo={toggleFavo}
-                    displaynum={displaynum}
-                    setDisplaynum={setDisplaynum}
-                    displayMode={displayMode}
-                    setDisplayMode={setDisplayMode}
-                  />
-                )}
-              />
+              <Route exact path='/' render={(props) => <Top rowqs={props.location.search} />} />
+              <Route path='/favos' render={() => <Favos />} />
               <Route path='/stats' component={Stats} />
               <Route path='/releases' component={Releases} />
             </Switch>
