@@ -8,21 +8,21 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
 
+import { useAppState } from '../lib/appStateContext';
 import { Query } from '../lib/query';
 import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
 import { Singing, singings } from '../data/singings';
 
 export default function Result(props: {
   query: Query;
-  sortedBy: number;
-  displaynum: number;
-  displayMode: number;
   pagenum: number;
   setPagenum: React.Dispatch<React.SetStateAction<number>>;
   isFavo: (singingId: number) => boolean;
   toggleFavo: (singingId: number) => void;
 }) {
-  const result = search(props.query, props.sortedBy); // ジャンルなどから計算できるので状態ではない
+  const appState = useAppState();
+
+  const result = search(props.query, appState.sortedBy); // ジャンルなどから計算できるので状態ではない
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     props.setPagenum(p);
@@ -33,21 +33,21 @@ export default function Result(props: {
     <div className='pane' id='result'>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
-      {props.displayMode == 0 && (
+      {appState.displayMode == 0 && (
         <ResultTable
           table={result.slice(
-            (props.pagenum - 1) * props.displaynum,
-            Math.min(props.pagenum * props.displaynum, result.length),
+            (props.pagenum - 1) * appState.displaynum,
+            Math.min(props.pagenum * appState.displaynum, result.length),
           )}
           isFavo={props.isFavo}
           toggleFavo={props.toggleFavo}
         />
       )}
-      {props.displayMode == 1 && (
+      {appState.displayMode == 1 && (
         <SimpleResultTable
           table={result.slice(
-            (props.pagenum - 1) * props.displaynum,
-            Math.min(props.pagenum * props.displaynum, result.length),
+            (props.pagenum - 1) * appState.displaynum,
+            Math.min(props.pagenum * appState.displaynum, result.length),
           )}
           isFavo={props.isFavo}
           toggleFavo={props.toggleFavo}
@@ -56,7 +56,7 @@ export default function Result(props: {
       <Pagenation
         pagenum={props.pagenum}
         setPagenum={onPageClick}
-        lastPageNum={Math.ceil(result.length / props.displaynum)}
+        lastPageNum={Math.ceil(result.length / appState.displaynum)}
       />
     </div>
   );

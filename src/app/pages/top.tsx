@@ -15,31 +15,13 @@ export default function Top(props: {
   rowqs: string;
   isFavo: (singingId: number) => boolean;
   toggleFavo: (singingId: number) => void;
-  displaynum: number;
-  setDisplaynum: (displaynum: number) => void;
-  displayMode: number;
-  setDisplayMode: (mode: number) => void;
-  sortedBy: number;
-  setSortedBy: (sortedBy: number) => void;
 }) {
   const hasResult = props.rowqs === '' ? false : true;
 
   return (
     <>
       {!hasResult && <About />}
-      {hasResult && (
-        <Search
-          rowqs={props.rowqs}
-          displaynum={props.displaynum}
-          setDisplaynum={props.setDisplaynum}
-          displayMode={props.displayMode}
-          setDisplayMode={props.setDisplayMode}
-          sortedBy={props.sortedBy}
-          setSortedBy={props.setSortedBy}
-          isFavo={props.isFavo}
-          toggleFavo={props.toggleFavo}
-        />
-      )}
+      {hasResult && <Search rowqs={props.rowqs} isFavo={props.isFavo} toggleFavo={props.toggleFavo} />}
     </>
   );
 }
