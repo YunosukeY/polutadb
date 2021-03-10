@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-// eslint-disable-next-line max-lines-per-function
 export function Selects(props: {
   query: Query;
   setLocationSearch: (newQuery: Query) => void;

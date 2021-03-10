@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,13 +11,14 @@ import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import Search from './search';
 import { ScrollToTopOnMount } from '../components/scroll';
 
-export default function Top(props: { rowqs: string }) {
-  const hasResult = props.rowqs === '' ? false : true;
+export default function Top() {
+  const location = useLocation();
+  const hasResult = location.search === '' ? false : true;
 
   return (
     <>
       {!hasResult && <About />}
-      {hasResult && <Search rowqs={props.rowqs} />}
+      {hasResult && <Search />}
     </>
   );
 }

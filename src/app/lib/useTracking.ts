@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     gtag?: (key: string, trackingId: string, config: { page_path: string }) => void;
   }
 }
@@ -15,6 +16,7 @@ export const useTracking = (measurementId: string) => {
 
     const unlisten = listen((location) => {
       if (!window.gtag) return;
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       window.gtag('config', measurementId, { page_path: location.pathname });
     });
 

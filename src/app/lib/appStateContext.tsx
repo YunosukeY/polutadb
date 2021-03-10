@@ -34,8 +34,9 @@ function getInitialState(): AppState {
 
 const initialState = getInitialState();
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const AppStateContext = React.createContext<AppState>(initialState);
-// eslint-disable-next-line @typescript-eslint/no-empty-function
+// eslint-disable-next-line
 const SetAppStateContext = React.createContext<Dispatch<SetStateAction<AppState>>>(() => {});
 
 export function useAppState() {
