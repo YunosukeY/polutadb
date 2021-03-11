@@ -6,9 +6,7 @@ import { ScrollToTop } from '../components/scroll';
 import '../styles/materialize.min.css';
 import '../styles/globals.css';
 
-// eslint-disable-next-line
-function MyApp({ Component, pageProps }) {
-  // eslint-disable-next-line react/react-in-jsx-scope
+function MyApp({ Component, pageProps }: { Component: any, pageProps: any }) {
   return (
     <>
       <Head>

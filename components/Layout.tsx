@@ -14,8 +14,13 @@ import { getVideo } from '../data/utils';
 // import { useTracking } from './lib/useTracking';
 import { AppStateProvider } from '../lib/appStateContext';
 
-// eslint-disable-next-line react/prop-types
-export default function Layout({ children }) {
+declare global {
+  interface Window {
+    M: any;
+  }
+}
+
+export default function Layout({ children }: { children: any }) {
   // useTracking('G-3PTTKZQQDT');
 
   useEffect(() => {
@@ -87,8 +92,7 @@ function Header() {
   );
 }
 
-// eslint-disable-next-line react/prop-types
-function Main({ children }) {
+function Main({ children }: { children: any }) {
   return (
     <>
       <KeyVisual />
@@ -136,11 +140,7 @@ function KeyVisual() {
     return router.pathname === '/';
   };
 
-  return (
-    <>
-      {isTop() && <PickUp />}
-    </>
-  );
+  return <>{isTop() && <PickUp />}</>;
 }
 
 function PickUp() {
