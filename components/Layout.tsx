@@ -139,7 +139,6 @@ function KeyVisual() {
   return (
     <>
       {isTop() && <PickUp />}
-      {!isTop() && <Deformed />}
     </>
   );
 }
@@ -180,49 +179,6 @@ function PickUpThumbnail(props: { id: string; singing: Singing }) {
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
         <Youtube singing={props.singing} fontsize={70} />
       </div>
-    </div>
-  );
-}
-
-function Deformed() {
-  let width: number;
-
-  useEffect(() => {
-    width = screen.width;
-  });
-
-  return (
-    <div style={{ backgroundColor: '#fff8f8' }}>
-      {width <= 760 && (
-        <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '52.5%' }}>
-          {width > 500 && (
-            <img
-              src='/card-smaller-credit.png'
-              alt='OmaruPolka'
-              title='OmaruPolka'
-              style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }}
-            />
-          )}
-          {width <= 500 && (
-            <img
-              src='/card.png'
-              alt='OmaruPolka'
-              title='OmaruPolka'
-              style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }}
-            />
-          )}
-        </div>
-      )}
-      {width > 760 && (
-        <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '400px' }}>
-          <img
-            src='/card-smaller-credit.png'
-            alt='OmaruPolka'
-            title='OmaruPolka'
-            style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }}
-          />
-        </div>
-      )}
     </div>
   );
 }
