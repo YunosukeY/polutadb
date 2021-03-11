@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,7 +13,11 @@ import { Youtube } from '../components/result';
 import { Singing } from '../data/singings';
 import { getVideo } from '../data/utils';
 // import { useTracking } from './lib/useTracking';
-import { AppStateProvider } from '../lib/appStateContext';
+const AppStateProvider = dynamic<{ children: React.ReactNode }>(
+  () => import('../lib/appStateContext')
+    .then(modules =>  modules.AppStateProvider),
+  {ssr: false}
+)
 
 declare global {
   interface Window {
