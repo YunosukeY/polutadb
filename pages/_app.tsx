@@ -1,3 +1,4 @@
+import '../styles/materialize.min.css';
 import '../styles/globals.css';
 
 // eslint-disable-next-line
