@@ -36,7 +36,7 @@ let initialState: AppState = {
   favos: new Map<number, boolean>(),
   displaynum: 5,
   displayMode: 0,
-  sortedBy: 0
+  sortedBy: 0,
 };
 // eslint-disable-next-line @typescript-eslint/naming-convention
 let AppStateContext = React.createContext<AppState>(initialState);

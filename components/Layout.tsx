@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Slider from 'react-slick';
@@ -17,12 +18,14 @@ import { AppStateProvider } from '../lib/appStateContext';
 export default function Layout({ children }) {
   // useTracking('G-3PTTKZQQDT');
 
+  useEffect(() => {
+    window.M.AutoInit();
+  }, []);
+
   return (
     <AppStateProvider>
       <Header />
-      <Main>
-      {children}
-      </Main>
+      <Main>{children}</Main>
       <Footer />
     </AppStateProvider>
   );
@@ -35,9 +38,7 @@ function Header() {
         <nav className='nav-extended'>
           <div className='nav-wrapper'>
             <Link href='/'>
-              <div className='brand-logo center title'>
-                PolutaDB
-              </div>
+              <div className='brand-logo center title'>PolutaDB</div>
             </Link>
             <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
               <Box pt={1}>
@@ -87,15 +88,13 @@ function Header() {
 }
 
 // eslint-disable-next-line react/prop-types
-function Main({children}) {
+function Main({ children }) {
   return (
     <>
       <KeyVisual />
       <div id='main'>
         <div className='row'>
-          <div className='col s12 m12 l12 xl10 offset-xl1'>
-          {children}
-          </div>
+          <div className='col s12 m12 l12 xl10 offset-xl1'>{children}</div>
         </div>
       </div>
     </>
@@ -132,7 +131,7 @@ function Footer() {
 }
 
 function KeyVisual() {
-  const router = useRouter()
+  const router = useRouter();
   const isTop = () => {
     return router.pathname === '/';
   };
@@ -142,7 +141,7 @@ function KeyVisual() {
       {isTop() && <PickUp />}
       {!isTop() && <Deformed />}
     </>
-  )
+  );
 }
 
 function PickUp() {
@@ -186,11 +185,17 @@ function PickUpThumbnail(props: { id: string; singing: Singing }) {
 }
 
 function Deformed() {
+  let width: number;
+
+  useEffect(() => {
+    width = screen.width;
+  });
+
   return (
     <div style={{ backgroundColor: '#fff8f8' }}>
-      {screen.width <= 760 && (
+      {width <= 760 && (
         <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '52.5%' }}>
-          {screen.width > 500 && (
+          {width > 500 && (
             <img
               src='/card-smaller-credit.png'
               alt='OmaruPolka'
@@ -198,7 +203,7 @@ function Deformed() {
               style={{ maxHeight: '400px', position: 'absolute', top: 0, left: 0 }}
             />
           )}
-          {screen.width <= 500 && (
+          {width <= 500 && (
             <img
               src='/card.png'
               alt='OmaruPolka'
@@ -208,7 +213,7 @@ function Deformed() {
           )}
         </div>
       )}
-      {screen.width > 760 && (
+      {width > 760 && (
         <div style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '400px' }}>
           <img
             src='/card-smaller-credit.png'

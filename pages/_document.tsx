@@ -25,12 +25,13 @@ export default class MyDocument extends Document {
             name='Description'
             content='ホロライブ所属のVTuber 尾丸ポルカさんの歌（通称：ぽるうた）が検索できます'
           />
-          <link rel='icon' href='%PUBLIC_URL%/tent-b92731.png' />
+          <link rel='icon' href='/tent-b92731.png' />
           <meta name='theme-color' content='#F1646A' />
-          <link rel='apple-touch-icon' href='%PUBLIC_URL%/tent-f1646a.png' />
-          <link rel='manifest' href='%PUBLIC_URL%/manifest.json' />
+          <link rel='apple-touch-icon' href='/tent-f1646a.png' />
+          <link rel='manifest' href='/manifest.json' />
         </Head>
         <body>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js' />
           <Main />
           <NextScript />
         </body>
