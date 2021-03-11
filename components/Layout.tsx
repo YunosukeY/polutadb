@@ -12,21 +12,12 @@ import Box from '@material-ui/core/Box';
 import { Youtube } from '../components/result';
 import { Singing } from '../data/singings';
 import { getVideo } from '../data/utils';
-// import { useTracking } from './lib/useTracking';
 const AppStateProvider = dynamic<{ children: React.ReactNode }>(
   () => import('../lib/appStateContext').then((modules) => modules.AppStateProvider),
   { ssr: false },
 );
 
-declare global {
-  interface Window {
-    M: any;
-  }
-}
-
 export default function Layout({ children }: { children: any }) {
-  // useTracking('G-3PTTKZQQDT');
-
   useEffect(() => {
     window.M.AutoInit();
   });
