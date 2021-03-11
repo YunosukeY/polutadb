@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import { ParsedUrlQuery } from 'querystring';
 
 export class Query {
   query: string;
@@ -12,7 +12,7 @@ export class Query {
   full: boolean;
   onechorus: boolean;
 
-  constructor(qs: queryString.ParsedQuery<string>) {
+  constructor(qs: ParsedUrlQuery) {
     this.query = qs.query == null ? '' : String(qs.query);
     this.genre = qs.genre == null ? -1 : Number(qs.genre);
     this.type = qs.type == null ? -1 : Number(qs.type);
