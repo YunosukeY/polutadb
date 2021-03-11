@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
+import M from 'materialize-css';
 
 import Top from './pages/top';
 import Stats from './pages/stats';
@@ -21,6 +23,10 @@ import cardSmallerCredit from '../fig/card-smaller-credit.svg';
 
 export default function App() {
   useTracking('G-3PTTKZQQDT');
+
+  useEffect(() => {
+    M.AutoInit();
+  });
 
   return (
     <AppStateProvider>
@@ -148,7 +154,7 @@ function KeyVisual() {
       {isTop() && <PickUp />}
       {!isTop() && <Deformed />}
     </>
-  )
+  );
 }
 
 function PickUp() {
