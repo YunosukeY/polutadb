@@ -6,7 +6,7 @@
 }
 
 /* footerを下に固定する */
-#root {
+#__next {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
