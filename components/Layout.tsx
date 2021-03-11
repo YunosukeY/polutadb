@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: any }) {
 
   useEffect(() => {
     window.M.AutoInit();
-  }, []);
+  });
 
   return (
     <AppStateProvider>
