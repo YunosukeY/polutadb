@@ -14,7 +14,7 @@ export default function Search() {
 
   function setLocationSearch(newQuery: Query) {
     setPagenum(1);
-    router.push(`/search?${newQuery}`);
+    router.push(`/search?${newQuery}`, undefined, { scroll: false });
   }
 
   return (
