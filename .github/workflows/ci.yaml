@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  eslint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn lint
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn test
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn build
