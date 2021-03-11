@@ -46,6 +46,7 @@ export function useSetAppState() {
 export function AppStateProvider(props: { children: React.ReactNode }) {
   initialState = getInitialState();
   AppStateContext = React.createContext<AppState>(initialState);
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   SetAppStateContext = React.createContext<Dispatch<SetStateAction<AppState>>>(() => {});
 
   const [state, setState] = useState<AppState>(initialState);

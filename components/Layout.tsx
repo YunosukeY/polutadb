@@ -14,10 +14,9 @@ import { Singing } from '../data/singings';
 import { getVideo } from '../data/utils';
 // import { useTracking } from './lib/useTracking';
 const AppStateProvider = dynamic<{ children: React.ReactNode }>(
-  () => import('../lib/appStateContext')
-    .then(modules =>  modules.AppStateProvider),
-  {ssr: false}
-)
+  () => import('../lib/appStateContext').then((modules) => modules.AppStateProvider),
+  { ssr: false },
+);
 
 declare global {
   interface Window {
@@ -145,7 +144,12 @@ function KeyVisual() {
     return router.pathname === '/';
   };
 
-  return <>{isTop() && <PickUp />}</>;
+  return (
+    <>
+      {isTop() && <PickUp />}
+      {!isTop() && <Deformed />}
+    </>
+  );
 }
 
 function PickUp() {
@@ -184,6 +188,27 @@ function PickUpThumbnail(props: { id: string; singing: Singing }) {
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
         <Youtube singing={props.singing} fontsize={70} />
       </div>
+    </div>
+  );
+}
+
+function Deformed() {
+  return (
+    <div style={{ backgroundColor: '#fff8f8', textAlign: 'center' }}>
+      {screen.width <= 500 && (
+        <img src='/card.png' alt='OmaruPolka' title='OmaruPolka' style={{ width: screen.width }} />
+      )}
+      {500 < screen.width && screen.width <= 760 && (
+        <img src='/card-smaller-credit.png' alt='OmaruPolka' title='OmaruPolka' style={{ width: screen.width }} />
+      )}
+      {760 < screen.width && (
+        <img
+          src='/card-smaller-credit.png'
+          alt='OmaruPolka'
+          title='OmaruPolka'
+          style={{ height: '400px', margin: '0 auto' }}
+        />
+      )}
     </div>
   );
 }

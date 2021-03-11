@@ -1,12 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
-import Layout from '../components/Layout';
 import { ScrollToTop } from '../components/scroll';
 import '../styles/materialize.min.css';
 import '../styles/globals.css';
+const Layout = dynamic(() => import('../components/Layout'), { ssr: false });
 
-function MyApp({ Component, pageProps }: { Component: any, pageProps: any }) {
+function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
   return (
     <>
       <Head>
