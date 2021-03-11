@@ -1,65 +1,72 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import * as React from 'react';
+import Link from 'next/link';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import SearchIcon from '@material-ui/icons/Search';
+import StarIcon from '@material-ui/icons/Star';
+import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
-export default function Home() {
+export default function Top() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div className='pane' id='about'>
+        <h4>About</h4>
+        <Describe />
+      </div>
+      <div className='row'>
+        <MyCard link='/search' title='Search' icon={SearchIcon} />
+        <MyCard link='/favos' title='Favorites' icon={StarIcon} />
+        <MyCard link='/stats' title='Statistics' icon={DonutLargeIcon} />
+        <MyCard link='/releases' title='Release Notes' icon={ImportContactsIcon} />
+      </div>
+    </>
+  );
+}
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+function MyCard(props: { link: string; title: string; icon: any }) {
+  return (
+    <div className='col s12 m6'>
+      <Link href={props.link}>
+        <Card style={{ borderRadius: '10px' }}>
+          <CardActionArea style={{ background: 'white' }}>
+            <CardContent>
+              <h4 style={{ margin: '20px 0' }}>
+                <props.icon style={{ fontSize: 25 }} />
+                {` ${props.title}`}
+              </h4>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Link>
     </div>
-  )
+  );
+}
+
+function Describe() {
+  return (
+    <div style={{ fontSize: '16px' }}>
+      PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber
+      尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．
+      <br />
+      <br />
+      尾丸ポルカさんについてはこちら！
+      <br />
+      YouTube：<a href='https://www.youtube.com/channel/UCK9V2B22uJYu3N7eR_BT9QA'>Polka Ch. 尾丸ポルカ</a>
+      <br />
+      Twitter：<a href='https://twitter.com/omarupolka'>尾丸ポルカ</a>
+      <br />
+      <br />
+      諸注意
+      <br />
+      ・表示件数を増やすと重くなる場合があります．
+      <br />
+      ・お気に入り情報はブラウザに保存されるため，キャッシュクリアにご注意ください．
+      <br />
+      ・本サイトは有志による非公式サイトです．不具合，ご要望は<a href='https://twitter.com/k1m1tsu'>管理人Twitter</a>
+      までご連絡ください．
+      <br />
+    </div>
+  );
 }
