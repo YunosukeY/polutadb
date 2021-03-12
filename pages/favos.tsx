@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
-import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
-import { ResultTable, SimpleResultTable, Pagenation } from '../components/result';
-import { Displaynum, DisplayFormat } from '../components/select';
+import { useAppState, useSetAppState, getAppStateUtils } from '../lib/AppState';
+import { ResultTable, SimpleResultTable, Pagenation } from '../components/Result';
+import { Displaynum, DisplayFormat } from '../components/Selects';
 import { Singing, singings } from '../data/singings';
 
 export default function Favos() {

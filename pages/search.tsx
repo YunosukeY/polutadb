@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { Query } from '../lib/query';
-import { Selects } from '../components/select';
-import Result from '../components/result';
+import { Query } from '../lib/Query';
+import Selects from '../components/Selects';
+import Result from '../components/Result';
 
 export default function Search() {
   const router = useRouter();

@@ -9,8 +9,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
-import { useAppState, useSetAppState } from '../lib/appStateContext';
-import { Query } from '../lib/query';
+import { useAppState, useSetAppState } from '../lib/AppState';
+import { Query } from '../lib/Query';
 import { getGenres, getTypes, getVideos, getSongs, getArtists } from '../data/utils';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export function Selects(props: {
+export default function Selects(props: {
   query: Query;
   setLocationSearch: (newQuery: Query) => void;
   setPagenum: (pagenum: number) => void;
