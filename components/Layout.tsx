@@ -1,13 +1,17 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Box from '@material-ui/core/Box';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import { Youtube } from '../components/result';
 import { Singing } from '../data/singings';
@@ -18,10 +22,6 @@ const AppStateProvider = dynamic<{ children: React.ReactNode }>(
 );
 
 export default function Layout({ children }: { children: any }) {
-  useEffect(() => {
-    window.M.AutoInit();
-  });
-
   return (
     <AppStateProvider>
       <Header />
@@ -32,57 +32,30 @@ export default function Layout({ children }: { children: any }) {
 }
 
 function Header() {
+  const isMobile = screen.width < 1000;
+
   return (
     <header>
-      <div className='navbar-fixed'>
-        <nav className='nav-extended'>
-          <div className='nav-wrapper'>
-            <Link href='/'>
-              <div className='brand-logo center title'>PolutaDB</div>
-            </Link>
-            <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
-              <Box pt={1}>
-                <MenuIcon style={{ fontSize: 24 }} />
-              </Box>
-            </a>
-            <ul id='nav-mobile' className='right hide-on-med-and-down'>
-              <li>
-                <Link href='/'>Top</Link>
-              </li>
-              <li>
-                <Link href='/search'>Search</Link>
-              </li>
-              <li>
-                <Link href='/favos'>Favos</Link>
-              </li>
-              <li>
-                <Link href='/stats'>Stats</Link>
-              </li>
-              <li>
-                <Link href='/releases'>Releases</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <ul className='sidenav' id='mobile-demo'>
-        <li>
-          <Link href='/'>Top</Link>
-        </li>
-        <li>
-          <Link href='/search'>Search</Link>
-        </li>
-        <li>
-          <Link href='/favos'>Favos</Link>
-        </li>
-        <li>
-          <Link href='/stats'>Stats</Link>
-        </li>
-        <li>
-          <Link href='/releases'>Releases</Link>
-        </li>
-      </ul>
+      <AppBar position='fixed' style={{ backgroundColor: '#f1646a' }}>
+        <Toolbar style={{ position: 'relative' }}>
+          <div style={{ flexGrow: 1 }}>{isMobile && <MobileMenu />}</div>
+          <h4
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%,-50%)',
+              color: 'white',
+              margin: 0,
+              fontSize: '2.1rem',
+            }}
+          >
+            PolutaDB
+          </h4>
+          {!isMobile && <Buttons />}
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
     </header>
   );
 }
@@ -126,6 +99,67 @@ function Footer() {
         <div className='container center'>© 2020 ぽるうたデータベース</div>
       </div>
     </footer>
+  );
+}
+
+function MobileMenu() {
+  const router = useRouter();
+  const goto = (url: string) => {
+    return () => {
+      router.push(url);
+    };
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <>
+      <IconButton
+        edge='start'
+        color='inherit'
+        aria-controls='simple-menu'
+        aria-haspopup='true'
+        onClick={handleClick}
+        style={{ background: 'rgba(0,0,0,0)' }}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Menu id='simple-menu' anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+        <MenuItem onClick={goto('/')}>Top</MenuItem>
+        <MenuItem onClick={goto('/search')}>Search</MenuItem>
+        <MenuItem onClick={goto('/favos')}>Favorites</MenuItem>
+        <MenuItem onClick={goto('/stats')}>Statistics</MenuItem>
+        <MenuItem onClick={goto('/releases')}>Release Notes</MenuItem>
+      </Menu>
+    </>
+  );
+}
+
+function Buttons() {
+  return (
+    <>
+      <Button href='/' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
+        Top
+      </Button>
+      <Button href='/search' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
+        Search
+      </Button>
+      <Button href='/favos' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
+        Favos
+      </Button>
+      <Button href='/stats' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
+        Stats
+      </Button>
+      <Button href='/releases' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
+        Releases
+      </Button>
+    </>
   );
 }
 

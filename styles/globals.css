@@ -5,6 +5,11 @@
   --bg-color: rgba(251, 251, 251, 0.9);
 }
 
+.MuiAppBar-root {
+  margin: 0 !important;
+  border: 0 !important;
+}
+
 /* footerを下に固定する */
 #__next {
   display: flex;
