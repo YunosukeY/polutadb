@@ -1,6 +1,6 @@
-import { songs } from '../app/data/songs';
-import { artists } from '../app/data/artists';
-import { singings } from '../app/data/singings';
+import { songs } from '../data/songs';
+import { artists } from '../data/artists';
+import { singings } from '../data/singings';
 
 describe('データに重複がないか', () => {
   test('曲名', () => {

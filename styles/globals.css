@@ -5,8 +5,13 @@
   --bg-color: rgba(251, 251, 251, 0.9);
 }
 
+.MuiAppBar-root {
+  margin: 0 !important;
+  border: 0 !important;
+}
+
 /* footerを下に固定する */
-#root {
+#__next {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -18,7 +23,7 @@
 
 /* body */
 body {
-  background-image: url('../fig/bg.png');
+  background-image: url('../public/bg.png');
   background-attachment: fixed;
 }
 #main {

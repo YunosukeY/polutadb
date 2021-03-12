@@ -1,22 +1,20 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import queryString from 'query-string';
+import { useRouter } from 'next/router';
 
 import { Query } from '../lib/query';
 import { Selects } from '../components/select';
 import Result from '../components/result';
 
 export default function Search() {
-  const history = useHistory();
-  const qs = queryString.parse(history.location.search);
-  const query = new Query(qs);
+  const router = useRouter();
+  const query = new Query(router.query);
 
   const [pagenum, setPagenum] = useState(1);
 
   function setLocationSearch(newQuery: Query) {
     setPagenum(1);
-    history.push(`/search?${newQuery}`);
+    router.push(`/search?${newQuery}`, undefined, { scroll: false });
   }
 
   return (

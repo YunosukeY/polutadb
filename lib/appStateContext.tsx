@@ -32,12 +32,9 @@ function getInitialState(): AppState {
   };
 }
 
-const initialState = getInitialState();
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const AppStateContext = React.createContext<AppState>(initialState);
-// eslint-disable-next-line
-const SetAppStateContext = React.createContext<Dispatch<SetStateAction<AppState>>>(() => {});
+let initialState: AppState;
+let AppStateContext: React.Context<AppState>;
+let SetAppStateContext: React.Context<Dispatch<SetStateAction<AppState>>>;
 
 export function useAppState() {
   return useContext(AppStateContext);
@@ -46,8 +43,13 @@ export function useSetAppState() {
   return useContext(SetAppStateContext);
 }
 
-export function AppStateProvider(props: { initialState?: AppState; children: React.ReactNode }) {
-  const [state, setState] = useState<AppState>(props.initialState ?? initialState);
+export function AppStateProvider(props: { children: React.ReactNode }) {
+  initialState = getInitialState();
+  AppStateContext = React.createContext<AppState>(initialState);
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  SetAppStateContext = React.createContext<Dispatch<SetStateAction<AppState>>>(() => {});
+
+  const [state, setState] = useState<AppState>(initialState);
 
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...state.favos]));

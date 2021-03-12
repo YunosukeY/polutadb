@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -28,7 +28,7 @@ export default function Top() {
 function MyCard(props: { link: string; title: string; icon: any }) {
   return (
     <div className='col s12 m6'>
-      <Link to={props.link}>
+      <Link href={props.link}>
         <Card style={{ borderRadius: '10px' }}>
           <CardActionArea style={{ background: 'white' }}>
             <CardContent>

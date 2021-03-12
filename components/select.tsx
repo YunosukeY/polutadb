@@ -31,10 +31,12 @@ export function Selects(props: {
   const appState = useAppState();
   const setAppState = useSetAppState();
 
-  const [isHidden, setIsHidden] = useState(() => {
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
     const stickyValue = window.localStorage.getItem('isHidden');
-    return stickyValue !== null ? stickyValue === 'true' : false;
-  });
+    setIsHidden(stickyValue !== null ? stickyValue === 'true' : false);
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem('isHidden', String(isHidden));

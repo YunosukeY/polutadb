@@ -8,20 +8,29 @@ on:
       - '*'
 jobs:
   eslint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-    - run: yarn install --pure-lockfile
-    - run: yarn lint
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn lint
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-    - run: yarn install --pure-lockfile
-    - run: yarn test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn test
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - run: yarn install --pure-lockfile
+      - run: yarn build
