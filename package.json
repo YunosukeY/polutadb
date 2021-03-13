@@ -10,7 +10,9 @@
     "lint": "eslint pages components data lib",
     "format": "eslint --fix pages components data lib && prettier --write pages components data lib",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.16",
@@ -22,6 +24,7 @@
     "@types/react-slick": "^0.23.4",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
+    "cypress": "^6.6.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-jest": "^24.2.1",

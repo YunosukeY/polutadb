@@ -17,7 +17,7 @@ export default function Inst(props: EachSelectProps) {
               props.setLocationSearch(props.query);
             }}
           />
-          <span className='text'>あり</span>
+          <span className='text'>伴奏あり</span>
         </label>
         <label className='col s8'>
           <input

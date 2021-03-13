@@ -17,7 +17,7 @@ export default function Length(props: EachSelectProps) {
               props.setLocationSearch(props.query);
             }}
           />
-          <span className='text'>フル</span>
+          <span className='text'>フル尺</span>
         </label>
         <label className='col s8'>
           <input

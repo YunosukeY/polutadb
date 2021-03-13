@@ -8,6 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import StarIcon from '@material-ui/icons/Star';
+import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 import KeyVisual from '../layout/KeyVisual';
 const AppStateProvider = dynamic<{ children: React.ReactNode }>(
@@ -136,23 +141,35 @@ function MobileMenu() {
 }
 
 function Buttons() {
+  const router = useRouter();
+  const goto = (url: string) => {
+    return () => {
+      router.push(url);
+    };
+  };
+
   return (
     <>
-      <Button href='/' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
-        Top
-      </Button>
-      <Button href='/search' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
-        Search
-      </Button>
-      <Button href='/favos' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
-        Favos
-      </Button>
-      <Button href='/stats' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
-        Stats
-      </Button>
-      <Button href='/releases' color='inherit' style={{ fontSize: '1rem', textTransform: 'none' }}>
-        Releases
-      </Button>
+      <IconButton id='homeButton' color='inherit' onClick={goto('/')} style={{ background: 'rgba(0,0,0,0)' }}>
+        <HomeIcon />
+      </IconButton>
+      <IconButton id='searchButton' color='inherit' onClick={goto('/search')} style={{ background: 'rgba(0,0,0,0)' }}>
+        <SearchIcon />
+      </IconButton>
+      <IconButton id='favosButton' color='inherit' onClick={goto('/favos')} style={{ background: 'rgba(0,0,0,0)' }}>
+        <StarIcon />
+      </IconButton>
+      <IconButton id='statsButton' color='inherit' onClick={goto('/stats')} style={{ background: 'rgba(0,0,0,0)' }}>
+        <DonutLargeIcon />
+      </IconButton>
+      <IconButton
+        id='releasesButton'
+        color='inherit'
+        onClick={goto('/releases')}
+        style={{ background: 'rgba(0,0,0,0)' }}
+      >
+        <ImportContactsIcon />
+      </IconButton>
     </>
   );
 }
