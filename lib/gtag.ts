@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export const GA_TRACKING_ID = 'G-3PTTKZQQDT';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
