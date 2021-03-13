@@ -17,7 +17,7 @@ export default function Genre(props: EachSelectProps) {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>曲ジャンル</InputLabel>
+      <InputLabel>曲のジャンルを選択</InputLabel>
       <Select
         value={props.query.genre === -1 ? '' : props.query.genre}
         onChange={(event) => {

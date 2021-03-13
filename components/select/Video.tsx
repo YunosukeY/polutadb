@@ -17,7 +17,7 @@ export default function Video(props: EachSelectProps) {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>動画</InputLabel>
+      <InputLabel>動画を選択</InputLabel>
       <Select
         value={props.query.video === -1 ? '' : props.query.video}
         onChange={(event) => {

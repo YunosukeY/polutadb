@@ -17,7 +17,7 @@ export default function Song(props: EachSelectProps) {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>曲</InputLabel>
+      <InputLabel>曲を選択</InputLabel>
       <Select
         value={props.query.song === -1 ? '' : props.query.song}
         onChange={(event) => {
