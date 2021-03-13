@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 import '../styles/materialize.min.css';
 import '../styles/globals.css';
-const Layout = dynamic(() => import('../components/Layout'), { ssr: false });
+const Layout = dynamic(() => import('../components/pane/Layout'), { ssr: false });
 import * as gtag from '../lib/gtag';
 
 function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {

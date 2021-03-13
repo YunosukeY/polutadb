@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { Query } from '../lib/Query';
-import Selects from '../components/Selects';
-import Result from '../components/Result';
+import Select from '../components/pane/Select';
+import Result from '../components/pane/Result';
 
 export default function Search() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function Search() {
 
   return (
     <>
-      <Selects query={query} setLocationSearch={setLocationSearch} setPagenum={setPagenum} />
+      <Select query={query} setLocationSearch={setLocationSearch} setPagenum={setPagenum} />
       <Result query={query} pagenum={pagenum} setPagenum={setPagenum} />
     </>
   );
