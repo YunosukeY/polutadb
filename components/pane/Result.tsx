@@ -5,7 +5,7 @@ import ResultTable from '../result/ResultTable';
 import SimpleResultTable from '../result/SimpleResultTable';
 import Pagenation from '../result/Pagenation';
 import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
-import { Query } from '../../lib/Query';
+import { Query } from '../../lib/query';
 import { search } from '../../lib/search';
 
 export default function Result(props: {

@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import { Query } from '../../lib/Query';
+import { Query } from '../../lib/query';
 
 export type EachSelectProps = { query: Query; setLocationSearch: (newQuery: Query) => void };
 

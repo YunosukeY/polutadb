@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 import Select from './Select';
-import { Query } from '../../lib/Query';
+import { Query } from '../../lib/query';
 
 export default {
   title: 'pane/Select',

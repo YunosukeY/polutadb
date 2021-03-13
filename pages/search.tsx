@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { Query } from '../lib/Query';
+import { Query } from '../lib/query';
 import Select from '../components/pane/Select';
 import Result from '../components/pane/Result';
 

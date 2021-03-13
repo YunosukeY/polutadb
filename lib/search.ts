@@ -1,4 +1,4 @@
-import { Query } from './Query';
+import { Query } from './query';
 import { getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
 import { Singing, singings } from '../data/singings';
 

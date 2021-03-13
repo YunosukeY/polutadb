@@ -16,7 +16,7 @@ import Displaynum from '../select/Displaynum';
 import Sort from '../select/Sort';
 
 import { useAppState, useSetAppState } from '../../lib/AppState';
-import { Query } from '../../lib/Query';
+import { Query } from '../../lib/query';
 
 export default function Select(props: {
   query: Query;

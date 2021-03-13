@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import Result from './Result';
-import { Query } from '../../lib/Query';
+import { Query } from '../../lib/query';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {
