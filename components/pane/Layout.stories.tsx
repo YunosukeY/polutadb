@@ -4,7 +4,7 @@ import * as nextRouter from 'next/router';
 import Layout from './Layout';
 
 export default {
-  title: 'components/pane/Layout',
+  title: 'pane/Layout',
 };
 
 export const showDeformed = () => {

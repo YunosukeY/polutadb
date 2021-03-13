@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Top from '../pages/index';
+import Top from './Top';
 
 export default {
-  title: 'pages/index',
+  title: 'pages/Top',
 };
 
 export const showTop = () => <Top />;

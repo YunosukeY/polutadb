@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-import Favos from '../pages/favos';
-import { useAppState, useSetAppState } from '../lib/AppState';
+import Favos from './Favos';
+import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {
-  title: 'pages/favos',
+  title: 'pages/Favos',
 };
 
 export const showFavos = () => {

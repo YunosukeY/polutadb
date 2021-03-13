@@ -2,11 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import * as nextRouter from 'next/router';
 
-import Search from '../pages/search';
-import { useAppState, useSetAppState } from '../lib/AppState';
+import Search from './Search';
+import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {
-  title: 'pages/search',
+  title: 'pages/Search',
 };
 
 export const showSearch = () => {

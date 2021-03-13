@@ -5,7 +5,7 @@ import Select from './Select';
 import { Query } from '../../lib/Query';
 
 export default {
-  title: 'components/pane/Select',
+  title: 'pane/Select',
 };
 
 export const showSelects = () => {

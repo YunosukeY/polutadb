@@ -6,7 +6,7 @@ import { Query } from '../../lib/Query';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {
-  title: 'components/pane/Result',
+  title: 'pane/Result',
 };
 
 export const showResult = () => {

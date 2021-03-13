@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Releases from '../pages/releases';
+import Releases from './Releases';
 
 export default {
-  title: 'pages/releases',
+  title: 'pages/Releases',
 };
 
 export const showReleases = () => <Releases />;
