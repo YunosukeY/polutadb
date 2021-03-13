@@ -8,8 +8,8 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
 
-import { useAppState, useSetAppState, getAppStateUtils } from '../lib/appStateContext';
-import { Query } from '../lib/query';
+import { useAppState, useSetAppState, getAppStateUtils } from '../lib/AppState';
+import { Query } from '../lib/Query';
 import { getUrl, getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
 import { Singing, singings } from '../data/singings';
 

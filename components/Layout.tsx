@@ -12,11 +12,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { Youtube } from '../components/result';
+import { Youtube } from './Result';
 import { Singing } from '../data/singings';
 import { getVideo } from '../data/utils';
 const AppStateProvider = dynamic<{ children: React.ReactNode }>(
-  () => import('../lib/appStateContext').then((modules) => modules.AppStateProvider),
+  () => import('../lib/AppState').then((modules) => modules.AppStateProvider),
   { ssr: false },
 );
 
@@ -216,7 +216,7 @@ function PickUpThumbnail(props: { id: string; singing: Singing }) {
   );
 }
 
-function Deformed() {
+export function Deformed() {
   return (
     <div style={{ backgroundColor: '#fff8f8', textAlign: 'center' }}>
       {screen.width <= 500 && (

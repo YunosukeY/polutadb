@@ -28,7 +28,7 @@ export default function Top() {
 function MyCard(props: { link: string; title: string; icon: any }) {
   return (
     <div className='col s12 m6'>
-      <Link href={props.link}>
+      <Link href={props.link} prefetch={false}>
         <Card style={{ borderRadius: '10px' }}>
           <CardActionArea style={{ background: 'white' }}>
             <CardContent>
