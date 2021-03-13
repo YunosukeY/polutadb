@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import * as nextRouter from 'next/router';
 
-import Search from './Search';
+import Search from '../../pages/search';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {

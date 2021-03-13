@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-import Favos from './Favos';
+import Favos from '../../pages/favos';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 
 export default {

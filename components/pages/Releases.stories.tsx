@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Releases from './Releases';
+import Releases from '../../pages/releases';
 
 export default {
   title: 'pages/Releases',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Stats from './Stats';
+import Stats from '../../pages/stats';
 
 export default {
   title: 'pages/Stats',
