@@ -9,8 +9,8 @@
     "test": "jest",
     "lint": "eslint pages components data lib",
     "format": "eslint --fix pages components data lib && prettier --write pages components data lib",
-    "storybook": "start-storybook -p 6006 -s ./styles,./public",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s ./public"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.16",
