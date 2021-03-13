@@ -3,7 +3,7 @@ env:
   jest/globals: true
   browser: true
   node: true
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 parserOptions:
   project: ./tsconfig.json
   ecmaFeatures:
@@ -11,7 +11,7 @@ parserOptions:
 plugins:
   - react
   - jest
-  - "@typescript-eslint"
+  - '@typescript-eslint'
 settings:
   react:
     version: detect
@@ -22,25 +22,25 @@ extends:
   - plugin:react/recommended
   - plugin:jest/recommended
 rules:
-  "@typescript-eslint/explicit-module-boundary-types": off
-  "@typescript-eslint/no-explicit-any": off
+  '@typescript-eslint/explicit-module-boundary-types': off
+  '@typescript-eslint/no-explicit-any': off
   no-unused-vars: error
   no-unreachable: error
   no-undef: error
   max-lines-per-function:
     - warn
     - 100
-  "@typescript-eslint/naming-convention":
+  '@typescript-eslint/naming-convention':
     - warn
     - selector:
+        - variable
+        - parameter
+        - property
         - function
       format:
         - camelCase
         - PascalCase
     - selector:
-        - variable
-        - parameter
-        - property
         - method
       format:
         - camelCase
@@ -50,3 +50,6 @@ rules:
         - typeAlias
       format:
         - PascalCase
+  'react/no-multi-comp':
+    - warn
+    - ignoreStateless: true
