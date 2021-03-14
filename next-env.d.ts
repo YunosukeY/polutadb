@@ -2,8 +2,6 @@
 /// <reference types="next/types/global" />
 
 interface Window {
-  M: any;
-
   gtag(type: 'config', googleAnalyticsId: string, { page_path: string });
   gtag(
     type: 'event',

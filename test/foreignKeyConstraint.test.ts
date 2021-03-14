@@ -1,7 +1,7 @@
-import { songs, genres } from '../data/songs';
-import { artists } from '../data/artists';
-import { singings } from '../data/singings';
-import { videos, types } from '../data/videos';
+import { songs, genres } from '../src/data/songs';
+import { artists } from '../src/data/artists';
+import { singings } from '../src/data/singings';
+import { videos, types } from '../src/data/videos';
 
 describe('外部キー代わりの添字が範囲内か', () => {
   test('ジャンル->曲', () => {
