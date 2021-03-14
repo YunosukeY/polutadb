@@ -3,7 +3,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import { IconButton } from '@material-ui/core';
 
 import { getUrl, getArtist, getSong } from '../../data/utils';
-import { Singing } from '../../data/singings';
+import { Singing } from '../../data/interfaces';
 
 export default function Tweet(props: { singing: Singing; fontsize: number }) {
   const youtubeURL = `https://youtu.be/${getUrl(props.singing.videoId)}?t=${props.singing.start}`;

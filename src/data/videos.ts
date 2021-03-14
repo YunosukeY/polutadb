@@ -1,13 +1,4 @@
-export interface Video {
-  id: string;
-  title: string;
-  date: string;
-  typeId: number;
-}
-
-export interface Type {
-  name: string;
-}
+import { Video, Type } from './interfaces';
 
 export const videos: Video[] = [
   {

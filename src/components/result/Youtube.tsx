@@ -5,7 +5,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import { IconButton } from '@material-ui/core';
 
 import { getUrl, getVideo } from '../../data/utils';
-import { Singing } from '../../data/singings';
+import { Singing } from '../../data/interfaces';
 
 export default function Youtube(props: { singing: Singing; fontsize: number }) {
   const [open, setOpen] = useState(false);

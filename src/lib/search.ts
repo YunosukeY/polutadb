@@ -1,6 +1,7 @@
 import { Query } from './query';
 import { getArtist, getSong, getArtistId, getGenreId, getTypeId, getVideo } from '../data/utils';
-import { Singing, singings } from '../data/singings';
+import { Singing } from '../data/interfaces';
+import { singings } from '../data/singings';
 
 export function search(query: Query, sortedBy: number) {
   let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));

@@ -7,7 +7,8 @@ import SimpleResultTable from '../components/result/SimpleResultTable';
 import Pagenation from '../components/result/Pagenation';
 import DisplayFormat from '../components/select/DisplayFormat';
 import Displaynum from '../components/select/Displaynum';
-import { Singing, singings } from '../data/singings';
+import { Singing } from '../data/interfaces';
+import { singings } from '../data/singings';
 
 export default function Favos() {
   const appState = useAppState();

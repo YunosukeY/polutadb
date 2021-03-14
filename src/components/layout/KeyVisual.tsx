@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import Youtube from '../result/Youtube';
-import { Singing } from '../../data/singings';
+import { Singing } from '../../data/interfaces';
 import { getVideo } from '../../data/utils';
 
 export default function KeyVisual() {

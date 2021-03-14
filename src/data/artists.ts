@@ -1,6 +1,4 @@
-export interface Artist {
-  name: string;
-}
+import { Artist } from './interfaces';
 
 export const artists: Artist[] = [
   /*  0 */ { name: '尾丸ポルカ' },

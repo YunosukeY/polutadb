@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,19 +12,15 @@ import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
-import KeyVisual from '../layout/KeyVisual';
-const AppStateProvider = dynamic<{ children: React.ReactNode }>(
-  () => import('../../lib/AppState').then((modules) => modules.AppStateProvider),
-  { ssr: false },
-);
+import KeyVisual from './KeyVisual';
 
 export default function Layout({ children }: { children: any }) {
   return (
-    <AppStateProvider>
+    <>
       <Header />
       <Main>{children}</Main>
       <Footer />
-    </AppStateProvider>
+    </>
   );
 }
 

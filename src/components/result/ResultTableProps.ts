@@ -1,4 +1,4 @@
-import { Singing } from '../../data/singings';
+import { Singing } from '../../data/interfaces';
 
 export default interface ResultTableProps {
   table: Singing[];
