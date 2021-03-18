@@ -1,25 +1,12 @@
 import * as React from 'react';
 import Grid, { GridSize } from '@material-ui/core/Grid';
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-export default function Radio(props: {
-  text: string;
-  onChange: (newValue: string) => void;
-  checked: boolean;
-  xs: GridSize;
-  sm: GridSize;
-}) {
+export default function MyRadio(props: { value: number; label: string; xs: GridSize; sm: GridSize }) {
   return (
     <Grid item xs={props.xs} sm={props.sm}>
-      <label>
-        <input
-          className='with-gap'
-          type='radio'
-          value={props.text}
-          checked={props.checked}
-          onChange={() => props.onChange(props.text)}
-        />
-        <span className='text'>{props.text}</span>
-      </label>
+      <FormControlLabel value={props.value} control={<Radio color='primary' />} label={props.label} />
     </Grid>
   );
 }

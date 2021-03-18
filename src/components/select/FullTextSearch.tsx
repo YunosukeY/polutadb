@@ -21,7 +21,7 @@ export default function FullTextSearch(props: EachSelectProps) {
     <>
       <Grid container spacing={1} alignItems='flex-end'>
         <Grid item>
-          <SearchIcon />
+          <SearchIcon style={{ color: '#949494' }} />
         </Grid>
         <Grid item>
           <TextField label='全文検索' value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
