@@ -37,7 +37,8 @@ body {
 .pane {
   border: solid 1px #dcdbdc;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: white;
   padding: 10px;
 }
@@ -49,7 +50,7 @@ body {
 /* mui card */
 .MuiPaper-root {
   border: solid 1px #dcdbdc;
-  margin-top: 20px;
+  /* margin-top: 5px; */
 }
 .MuiCardContent-root {
   display: flex;
@@ -110,8 +111,8 @@ h5 {
   text-align: center;
 }
 td {
-  padding-top: 25px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* stats */

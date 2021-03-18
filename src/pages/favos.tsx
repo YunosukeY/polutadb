@@ -9,6 +9,7 @@ import DisplayFormat from '../components/select/DisplayFormat';
 import Displaynum from '../components/select/Displaynum';
 import { Singing } from '../data/interfaces';
 import { singings } from '../data/singings';
+import Grid from '@material-ui/core/Grid';
 
 export default function Favos() {
   const appState = useAppState();
@@ -39,8 +40,8 @@ export default function Favos() {
 
   return (
     <div className='pane' id='favo'>
-      <div className='row' style={{ paddingBottom: 0 }}>
-        <div className='col m6 s12'>
+      <Grid container>
+        <Grid item xs={12} sm={6}>
           <Displaynum
             displaynum={appState.displaynum}
             setDisplaynum={(displaynum: number) => {
@@ -48,16 +49,16 @@ export default function Favos() {
               setPagenum(1);
             }}
           />
-        </div>
-        <div className='col m6 s12'>
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <DisplayFormat
             displayMode={appState.displayMode}
             setDisplayMode={(displayMode: number) => {
               setAppState((state) => ({ ...state, displayMode: displayMode }));
             }}
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
       {appState.displayMode == 0 && (
@@ -91,7 +92,7 @@ export default function Favos() {
 
 function FavoHeader(props: { favonum: number }) {
   return (
-    <h4 id='favo-header'>
+    <h4 id='favo-header' style={{ marginTop: '1rem' }}>
       {props.favonum} Favorite{props.favonum === 1 ? '' : 's'}
     </h4>
   );

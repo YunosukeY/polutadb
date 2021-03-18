@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 import ResultTableProps from './ResultTableProps';
 import Star from './Star';
@@ -13,8 +14,8 @@ export default function ResultTable(props: ResultTableProps) {
         {props.table.map((singing, i) => (
           <tr key={i}>
             <td>
-              <div className='row'>
-                <div className='col s12 m12 l8 xl8' id='iframe-content'>
+              <Grid container>
+                <Grid item xs={12} sm={12} md={8} lg={8} id='iframe-content'>
                   <div style={{ borderRadius: 10, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
                     <iframe
                       id='usual-iframe'
@@ -27,8 +28,8 @@ export default function ResultTable(props: ResultTableProps) {
                       title={getVideo(singing.videoId)}
                     />
                   </div>
-                </div>
-                <div className='col s12 m12 l4 xl4' id='result-table'>
+                </Grid>
+                <Grid item xs={12} sm={12} md={4} lg={4} id='result-table'>
                   <h5 id='song-info'>
                     『{getSong(singing.songId)}』<br />
                     {getArtist(singing.songId)} <br />
@@ -41,8 +42,8 @@ export default function ResultTable(props: ResultTableProps) {
                     />
                     <Tweet singing={singing} fontsize={fontsize} />
                   </h5>
-                </div>
-              </div>
+                </Grid>
+              </Grid>
             </td>
           </tr>
         ))}

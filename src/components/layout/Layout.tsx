@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import Grid from '@material-ui/core/Grid';
 
 import KeyVisual from './KeyVisual';
 
@@ -57,10 +58,12 @@ function Main({ children }: { children: any }) {
   return (
     <>
       <KeyVisual />
-      <div id='main'>
-        <div className='row'>
-          <div className='col s12 m12 l12 xl10 offset-xl1'>{children}</div>
-        </div>
+      <div id='main' style={{ padding: 10 }}>
+        <Grid container justify='center'>
+          <Grid item xs={12} sm={12} md={12} lg={10}>
+            {children}
+          </Grid>
+        </Grid>
       </div>
     </>
   );
@@ -69,24 +72,20 @@ function Main({ children }: { children: any }) {
 function Footer() {
   return (
     <footer className='page-footer'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col s12' id='links'>
-            <h5 className='white-text'>Links</h5>
-            <ul>
-              <li>
-                <a className='grey-text text-lighten-3' href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>
-                  原曲プレイリスト（Spotify）
-                </a>
-              </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>
-                  管理人Twitter
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className='container' id='links'>
+        <h5 className='white-text'>Links</h5>
+        <ul>
+          <li>
+            <a className='grey-text text-lighten-3' href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>
+              原曲プレイリスト（Spotify）
+            </a>
+          </li>
+          <li>
+            <a className='grey-text text-lighten-3' href='https://twitter.com/k1m1tsu'>
+              管理人Twitter
+            </a>
+          </li>
+        </ul>
       </div>
       <div className='footer-copyright'>
         <div className='container center'>© 2020 ぽるうたデータベース</div>
