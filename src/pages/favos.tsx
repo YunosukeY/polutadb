@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 export default function Favos() {
   const appState = useAppState();
   const setAppState = useSetAppState();
-  const [isFavo, toggleFavo] = getAppStateUtils(appState, setAppState);
+  const [isFavo] = getAppStateUtils(appState, setAppState);
 
   const [pagenum, setPagenum] = useState(1);
 

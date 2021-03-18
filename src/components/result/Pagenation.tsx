@@ -16,7 +16,7 @@ export default function Pagenation(props: { pagenum: number; setPagenum: (p: num
         shape='rounded'
         hidePrevButton
         hideNextButton
-        style={{ backgroundColor: 'white', display: 'inline-block' }}
+        style={{ display: 'inline-block' }}
       />
     </div>
   );

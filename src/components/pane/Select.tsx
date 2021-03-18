@@ -65,20 +65,24 @@ export default function Select(props: {
             Search
           </h4>
           <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-              <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
+          <div style={{ textAlign: 'center' }}>
+            <Grid container>
+              <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
+                <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
+              </Grid>
+              <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
+                <Type query={props.query} setLocationSearch={props.setLocationSearch} />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <Type query={props.query} setLocationSearch={props.setLocationSearch} />
-            </Grid>
-          </Grid>
-          <Video query={props.query} setLocationSearch={props.setLocationSearch} />
+          </div>
+          <div style={{ padding: '0 .75rem' }}>
+            <Video query={props.query} setLocationSearch={props.setLocationSearch} />
+          </div>
           <Grid container>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
               <Song query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
               <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
           </Grid>
