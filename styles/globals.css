@@ -243,7 +243,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     max-height: 100%;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 960px) {
   /* iframeを横幅いっぱいのサイズにする */
   #iframe-content {
     position: relative;
@@ -279,7 +279,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     height: 100%;
   }
 }
-@media screen and (min-width: 993px) {
+@media screen and (min-width: 959px) {
   #result-table {
     height: 315px;
   }
