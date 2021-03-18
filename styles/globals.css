@@ -45,7 +45,7 @@ body {
 
 /* material-uiの上書き */
 div[class*='makeStyles-formControl'],
-div[class*='jss'] {
+div[class*='MuiFormControl-root jss'] {
   height: 3rem !important;
 }
 .MuiAppBar-root {
