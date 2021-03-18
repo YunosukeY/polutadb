@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import '../../styles/materialize.min.css';
+// import '../../styles/materialize.min.css';
 import '../../styles/globals.css';
 const Layout = dynamic(() => import('../components/layout/Layout'), { ssr: false });
 const AppStateProvider = dynamic<{ children: React.ReactNode }>(

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 import { useAppState, useSetAppState, getAppStateUtils } from '../lib/AppState';
 import ResultTable from '../components/result/ResultTable';
-import SimpleResultTable from '../components/result/SimpleResultTable';
 import Pagenation from '../components/result/Pagenation';
 import DisplayFormat from '../components/select/DisplayFormat';
 import Displaynum from '../components/select/Displaynum';
@@ -40,47 +39,15 @@ export default function Favos() {
 
   return (
     <div className='pane' id='favo'>
-      <Grid container>
-        <Grid item xs={12} sm={6}>
-          <Displaynum
-            displaynum={appState.displaynum}
-            setDisplaynum={(displaynum: number) => {
-              setAppState((state) => ({ ...state, displaynum: displaynum }));
-              setPagenum(1);
-            }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <DisplayFormat
-            displayMode={appState.displayMode}
-            setDisplayMode={(displayMode: number) => {
-              setAppState((state) => ({ ...state, displayMode: displayMode }));
-            }}
-          />
-        </Grid>
-      </Grid>
+      <FavoSelect setPagenum={setPagenum} />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
-      {appState.displayMode == 0 && (
-        <ResultTable
-          table={favoList.slice(
-            (pagenum - 1) * appState.displaynum,
-            Math.min(pagenum * appState.displaynum, favoList.length),
-          )}
-          isFavo={isFavo}
-          toggleFavo={toggleFavo}
-        />
-      )}
-      {appState.displayMode == 1 && (
-        <SimpleResultTable
-          table={favoList.slice(
-            (pagenum - 1) * appState.displaynum,
-            Math.min(pagenum * appState.displaynum, favoList.length),
-          )}
-          isFavo={isFavo}
-          toggleFavo={toggleFavo}
-        />
-      )}
+      <ResultTable
+        singings={favoList.slice(
+          (pagenum - 1) * appState.displaynum,
+          Math.min(pagenum * appState.displaynum, favoList.length),
+        )}
+      />
       <Pagenation
         pagenum={pagenum}
         setPagenum={onPageClick}
@@ -95,5 +62,32 @@ function FavoHeader(props: { favonum: number }) {
     <h4 id='favo-header' style={{ marginTop: '1rem' }}>
       {props.favonum} Favorite{props.favonum === 1 ? '' : 's'}
     </h4>
+  );
+}
+
+function FavoSelect(props: { setPagenum: React.Dispatch<React.SetStateAction<number>> }) {
+  const appState = useAppState();
+  const setAppState = useSetAppState();
+
+  return (
+    <Grid container>
+      <Grid item xs={12} sm={6}>
+        <Displaynum
+          displaynum={appState.displaynum}
+          setDisplaynum={(displaynum: number) => {
+            setAppState((state) => ({ ...state, displaynum: displaynum }));
+            props.setPagenum(1);
+          }}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <DisplayFormat
+          displayMode={appState.displayMode}
+          setDisplayMode={(displayMode: number) => {
+            setAppState((state) => ({ ...state, displayMode: displayMode }));
+          }}
+        />
+      </Grid>
+    </Grid>
   );
 }
