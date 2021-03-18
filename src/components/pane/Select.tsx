@@ -60,29 +60,27 @@ export default function Select(props: {
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick}>
+          <h4 onClick={onClick} style={{ marginBottom: 0 }}>
             <ArrowDropDownIcon style={{ fontSize: fontsize }} />
             Search
           </h4>
           <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
-          <div style={{ textAlign: 'center' }}>
-            <Grid container>
-              <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
-                <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
-              </Grid>
-              <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
-                <Type query={props.query} setLocationSearch={props.setLocationSearch} />
-              </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+              <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
-          </div>
-          <div style={{ padding: '0 .75rem' }}>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+              <Type query={props.query} setLocationSearch={props.setLocationSearch} />
+            </Grid>
+          </Grid>
+          <div style={{ paddingRight: '.75rem' }}>
             <Video query={props.query} setLocationSearch={props.setLocationSearch} />
           </div>
           <Grid container>
-            <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Song query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
-            <Grid item xs={12} sm={6} style={{ padding: '0 .75rem' }}>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
           </Grid>

@@ -5,8 +5,15 @@
   --bg-color: rgba(251, 251, 251, 0.9);
 }
 
-#__next {
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+label,
+h1,
+h2,
+h3,
+h5,
+h6,
+span {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif !important;
+  font-weight: 400;
 }
 
 /* body */
@@ -37,6 +44,10 @@ body {
 }
 
 /* material-uiの上書き */
+div[class*='makeStyles-formControl'],
+div[class*='jss'] {
+  height: 3rem !important;
+}
 .MuiAppBar-root {
   margin: 0 !important;
   border: 0 !important;
@@ -54,9 +65,11 @@ body {
 .MuiRadio-colorPrimary.Mui-checked {
   color: var(--sub-theme-color) !important;
 }
-
 .MuiPaginationItem-textPrimary.Mui-selected {
   background-color: var(--sub-theme-color) !important;
+}
+.MuiTextField-root {
+  padding-bottom: 5px !important;
 }
 
 /* react-slick */
@@ -77,19 +90,13 @@ body {
 .title {
   font-size: 30px;
   font-family: 'Comfortaa';
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
   font-weight: 400;
 }
 h4 {
   font-size: 2.28rem;
   color: var(--font-color);
   font-family: 'Comfortaa';
+  font-weight: 400;
   margin-top: 0px;
   margin-bottom: 0.912rem;
 }

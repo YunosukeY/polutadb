@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 import { EachSelectProps } from './utils';
 
@@ -18,13 +18,19 @@ export default function FullTextSearch(props: EachSelectProps) {
   }
 
   return (
-    <Grid container spacing={1} alignItems='flex-end'>
-      <Grid item>
-        <SearchIcon style={{ color: '#949494' }} />
-      </Grid>
-      <Grid item>
-        <TextField label='全文検索' value={text} onChange={(e) => setText(e.target.value)} onKeyDown={onKeyDown} />
-      </Grid>
-    </Grid>
+    <TextField
+      label='全文検索'
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+      onKeyDown={onKeyDown}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position='start'>
+            <SearchIcon style={{ color: '#949494' }} />
+          </InputAdornment>
+        ),
+      }}
+      fullWidth
+    />
   );
 }
