@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import Grid from '@material-ui/core/Grid';
 
 import FullTextSearch from '../select/FullTextSearch';
 import Genre from '../select/Genre';
@@ -59,49 +60,51 @@ export default function Select(props: {
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick}>
+          <h4 onClick={onClick} style={{ marginBottom: 0 }}>
             <ArrowDropDownIcon style={{ fontSize: fontsize }} />
             Search
           </h4>
           <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
-          <div className='row' style={{ paddingBottom: 0 }}>
-            <div className='col m6 s12'>
+          <Grid container>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
-            <div className='col m6 s12'>
+            </Grid>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Type query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
+            </Grid>
+          </Grid>
+          <div style={{ paddingRight: '.75rem' }}>
+            <Video query={props.query} setLocationSearch={props.setLocationSearch} />
           </div>
-          <Video query={props.query} setLocationSearch={props.setLocationSearch} />
-          <div className='row' style={{ paddingBottom: 0 }}>
-            <div className='col m6 s12'>
+          <Grid container>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Song query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
-            <div className='col m6 s12'>
+            </Grid>
+            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
               <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
-          </div>
-          <div className='row' style={{ paddingBottom: 0 }}>
-            <div className='col m6 s12'>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={6}>
               <Inst query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
-            <div className='col m6 s12'>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <Length query={props.query} setLocationSearch={props.setLocationSearch} />
-            </div>
-          </div>
-          <div className='row' style={{ paddingBottom: 0 }}>
-            <div className='col m6 s12'>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={6}>
               <Displaynum displaynum={appState.displaynum} setDisplaynum={onDnumChange} />
-            </div>
-            <div className='col m6 s12'>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <DisplayFormat
                 displayMode={appState.displayMode}
                 setDisplayMode={(displayMode: number) => {
                   setAppState((state) => ({ ...state, displayMode: displayMode }));
                 }}
               />
-            </div>
-          </div>
+            </Grid>
+          </Grid>
           <Sort
             sortedBy={appState.sortedBy}
             setSortedBy={(sortedBy: number) => {

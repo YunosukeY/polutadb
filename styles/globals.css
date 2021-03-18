@@ -5,24 +5,30 @@
   --bg-color: rgba(251, 251, 251, 0.9);
 }
 
-.MuiAppBar-root {
-  margin: 0 !important;
-  border: 0 !important;
+label,
+h1,
+h2,
+h3,
+h5,
+h6,
+span {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif !important;
+  font-weight: 400;
 }
 
-/* footerを下に固定する */
+/* footer固定 */
 #__next {
   display: flex;
+  flex-flow: column;
   min-height: 100vh;
-  flex-direction: column;
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 }
 #main {
-  flex: 1 0 auto;
+  flex: 1;
 }
 
 /* body */
 body {
+  margin: 0;
   background-image: url('../public/bg.png');
   background-attachment: fixed;
 }
@@ -37,7 +43,8 @@ body {
 .pane {
   border: solid 1px #dcdbdc;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: white;
   padding: 10px;
 }
@@ -46,15 +53,33 @@ body {
   margin-bottom: 0px;
 }
 
-/* mui card */
+/* material-uiの上書き */
+div[class*='makeStyles-formControl'],
+div[class*='MuiFormControl-root jss'] {
+  height: 3rem !important;
+}
+.MuiAppBar-root {
+  margin: 0 !important;
+  border: 0 !important;
+}
 .MuiPaper-root {
   border: solid 1px #dcdbdc;
-  margin-top: 20px;
+  /* margin-top: 5px; */
 }
 .MuiCardContent-root {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.MuiCheckbox-colorPrimary.Mui-checked,
+.MuiRadio-colorPrimary.Mui-checked {
+  color: var(--sub-theme-color) !important;
+}
+.MuiPaginationItem-textPrimary.Mui-selected {
+  background-color: var(--sub-theme-color) !important;
+}
+.MuiTextField-root {
+  padding-bottom: 5px !important;
 }
 
 /* react-slick */
@@ -75,14 +100,24 @@ body {
 .title {
   font-size: 30px;
   font-family: 'Comfortaa';
+  font-weight: 400;
 }
 h4 {
+  font-size: 2.28rem;
   color: var(--font-color);
   font-family: 'Comfortaa';
+  font-weight: 400;
   margin-top: 0px;
+  margin-bottom: 0.912rem;
 }
 h5 {
+  font-size: 1.64rem;
+  margin: 1.0933333333rem 0 0.656rem;
   color: var(--font-color);
+}
+h6 {
+  font-size: 1.15rem;
+  margin: 0.7666666667rem 0 0.46rem;
 }
 .text {
   color: #404040;
@@ -110,8 +145,8 @@ h5 {
   text-align: center;
 }
 td {
-  padding-top: 25px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* stats */
@@ -133,105 +168,8 @@ td {
   margin-top: 30px;
 }
 
-/* materialize-cssの上書き */
-.select-wrapper input.select-dropdown:focus {
-  border-bottom-color: var(--sub-theme-color);
-}
-.dropdown-content li > span {
-  color: var(--sub-theme-color);
-}
-[type='checkbox'].filled-in:checked + span:not(.lever):after {
-  border-color: var(--sub-theme-color);
-  background-color: var(--sub-theme-color);
-}
-[type='radio']:checked + span:after,
-[type='radio'].with-gap:checked + span:after {
-  background-color: var(--sub-theme-color);
-}
-[type='radio']:checked + span:after,
-[type='radio'].with-gap:checked + span:before,
-[type='radio'].with-gap:checked + span:after {
-  border-color: var(--sub-theme-color);
-}
-nav {
-  background-color: var(--theme-color);
-}
 footer {
   background-color: var(--theme-color);
-}
-.pagination li.active {
-  background-color: var(--sub-theme-color);
-}
-input.valid:not([type]),
-input.valid:not([type]):focus,
-input.valid[type='text']:not(.browser-default),
-input.valid[type='text']:not(.browser-default):focus,
-input.valid[type='password']:not(.browser-default),
-input.valid[type='password']:not(.browser-default):focus,
-input.valid[type='email']:not(.browser-default),
-input.valid[type='email']:not(.browser-default):focus,
-input.valid[type='url']:not(.browser-default),
-input.valid[type='url']:not(.browser-default):focus,
-input.valid[type='time']:not(.browser-default),
-input.valid[type='time']:not(.browser-default):focus,
-input.valid[type='date']:not(.browser-default),
-input.valid[type='date']:not(.browser-default):focus,
-input.valid[type='datetime']:not(.browser-default),
-input.valid[type='datetime']:not(.browser-default):focus,
-input.valid[type='datetime-local']:not(.browser-default),
-input.valid[type='datetime-local']:not(.browser-default):focus,
-input.valid[type='tel']:not(.browser-default),
-input.valid[type='tel']:not(.browser-default):focus,
-input.valid[type='number']:not(.browser-default),
-input.valid[type='number']:not(.browser-default):focus,
-input.valid[type='search']:not(.browser-default),
-input.valid[type='search']:not(.browser-default):focus,
-textarea.materialize-textarea.valid,
-textarea.materialize-textarea.valid:focus,
-.select-wrapper.valid > input.select-dropdown {
-  border-bottom: 1px solid var(--sub-theme-color);
-  box-shadow: 0 1px 0 0 var(--sub-theme-color);
-}
-input:not([type]):focus:not([readonly]) + label,
-input[type='text']:not(.browser-default):focus:not([readonly]) + label,
-input[type='password']:not(.browser-default):focus:not([readonly]) + label,
-input[type='email']:not(.browser-default):focus:not([readonly]) + label,
-input[type='url']:not(.browser-default):focus:not([readonly]) + label,
-input[type='time']:not(.browser-default):focus:not([readonly]) + label,
-input[type='date']:not(.browser-default):focus:not([readonly]) + label,
-input[type='datetime']:not(.browser-default):focus:not([readonly]) + label,
-input[type='datetime-local']:not(.browser-default):focus:not([readonly]) + label,
-input[type='tel']:not(.browser-default):focus:not([readonly]) + label,
-input[type='number']:not(.browser-default):focus:not([readonly]) + label,
-input[type='search']:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: var(--sub-theme-color);
-}
-input:not([type]):focus:not([readonly]),
-input[type='text']:not(.browser-default):focus:not([readonly]),
-input[type='password']:not(.browser-default):focus:not([readonly]),
-input[type='email']:not(.browser-default):focus:not([readonly]),
-input[type='url']:not(.browser-default):focus:not([readonly]),
-input[type='time']:not(.browser-default):focus:not([readonly]),
-input[type='date']:not(.browser-default):focus:not([readonly]),
-input[type='datetime']:not(.browser-default):focus:not([readonly]),
-input[type='datetime-local']:not(.browser-default):focus:not([readonly]),
-input[type='tel']:not(.browser-default):focus:not([readonly]),
-input[type='number']:not(.browser-default):focus:not([readonly]),
-input[type='search']:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid var(--sub-theme-color);
-  -webkit-box-shadow: 0 1px 0 0 var(--sub-theme-color);
-  box-shadow: 0 1px 0 0 var(--sub-theme-color);
-}
-.input-field {
-  margin-bottom: 10px;
-}
-.input-field .prefix {
-  color: #949494;
-}
-.input-field .prefix.active {
-  color: var(--sub-theme-color);
 }
 
 /* レスポンシブ */
@@ -242,7 +180,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     max-height: 100%;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 960px) {
   /* iframeを横幅いっぱいのサイズにする */
   #iframe-content {
     position: relative;
@@ -278,7 +216,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     height: 100%;
   }
 }
-@media screen and (min-width: 993px) {
+@media screen and (min-width: 959px) {
   #result-table {
     height: 315px;
   }

@@ -1,35 +1,28 @@
 import * as React from 'react';
+import Grid from '@material-ui/core/Grid';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import Radio from './Radio';
 
 export default function Displaynum(props: { displaynum: number; setDisplaynum: (displaynum: number) => void }) {
-  const colsize = 's2';
+  const colsize = 3;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    props.setDisplaynum(Number((event.target as HTMLInputElement).value));
+  };
+
   return (
-    <>
-      <label>
-        <h6 className='text'>表示件数</h6>
-      </label>
-      <form action='#' className='row'>
-        <Radio text='5件' onChange={() => props.setDisplaynum(5)} checked={props.displaynum === 5} colsize={colsize} />
-        <Radio
-          text='10件'
-          onChange={() => props.setDisplaynum(10)}
-          checked={props.displaynum === 10}
-          colsize={colsize}
-        />
-        <Radio
-          text='20件'
-          onChange={() => props.setDisplaynum(20)}
-          checked={props.displaynum === 20}
-          colsize={colsize}
-        />
-        <Radio
-          text='50件'
-          onChange={() => props.setDisplaynum(50)}
-          checked={props.displaynum === 50}
-          colsize={colsize}
-        />
-      </form>
-    </>
+    <FormControl style={{ width: '100%' }}>
+      <FormLabel>表示件数</FormLabel>
+      <RadioGroup value={props.displaynum} onChange={handleChange}>
+        <Grid container style={{ padding: 5 }}>
+          <Radio value={5} label='5件' xs={colsize} sm={colsize} />
+          <Radio value={10} label='10件' xs={colsize} sm={colsize} />
+          <Radio value={20} label='20件' xs={colsize} sm={colsize} />
+          <Radio value={50} label='50件' xs={colsize} sm={colsize} />
+        </Grid>
+      </RadioGroup>
+    </FormControl>
   );
 }

@@ -7,19 +7,23 @@ import SearchIcon from '@material-ui/icons/Search';
 import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import Grid from '@material-ui/core/Grid';
 
 export default function Top() {
+  const spacing = 2;
   return (
     <>
       <div className='pane' id='about'>
         <h4>About</h4>
         <Describe />
       </div>
-      <div className='row'>
-        <MyCard link='/search' title='Search' icon={SearchIcon} />
-        <MyCard link='/favos' title='Favorites' icon={StarIcon} />
-        <MyCard link='/stats' title='Statistics' icon={DonutLargeIcon} />
-        <MyCard link='/releases' title='Release Notes' icon={ImportContactsIcon} />
+      <div style={{ paddingTop: 8 * spacing }}>
+        <Grid container spacing={spacing}>
+          <MyCard link='/search' title='Search' icon={SearchIcon} />
+          <MyCard link='/favos' title='Favorites' icon={StarIcon} />
+          <MyCard link='/stats' title='Statistics' icon={DonutLargeIcon} />
+          <MyCard link='/releases' title='Release Notes' icon={ImportContactsIcon} />
+        </Grid>
       </div>
     </>
   );
@@ -27,7 +31,7 @@ export default function Top() {
 
 function MyCard(props: { link: string; title: string; icon: any }) {
   return (
-    <div className='col s12 m6'>
+    <Grid item xs={12} sm={6}>
       <Link href={props.link} prefetch={false}>
         <Card style={{ borderRadius: '10px' }}>
           <CardActionArea style={{ background: 'white' }}>
@@ -40,7 +44,7 @@ function MyCard(props: { link: string; title: string; icon: any }) {
           </CardActionArea>
         </Card>
       </Link>
-    </div>
+    </Grid>
   );
 }
 
