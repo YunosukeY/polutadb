@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/materialize.min.css';
 import '../styles/globals.css';
 
 import { AppStateProvider } from '../src/lib/AppState';
