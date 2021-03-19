@@ -29,8 +29,6 @@ span {
 /* body */
 body {
   margin: 0;
-  background-image: url('../public/bg.png');
-  background-attachment: fixed;
 }
 #main {
   background-color: var(--bg-color);
