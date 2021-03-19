@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import Grid from '@material-ui/core/Grid';
 
-import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
+import FavoHeader from '../favos/FavoHeader';
+import FavoSelect from '../favos/FavoSelect';
 import ResultTable from '../result/ResultTable';
 import Pagenation from '../result/Pagenation';
-import DisplayFormat from '../select/DisplayFormat';
-import Displaynum from '../select/Displaynum';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
+import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
 
 export default function Favos() {
   const appState = useAppState();
@@ -54,40 +53,5 @@ export default function Favos() {
         lastPageNum={Math.ceil(favoList.length / appState.displaynum)}
       />
     </div>
-  );
-}
-
-function FavoHeader(props: { favonum: number }) {
-  return (
-    <h4 id='favo-header' style={{ marginTop: '1rem' }}>
-      {props.favonum} Favorite{props.favonum === 1 ? '' : 's'}
-    </h4>
-  );
-}
-
-function FavoSelect(props: { setPagenum: React.Dispatch<React.SetStateAction<number>> }) {
-  const appState = useAppState();
-  const setAppState = useSetAppState();
-
-  return (
-    <Grid container>
-      <Grid item xs={12} sm={6}>
-        <Displaynum
-          displaynum={appState.displaynum}
-          setDisplaynum={(displaynum: number) => {
-            setAppState((state) => ({ ...state, displaynum: displaynum }));
-            props.setPagenum(1);
-          }}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <DisplayFormat
-          displayMode={appState.displayMode}
-          setDisplayMode={(displayMode: number) => {
-            setAppState((state) => ({ ...state, displayMode: displayMode }));
-          }}
-        />
-      </Grid>
-    </Grid>
   );
 }

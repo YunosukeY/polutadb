@@ -1,10 +1,10 @@
 import React from 'react';
 import * as nextRouter from 'next/router';
 
-import Layout from './Layout';
+import KeyVisual from './KeyVisual';
 
 export default {
-  title: 'layout/Layout',
+  title: 'layout/KeyVisual',
 };
 
 export const showDeformed = () => {
@@ -12,7 +12,7 @@ export const showDeformed = () => {
     pathname: '/hoge',
   });
 
-  return <Layout />;
+  return <KeyVisual />;
 };
 
 export const showPickup = () => {
@@ -20,5 +20,5 @@ export const showPickup = () => {
     pathname: '/',
   });
 
-  return <Layout />;
+  return <KeyVisual />;
 };
