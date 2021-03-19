@@ -4,9 +4,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Youtube from '../result/Youtube';
+import Deformed from './Deformed';
+import PickUpThumbnail from './PickUpThumbnail';
 import { Singing } from '../../data/interfaces';
-import { getVideo } from '../../data/utils';
 
 export default function KeyVisual() {
   const router = useRouter();
@@ -41,44 +41,6 @@ function PickUp() {
         <PickUpThumbnail id='NdHPnTd2Jd8' singing={new Singing(0, 33, 0, 0)} />
         <PickUpThumbnail id='syhlmTNW_a8' singing={new Singing(0, 30, 0, 0)} />
       </Slider>
-    </div>
-  );
-}
-
-function PickUpThumbnail(props: { id: string; singing: Singing }) {
-  return (
-    <div style={{ position: 'relative' }}>
-      <div style={{ backgroundColor: '#000000' }}>
-        <img
-          src={`https://img.youtube.com/vi/${props.id}/maxresdefault.jpg`}
-          style={{ width: '100%', opacity: 0.7 }}
-          alt={getVideo(props.singing.videoId)}
-        />
-      </div>
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-        <Youtube singing={props.singing} fontsize={70} />
-      </div>
-    </div>
-  );
-}
-
-export function Deformed() {
-  return (
-    <div style={{ backgroundColor: '#fff8f8', textAlign: 'center' }}>
-      {screen.width <= 500 && (
-        <img src='/card.png' alt='OmaruPolka' title='OmaruPolka' style={{ width: screen.width }} />
-      )}
-      {500 < screen.width && screen.width <= 760 && (
-        <img src='/card-smaller-credit.png' alt='OmaruPolka' title='OmaruPolka' style={{ width: screen.width }} />
-      )}
-      {760 < screen.width && (
-        <img
-          src='/card-smaller-credit.png'
-          alt='OmaruPolka'
-          title='OmaruPolka'
-          style={{ height: '400px', margin: '0 auto' }}
-        />
-      )}
     </div>
   );
 }
