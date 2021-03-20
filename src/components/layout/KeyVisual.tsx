@@ -34,7 +34,7 @@ function PickUp() {
     pauseOnHover: true,
   };
   return (
-    <div className='pickup'>
+    <div className='pickup' style={{ padding: '20px 0' }}>
       <Slider {...settings}>
         <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
         <PickUpThumbnail id='UpoysjZfWrU' singing={new Singing(0, 36, 0, 0)} />

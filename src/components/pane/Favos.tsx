@@ -5,6 +5,7 @@ import FavoHeader from '../favos/FavoHeader';
 import FavoSelect from '../favos/FavoSelect';
 import ResultTable from '../result/ResultTable';
 import Pagenation from '../result/Pagenation';
+import { Pane } from '../../lib/style';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
 import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
@@ -37,7 +38,7 @@ export default function Favos() {
   });
 
   return (
-    <div className='pane' id='favo'>
+    <Pane id='favo'>
       <FavoSelect setPagenum={setPagenum} />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
@@ -52,6 +53,6 @@ export default function Favos() {
         setPagenum={onPageClick}
         lastPageNum={Math.ceil(favoList.length / appState.displaynum)}
       />
-    </div>
+    </Pane>
   );
 }

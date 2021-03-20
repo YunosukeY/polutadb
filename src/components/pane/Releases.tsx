@@ -1,11 +1,12 @@
 import * as React from 'react';
 
+import { Pane } from '../../lib/style';
 import { getVideo } from '../../data/utils';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Releases() {
   return (
-    <div className='pane' id='releases'>
+    <Pane id='releases'>
       <h4>Release Notes</h4>
       <>
         <Date date='2021/03/07' />
@@ -178,12 +179,16 @@ export default function Releases() {
         <Date date='2020/10/21' />
         <Content content='本サイトを公開しました' />
       </>
-    </div>
+    </Pane>
   );
 }
 
 function Date(props: { date: string }) {
-  return <h5 className='release-date'>{props.date}</h5>;
+  return (
+    <h5 className='release-date' style={{ marginTop: '30px' }}>
+      {props.date}
+    </h5>
+  );
 }
 
 function AddData() {
@@ -199,7 +204,11 @@ function AddVideo(props: { videoId: number }) {
 }
 
 function ContentType(props: { type: string }) {
-  return <h6 className='release-content-type'>{props.type}</h6>;
+  return (
+    <h6 className='release-content-type' style={{ marginTop: '30px' }}>
+      {props.type}
+    </h6>
+  );
 }
 
 function Content(props: { content: string }) {

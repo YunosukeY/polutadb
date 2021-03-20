@@ -4,16 +4,11 @@
   --sub-theme-color: dodgerblue;
   --bg-color: rgba(251, 251, 251, 0.9);
 }
-
-label,
-h1,
-h2,
-h3,
-h5,
-h6,
-span {
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif !important;
-  font-weight: 400;
+#main {
+  background-color: var(--bg-color);
+}
+footer {
+  background-color: var(--theme-color);
 }
 
 /* footer固定 */
@@ -24,31 +19,6 @@ span {
 }
 #main {
   flex: 1;
-}
-
-/* body */
-body {
-  margin: 0;
-}
-#main {
-  background-color: var(--bg-color);
-}
-.pickup {
-  background-color: var(--bg-color);
-  padding: 20px 0;
-}
-
-.pane {
-  border: solid 1px #dcdbdc;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: white;
-  padding: 10px;
-}
-.row {
-  padding-bottom: 20px;
-  margin-bottom: 0px;
 }
 
 /* material-uiの上書き */
@@ -80,7 +50,7 @@ div[class*='MuiFormControl-root jss'] {
   padding-bottom: 5px !important;
 }
 
-/* react-slick */
+/* react-slickの上書き */
 .slick-slider {
   margin: 0 auto;
   max-width: 1120px;
@@ -95,6 +65,16 @@ div[class*='MuiFormControl-root jss'] {
 }
 
 /* フォント */
+label,
+h1,
+h2,
+h3,
+h5,
+h6,
+span {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif !important;
+  font-weight: 400;
+}
 .title {
   font-size: 30px;
   font-family: 'Comfortaa';
@@ -119,55 +99,6 @@ h6 {
 }
 .text {
   color: #404040;
-}
-
-/* 検索結果 */
-#result-table {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#song-info {
-  text-align: center;
-}
-.supplemental-info {
-  font-size: 15px;
-  margin-bottom: -5px;
-}
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#iframe-content {
-  text-align: center;
-}
-td {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/* stats */
-.chartdiv {
-  width: 100%;
-  height: 600px;
-}
-
-/* Footer */
-#links {
-  text-align: right;
-}
-
-/* 各リリースの間隔 */
-.release-date {
-  margin-top: 30px;
-}
-.release-content-type {
-  margin-top: 30px;
-}
-
-footer {
-  background-color: var(--theme-color);
 }
 
 /* レスポンシブ */

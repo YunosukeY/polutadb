@@ -15,7 +15,7 @@ import Length from '../select/Length';
 import DisplayFormat from '../select/DisplayFormat';
 import Displaynum from '../select/Displaynum';
 import Sort from '../select/Sort';
-
+import { Pane } from '../../lib/style';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
 
@@ -51,7 +51,7 @@ export default function Select(props: {
   const fontsize = 28;
 
   return (
-    <div className='pane' id='search'>
+    <Pane id='search'>
       {isHidden && (
         <h4 onClick={onClick} style={{ marginBottom: 0 }}>
           <ArrowRightIcon style={{ fontSize: fontsize }} />
@@ -113,6 +113,6 @@ export default function Select(props: {
           />
         </>
       )}
-    </div>
+    </Pane>
   );
 }
