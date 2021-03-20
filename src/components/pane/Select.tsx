@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/styles';
 
 import FullTextSearch from '../select/FullTextSearch';
 import Genre from '../select/Genre';
@@ -18,6 +19,18 @@ import Sort from '../select/Sort';
 import { Pane } from '../../lib/style';
 import { useAppState, useSetAppState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
+
+const useStyles = makeStyles({
+  h4: {
+    marginBottom: 0,
+  },
+  icon: {
+    fontSize: 28,
+  },
+  gridItem: {
+    paddingRight: '.75rem',
+  },
+});
 
 export default function Select(props: {
   query: Query;
@@ -48,39 +61,39 @@ export default function Select(props: {
     props.setPagenum(1);
   }
 
-  const fontsize = 28;
+  const classes = useStyles();
 
   return (
-    <Pane id='search'>
+    <Pane>
       {isHidden && (
-        <h4 onClick={onClick} style={{ marginBottom: 0 }}>
-          <ArrowRightIcon style={{ fontSize: fontsize }} />
+        <h4 onClick={onClick} className={classes.h4}>
+          <ArrowRightIcon className={classes.icon} />
           Search
         </h4>
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick} style={{ marginBottom: 0 }}>
-            <ArrowDropDownIcon style={{ fontSize: fontsize }} />
+          <h4 onClick={onClick} className={classes.h4}>
+            <ArrowDropDownIcon className={classes.icon} />
             Search
           </h4>
           <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
           <Grid container>
-            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+            <Grid item xs={12} sm={6} className={classes.gridItem}>
               <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
-            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+            <Grid item xs={12} sm={6} className={classes.gridItem}>
               <Type query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
           </Grid>
-          <div style={{ paddingRight: '.75rem' }}>
+          <div className={classes.gridItem}>
             <Video query={props.query} setLocationSearch={props.setLocationSearch} />
           </div>
           <Grid container>
-            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+            <Grid item xs={12} sm={6} className={classes.gridItem}>
               <Song query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
-            <Grid item xs={12} sm={6} style={{ paddingRight: '.75rem' }}>
+            <Grid item xs={12} sm={6} className={classes.gridItem}>
               <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
             </Grid>
           </Grid>

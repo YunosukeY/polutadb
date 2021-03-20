@@ -23,7 +23,7 @@ export default function Result(props: {
   };
 
   return (
-    <Pane id='result'>
+    <Pane>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
       <ResultTable

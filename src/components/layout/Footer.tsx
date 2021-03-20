@@ -1,20 +1,22 @@
 import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
+import styled from 'styled-components';
+
+const WhiteH5 = styled.h5`
+  color: white;
+`;
+const WhiteA = WhiteH5.withComponent('a');
 
 export default function Footer() {
   return (
-    <footer className='page-footer'>
+    <footer>
       <Grid container justify='center'>
         <Grid item xs={10} sm={10} md={10} lg={9}>
-          <div id='links' style={{ paddingBottom: 20, textAlign: 'right' }}>
-            <h5 style={{ color: 'white' }}>Links</h5>
-            <a href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn' style={{ color: 'white' }}>
-              原曲プレイリスト（Spotify）
-            </a>
+          <div style={{ paddingBottom: 20, textAlign: 'right' }}>
+            <WhiteH5>Links</WhiteH5>
+            <WhiteA href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>原曲プレイリスト（Spotify）</WhiteA>
             <br />
-            <a href='https://twitter.com/k1m1tsu' style={{ color: 'white' }}>
-              管理人Twitter
-            </a>
+            <WhiteA href='https://twitter.com/k1m1tsu'>管理人Twitter</WhiteA>
           </div>
         </Grid>
       </Grid>

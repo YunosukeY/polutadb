@@ -38,7 +38,7 @@ export default function Favos() {
   });
 
   return (
-    <Pane id='favo'>
+    <Pane>
       <FavoSelect setPagenum={setPagenum} />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />

@@ -49,7 +49,7 @@ export default function ResultTableRow(props: { singing: Singing; i: number }) {
             id='result-table'
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            <h5 id='song-info' style={{ textAlign: 'center' }}>
+            <h5 style={{ textAlign: 'center' }}>
               『{getSong(props.singing.songId)}』<br />
               {getArtist(props.singing.songId)} <br />
               {props.singing.withInst === false && <SupplementalInfo>アカペラ</SupplementalInfo>}

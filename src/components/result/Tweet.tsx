@@ -14,7 +14,7 @@ export default function Tweet(props: { singing: Singing; fontsize: number }) {
     window.open(encodeURI(decodeURI(tweetURL)));
   };
   return (
-    <IconButton onClick={onClick} style={{ background: 'rgba(0,0,0,0)' }}>
+    <IconButton onClick={onClick}>
       <TwitterIcon style={{ fontSize: props.fontsize, color: 'rgb(0,172,237)' }} />
     </IconButton>
   );

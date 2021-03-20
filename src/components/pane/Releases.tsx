@@ -6,7 +6,7 @@ import { getVideo } from '../../data/utils';
 // eslint-disable-next-line max-lines-per-function
 export default function Releases() {
   return (
-    <Pane id='releases'>
+    <Pane>
       <h4>Release Notes</h4>
       <>
         <Date date='2021/03/07' />
@@ -184,11 +184,7 @@ export default function Releases() {
 }
 
 function Date(props: { date: string }) {
-  return (
-    <h5 className='release-date' style={{ marginTop: '30px' }}>
-      {props.date}
-    </h5>
-  );
+  return <h5 style={{ marginTop: '30px' }}>{props.date}</h5>;
 }
 
 function AddData() {
@@ -204,11 +200,7 @@ function AddVideo(props: { videoId: number }) {
 }
 
 function ContentType(props: { type: string }) {
-  return (
-    <h6 className='release-content-type' style={{ marginTop: '30px' }}>
-      {props.type}
-    </h6>
-  );
+  return <h6 style={{ marginTop: '30px' }}>{props.type}</h6>;
 }
 
 function Content(props: { content: string }) {

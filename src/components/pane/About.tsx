@@ -4,7 +4,7 @@ import { Pane } from '../../lib/style';
 
 export default function About() {
   return (
-    <Pane id='about'>
+    <Pane>
       <h4>About</h4>
       <Describe />
     </Pane>

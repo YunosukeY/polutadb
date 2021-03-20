@@ -17,24 +17,19 @@ export default function Menu() {
 
   return (
     <>
-      <IconButton id='homeButton' color='inherit' onClick={goto('/')} style={{ background: 'rgba(0,0,0,0)' }}>
+      <IconButton id='homeButton' color='inherit' onClick={goto('/')}>
         <HomeIcon />
       </IconButton>
-      <IconButton id='searchButton' color='inherit' onClick={goto('/search')} style={{ background: 'rgba(0,0,0,0)' }}>
+      <IconButton id='searchButton' color='inherit' onClick={goto('/search')}>
         <SearchIcon />
       </IconButton>
-      <IconButton id='favosButton' color='inherit' onClick={goto('/favos')} style={{ background: 'rgba(0,0,0,0)' }}>
+      <IconButton id='favosButton' color='inherit' onClick={goto('/favos')}>
         <StarIcon />
       </IconButton>
-      <IconButton id='statsButton' color='inherit' onClick={goto('/stats')} style={{ background: 'rgba(0,0,0,0)' }}>
+      <IconButton id='statsButton' color='inherit' onClick={goto('/stats')}>
         <DonutLargeIcon />
       </IconButton>
-      <IconButton
-        id='releasesButton'
-        color='inherit'
-        onClick={goto('/releases')}
-        style={{ background: 'rgba(0,0,0,0)' }}
-      >
+      <IconButton id='releasesButton' color='inherit' onClick={goto('/releases')}>
         <ImportContactsIcon />
       </IconButton>
     </>
