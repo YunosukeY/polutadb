@@ -1,11 +1,13 @@
 import * as React from 'react';
 
+import { Pane } from '../../lib/style';
+
 export default function About() {
   return (
-    <div className='pane' id='about'>
+    <Pane>
       <h4>About</h4>
       <Describe />
-    </div>
+    </Pane>
   );
 }
 

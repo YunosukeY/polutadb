@@ -3,6 +3,7 @@ import * as React from 'react';
 import ResultHeader from '../result/ResultHeader';
 import ResultTable from '../result/ResultTable';
 import Pagenation from '../result/Pagenation';
+import { Pane } from '../../lib/style';
 import { useAppState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
 import { search } from '../../lib/search';
@@ -22,7 +23,7 @@ export default function Result(props: {
   };
 
   return (
-    <div className='pane' id='result'>
+    <Pane>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
       <ResultTable
@@ -36,6 +37,6 @@ export default function Result(props: {
         setPagenum={onPageClick}
         lastPageNum={Math.ceil(result.length / appState.displaynum)}
       />
-    </div>
+    </Pane>
   );
 }

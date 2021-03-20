@@ -6,10 +6,10 @@ import SongStats from '../components/pane/SongStats';
 
 export default function Stats() {
   return (
-    <div id='stats'>
+    <>
       <GenreStats />
       <ArtistStats />
       <SongStats />
-    </div>
+    </>
   );
 }

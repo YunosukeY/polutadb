@@ -27,5 +27,10 @@
   "exclude": [
     "node_modules",
     "**/*.stories.tsx"
+  ],
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin"
+    }
   ]
 }

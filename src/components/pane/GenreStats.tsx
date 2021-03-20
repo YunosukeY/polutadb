@@ -4,6 +4,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
+import { Pane, Chartdiv } from '../../lib/style';
 import { getGenre } from '../../data/utils';
 import { genres } from '../../data/songs';
 import { singings } from '../../data/singings';
@@ -14,10 +15,10 @@ export default function GenreStats() {
   });
 
   return (
-    <div className='pane'>
+    <Pane>
       <h4 style={{ textAlign: 'center' }}>{genres.length} Genres</h4>
-      <div className='chartdiv' id='genre-stats'></div>
-    </div>
+      <Chartdiv id='genre-stats' />
+    </Pane>
   );
 }
 

@@ -17,15 +17,15 @@ export default function Layout({ children }: { children: any }) {
 
 function Main({ children }: { children: any }) {
   return (
-    <>
+    <div id='main'>
       <KeyVisual />
-      <div id='main' style={{ padding: 10 }}>
+      <div style={{ padding: 10 }}>
         <Grid container justify='center'>
           <Grid item xs={12} sm={12} md={12} lg={10}>
             {children}
           </Grid>
         </Grid>
       </div>
-    </>
+    </div>
   );
 }

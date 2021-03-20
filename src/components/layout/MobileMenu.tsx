@@ -23,14 +23,7 @@ export default function MobileMenu() {
 
   return (
     <>
-      <IconButton
-        edge='start'
-        color='inherit'
-        aria-controls='simple-menu'
-        aria-haspopup='true'
-        onClick={handleClick}
-        style={{ background: 'rgba(0,0,0,0)' }}
-      >
+      <IconButton edge='start' color='inherit' aria-controls='simple-menu' aria-haspopup='true' onClick={handleClick}>
         <MenuIcon />
       </IconButton>
       <Menu id='simple-menu' anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>

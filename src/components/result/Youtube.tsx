@@ -44,7 +44,7 @@ export default function Youtube(props: { singing: Singing; fontsize: number }) {
 
   return (
     <>
-      <IconButton onClick={handleOpen} style={{ background: 'rgba(0,0,0,0)' }}>
+      <IconButton onClick={handleOpen}>
         <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
       </IconButton>
       <Modal
