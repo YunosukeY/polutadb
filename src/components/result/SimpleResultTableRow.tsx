@@ -26,8 +26,9 @@ export default function SimpleResultTableRow(props: { singing: Singing; i: numbe
           <Grid item xs={12} sm={9} style={{ textAlign: 'center' }}>
             <h6>
               『{getSong(props.singing.songId)}』{getArtist(props.singing.songId)} <br />
-              {props.singing.withInst === false && <>アカペラ</>}
-              {props.singing.withInst === false && props.singing.full === false && <> </>}
+              {props.singing.withInst === 1 && <>アカペラ</>}
+              {props.singing.withInst === 2 && <>演奏</>}
+              {props.singing.withInst !== 0 && props.singing.full === false && <> </>}
               {props.singing.full === false && <>ワンコーラス</>}
             </h6>
           </Grid>

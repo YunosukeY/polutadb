@@ -17,8 +17,9 @@ export function search(query: Query, sortedBy: number) {
   if (query.genre !== -1) tmpres = tmpres.filter((singingInfo) => getGenreId(singingInfo.songId) === query.genre);
   if (query.type !== -1) tmpres = tmpres.filter((singingInfo) => getTypeId(singingInfo.videoId) === query.type);
 
-  if (query.withInst === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === false);
-  if (query.aCappella === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst === true);
+  if (query.withInst === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst !== 0);
+  if (query.aCappella === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst !== 1);
+  if (query.performance === false) tmpres = tmpres.filter((singingInfo) => singingInfo.withInst !== 2);
 
   if (query.full === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === false);
   if (query.onechorus === false) tmpres = tmpres.filter((singingInfo) => singingInfo.full === true);

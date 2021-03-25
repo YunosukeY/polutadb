@@ -52,7 +52,8 @@ export default function ResultTableRow(props: { singing: Singing; i: number }) {
             <h5 style={{ textAlign: 'center' }}>
               『{getSong(props.singing.songId)}』<br />
               {getArtist(props.singing.songId)} <br />
-              {props.singing.withInst === false && <SupplementalInfo>アカペラ</SupplementalInfo>}
+              {props.singing.withInst === 1 && <SupplementalInfo>アカペラ</SupplementalInfo>}
+              {props.singing.withInst === 2 && <SupplementalInfo>演奏</SupplementalInfo>}
               {props.singing.full === false && <SupplementalInfo>ワンコーラス</SupplementalInfo>}
               <Star
                 isFavo={isFavo(props.singing.id)}

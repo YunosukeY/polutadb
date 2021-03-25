@@ -9,6 +9,7 @@ export class Query {
   artist: number;
   withInst: boolean;
   aCappella: boolean;
+  performance: boolean;
   full: boolean;
   onechorus: boolean;
 
@@ -21,11 +22,12 @@ export class Query {
     this.artist = qs.artist == null ? -1 : Number(qs.artist);
     this.withInst = qs.withInst == null ? true : qs.withInst === 'true';
     this.aCappella = qs.aCappella == null ? true : qs.aCappella === 'true';
+    this.performance = qs.performance == null ? true : qs.performance === 'true';
     this.full = qs.full == null ? true : qs.full === 'true';
     this.onechorus = qs.onechorus == null ? true : qs.onechorus === 'true';
   }
 
   toString() {
-    return `query=${this.query}&genre=${this.genre}&type=${this.type}&video=${this.video}&song=${this.song}&artist=${this.artist}&withInst=${this.withInst}&aCappella=${this.aCappella}&full=${this.full}&onechorus=${this.onechorus}`;
+    return `query=${this.query}&genre=${this.genre}&type=${this.type}&video=${this.video}&song=${this.song}&artist=${this.artist}&withInst=${this.withInst}&aCappella=${this.aCappella}&performance=${this.performance}&full=${this.full}&onechorus=${this.onechorus}`;
   }
 }

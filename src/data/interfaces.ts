@@ -28,10 +28,10 @@ export class Singing {
   videoId: number;
   songId: number;
   start: number;
-  withInst: boolean;
+  withInst: number; // 0: 伴奏あり, 1: アカペラ, 2: セルフ演奏
   full: boolean;
 
-  constructor(id: number, videoId: number, songId: number, start: number, withInst = true, full = true) {
+  constructor(id: number, videoId: number, songId: number, start: number, withInst = 0, full = true) {
     this.id = id;
     this.videoId = videoId;
     this.songId = songId;
