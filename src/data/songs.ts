@@ -285,6 +285,11 @@ export const songs: Song[] = [
   /* 281 */ { title: '恋愛サーキュレーション', artistId: 152, genreId: 1 },
   /* 282 */ { title: '消せない罪', artistId: 153, genreId: 1 },
   /* 283 */ { title: '乙女解剖', artistId: 44, genreId: 3 },
+  /* 284 */ { title: '鳥の詩', artistId: 154, genreId: 5 },
+  /* 285 */ { title: 'ショートケーキのサンバ', artistId: 155, genreId: 4 },
+  /* 286 */ { title: '先生のお気に入り', artistId: 155, genreId: 4 },
+  /* 287 */ { title: 'マカロニ', artistId: 103, genreId: 6 },
+  /* 288 */ { title: 'JOY', artistId: 15, genreId: 4 },
 ];
 
 export const genres: Genre[] = [

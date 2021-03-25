@@ -9,6 +9,11 @@ export default function Releases() {
     <Pane>
       <h4>Release Notes</h4>
       <>
+        <Date date='2021/03/25' />
+        <AddData />
+        <AddVideo videoId={40} />
+      </>
+      <>
         <Date date='2021/03/07' />
         <AddData />
         <AddVideo videoId={39} />

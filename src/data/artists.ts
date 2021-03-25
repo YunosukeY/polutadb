@@ -155,4 +155,6 @@ export const artists: Artist[] = [
   /* 151 */ { name: 'Little Non' },
   /* 152 */ { name: '千石撫子(花澤香菜)' },
   /* 153 */ { name: '北出菜奈' },
+  /* 154 */ { name: 'Lia' },
+  /* 155 */ { name: '小島麻由美' },
 ];

@@ -281,6 +281,13 @@ export const videos: Video[] = [
     date: '2021/03/06',
     typeId: 2,
   },
+  {
+    // 40
+    id: '7cAi2Rjfs0c',
+    title: '雑談とアカペラ、ひとつまみにカズーの練習【尾丸ポルカ/ホロライブ】',
+    date: '2021/03/25',
+    typeId: 5,
+  },
 ];
 
 export const types: Type[] = [
