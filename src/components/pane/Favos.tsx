@@ -12,18 +12,10 @@ import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppStat
 
 export default function Favos() {
   const appState = useAppState();
-  const setAppState = useSetAppState();
-  const [isFavo] = getAppStateUtils(appState, setAppState);
 
   const [pagenum, setPagenum] = useState(1);
 
-  const favoList = new Array<Singing>();
-  singings.forEach((singing) => {
-    if (isFavo(singing.id)) {
-      favoList.push(singing);
-    }
-  });
-  favoList.reverse();
+  const favoList = getFavoList();
 
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
@@ -55,4 +47,19 @@ export default function Favos() {
       />
     </Pane>
   );
+}
+
+function getFavoList() {
+  const appState = useAppState();
+  const setAppState = useSetAppState();
+  const [isFavo] = getAppStateUtils(appState, setAppState);
+
+  const res = new Array<Singing>();
+  singings.forEach((singing) => {
+    if (isFavo(singing.id)) {
+      res.push(singing);
+    }
+  });
+  res.reverse();
+  return res;
 }

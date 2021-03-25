@@ -1,11 +1,13 @@
 import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
-import styled from 'styled-components';
+import { styled } from '@material-ui/core/styles';
 
-const WhiteH5 = styled.h5`
-  color: white;
-`;
-const WhiteA = WhiteH5.withComponent('a');
+const WhiteH5 = styled('div')({
+  color: 'white',
+});
+const WhiteA = styled('a')({
+  color: 'white',
+});
 
 export default function Footer() {
   return (

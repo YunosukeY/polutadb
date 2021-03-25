@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import styled from 'styled-components';
+import { styled } from '@material-ui/core/styles';
 
 import Star from './Star';
 import Tweet from './Tweet';
@@ -10,10 +10,10 @@ import { getUrl, getArtist, getSong, getVideo } from '../../data/utils';
 import { Singing } from '../../data/interfaces';
 import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
 
-const SupplementalInfo = styled.div`
-  font-size: 15px;
-  margin-bottom: -5px;
-`;
+const SupplementalInfo = styled('div')({
+  fontSize: '15px',
+  marginBottom: '-5px',
+});
 
 export default function ResultTableRow(props: { singing: Singing; i: number }) {
   const [isFavo, toggleFavo] = getAppStateUtils(useAppState(), useSetAppState());

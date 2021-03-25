@@ -15,7 +15,27 @@ export default function Youtube(props: { singing: Singing; fontsize: number }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const body = (
+  const color = '#ff0f1a';
+
+  return (
+    <>
+      <IconButton onClick={handleOpen}>
+        <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
+      </IconButton>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
+      >
+        <Window singing={props.singing} />
+      </Modal>
+    </>
+  );
+}
+
+function Window(props: { singing: Singing }) {
+  return (
     <div
       id='simple-iframe-parent'
       style={{
@@ -39,22 +59,5 @@ export default function Youtube(props: { singing: Singing; fontsize: number }) {
         title={getVideo(props.singing.videoId)}
       />
     </div>
-  );
-  const color = '#ff0f1a';
-
-  return (
-    <>
-      <IconButton onClick={handleOpen}>
-        <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
-      </IconButton>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='simple-modal-title'
-        aria-describedby='simple-modal-description'
-      >
-        {body}
-      </Modal>
-    </>
   );
 }
