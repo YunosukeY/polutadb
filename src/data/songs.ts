@@ -290,6 +290,15 @@ export const songs: Song[] = [
   /* 286 */ { title: '先生のお気に入り', artistId: 155, genreId: 4 },
   /* 287 */ { title: 'マカロニ', artistId: 103, genreId: 6 },
   /* 288 */ { title: 'JOY', artistId: 15, genreId: 4 },
+  /* 289 */ { title: 'DISCOTHEQUE', artistId: 19, genreId: 1 },
+  /* 290 */ { title: 'fancy baby doll', artistId: 156, genreId: 4 },
+  /* 291 */ { title: 'いちごコンプリート', artistId: 157, genreId: 1 },
+  /* 292 */ { title: 'ラブノベルス', artistId: 158, genreId: 5 },
+  /* 293 */ { title: '正しい街', artistId: 65, genreId: 4 },
+  /* 294 */ { title: '閃光少女', artistId: 20, genreId: 9 },
+  /* 295 */ { title: '生きていたんだよな', artistId: 159, genreId: 4 },
+  /* 296 */ { title: 'マトリョシカ', artistId: 109, genreId: 3 },
+  /* 297 */ { title: 'GO MY WAY!!', artistId: -1, genreId: 7 },
 ];
 
 export const genres: Genre[] = [
