@@ -2,7 +2,7 @@
   --theme-color: #ee6e73;
   --font-color: dodgerblue;
   --sub-theme-color: dodgerblue;
-  --bg-color: rgba(251, 251, 251, 0.9);
+  --bg-color: #fff8f8;
 }
 #main {
   background-color: var(--bg-color);
