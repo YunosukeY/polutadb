@@ -25,7 +25,7 @@ export default function ResultTableRow(props: { singing: Singing; i: number }) {
       <TableCell>
         <Grid container>
           <Grid item xs={12} sm={12} md={8} lg={8} id='iframe-content' style={{ textAlign: 'center' }}>
-            <div style={{ borderRadius: 10, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
+            <div style={{ borderRadius: 5, margin: 'auto', overflow: 'hidden' }} id='iframe-wrapper'>
               <iframe
                 id='usual-iframe'
                 width='480'

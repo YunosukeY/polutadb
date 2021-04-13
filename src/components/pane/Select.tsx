@@ -5,6 +5,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 
+import HR from '../layout/HR';
 import FullTextSearch from '../select/FullTextSearch';
 import Genre from '../select/Genre';
 import Type from '../select/Type';
@@ -73,10 +74,11 @@ export default function Select(props: {
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick} className={classes.h4}>
+          <h4 onClick={onClick}>
             <ArrowDropDownIcon className={classes.icon} />
             Search
           </h4>
+          <HR />
           <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
           <Grid container>
             <Grid item xs={12} sm={6} className={classes.gridItem}>

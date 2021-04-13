@@ -14,7 +14,7 @@ export default function Footer() {
     <footer>
       <Grid container justify='center'>
         <Grid item xs={10} sm={10} md={10} lg={9}>
-          <div style={{ paddingBottom: 20, textAlign: 'right' }}>
+          <div style={{ padding: '20pt 0', textAlign: 'right' }}>
             <WhiteH5>Links</WhiteH5>
             <WhiteA href='https://open.spotify.com/playlist/4RUXo3tSPwkhizu8yBCgfn'>原曲プレイリスト（Spotify）</WhiteA>
             <br />

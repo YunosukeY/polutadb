@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
+import HR from '../layout/HR';
 import FavoHeader from '../favos/FavoHeader';
 import FavoSelect from '../favos/FavoSelect';
 import ResultTable from '../result/ResultTable';
@@ -34,6 +35,7 @@ export default function Favos() {
       <FavoSelect setPagenum={setPagenum} />
       <div ref={ref} />
       <FavoHeader favonum={favoList.length} />
+      <HR />
       <ResultTable
         singings={favoList.slice(
           (pagenum - 1) * appState.displaynum,

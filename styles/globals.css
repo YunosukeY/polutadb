@@ -1,5 +1,5 @@
 :root {
-  --theme-color: #ee6e73;
+  --theme-color: #f1646a;
   --font-color: dodgerblue;
   --sub-theme-color: dodgerblue;
   --bg-color: #fff8f8;
@@ -56,11 +56,11 @@ div[class*='MuiFormControl-root jss'] {
   max-width: 1120px;
 }
 .slick-prev {
-  left: 25px !important;
+  left: 15px !important;
   z-index: 1 !important;
 }
 .slick-next {
-  right: 25px !important;
+  right: 15px !important;
   z-index: 1 !important;
 }
 

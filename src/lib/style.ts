@@ -7,9 +7,9 @@ export const Chartdiv = styled('div')({
 
 export const Pane = styled('div')({
   border: 'solid 1px #dcdbdc',
-  borderRadius: '10px',
+  borderRadius: '5px',
   marginTop: '10px',
   marginBottom: '10px',
   backgroundColor: 'white',
-  padding: '10px',
+  padding: '20px',
 });

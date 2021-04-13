@@ -1,11 +1,13 @@
 import * as React from 'react';
 
+import HR from '../layout/HR';
 import { Pane } from '../../lib/style';
 
 export default function About() {
   return (
     <Pane>
       <h4>About</h4>
+      <HR />
       <Describe />
     </Pane>
   );

@@ -26,6 +26,7 @@ function PickUp() {
   const settings = {
     dots: true,
     infinite: true,
+    centerMode: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

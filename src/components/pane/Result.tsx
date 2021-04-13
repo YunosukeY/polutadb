@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import HR from '../layout/HR';
 import ResultHeader from '../result/ResultHeader';
 import ResultTable from '../result/ResultTable';
 import Pagenation from '../result/Pagenation';
@@ -26,6 +27,7 @@ export default function Result(props: {
     <Pane>
       <div ref={ref} />
       <ResultHeader resultnum={result.length} />
+      <HR />
       <ResultTable
         singings={result.slice(
           (props.pagenum - 1) * appState.displaynum,

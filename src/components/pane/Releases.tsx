@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import HR from '../layout/HR';
 import { Pane } from '../../lib/style';
 import { getVideo } from '../../data/utils';
 
@@ -8,6 +9,7 @@ export default function Releases() {
   return (
     <Pane>
       <h4>Release Notes</h4>
+      <HR />
       <>
         <Date date='2021/03/31' />
         <AddData />

@@ -13,7 +13,7 @@ export default function Top() {
   return (
     <>
       <About />
-      <div style={{ paddingTop: 8 * spacing }}>
+      <div style={{ paddingTop: 8, paddingBottom: 8 }}>
         <Grid container spacing={spacing}>
           <Card link='/search' title='Search' icon={SearchIcon} />
           <Card link='/favos' title='Favorites' icon={StarIcon} />

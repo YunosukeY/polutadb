@@ -4,6 +4,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
+import HR from '../layout/HR';
 import { Pane, Chartdiv } from '../../lib/style';
 import { getArtist } from '../../data/utils';
 import { artists } from '../../data/artists';
@@ -17,6 +18,7 @@ export default function ArtistStats() {
   return (
     <Pane>
       <h4 style={{ textAlign: 'center' }}>{artists.length} Artists</h4>
+      <HR />
       <Chartdiv id='artist-stats' />
     </Pane>
   );
