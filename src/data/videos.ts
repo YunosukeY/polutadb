@@ -295,6 +295,13 @@ export const videos: Video[] = [
     date: '2021/03/30',
     typeId: 1,
   },
+  {
+    // 42
+    id: 'Ajwv4ANSSg0',
+    title: '【3DLIVE】SPACE for Virtual GHOST【#星街すいせい3周年LIVE​】',
+    date: '2021/04/13',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [

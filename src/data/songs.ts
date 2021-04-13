@@ -299,6 +299,8 @@ export const songs: Song[] = [
   /* 295 */ { title: '生きていたんだよな', artistId: 159, genreId: 4 },
   /* 296 */ { title: 'マトリョシカ', artistId: 109, genreId: 3 },
   /* 297 */ { title: 'GO MY WAY!!', artistId: -1, genreId: 7 },
+  /* 298 */ { title: 'DRIVE US CRAZY', artistId: 160, genreId: 5 },
+  /* 299 */ { title: "EXPOSE 'Burn out!!!'", artistId: 160, genreId: 5 },
 ];
 
 export const genres: Genre[] = [

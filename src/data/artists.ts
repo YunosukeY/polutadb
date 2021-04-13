@@ -161,4 +161,5 @@ export const artists: Artist[] = [
   /* 157 */ { name: '千佳(千葉紗子)/美羽(折笠富美子)/茉莉(川澄綾子)/アナ(能登麻美子)' },
   /* 158 */ { name: 'BiBi' },
   /* 159 */ { name: 'あいみょん' },
+  /* 160 */ { name: 'RAISE A SUILEN' },
 ];
