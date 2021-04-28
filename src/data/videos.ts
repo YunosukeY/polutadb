@@ -309,6 +309,13 @@ export const videos: Video[] = [
     date: '2021/04/27',
     typeId: 2,
   },
+  {
+    // 44
+    id: '6KldgpmSoGE',
+    title: 'POLKA♡April♡LIVE♡2021 #ぽるうた 【ホロライブ/尾丸ポルカ】',
+    date: '2021/04/28',
+    typeId: 1,
+  },
 ];
 
 export const types: Type[] = [

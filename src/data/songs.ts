@@ -306,12 +306,12 @@ export const songs: Song[] = [
   /* 302 */ { title: '宙船', artistId: 161, genreId: 4 },
   /* 303 */ { title: 'staple stable', artistId: 162, genreId: 1 },
   /* 304 */ { title: '寝・逃・げでリセット!', artistId: 163, genreId: 1 },
-  // /* 305 */ { title: '', artistId: , genreId:  },
-  // /* 306 */ { title: '', artistId: , genreId:  },
-  // /* 307 */ { title: '', artistId: , genreId:  },
-  // /* 308 */ { title: '', artistId: , genreId:  },
-  // /* 309 */ { title: '', artistId: , genreId:  },
-  // /* 310 */ { title: '', artistId: , genreId:  },
+  /* 305 */ { title: 'シスター', artistId: 36, genreId: 4 },
+  /* 306 */ { title: '変わらないもの', artistId: 164, genreId: 1 },
+  /* 307 */ { title: '最強パレパレード', artistId: 165, genreId: 1 },
+  /* 308 */ { title: '青空のラプソディ', artistId: 166, genreId: 1 },
+  /* 309 */ { title: 'ねねねねねねねね!大爆走', artistId: 167, genreId: 0 },
+  /* 310 */ { title: 'Say!ファンファーレ!', artistId: 168, genreId: 0 },
 ];
 
 export const genres: Genre[] = [

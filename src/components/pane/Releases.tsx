@@ -14,6 +14,7 @@ export default function Releases() {
         <Date date='2021/04/28' />
         <AddData />
         <AddVideo videoId={43} />
+        <AddVideo videoId={44} />
       </>
       <>
         <Date date='2021/04/13' />
