@@ -302,13 +302,20 @@ export const videos: Video[] = [
     date: '2021/04/13',
     typeId: 6,
   },
+  {
+    // 43
+    id: '4YSfrG6mADY',
+    title: '【歌】sing!!!!gogo!!gogogo!!!!pol!!!【尾丸ポルカ/ホロライブ】',
+    date: '2021/04/27',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
-  /* 0 */ { name: '歌ってみた' },
-  /* 1 */ { name: 'ライブ' },
+  /* 0 */ { name: '歌ってみた動画' },
+  /* 1 */ { name: '月1ライブ枠' },
   /* 2 */ { name: '歌枠' },
-  /* 3 */ { name: 'オリジナル' },
+  /* 3 */ { name: '原曲動画' },
   /* 4 */ { name: 'GB' },
   /* 5 */ { name: 'その他' },
   /* 6 */ { name: '3D' },

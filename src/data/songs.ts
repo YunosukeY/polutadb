@@ -301,6 +301,17 @@ export const songs: Song[] = [
   /* 297 */ { title: 'GO MY WAY!!', artistId: -1, genreId: 7 },
   /* 298 */ { title: 'DRIVE US CRAZY', artistId: 160, genreId: 5 },
   /* 299 */ { title: "EXPOSE 'Burn out!!!'", artistId: 160, genreId: 5 },
+  /* 300 */ { title: 'LIFE', artistId: 38, genreId: 1 },
+  /* 301 */ { title: '恋はスリル、ショック、サスペンス', artistId: 138, genreId: 1 },
+  /* 302 */ { title: '宙船', artistId: 161, genreId: 4 },
+  /* 303 */ { title: 'staple stable', artistId: 162, genreId: 1 },
+  /* 304 */ { title: '寝・逃・げでリセット!', artistId: 163, genreId: 1 },
+  // /* 305 */ { title: '', artistId: , genreId:  },
+  // /* 306 */ { title: '', artistId: , genreId:  },
+  // /* 307 */ { title: '', artistId: , genreId:  },
+  // /* 308 */ { title: '', artistId: , genreId:  },
+  // /* 309 */ { title: '', artistId: , genreId:  },
+  // /* 310 */ { title: '', artistId: , genreId:  },
 ];
 
 export const genres: Genre[] = [

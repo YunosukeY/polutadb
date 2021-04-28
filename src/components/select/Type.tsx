@@ -17,7 +17,7 @@ export default function Type(props: EachSelectProps) {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>枠のタイプを選択</InputLabel>
+      <InputLabel>動画のタイプを選択</InputLabel>
       <Select
         value={props.query.type === -1 ? '' : props.query.type}
         onChange={(event) => {

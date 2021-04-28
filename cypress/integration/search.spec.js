@@ -8,7 +8,7 @@ describe('検索', () => {
 
     cy.contains('全文検索');
     cy.contains('曲のジャンルを選択');
-    cy.contains('枠のタイプを選択');
+    cy.contains('動画のタイプを選択');
     cy.contains('動画を選択');
     cy.contains('曲を選択');
     cy.contains('アーティストを選択');
