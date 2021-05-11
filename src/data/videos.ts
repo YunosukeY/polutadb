@@ -316,6 +316,13 @@ export const videos: Video[] = [
     date: '2021/04/28',
     typeId: 1,
   },
+  {
+    // 45
+    id: 'lv7zOpXpgBQ',
+    title: '【雑談なのに】歯医者に行く勇気で歌ったりする【尾丸ポルカ/ホロライブ】',
+    date: '2021/05/11',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [

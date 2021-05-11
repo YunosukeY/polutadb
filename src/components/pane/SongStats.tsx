@@ -41,7 +41,7 @@ function setChart() {
 }
 
 function calcSongStats() {
-  const border = 3;
+  const border = 4;
 
   const data: { [index: string]: number } = {};
   songs.forEach((song) => (data[song.title] = 0));

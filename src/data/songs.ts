@@ -312,6 +312,9 @@ export const songs: Song[] = [
   /* 308 */ { title: '青空のラプソディ', artistId: 166, genreId: 1 },
   /* 309 */ { title: 'ねねねねねねねね!大爆走', artistId: 167, genreId: 0 },
   /* 310 */ { title: 'Say!ファンファーレ!', artistId: 168, genreId: 0 },
+  /* 311 */ { title: '廻廻奇譚', artistId: 169, genreId: 1 },
+  /* 312 */ { title: 'LOVE&JOY', artistId: 170, genreId: 4 },
+  /* 313 */ { title: 'カルマ', artistId: 47, genreId: 5 },
 ];
 
 export const genres: Genre[] = [
