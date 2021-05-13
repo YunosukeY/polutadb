@@ -250,7 +250,7 @@ export const songs: Song[] = [
   /* 246 */ { title: 'ブリキノダンス', artistId: 134, genreId: 3 },
   /* 247 */ { title: 'Shiny Smily Story', artistId: 124, genreId: 0 },
   /* 248 */ { title: 'メンヘラじゃないもん！', artistId: 135, genreId: 3 },
-  /* 249 */ { title: '花に亡霊', artistId: 41, genreId: 9 },
+  /* 249 */ { title: '花に亡霊', artistId: 41, genreId: 4 },
   /* 250 */ { title: 'シルシ', artistId: 57, genreId: 1 },
   /* 251 */ { title: 'ルーザーガール', artistId: 136, genreId: 4 },
   /* 252 */ { title: 'ヘッドライト・テールライト', artistId: 11, genreId: 4 },
@@ -315,6 +315,10 @@ export const songs: Song[] = [
   /* 311 */ { title: '廻廻奇譚', artistId: 169, genreId: 1 },
   /* 312 */ { title: 'LOVE&JOY', artistId: 170, genreId: 4 },
   /* 313 */ { title: 'カルマ', artistId: 47, genreId: 5 },
+  /* 314 */ { title: '今宵はHalloween Night!', artistId: 124, genreId: 0 },
+  /* 315 */ { title: '至上主義アドトラック', artistId: 124, genreId: 0 },
+  /* 316 */ { title: 'アゲハ蝶', artistId: 36, genreId: 4 },
+  /* 317 */ { title: 'ヴィーナスとジーザス', artistId: 171, genreId: 1 },
 ];
 
 export const genres: Genre[] = [

@@ -323,6 +323,13 @@ export const videos: Video[] = [
     date: '2021/05/11',
     typeId: 2,
   },
+  {
+    // 46
+    id: 'qY0vpUfLoUM',
+    title: '【KARAOKEEE】*Polka noises* !?!? nonono!! singsing!!!【尾丸ポルカ/ホロライブ】',
+    date: '2021/05/13',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [

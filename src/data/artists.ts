@@ -172,4 +172,5 @@ export const artists: Artist[] = [
   /* 168 */ { name: '白上フブキ' },
   /* 169 */ { name: 'Eve' },
   /* 170 */ { name: '木村由姫' },
+  /* 171 */ { name: 'やくしまるえつこ' },
 ];
