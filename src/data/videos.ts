@@ -330,6 +330,13 @@ export const videos: Video[] = [
     date: '2021/05/13',
     typeId: 2,
   },
+  {
+    // 47
+    id: 'Md0TBfwo9rM',
+    title: 'ヴァンパイア - 尾丸ポルカ(cover)',
+    date: '2021/05/16',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [

@@ -38,6 +38,7 @@ function PickUp() {
     <div style={{ padding: '20px 0' }}>
       <Slider {...settings}>
         <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
+        <PickUpThumbnail id='Md0TBfwo9rM' singing={new Singing(0, 47, 0, 0)} />
         <PickUpThumbnail id='UpoysjZfWrU' singing={new Singing(0, 36, 0, 0)} />
         <PickUpThumbnail id='NdHPnTd2Jd8' singing={new Singing(0, 33, 0, 0)} />
         <PickUpThumbnail id='syhlmTNW_a8' singing={new Singing(0, 30, 0, 0)} />
