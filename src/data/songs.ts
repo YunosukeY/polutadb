@@ -320,6 +320,7 @@ export const songs: Song[] = [
   /* 316 */ { title: 'アゲハ蝶', artistId: 36, genreId: 4 },
   /* 317 */ { title: 'ヴィーナスとジーザス', artistId: 171, genreId: 1 },
   /* 318 */ { title: 'ヴァンパイア', artistId: 44, genreId: 3 },
+  /* 319 */ { title: 'アンダーカバー', artistId: 44, genreId: 3 },
 ];
 
 export const genres: Genre[] = [

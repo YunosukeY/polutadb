@@ -337,6 +337,13 @@ export const videos: Video[] = [
     date: '2021/05/16',
     typeId: 0,
   },
+  {
+    // 48
+    id: 'W5IVzLi-Rug',
+    title: 'アンダーカバー - 尾丸ポルカ(cover/4K)',
+    date: '2021/05/23',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
