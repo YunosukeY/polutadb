@@ -344,6 +344,13 @@ export const videos: Video[] = [
     date: '2021/05/23',
     typeId: 0,
   },
+  {
+    // 49
+    id: '2tjCtd59jA4',
+    title: '【枠修正】POLKA★May★LIVE★2021 #ぽるうた REVENGE!!【ホロライブ/尾丸ポルカ】',
+    date: '2021/05/31',
+    typeId: 1,
+  },
 ];
 
 export const types: Type[] = [
