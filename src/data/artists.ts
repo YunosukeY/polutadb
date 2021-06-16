@@ -174,4 +174,6 @@ export const artists: Artist[] = [
   /* 170 */ { name: '木村由姫' },
   /* 171 */ { name: 'やくしまるえつこ' },
   /* 172 */ { name: 'ウマ娘 プリティーダービー' },
+  /* 173 */ { name: '涼宮ハルヒ(平野綾)' },
+  /* 174 */ { name: 'HoneyWorks' },
 ];

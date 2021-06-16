@@ -324,6 +324,9 @@ export const songs: Song[] = [
   /* 320 */ { title: 'ロストマン', artistId: 47, genreId: 4 },
   /* 321 */ { title: 'Do it! Now', artistId: 29, genreId: 2 },
   /* 322 */ { title: 'うまぴょい伝説', artistId: 172, genreId: 5 },
+  /* 323 */ { title: 'Lost my music', artistId: 173, genreId: 1 },
+  /* 324 */ { title: 'ハネウマライダー', artistId: 36, genreId: 4 },
+  /* 325 */ { title: '金曜日のおはよう', artistId: 174, genreId: 3 },
 ];
 
 export const genres: Genre[] = [

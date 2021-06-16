@@ -351,6 +351,13 @@ export const videos: Video[] = [
     date: '2021/05/31',
     typeId: 1,
   },
+  {
+    // 50
+    id: '85YiSuA5B0s',
+    title: '朝の歌🎵元気にいこう🎵【尾丸ポルカ/ホロライブ】',
+    date: '2021/06/15',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
