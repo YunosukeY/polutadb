@@ -358,6 +358,13 @@ export const videos: Video[] = [
     date: '2021/06/15',
     typeId: 2,
   },
+  {
+    // 51
+    id: 'aJ1XuzDfSEA',
+    title: 'Morning music KARAOKE OK OK【尾丸ポルカ/ホロライブ】',
+    date: '2021/06/20',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
