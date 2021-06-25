@@ -365,6 +365,13 @@ export const videos: Video[] = [
     date: '2021/06/20',
     typeId: 2,
   },
+  {
+    // 52
+    id: 'xfrS_3gRdrg',
+    title: '爆笑 - 尾丸ポルカ(cover/4K)',
+    date: '2021/06/22',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
