@@ -372,6 +372,13 @@ export const videos: Video[] = [
     date: '2021/06/22',
     typeId: 0,
   },
+  {
+    // 53
+    id: 'Lx1PNCat-Q0',
+    title: '誇り高きアイドル - 尾丸ポルカ(cover)',
+    date: '2021/06/29',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [

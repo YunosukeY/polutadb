@@ -178,4 +178,5 @@ export const artists: Artist[] = [
   /* 174 */ { name: 'HoneyWorks' },
   /* 175 */ { name: '太田裕美' },
   /* 176 */ { name: 'syudou' },
+  /* 177 */ { name: 'HoneyWorks feat.Kotoha' },
 ];
