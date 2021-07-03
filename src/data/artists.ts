@@ -179,4 +179,9 @@ export const artists: Artist[] = [
   /* 175 */ { name: '太田裕美' },
   /* 176 */ { name: 'syudou' },
   /* 177 */ { name: 'HoneyWorks feat.Kotoha' },
+  /* 178 */ { name: 'GARNET CROW' },
+  /* 179 */ { name: '奥井雅美' },
+  /* 180 */ { name: 'のぼる↑' },
+  /* 181 */ { name: 'ナノウ' },
+  /* 182 */ { name: '歌組雪月花' },
 ];

@@ -330,6 +330,15 @@ export const songs: Song[] = [
   /* 326 */ { title: '木綿のハンカチーフ', artistId: 175, genreId: 4 },
   /* 327 */ { title: '爆笑', artistId: 176, genreId: 4 },
   /* 328 */ { title: '誇り高きアイドル', artistId: 177, genreId: 4 },
+  /* 329 */ { title: '夏の幻', artistId: 178, genreId: 1 },
+  /* 330 */ { title: '輪舞-revolution', artistId: 179, genreId: 1 },
+  /* 331 */ { title: '深愛', artistId: 19, genreId: 1 },
+  /* 332 */ { title: '白い雪のプリンセスは', artistId: 180, genreId: 3 },
+  /* 333 */ { title: '可愛くなりたい', artistId: 174, genreId: 4 },
+  /* 334 */ { title: '花瓶に触れた', artistId: 142, genreId: 3 },
+  /* 335 */ { title: 'ハロ／ハワユ', artistId: 181, genreId: 3 },
+  /* 336 */ { title: '妄想感傷代償連盟', artistId: 44, genreId: 3 },
+  /* 337 */ { title: '回レ!雪月花', artistId: 182, genreId: 1 },
 ];
 
 export const genres: Genre[] = [
