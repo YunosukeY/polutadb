@@ -380,10 +380,17 @@ export const videos: Video[] = [
     typeId: 0,
   },
   {
-    // 5
+    // 54
     id: '1t-55VGXsAU',
     title: 'POLKA‥June‥LIVE‥2021 #ぽるうた【ホロライブ/尾丸ポルカ】',
     date: '2021/06/30',
+    typeId: 1,
+  },
+  {
+    // 55
+    id: 'P4uBibShEK0',
+    title: 'ジェラシス - 尾丸ポルカ(cover)',
+    date: '2021/07/13',
     typeId: 0,
   },
 ];

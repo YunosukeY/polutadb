@@ -339,6 +339,7 @@ export const songs: Song[] = [
   /* 335 */ { title: 'ハロ／ハワユ', artistId: 181, genreId: 3 },
   /* 336 */ { title: '妄想感傷代償連盟', artistId: 44, genreId: 3 },
   /* 337 */ { title: '回レ!雪月花', artistId: 182, genreId: 1 },
+  /* 338 */ { title: 'ジェラシス', artistId: 183, genreId: 3 },
 ];
 
 export const genres: Genre[] = [

@@ -184,4 +184,5 @@ export const artists: Artist[] = [
   /* 180 */ { name: 'のぼる↑' },
   /* 181 */ { name: 'ナノウ' },
   /* 182 */ { name: '歌組雪月花' },
+  /* 183 */ { name: 'Chinozo' },
 ];
