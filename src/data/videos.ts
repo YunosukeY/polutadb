@@ -393,6 +393,13 @@ export const videos: Video[] = [
     date: '2021/07/13',
     typeId: 0,
   },
+  {
+    // 56
+    id: 'y33kGxxQ-_k',
+    title: 'POLKA▼JULY▼LIVE▼2021 #ぽるうた【ホロライブ/尾丸ポルカ】',
+    date: '2021/07/30',
+    typeId: 1,
+  },
 ];
 
 export const types: Type[] = [

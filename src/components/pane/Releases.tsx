@@ -11,6 +11,11 @@ export default function Releases() {
       <h4>Release Notes</h4>
       <HR />
       <>
+        <Date date='2021/08/02' />
+        <AddData />
+        <AddVideo videoId={56} />
+      </>
+      <>
         <Date date='2021/07/13' />
         <AddData />
         <AddVideo videoId={55} />
