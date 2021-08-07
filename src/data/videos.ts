@@ -400,6 +400,13 @@ export const videos: Video[] = [
     date: '2021/07/30',
     typeId: 1,
   },
+  {
+    // 57
+    id: 'ZMlPAsIJslA',
+    title: '【＃不知火フレア2周年記念ライブ】３D LIVE！みんなで沢山盛り上がろう！【不知火フレア/ホロライブ】',
+    date: '2021/08/07',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [

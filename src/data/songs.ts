@@ -351,6 +351,7 @@ export const songs: Song[] = [
   /* 347 */ { title: 'CONTRADICTION', artistId: 81, genreId: 2 },
   /* 348 */ { title: 'Suspect', artistId: 124, genreId: 0 },
   /* 349 */ { title: '檄!帝国華撃団', artistId: 188, genreId: 5 },
+  /* 350 */ { title: '不死鳥のフランメ', artistId: 189, genreId: 1 },
 ];
 
 export const genres: Genre[] = [
