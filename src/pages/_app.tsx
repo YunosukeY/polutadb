@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '../../styles/globals.css';
-const Layout = dynamic(() => import('../components/layout/Layout'), { ssr: false });
+import Layout from '../components/layout/Layout';
 import { StatePersistence } from '../lib/AppState';
 import * as gtag from '../lib/gtag';
 
