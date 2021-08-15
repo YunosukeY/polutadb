@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
@@ -18,7 +19,7 @@ import DisplayFormat from '../select/DisplayFormat';
 import Displaynum from '../select/Displaynum';
 import Sort from '../select/Sort';
 import { Pane } from '../../lib/style';
-import { useAppState, useSetAppState } from '../../lib/AppState';
+import { appState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
 
 const useStyles = makeStyles({
@@ -38,8 +39,7 @@ export default function Select(props: {
   setLocationSearch: (newQuery: Query) => void;
   setPagenum: (pagenum: number) => void;
 }) {
-  const appState = useAppState();
-  const setAppState = useSetAppState();
+  const [state, setState] = useRecoilState(appState);
 
   const [isHidden, setIsHidden] = useState(false);
 
@@ -58,7 +58,7 @@ export default function Select(props: {
 
   // 表示件数が更新されたら1ページ目に戻す
   function onDnumChange(newDnum: number) {
-    setAppState((state) => ({ ...state, displaynum: newDnum }));
+    setState((state) => ({ ...state, displaynum: newDnum }));
     props.setPagenum(1);
   }
 
@@ -109,21 +109,21 @@ export default function Select(props: {
           </Grid>
           <Grid container>
             <Grid item xs={12} sm={6}>
-              <Displaynum displaynum={appState.displaynum} setDisplaynum={onDnumChange} />
+              <Displaynum displaynum={state.displaynum} setDisplaynum={onDnumChange} />
             </Grid>
             <Grid item xs={12} sm={6}>
               <DisplayFormat
-                displayMode={appState.displayMode}
+                displayMode={state.displayMode}
                 setDisplayMode={(displayMode: number) => {
-                  setAppState((state) => ({ ...state, displayMode: displayMode }));
+                  setState((state) => ({ ...state, displayMode: displayMode }));
                 }}
               />
             </Grid>
           </Grid>
           <Sort
-            sortedBy={appState.sortedBy}
+            sortedBy={state.sortedBy}
             setSortedBy={(sortedBy: number) => {
-              setAppState((state) => ({ ...state, sortedBy: sortedBy }));
+              setState((state) => ({ ...state, sortedBy: sortedBy }));
             }}
           />
         </>

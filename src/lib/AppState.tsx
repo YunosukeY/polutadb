@@ -1,92 +1,84 @@
-/*
- * React Context を用いた簡易 Store
- * https://mizchi.dev/202005271609-react-app-context
- */
-import React, { Dispatch, SetStateAction, useContext, useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { atom, useRecoilValue, useRecoilState } from 'recoil';
 
-export interface AppState {
+interface AppState {
   favos: Map<number, boolean>;
   displaynum: number;
   displayMode: number;
   sortedBy: number;
 }
 
+const defaultState: AppState = {
+  favos: new Map<number, boolean>(),
+  displaynum: 5,
+  displayMode: 0,
+  sortedBy: 0,
+};
+
 function getInitialState(): AppState {
-  let stickyValue;
+  let tmp;
+  const ret = defaultState;
 
-  stickyValue = window.localStorage.getItem('favos');
-  const favos =
-    stickyValue !== null ? (new Map(JSON.parse(stickyValue)) as Map<number, boolean>) : new Map<number, boolean>();
-  stickyValue = window.localStorage.getItem('displaynum');
-  const displaynum = stickyValue !== null ? Number(stickyValue) : 5;
-  stickyValue = window.localStorage.getItem('displayMode');
-  const displayMode = stickyValue !== null ? Number(stickyValue) : 0;
-  stickyValue = window.localStorage.getItem('sortedBy');
-  const sortedBy = stickyValue !== null ? Number(stickyValue) : 0;
+  tmp = window.localStorage.getItem('favos');
+  if (tmp !== null) ret.favos = new Map(JSON.parse(tmp)) as Map<number, boolean>;
 
-  return {
-    favos: favos,
-    displaynum: displaynum,
-    displayMode: displayMode,
-    sortedBy: sortedBy,
-  };
+  tmp = window.localStorage.getItem('displaynum');
+  if (tmp !== null) ret.displaynum = Number(tmp);
+
+  tmp = window.localStorage.getItem('displayMode');
+  if (tmp !== null) ret.displayMode = Number(tmp);
+
+  tmp = window.localStorage.getItem('sortedBy');
+  if (tmp !== null) ret.sortedBy = Number(tmp);
+
+  return ret;
 }
 
-let initialState: AppState;
-let AppStateContext: React.Context<AppState>;
-let SetAppStateContext: React.Context<Dispatch<SetStateAction<AppState>>>;
+export const appState = atom<AppState>({
+  key: 'userState',
+  default: defaultState,
+});
 
-export function useAppState() {
-  return useContext(AppStateContext);
-}
-export function useSetAppState() {
-  return useContext(SetAppStateContext);
-}
+export function StatePersistence() {
+  const [state, setState] = useRecoilState(appState);
 
-export function AppStateProvider(props: { children: React.ReactNode }) {
-  initialState = getInitialState();
-  AppStateContext = React.createContext<AppState>(initialState);
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  SetAppStateContext = React.createContext<Dispatch<SetStateAction<AppState>>>(() => {});
-
-  const [state, setState] = useState<AppState>(initialState);
+  useEffect(() => {
+    setState(getInitialState());
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...state.favos]));
     window.localStorage.setItem('displaynum', String(state.displaynum));
     window.localStorage.setItem('displayMode', String(state.displayMode));
     window.localStorage.setItem('sortedBy', String(state.sortedBy));
-  });
+  }, [state]);
 
-  return (
-    <AppStateContext.Provider value={state}>
-      <SetAppStateContext.Provider value={setState}>{props.children}</SetAppStateContext.Provider>
-    </AppStateContext.Provider>
-  );
+  return <></>;
 }
 
-export function getAppStateUtils(
-  appState: AppState,
-  setAppState: React.Dispatch<React.SetStateAction<AppState>>,
-): [(singingId: number) => boolean, (singingId: number) => void] {
-  const isFavo = (singingId: number) => {
-    return appState.favos.has(singingId) && (appState.favos.get(singingId) as boolean);
-  };
+export const useIsFavo = () => {
+  const state = useRecoilValue(appState);
 
-  const toggleFavo = (singingId: number) => {
-    if (appState.favos.has(singingId)) {
-      const f = appState.favos.get(singingId) as boolean;
-      setAppState((state) => ({
+  return (singingId: number) => {
+    return state.favos.has(singingId) && (state.favos.get(singingId) as boolean);
+  };
+};
+
+export const useToggleFavo = () => {
+  const [state, setState] = useRecoilState(appState);
+
+  return (singingId: number) => {
+    if (state.favos.has(singingId)) {
+      const f = state.favos.get(singingId) as boolean;
+      setState((state) => ({
         ...state,
         favos: new Map(state.favos.set(singingId, !f)),
       }));
     } else {
-      setAppState((state) => ({
+      setState((state) => ({
         ...state,
-        favos: new Map(appState.favos.set(singingId, true)),
+        favos: new Map(state.favos.set(singingId, true)),
       }));
     }
   };
-
-  return [isFavo, toggleFavo];
-}
+};

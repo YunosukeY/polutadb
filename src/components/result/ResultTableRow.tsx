@@ -8,7 +8,7 @@ import Star from './Star';
 import Tweet from './Tweet';
 import { getUrl, getArtist, getSong, getVideo } from '../../data/utils';
 import { Singing } from '../../data/interfaces';
-import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
+import { useIsFavo, useToggleFavo } from '../../lib/AppState';
 
 const SupplementalInfo = styled('div')({
   fontSize: '15px',
@@ -16,7 +16,8 @@ const SupplementalInfo = styled('div')({
 });
 
 export default function ResultTableRow(props: { singing: Singing; i: number }) {
-  const [isFavo, toggleFavo] = getAppStateUtils(useAppState(), useSetAppState());
+  const isFavo = useIsFavo();
+  const toggleFavo = useToggleFavo();
 
   const fontsize = 24;
 

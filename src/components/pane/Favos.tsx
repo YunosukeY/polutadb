@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import HR from '../layout/HR';
 import FavoHeader from '../favos/FavoHeader';
@@ -9,10 +10,10 @@ import Pagenation from '../result/Pagenation';
 import { Pane } from '../../lib/style';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
-import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
+import { appState, useIsFavo } from '../../lib/AppState';
 
 export default function Favos() {
-  const appState = useAppState();
+  const state = useRecoilValue(appState);
 
   const [pagenum, setPagenum] = useState(1);
 
@@ -25,7 +26,7 @@ export default function Favos() {
   };
 
   useEffect(() => {
-    if (favoList.length === (pagenum - 1) * appState.displaynum) {
+    if (favoList.length === (pagenum - 1) * state.displaynum) {
       setPagenum(pagenum - 1);
     }
   });
@@ -38,23 +39,21 @@ export default function Favos() {
       <HR />
       <ResultTable
         singings={favoList.slice(
-          (pagenum - 1) * appState.displaynum,
-          Math.min(pagenum * appState.displaynum, favoList.length),
+          (pagenum - 1) * state.displaynum,
+          Math.min(pagenum * state.displaynum, favoList.length),
         )}
       />
       <Pagenation
         pagenum={pagenum}
         setPagenum={onPageClick}
-        lastPageNum={Math.ceil(favoList.length / appState.displaynum)}
+        lastPageNum={Math.ceil(favoList.length / state.displaynum)}
       />
     </Pane>
   );
 }
 
 function getFavoList() {
-  const appState = useAppState();
-  const setAppState = useSetAppState();
-  const [isFavo] = getAppStateUtils(appState, setAppState);
+  const isFavo = useIsFavo();
 
   const res = new Array<Singing>();
   singings.forEach((singing) => {
