@@ -17,21 +17,22 @@ const defaultState: AppState = {
 
 function getInitialState(): AppState {
   let tmp;
-  const ret = defaultState;
 
   tmp = window.localStorage.getItem('favos');
-  if (tmp !== null) ret.favos = new Map(JSON.parse(tmp)) as Map<number, boolean>;
-
+  const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : defaultState.favos;
   tmp = window.localStorage.getItem('displaynum');
-  if (tmp !== null) ret.displaynum = Number(tmp);
-
+  const displaynum = tmp !== null ? Number(tmp) : defaultState.displaynum;
   tmp = window.localStorage.getItem('displayMode');
-  if (tmp !== null) ret.displayMode = Number(tmp);
-
+  const displayMode = tmp !== null ? Number(tmp) : defaultState.displayMode;
   tmp = window.localStorage.getItem('sortedBy');
-  if (tmp !== null) ret.sortedBy = Number(tmp);
+  const sortedBy = tmp !== null ? Number(tmp) : defaultState.sortedBy;
 
-  return ret;
+  return {
+    favos,
+    displaynum,
+    displayMode,
+    sortedBy,
+  };
 }
 
 export const appState = atom<AppState>({
@@ -40,6 +41,8 @@ export const appState = atom<AppState>({
 });
 
 export function StatePersistence() {
+  console.log(1);
+
   const [state, setState] = useRecoilState(appState);
 
   useEffect(() => {
