@@ -352,6 +352,14 @@ export const songs: Song[] = [
   /* 348 */ { title: 'Suspect', artistId: 124, genreId: 0 },
   /* 349 */ { title: '檄!帝国華撃団', artistId: 188, genreId: 5 },
   /* 350 */ { title: '不死鳥のフランメ', artistId: 189, genreId: 1 },
+  /* 351 */ { title: 'Blessing', artistId: 190, genreId: 3 },
+  /* 352 */ { title: 'Mr.Music', artistId: 191, genreId: 3 },
+  /* 353 */ { title: 'あの日タイムマシン', artistId: 192, genreId: 1 },
+  /* 354 */ { title: 'Sparkling Daydream', artistId: 193, genreId: 1 },
+  /* 355 */ { title: 'Anniversary', artistId: 59, genreId: 4 },
+  /* 356 */ { title: 'キラメキライダー', artistId: 124, genreId: 0 },
+  /* 357 */ { title: 'SAKURAスキップ', artistId: 194, genreId: 1 },
+  /* 358 */ { title: 'ぽ', artistId: 0, genreId: 0 },
 ];
 
 export const genres: Genre[] = [

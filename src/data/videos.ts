@@ -407,6 +407,55 @@ export const videos: Video[] = [
     date: '2021/08/07',
     typeId: 6,
   },
+  {
+    // 58
+    id: 'cYfUaHljuKg',
+    title: 'Blessing／Covered byねぽらぼ【歌ってみた】',
+    date: '2021/08/12',
+    typeId: 0,
+  },
+  {
+    // 59
+    id: '063INZy-ZtM',
+    title: 'Mr.Music /れるりり&ロンチーノ=ペペ full covered by ねぽらぼ',
+    date: '2021/08/13',
+    typeId: 0,
+  },
+  {
+    // 60
+    id: 'mO0s9WTI-eU',
+    title: 'ようこそジャパリパークへ / Covered by ねぽらぼ【歌ってみた】',
+    date: '2021/08/14',
+    typeId: 0,
+  },
+  {
+    // 61
+    id: '8Ajg5ZXFB4U',
+    title: '【カウントダウン】#尾丸ポルカ一周年 3.2.1▶GO▶いっしょに高みへ！【尾丸ポルカ/ホロライブ】',
+    date: '2021/08/15',
+    typeId: 2,
+  },
+  {
+    // 62
+    id: 'as7iNw5gSi8',
+    title: '【#尾丸ポルカ一周年】エッ！？1時間でガチの即興曲を！？いい話もあるよ！【3DLIVE】',
+    date: '2021/08/16',
+    typeId: 6,
+  },
+  {
+    // 63
+    id: 'gRqv6tQZ3po',
+    title: 'SAKURAスキップ／Covered byねぽらぼ（4K）【#ねぽらぼ一周年】',
+    date: '2021/08/16',
+    typeId: 0,
+  },
+  {
+    // 64
+    id: 'TGJ9-1LWFtE',
+    title: '【ORIGINAL SONG+MV】ぽ - Omaru Polka【尾丸ポルカ/ホロライブ/4K】',
+    date: '2021/08/16',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [

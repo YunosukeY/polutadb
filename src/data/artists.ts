@@ -191,4 +191,9 @@ export const artists: Artist[] = [
   /* 187 */ { name: '亜沙' },
   /* 188 */ { name: '真宮寺さくら（横山智佐）＆帝国歌劇団' },
   /* 189 */ { name: 'マリア×風鳴翼(CV:日笠陽子×水樹奈々)' },
+  /* 190 */ { name: 'halyosy' },
+  /* 191 */ { name: 'れるりり&ロンチーノ=ペペ' },
+  /* 192 */ { name: 'LONG SHOT PARTY' },
+  /* 193 */ { name: 'ZAQ' },
+  /* 194 */ { name: 'fourfolium' },
 ];
