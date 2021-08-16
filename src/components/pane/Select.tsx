@@ -34,11 +34,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Select(props: {
-  query: Query;
-  setLocationSearch: (newQuery: Query) => void;
-  setPagenum: (pagenum: number) => void;
-}) {
+export default function Select(props: { query: Query; setPagenum: (pagenum: number) => void }) {
   const [state, setState] = useRecoilState(appState);
 
   const [isHidden, setIsHidden] = useState(false);
@@ -79,32 +75,32 @@ export default function Select(props: {
             Search
           </h4>
           <HR />
-          <FullTextSearch query={props.query} setLocationSearch={props.setLocationSearch} />
+          <FullTextSearch />
           <Grid container>
             <Grid item xs={12} sm={6} className={classes.gridItem}>
-              <Genre query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Genre />
             </Grid>
             <Grid item xs={12} sm={6} className={classes.gridItem}>
-              <Type query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Type />
             </Grid>
           </Grid>
           <div className={classes.gridItem}>
-            <Video query={props.query} setLocationSearch={props.setLocationSearch} />
+            <Video />
           </div>
           <Grid container>
             <Grid item xs={12} sm={6} className={classes.gridItem}>
-              <Song query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Song />
             </Grid>
             <Grid item xs={12} sm={6} className={classes.gridItem}>
-              <Artist query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Artist />
             </Grid>
           </Grid>
           <Grid container>
             <Grid item xs={12} sm={6}>
-              <Inst query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Inst />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Length query={props.query} setLocationSearch={props.setLocationSearch} />
+              <Length />
             </Grid>
           </Grid>
           <Grid container>

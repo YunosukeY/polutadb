@@ -5,61 +5,40 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 
-import { EachSelectProps } from './utils';
 import Checkbox from './Checkbox';
 
-function WithInst(props: EachSelectProps) {
+function WithInst() {
   const { control } = useFormContext();
   const {
-    field: { onChange, ...inputProps },
+    field: { value, ...inputProps },
   } = useController({
     name: 'withInst',
     control,
   });
-  const onChangeWithInst = (event: any) => {
-    props.query.withInst = event.target.checked;
-    props.setLocationSearch(props.query);
-    onChange(event);
-  };
 
-  return (
-    <Checkbox xs={4} checked={props.query.withInst} label='伴奏あり' onChange={onChangeWithInst} {...inputProps} />
-  );
+  return <Checkbox xs={4} checked={value} label='伴奏あり' {...inputProps} />;
 }
 
-function ACappella(props: EachSelectProps) {
+function ACappella() {
   const { control } = useFormContext();
   const {
-    field: { onChange, ...inputProps },
+    field: { value, ...inputProps },
   } = useController({
     name: 'aCappella',
     control,
   });
-  const onChangeACappella = (event: any) => {
-    props.query.aCappella = event.target.checked;
-    props.setLocationSearch(props.query);
-    onChange(event);
-  };
 
-  return (
-    <Checkbox
-      xs={8}
-      checked={props.query.aCappella}
-      label='なし（アカペラ）'
-      onChange={onChangeACappella}
-      {...inputProps}
-    />
-  );
+  return <Checkbox xs={8} checked={value} label='なし（アカペラ）' {...inputProps} />;
 }
 
-export default function Inst(props: EachSelectProps) {
+export default function Inst() {
   return (
     <FormControl style={{ width: '100%' }}>
       <FormLabel>伴奏</FormLabel>
       <FormGroup>
         <Grid container style={{ padding: 5 }}>
-          <WithInst {...props} />
-          <ACappella {...props} />
+          <WithInst />
+          <ACappella />
           {/* <Checkbox
             xs={4}
             checked={props.query.performance}

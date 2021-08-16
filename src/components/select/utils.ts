@@ -2,7 +2,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import { Query } from '../../lib/query';
 
-export type EachSelectProps = { query: Query; setLocationSearch: (newQuery: Query) => void };
+export type EachSelectProps = { query: Query };
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useForm, FormProvider, useWatch } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 
 import { Query } from '../lib/query';
 import Select from '../components/pane/Select';
@@ -12,11 +12,6 @@ export default function Search() {
   const query = new Query(router.query);
 
   const [pagenum, setPagenum] = useState(1);
-
-  function setLocationSearch(newQuery: Query) {
-    setPagenum(1);
-    router.push(`/search?${newQuery}`, undefined, { scroll: false });
-  }
 
   // TODO: Selectの中に移動
   const methods = useForm();
@@ -32,12 +27,12 @@ export default function Search() {
   //   methods.setValue('full', query.full);
   //   methods.setValue('onechorus', query.onechorus);
   // }, []);
-  const q = useWatch({ control: methods.control });
+  const q = methods.watch();
   React.useEffect(() => console.log(q));
 
   return (
     <FormProvider {...methods}>
-      <Select query={query} setLocationSearch={setLocationSearch} setPagenum={setPagenum} />
+      <Select query={query} setPagenum={setPagenum} />
       <Result query={query} pagenum={pagenum} setPagenum={setPagenum} />
     </FormProvider>
   );
