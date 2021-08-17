@@ -14,6 +14,7 @@ function WithInst() {
   } = useController({
     name: 'withInst',
     control,
+    defaultValue: true,
   });
 
   return <Checkbox xs={4} checked={value} label='伴奏あり' {...inputProps} />;
@@ -26,6 +27,7 @@ function ACappella() {
   } = useController({
     name: 'aCappella',
     control,
+    defaultValue: true,
   });
 
   return <Checkbox xs={8} checked={value} label='なし（アカペラ）' {...inputProps} />;

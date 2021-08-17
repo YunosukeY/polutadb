@@ -18,8 +18,11 @@ export default function Song() {
     control,
   });
   const onChangeSong = (event: any, value: any) => {
-    if (value !== null) onChange(value.i);
+    console.log(value);
+    if (value == null) onChange(-1);
+    else onChange(value.i);
   };
+  React.useEffect(() => console.log(value), [value]);
 
   const songs = getSongs();
   return (
@@ -29,7 +32,7 @@ export default function Song() {
         onChange={onChangeSong}
         {...inputProps}
         value={value === -1 ? '' : value}
-        getOptionSelected={(option) => option.i === value}
+        getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.title}
         renderInput={(params) => <TextField {...params} label='曲を選択' />}
       />

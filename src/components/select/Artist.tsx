@@ -18,7 +18,8 @@ export default function Artist() {
     control,
   });
   const onChangeArtist = (event: any, value: any) => {
-    if (value !== null) onChange(value.i);
+    if (value == null) onChange(-1);
+    else onChange(value.i);
   };
 
   const artists = getArtists();
@@ -29,7 +30,7 @@ export default function Artist() {
         onChange={onChangeArtist}
         {...inputProps}
         value={value === -1 ? '' : value}
-        getOptionSelected={(option) => option.i === value}
+        getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.name}
         renderInput={(params) => <TextField {...params} label='アーティストを選択' />}
       />

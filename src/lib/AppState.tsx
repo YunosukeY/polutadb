@@ -41,8 +41,6 @@ export const appState = atom<AppState>({
 });
 
 export function StatePersistence() {
-  console.log(1);
-
   const [state, setState] = useRecoilState(appState);
 
   useEffect(() => {

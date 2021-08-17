@@ -14,6 +14,7 @@ function Full() {
   } = useController({
     name: 'full',
     control,
+    defaultValue: true,
   });
 
   return <Checkbox xs={4} checked={value} label='フル尺' {...inputProps} />;
@@ -26,6 +27,7 @@ function Onechorus() {
   } = useController({
     name: 'onechorus',
     control,
+    defaultValue: true,
   });
 
   return <Checkbox xs={8} checked={value} label='ワンコーラス' {...inputProps} />;

@@ -20,7 +20,6 @@ import Displaynum from '../select/Displaynum';
 import Sort from '../select/Sort';
 import { Pane } from '../../lib/style';
 import { appState } from '../../lib/AppState';
-import { Query } from '../../lib/query';
 
 const useStyles = makeStyles({
   h4: {
@@ -34,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Select(props: { query: Query; setPagenum: (pagenum: number) => void }) {
+export default function Select(props: { setPagenum: (pagenum: number) => void }) {
   const [state, setState] = useRecoilState(appState);
 
   const [isHidden, setIsHidden] = useState(false);
