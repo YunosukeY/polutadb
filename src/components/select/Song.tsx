@@ -18,11 +18,9 @@ export default function Song() {
     control,
   });
   const onChangeSong = (event: any, value: any) => {
-    console.log(value);
     if (value == null) onChange(-1);
     else onChange(value.i);
   };
-  React.useEffect(() => console.log(value), [value]);
 
   const songs = getSongs();
   return (
