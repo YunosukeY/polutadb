@@ -8,10 +8,11 @@ import Star from './Star';
 import Tweet from './Tweet';
 import { Singing } from '../../data/interfaces';
 import { getArtist, getSong } from '../../data/utils';
-import { useAppState, useSetAppState, getAppStateUtils } from '../../lib/AppState';
+import { useIsFavo, useToggleFavo } from '../../lib/AppState';
 
 export default function SimpleResultTableRow(props: { singing: Singing; i: number }) {
-  const [isFavo, toggleFavo] = getAppStateUtils(useAppState(), useSetAppState());
+  const isFavo = useIsFavo();
+  const toggleFavo = useToggleFavo();
   const centering = {
     display: 'flex',
     justifyContent: 'center',

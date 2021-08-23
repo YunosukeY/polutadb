@@ -1,11 +1,12 @@
 import * as React from 'react';
+import dynamic from 'next/dynamic';
 import Grid from '@material-ui/core/Grid';
 
 import Header from './Header';
 import Footer from './Footer';
 import KeyVisual from './KeyVisual';
 
-export default function Layout({ children }: { children: any }) {
+function Layout({ children }: { children: any }) {
   return (
     <>
       <Header />
@@ -14,6 +15,14 @@ export default function Layout({ children }: { children: any }) {
     </>
   );
 }
+
+const DynamicLayout = dynamic(
+  {
+    loader: async () => Layout,
+  },
+  { ssr: false },
+);
+export default DynamicLayout;
 
 function Main({ children }: { children: any }) {
   return (

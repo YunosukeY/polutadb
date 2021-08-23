@@ -1,14 +1,23 @@
 import * as React from 'react';
+import { useFormContext, useController } from 'react-hook-form';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { EachSelectProps, useStyles } from './utils';
+import { useStyles } from './utils';
 import { getGenres } from '../../data/utils';
 
-export default function Genre(props: EachSelectProps) {
+export default function Genre() {
   const classes = useStyles();
+
+  const { control } = useFormContext();
+  const {
+    field: { ref, ...inputProps },
+  } = useController({
+    name: 'genre',
+    control,
+  });
 
   const genres = getGenres().map((genre) => (
     <MenuItem value={genre.i} key={genre.i}>
@@ -18,13 +27,7 @@ export default function Genre(props: EachSelectProps) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>曲のジャンルを選択</InputLabel>
-      <Select
-        value={props.query.genre === -1 ? '' : props.query.genre}
-        onChange={(event) => {
-          props.query.genre = Number(event.target.value);
-          props.setLocationSearch(props.query);
-        }}
-      >
+      <Select inputRef={ref} {...inputProps} defaultValue=''>
         <MenuItem value={-1}>-</MenuItem>
         {genres}
       </Select>

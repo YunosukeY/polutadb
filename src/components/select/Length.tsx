@@ -1,36 +1,46 @@
 import * as React from 'react';
+import { useFormContext, useController } from 'react-hook-form';
 import Grid from '@material-ui/core/Grid';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 
-import { EachSelectProps } from './utils';
 import Checkbox from './Checkbox';
 
-export default function Length(props: EachSelectProps) {
+function Full() {
+  const { control } = useFormContext();
+  const {
+    field: { value, ...inputProps },
+  } = useController({
+    name: 'full',
+    control,
+    defaultValue: true,
+  });
+
+  return <Checkbox xs={4} checked={value} label='フル尺' {...inputProps} />;
+}
+
+function Onechorus() {
+  const { control } = useFormContext();
+  const {
+    field: { value, ...inputProps },
+  } = useController({
+    name: 'onechorus',
+    control,
+    defaultValue: true,
+  });
+
+  return <Checkbox xs={8} checked={value} label='ワンコーラス' {...inputProps} />;
+}
+
+export default function Length() {
   return (
     <FormControl style={{ width: '100%' }}>
       <FormLabel>尺</FormLabel>
       <FormGroup>
         <Grid container style={{ padding: 5 }}>
-          <Checkbox
-            xs={4}
-            checked={props.query.full}
-            onChange={(event: any) => {
-              props.query.full = event.target.checked;
-              props.setLocationSearch(props.query);
-            }}
-            label='フル尺'
-          />
-          <Checkbox
-            xs={8}
-            checked={props.query.onechorus}
-            onChange={(event: any) => {
-              props.query.onechorus = event.target.checked;
-              props.setLocationSearch(props.query);
-            }}
-            label='ワンコーラス'
-          />
+          <Full />
+          <Onechorus />
         </Grid>
       </FormGroup>
     </FormControl>

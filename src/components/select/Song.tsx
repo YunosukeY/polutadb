@@ -1,34 +1,38 @@
 import * as React from 'react';
+import { useFormContext, useController } from 'react-hook-form';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import { EachSelectProps, useStyles } from './utils';
+import { useStyles } from './utils';
 import { getSongs } from '../../data/utils';
 
-export default function Song(props: EachSelectProps) {
+export default function Song() {
   const classes = useStyles();
 
-  const songs = getSongs();
-
-  const getIth = (i: number) => {
-    for (const song of songs) {
-      if (song.i === i) return song;
-    }
+  const { control } = useFormContext();
+  const {
+    field: { onChange, value, ...inputProps },
+  } = useController({
+    name: 'song',
+    control,
+  });
+  const onChangeSong = (event: any, value: any) => {
+    if (value == null) onChange(-1);
+    else onChange(value.i);
   };
 
+  const songs = getSongs();
   return (
     <FormControl className={classes.formControl}>
       <Autocomplete
         options={songs}
-        value={props.query.song === -1 ? null : getIth(props.query.song)}
+        onChange={onChangeSong}
+        {...inputProps}
+        value={value === -1 ? '' : value}
+        getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.title}
         renderInput={(params) => <TextField {...params} label='曲を選択' />}
-        onChange={(event, value) => {
-          if (value !== null) props.query.song = Number(value.i);
-          else props.query.song = -1;
-          props.setLocationSearch(props.query);
-        }}
       />
     </FormControl>
   );

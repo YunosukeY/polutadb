@@ -1,14 +1,23 @@
 import * as React from 'react';
+import { useFormContext, useController } from 'react-hook-form';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { EachSelectProps, useStyles } from './utils';
+import { useStyles } from './utils';
 import { getTypes } from '../../data/utils';
 
-export default function Type(props: EachSelectProps) {
+export default function Type() {
   const classes = useStyles();
+
+  const { control } = useFormContext();
+  const {
+    field: { ref, ...inputProps },
+  } = useController({
+    name: 'type',
+    control,
+  });
 
   const types = getTypes().map((type) => (
     <MenuItem value={type.i} key={type.i}>
@@ -18,13 +27,7 @@ export default function Type(props: EachSelectProps) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>動画のタイプを選択</InputLabel>
-      <Select
-        value={props.query.type === -1 ? '' : props.query.type}
-        onChange={(event) => {
-          props.query.type = Number(event.target.value);
-          props.setLocationSearch(props.query);
-        }}
-      >
+      <Select inputRef={ref} {...inputProps} defaultValue=''>
         <MenuItem value={-1}>-</MenuItem>
         {types}
       </Select>
