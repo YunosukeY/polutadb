@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
@@ -10,6 +10,10 @@ export default function Search() {
   const [pagenum, setPagenum] = useState(1);
 
   const methods = useForm();
+
+  useEffect(() => {
+    console.log(methods.watch());
+  });
 
   return (
     <FormProvider {...methods}>
