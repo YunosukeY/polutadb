@@ -3,6 +3,8 @@ import { useRecoilValue } from 'recoil';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 import ResultTableRow from './ResultTableRow';
 import SimpleResultTableRow from './SimpleResultTableRow';
@@ -18,9 +20,21 @@ export default function ResultTable(props: { singings: Singing[] }) {
         <TableBody>
           {props.singings.map((singing, i) => {
             if (state.displayMode == 0) {
-              return <ResultTableRow singing={singing} i={i} key={i} />;
+              return (
+                <TableRow key={i}>
+                  <TableCell>
+                    <ResultTableRow singing={singing} />
+                  </TableCell>
+                </TableRow>
+              );
             } else if (state.displayMode == 1) {
-              return <SimpleResultTableRow singing={singing} i={i} key={i} />;
+              return (
+                <TableRow key={i}>
+                  <TableCell>
+                    <SimpleResultTableRow singing={singing} />
+                  </TableCell>
+                </TableRow>
+              );
             }
           })}
         </TableBody>

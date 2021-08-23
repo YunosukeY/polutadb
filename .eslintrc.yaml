@@ -53,3 +53,4 @@ rules:
   'react/no-multi-comp':
     - warn
     - ignoreStateless: true
+  'react/prop-types': off
