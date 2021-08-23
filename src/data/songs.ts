@@ -360,6 +360,13 @@ export const songs: Song[] = [
   /* 356 */ { title: 'キラメキライダー', artistId: 124, genreId: 0 },
   /* 357 */ { title: 'SAKURAスキップ', artistId: 194, genreId: 1 },
   /* 358 */ { title: 'ぽ', artistId: 0, genreId: 0 },
+  /* 359 */ { title: 'シル・ヴ・プレジデント', artistId: 195, genreId: 4 },
+  /* 360 */ { title: '才悩人応援歌', artistId: 47, genreId: 4 },
+  /* 361 */ { title: 'Go Tight!', artistId: 56, genreId: 1 },
+  /* 362 */ { title: 'ふがいないや', artistId: 15, genreId: 4 },
+  /* 363 */ { title: '光と影のロマン', artistId: 196, genreId: 1 },
+  /* 364 */ { title: 'チューリングラブ feat.Sou', artistId: 197, genreId: 1 },
+  /* 365 */ { title: 'インスタントヘヴン feat.Eve', artistId: 197, genreId: 4 },
 ];
 
 export const genres: Genre[] = [

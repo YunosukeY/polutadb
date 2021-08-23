@@ -196,4 +196,7 @@ export const artists: Artist[] = [
   /* 192 */ { name: 'LONG SHOT PARTY' },
   /* 193 */ { name: 'ZAQ' },
   /* 194 */ { name: 'fourfolium' },
+  /* 195 */ { name: 'P丸様。' },
+  /* 196 */ { name: '宇徳敬子' },
+  /* 197 */ { name: 'ナナヲアカリ' },
 ];

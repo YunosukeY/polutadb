@@ -456,6 +456,27 @@ export const videos: Video[] = [
     date: '2021/08/16',
     typeId: 3,
   },
+  {
+    // 65
+    id: '1f6qEEKiOJE',
+    title: 'SING-polka-chang【ホロライブ/尾丸ポルカ】',
+    date: '2021/08/19',
+    typeId: 2,
+  },
+  {
+    // 66
+    id: 'oFEChsGiQ6A',
+    title: '【尾丸ポルカ】チューリングラブ 歌ってみた【天神子兎音】',
+    date: '2021/08/20',
+    typeId: 0,
+  },
+  {
+    // 67
+    id: 'HmiEOSUtIfA',
+    title: '【尾丸ポルカ】インスタントヘヴン 歌ってみた【天神子兎音】',
+    date: '2021/08/21',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
