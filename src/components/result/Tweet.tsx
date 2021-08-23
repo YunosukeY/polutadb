@@ -7,7 +7,7 @@ import { Singing } from '../../data/interfaces';
 
 export default function Tweet(props: { singing: Singing; fontsize: number }) {
   const youtubeURL = `https://youtu.be/${getUrl(props.singing.videoId)}?t=${props.singing.start}`;
-  const tweetURL = `https://twitter.com/intent/tweet?text=${getSong(props.singing.songId)} / ${getArtist(
+  const tweetURL = `https://twitter.com/intent/tweet?text=${getSong(props.singing.songId)}/${getArtist(
     props.singing.songId,
   )}&url=${youtubeURL}&hashtags=ぽるうた,尾丸ポルカ`;
   const onClick = () => {
