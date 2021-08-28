@@ -477,6 +477,13 @@ export const videos: Video[] = [
     date: '2021/08/21',
     typeId: 0,
   },
+  {
+    // 68
+    id: 'byUiWMKNhDI',
+    title: '未来から来ました。ポルカは80万人に増殖します。【尾丸ポルカ/ホロライブ】',
+    date: '2021/08/28',
+    typeId: 5,
+  },
 ];
 
 export const types: Type[] = [
