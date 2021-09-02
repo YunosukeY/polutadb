@@ -484,6 +484,20 @@ export const videos: Video[] = [
     date: '2021/08/28',
     typeId: 5,
   },
+  {
+    // 69
+    id: 'jjGGoGGaS0E',
+    title: 'POLKA⇒August⇒LIVE⇒2021 #ぽるうた【ホロライブ/尾丸ポルカ】',
+    date: '2021/08/31',
+    typeId: 1,
+  },
+  {
+    // 70
+    id: 'vbhgQ_C_jaM',
+    title: '【ORIGINAL SONG+MV】エヴァーブルー - Omaru Polka【尾丸ポルカ/ホロライブ/4K】',
+    date: '2021/08/26',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [

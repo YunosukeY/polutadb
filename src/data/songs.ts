@@ -367,6 +367,19 @@ export const songs: Song[] = [
   /* 363 */ { title: '光と影のロマン', artistId: 196, genreId: 1 },
   /* 364 */ { title: 'チューリングラブ feat.Sou', artistId: 197, genreId: 1 },
   /* 365 */ { title: 'インスタントヘヴン feat.Eve', artistId: 197, genreId: 4 },
+  /* 366 */ { title: 'ワニとシャンプー', artistId: 81, genreId: 2 },
+  /* 367 */ { title: 'Get along', artistId: 198, genreId: 1 },
+  /* 368 */ { title: 'シンデレラ', artistId: 44, genreId: 3 },
+  /* 369 */ { title: '歌舞伎町の女王', artistId: 65, genreId: 4 },
+  /* 370 */ { title: 'ANGELUS -アンジェラス-', artistId: 199, genreId: 1 },
+  /* 371 */ { title: 'インフィニティ', artistId: 42, genreId: 1 },
+  /* 372 */ { title: 'Z女戦争', artistId: 81, genreId: 2 },
+  /* 373 */ { title: 'Jungle P', artistId: 200, genreId: 1 },
+  /* 374 */ { title: 'RUN!RUN!RUN!', artistId: 201, genreId: 1 },
+  /* 375 */ { title: '真赤な誓い', artistId: 202, genreId: 1 },
+  /* 376 */ { title: '私、アイドル宣言', artistId: 203, genreId: 1 },
+  /* 377 */ { title: 'ファンサ', artistId: 204, genreId: 1 },
+  /* 378 */ { title: 'エヴァーブルー', artistId: 0, genreId: 0 },
 ];
 
 export const genres: Genre[] = [

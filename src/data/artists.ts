@@ -199,4 +199,11 @@ export const artists: Artist[] = [
   /* 195 */ { name: 'P丸様。' },
   /* 196 */ { name: '宇徳敬子' },
   /* 197 */ { name: 'ナナヲアカリ' },
+  /* 198 */ { name: '林原めぐみ、 奥井雅美' },
+  /* 199 */ { name: '島谷ひとみ' },
+  /* 200 */ { name: '5050' },
+  /* 201 */ { name: '大槻真希' },
+  /* 202 */ { name: '福山芳樹' },
+  /* 203 */ { name: 'CHiCO with HoneyWorks' },
+  /* 204 */ { name: 'mona(CV：夏川椎菜)' },
 ];

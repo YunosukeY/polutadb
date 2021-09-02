@@ -39,6 +39,7 @@ function PickUp() {
       <Slider {...settings}>
         <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
         <PickUpThumbnail id='TGJ9-1LWFtE' singing={new Singing(0, 64, 0, 0)} />
+        <PickUpThumbnail id='vbhgQ_C_jaM' singing={new Singing(0, 70, 0, 0)} />
         <PickUpThumbnail id='P4uBibShEK0' singing={new Singing(0, 55, 0, 0)} />
         <PickUpThumbnail id='Lx1PNCat-Q0' singing={new Singing(0, 53, 0, 0)} />
         <PickUpThumbnail id='xfrS_3gRdrg' singing={new Singing(0, 52, 0, 0)} />
