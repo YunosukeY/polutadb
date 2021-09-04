@@ -498,6 +498,13 @@ export const videos: Video[] = [
     date: '2021/08/26',
     typeId: 3,
   },
+  {
+    // 71
+    id: 'I16cQyBxsKw',
+    title: '夜のピエロ - 尾丸ポルカ(cover/4K)',
+    date: '2021/09/03',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [
