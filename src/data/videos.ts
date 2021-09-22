@@ -505,6 +505,27 @@ export const videos: Video[] = [
     date: '2021/09/03',
     typeId: 0,
   },
+  {
+    // 72
+    id: 'ACImtqaabpw',
+    title: 'シンデレラ - 尾丸ポルカ(cover)',
+    date: '2021/09/10',
+    typeId: 0,
+  },
+  {
+    // 73
+    id: 'i1yNFbHOsLE',
+    title: '【歌枠】機材が整った気がするテスト歌ほんまにすこしだけ【尾丸ポルカ/ホロライブ】',
+    date: '2021/09/12',
+    typeId: 2,
+  },
+  {
+    // 74
+    id: 'k-q93ccVQqM',
+    title: '廻廻奇譚 - 尾丸ポルカ(cover)',
+    date: '2021/09/17',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [

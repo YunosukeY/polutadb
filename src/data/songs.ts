@@ -381,6 +381,9 @@ export const songs: Song[] = [
   /* 377 */ { title: 'ファンサ', artistId: 204, genreId: 1 },
   /* 378 */ { title: 'エヴァーブルー', artistId: 0, genreId: 0 },
   /* 379 */ { title: '夜のピエロ', artistId: 205, genreId: 4 },
+  /* 380 */ { title: 'Unison', artistId: 206, genreId: 6 },
+  /* 381 */ { title: 'うっせぇわ', artistId: 205, genreId: 4 },
+  /* 382 */ { title: '踊', artistId: 205, genreId: 4 },
 ];
 
 export const genres: Genre[] = [
