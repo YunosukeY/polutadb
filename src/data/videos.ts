@@ -526,6 +526,20 @@ export const videos: Video[] = [
     date: '2021/09/17',
     typeId: 0,
   },
+  {
+    // 75
+    id: 'MGW5z2ZWF9g',
+    title: 'POLKA∞September∞LIVE∞2021 #ぽるうた【ホロライブ/尾丸ポルカ】',
+    date: '2021/09/30',
+    typeId: 1,
+  },
+  {
+    // 76
+    id: 's0p7jwJKkzs',
+    title: '【Cover】Fly Me to the Star / Omaru Polka × Pavolia Reine',
+    date: '2021/10/03',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [

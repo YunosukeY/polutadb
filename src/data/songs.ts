@@ -384,6 +384,7 @@ export const songs: Song[] = [
   /* 380 */ { title: 'Unison', artistId: 206, genreId: 6 },
   /* 381 */ { title: 'うっせぇわ', artistId: 205, genreId: 4 },
   /* 382 */ { title: '踊', artistId: 205, genreId: 4 },
+  /* 383 */ { title: 'ヒプノシスマイク -Division Battle Anthem-', artistId: 207, genreId: 1 },
 ];
 
 export const genres: Genre[] = [

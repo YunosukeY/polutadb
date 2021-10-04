@@ -208,4 +208,5 @@ export const artists: Artist[] = [
   /* 204 */ { name: 'mona(CV：夏川椎菜)' },
   /* 205 */ { name: 'Ado' },
   /* 206 */ { name: '宝鐘マリン' },
+  /* 207 */ { name: 'Division All Stars' },
 ];
