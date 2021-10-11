@@ -540,6 +540,20 @@ export const videos: Video[] = [
     date: '2021/10/03',
     typeId: 0,
   },
+  {
+    // 77
+    id: 'zK3Lev1A2NY',
+    title: 'フォニイ - 尾丸ポルカ(cover)',
+    date: '2021/10/08',
+    typeId: 0,
+  },
+  {
+    // 78
+    id: 'J9jft1UczpE',
+    title: 'SINGING🎤🎶ちょっと歌わせて～🎵【尾丸ポルカ/ホロライブ】',
+    date: '2021/10/11',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
