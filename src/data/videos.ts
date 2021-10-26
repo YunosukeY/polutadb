@@ -554,13 +554,20 @@ export const videos: Video[] = [
     date: '2021/10/11',
     typeId: 2,
   },
+  {
+    // 79
+    id: 'kdYAZZ5SOFk',
+    title: '【ORIGINAL SONG+MV】Pastel Tea Time - Omaru Polka【尾丸ポルカ/ホロライブ】',
+    date: '2021/10/26',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [
   /* 0 */ { name: '歌ってみた動画' },
   /* 1 */ { name: '月1ライブ枠' },
   /* 2 */ { name: '歌枠' },
-  /* 3 */ { name: '原曲動画' },
+  /* 3 */ { name: 'オリジナル曲' },
   /* 4 */ { name: 'GB' },
   /* 5 */ { name: 'その他' },
   /* 6 */ { name: '3D' },

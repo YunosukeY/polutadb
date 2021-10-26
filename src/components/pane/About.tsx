@@ -16,8 +16,7 @@ export default function About() {
 function Describe() {
   return (
     <div style={{ fontSize: '16px' }}>
-      PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber
-      尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．
+      PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌を検索することができます．
       <br />
       <br />
       尾丸ポルカさんについてはこちら！
