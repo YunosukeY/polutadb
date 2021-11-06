@@ -561,6 +561,13 @@ export const videos: Video[] = [
     date: '2021/10/26',
     typeId: 3,
   },
+  {
+    // 80
+    id: 'mzPQPHUPkZg',
+    title: '【歌枠】自分に鼓舞！うたえやおどれ🎵【尾丸ポルカ/ホロライブ】',
+    date: '2021/11/05',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [

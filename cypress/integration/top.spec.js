@@ -3,7 +3,7 @@ describe('トップページ', () => {
     cy.visit('/');
     cy.contains('About');
     cy.contains(
-      'PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌（通称：ぽるうた）を検索することができます．',
+      'PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌を検索することができます．',
     );
     cy.contains('尾丸ポルカさんについてはこちら！');
     cy.contains('YouTube：Polka Ch. 尾丸ポルカ');
