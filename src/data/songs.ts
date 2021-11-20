@@ -390,6 +390,8 @@ export const songs: Song[] = [
   /* 386 */ { title: '紅', artistId: 209, genreId: 9 },
   /* 387 */ { title: 'おつかれサマー!', artistId: 122, genreId: 2 },
   /* 388 */ { title: 'Pastel Tea Time', artistId: 0, genreId: 0 },
+  /* 389 */ { title: '怪物さん feat.あいみょん', artistId: 84, genreId: 4 },
+  /* 390 */ { title: 'トンデモワンダーズ', artistId: 210, genreId: 3 },
 ];
 
 export const genres: Genre[] = [

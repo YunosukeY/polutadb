@@ -568,6 +568,27 @@ export const videos: Video[] = [
     date: '2021/11/05',
     typeId: 2,
   },
+  {
+    // 81
+    id: '6N6kY2_W37k',
+    title: '怪物さん - 尾丸ポルカ&雪花ラミィ(cover/4K)',
+    date: '2021/11/09',
+    typeId: 0,
+  },
+  {
+    // 82
+    id: 'hEkHj1WZekU',
+    title: '【#雪花ラミィ生誕ライブ】ゲストいっぱい！誕生日LIVE【雪花ラミィ/ホロライブ】',
+    date: '2021/11/15',
+    typeId: 6,
+  },
+  {
+    // 83
+    id: '0DzqJQggP9s',
+    title: 'トンデモワンダーズ - 尾丸ポルカ(cover)',
+    date: '2021/11/20',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
