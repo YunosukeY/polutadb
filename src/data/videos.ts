@@ -589,6 +589,20 @@ export const videos: Video[] = [
     date: '2021/11/20',
     typeId: 0,
   },
+  {
+    // 84
+    id: 'rUaQb5r2ALc',
+    title: '【歌枠】1h🎤UTA STREAM🎶SUYASUYA YO【尾丸ポルカ/ホロライブ】',
+    date: '2021/11/28',
+    typeId: 2,
+  },
+  {
+    // 85
+    id: 'TclrHbctZuM',
+    title: '【歌枠】あさうた MorningMorning Guerrilla UTAAAA【尾丸ポルカ/ホロライブ】',
+    date: '2021/12/03',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
