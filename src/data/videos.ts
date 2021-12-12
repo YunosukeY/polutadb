@@ -603,11 +603,25 @@ export const videos: Video[] = [
     date: '2021/12/03',
     typeId: 2,
   },
+  {
+    // 86
+    id: 'BTYIXJPOGJo',
+    title: '【雑談と歌】Talk and シンギんぐ【尾丸ポルカ/ホロライブ】',
+    date: '2021/12/09',
+    typeId: 2,
+  },
+  {
+    // 87
+    id: 'j-wEpaPe4fo',
+    title: '【歌枠】サンタが歌うタイプのやつ #ぽるうた【尾丸ポルカ/ホロライブ】',
+    date: '2021/12/11',
+    typeId: 1,
+  },
 ];
 
 export const types: Type[] = [
   /* 0 */ { name: '歌ってみた動画' },
-  /* 1 */ { name: '月1ライブ枠' },
+  /* 1 */ { name: 'ぽるうた（月1ライブ枠）' },
   /* 2 */ { name: '歌枠' },
   /* 3 */ { name: 'オリジナル曲' },
   /* 4 */ { name: 'GB' },

@@ -87,7 +87,7 @@ export const songs: Song[] = [
   /* 83 */ { title: 'コネクト', artistId: 54, genreId: 1 },
   /* 84 */ { title: 'Snow halation', artistId: 55, genreId: 1 },
   /* 85 */ { title: '創聖のアクエリオン', artistId: 56, genreId: 1 },
-  /* 86 */ { title: 'ETERNAL BLAZE', artistId: 19, genreId: 1 },
+  /* 86 */ { title: 'ETERNAL BLAZE', artistId: 19, genreId: 1 },
   /* 87 */ { title: 'Rising Hope', artistId: 57, genreId: 1 },
   /* 88 */ { title: 'ブルーバード', artistId: 26, genreId: 1 },
   /* 89 */ { title: 'BLUE BIRD', artistId: 58, genreId: 4 },
@@ -394,6 +394,10 @@ export const songs: Song[] = [
   /* 390 */ { title: 'トンデモワンダーズ', artistId: 210, genreId: 3 },
   /* 391 */ { title: 'ハレ晴レユカイ', artistId: 165, genreId: 1 },
   /* 392 */ { title: 'W.W.D', artistId: 122, genreId: 2 },
+  /* 393 */ { title: 'Future Diver', artistId: 122, genreId: 2 },
+  /* 394 */ { title: '君の神話～アクエリオン第二章', artistId: 212, genreId: 1 },
+  /* 395 */ { title: '童話迷宮', artistId: 156, genreId: 1 },
+  /* 396 */ { title: '冬へと走りだすお!', artistId: 122, genreId: 2 },
 ];
 
 export const genres: Genre[] = [
