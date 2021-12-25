@@ -398,6 +398,13 @@ export const songs: Song[] = [
   /* 394 */ { title: '君の神話～アクエリオン第二章', artistId: 212, genreId: 1 },
   /* 395 */ { title: '童話迷宮', artistId: 156, genreId: 1 },
   /* 396 */ { title: '冬へと走りだすお!', artistId: 122, genreId: 2 },
+  /* 397 */ { title: '猛烈宇宙交響曲・第七楽章「無限の愛」', artistId: 81, genreId: 2 },
+  /* 398 */ { title: 'リアルワールド', artistId: 213, genreId: 1 },
+  /* 399 */ { title: '集結の園へ', artistId: 22, genreId: 1 },
+  /* 400 */ { title: 'インモラリスト', artistId: 214, genreId: 1 },
+  /* 401 */ { title: 'サクラあっぱれーしょん', artistId: 122, genreId: 2 },
+  /* 402 */ { title: 'おもかげ', artistId: 22, genreId: 1 },
+  /* 403 */ { title: '心', artistId: 20, genreId: 9 },
 ];
 
 export const genres: Genre[] = [
