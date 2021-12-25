@@ -15,7 +15,7 @@ export default function Releases() {
         <AddData />
         <AddVideo videoId={88} />
         <AddVideo videoId={89} />
-        {/* <AddVideo videoId={90} /> */}
+        <AddVideo videoId={90} />
       </>
       <>
         <Date date='2021/12/12' />
