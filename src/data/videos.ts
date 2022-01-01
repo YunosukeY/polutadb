@@ -639,6 +639,13 @@ export const videos: Video[] = [
     date: '2021/12/25',
     typeId: 2,
   },
+  {
+    // 91
+    id: 'YtffykcQzjM',
+    title: '大晦日チャレンジ！！！！！90万人への応援見守り枠！！！！！【尾丸ポルカ/ホロライブ】',
+    date: '2021/12/31',
+    typeId: 5,
+  },
 ];
 
 export const types: Type[] = [

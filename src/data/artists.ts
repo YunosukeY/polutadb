@@ -216,4 +216,6 @@ export const artists: Artist[] = [
   /* 212 */ { name: 'AKINO with bless4' },
   /* 213 */ { name: 'nano.RIPE' },
   /* 214 */ { name: '堀江由衣' },
+  /* 215 */ { name: '森カリオペ' },
+  /* 216 */ { name: '兎田ぺこら' },
 ];

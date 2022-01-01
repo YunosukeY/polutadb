@@ -405,6 +405,13 @@ export const songs: Song[] = [
   /* 401 */ { title: 'サクラあっぱれーしょん', artistId: 122, genreId: 2 },
   /* 402 */ { title: 'おもかげ', artistId: 22, genreId: 1 },
   /* 403 */ { title: '心', artistId: 20, genreId: 9 },
+  /* 404 */ { title: 'KING', artistId: 140, genreId: 3 },
+  /* 405 */ { title: 'Candy-Go-Round', artistId: 124, genreId: 0 },
+  /* 406 */ { title: 'Ahoy!! 我ら宝鐘海賊団☆', artistId: 206, genreId: 0 },
+  /* 407 */ { title: '失礼しますが、RIP♡', artistId: 215, genreId: 0 },
+  /* 408 */ { title: '百花繚乱花吹雪', artistId: 124, genreId: 0 },
+  /* 409 */ { title: 'ぺこらんだむぶれいん!', artistId: 216, genreId: 0 },
+  /* 410 */ { title: 'STARDUST SONG', artistId: 124, genreId: 0 },
 ];
 
 export const genres: Genre[] = [
