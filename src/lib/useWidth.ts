@@ -18,3 +18,12 @@ export function useWidth() {
     }, null) || 'xs'
   );
 }
+
+// see ResultCard
+export const useDisplayNum = () => {
+  const width = useWidth();
+
+  if (width === 'xs' || width === 'sm') return 10;
+  if (width === 'md' || width === 'lg') return 20;
+  return 30;
+};

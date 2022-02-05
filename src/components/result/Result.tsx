@@ -5,8 +5,7 @@ import Pagenation from '../result/Pagenation';
 import FavoHeader from '../favos/FavoHeader';
 import { Singing } from '../../data/interfaces';
 import ResultCards from './ResultCards';
-
-const displaynum = 50;
+import { useDisplayNum } from '../../lib/useWidth';
 
 export default function Result(props: {
   result: Singing[];
@@ -19,6 +18,8 @@ export default function Result(props: {
     props.setPagenum(p);
     ref?.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const displaynum = useDisplayNum();
 
   return (
     <>

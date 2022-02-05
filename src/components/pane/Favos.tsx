@@ -5,12 +5,13 @@ import Result from '../result/Result';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
 import { useIsFavo } from '../../lib/AppState';
-
-const displaynum = 50;
+import { useDisplayNum } from '../../lib/useWidth';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useState(1);
   const favoList = getFavoList();
+
+  const displaynum = useDisplayNum();
 
   useEffect(() => {
     if (favoList.length === (pagenum - 1) * displaynum) {
