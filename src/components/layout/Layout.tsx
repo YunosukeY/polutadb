@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import Grid from '@material-ui/core/Grid';
 
 import Header from './Header';
-import Footer from './Footer';
 import KeyVisual from './KeyVisual';
 
 function Layout({ children }: { children: any }) {
@@ -11,7 +10,6 @@ function Layout({ children }: { children: any }) {
     <>
       <Header />
       <Main>{children}</Main>
-      <Footer />
     </>
   );
 }
