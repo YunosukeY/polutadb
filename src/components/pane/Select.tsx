@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { makeStyles } from '@material-ui/styles';
 
 import HR from '../layout/HR';
@@ -22,14 +22,7 @@ const useStyles = makeStyles({
 export default function Select(props: { setPagenum: React.Dispatch<React.SetStateAction<number>> }) {
   const classes = useStyles();
 
-  const [isHidden, setIsHidden] = useState(false);
-  useEffect(() => {
-    const stickyValue = window.localStorage.getItem('isHidden');
-    setIsHidden(stickyValue !== null ? stickyValue === 'true' : false);
-  }, []);
-  useEffect(() => {
-    window.localStorage.setItem('isHidden', String(isHidden));
-  });
+  const [isHidden, setIsHidden] = useState(true);
   const onClick = () => {
     setIsHidden(!isHidden);
   };
@@ -37,16 +30,16 @@ export default function Select(props: { setPagenum: React.Dispatch<React.SetStat
   return (
     <Pane>
       {isHidden && (
-        <h4 onClick={onClick} className={classes.h4}>
-          <ArrowRightIcon className={classes.icon} />
+        <h4 onClick={onClick} className={classes.h4} style={{ textAlign: 'center' }}>
           Search
+          <ArrowDropDownIcon className={classes.icon} />
         </h4>
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick}>
-            <ArrowDropDownIcon className={classes.icon} />
+          <h4 onClick={onClick} style={{ textAlign: 'center' }}>
             Search
+            <ArrowDropUpIcon className={classes.icon} />
           </h4>
           <HR />
           <Searches />
