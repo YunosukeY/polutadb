@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { useRecoilValue } from 'recoil';
 
 import ResultHeader from '../result/ResultHeader';
 import Pagenation from '../result/Pagenation';
 import FavoHeader from '../favos/FavoHeader';
-import { appState } from '../../lib/AppState';
 import { Singing } from '../../data/interfaces';
 import ResultCards from './ResultCards';
+
+const displaynum = 50;
 
 export default function Result(props: {
   result: Singing[];
@@ -14,8 +14,6 @@ export default function Result(props: {
   setPagenum: React.Dispatch<React.SetStateAction<number>>;
   isFavo: boolean;
 }) {
-  const state = useRecoilValue(appState);
-
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     props.setPagenum(p);
@@ -30,14 +28,14 @@ export default function Result(props: {
       </div>
       <ResultCards
         singings={props.result.slice(
-          (props.pagenum - 1) * state.displaynum,
-          Math.min(props.pagenum * state.displaynum, props.result.length),
+          (props.pagenum - 1) * displaynum,
+          Math.min(props.pagenum * displaynum, props.result.length),
         )}
       />
       <Pagenation
         pagenum={props.pagenum}
         setPagenum={onPageClick}
-        lastPageNum={Math.ceil(props.result.length / state.displaynum)}
+        lastPageNum={Math.ceil(props.result.length / displaynum)}
       />
     </>
   );

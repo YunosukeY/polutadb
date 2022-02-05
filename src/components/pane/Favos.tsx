@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import DisplaySetting from '../display/DisplaySetting';
 import Result from '../result/Result';
 import { Pane } from '../../lib/style';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
-import { appState, useIsFavo } from '../../lib/AppState';
+import { useIsFavo } from '../../lib/AppState';
+
+const displaynum = 50;
 
 export default function Favos() {
-  const state = useRecoilValue(appState);
   const [pagenum, setPagenum] = useState(1);
   const favoList = getFavoList();
 
   useEffect(() => {
-    if (favoList.length === (pagenum - 1) * state.displaynum) {
+    if (favoList.length === (pagenum - 1) * displaynum) {
       setPagenum(pagenum - 1);
     }
   });
