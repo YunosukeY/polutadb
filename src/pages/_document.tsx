@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
             content='ホロライブ所属のVTuber 尾丸ポルカさんの歌（通称：ぽるうた）が検索できます'
           />
           <link rel='icon' href='/tent-b92731.png' />
-          <meta name='theme-color' content='#F1646A' />
+          <meta name='theme-color' content='#ef5350' />
           <link rel='apple-touch-icon' href='/tent-f1646a.png' />
           <link rel='manifest' href='/manifest.json' />
           <script async={true} src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />

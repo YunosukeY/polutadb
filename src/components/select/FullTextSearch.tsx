@@ -15,7 +15,6 @@ export default function FullTextSearch() {
 
   return (
     <TextField
-      label='全文検索'
       inputRef={ref}
       {...inputProps}
       InputProps={{
@@ -26,6 +25,7 @@ export default function FullTextSearch() {
         ),
       }}
       fullWidth
+      style={{ paddingTop: 16 }}
     />
   );
 }

@@ -9,7 +9,7 @@ export default function MyCard(props: { link: string; title: string; icon: any }
   return (
     <Grid item xs={12} sm={6}>
       <Link href={props.link} prefetch={false}>
-        <Card style={{ borderRadius: '5px' }}>
+        <Card>
           <CardActionArea>
             <CardContent>
               <h4 style={{ margin: '20px 0' }}>

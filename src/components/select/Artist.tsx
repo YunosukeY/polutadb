@@ -32,7 +32,7 @@ export default function Artist() {
         value={value === -1 ? '' : value}
         getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.name}
-        renderInput={(params) => <TextField {...params} label='アーティストを選択' />}
+        renderInput={(params) => <TextField {...params} label='アーティスト' />}
       />
     </FormControl>
   );
