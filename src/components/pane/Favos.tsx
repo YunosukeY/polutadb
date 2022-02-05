@@ -21,10 +21,12 @@ export default function Favos() {
   });
 
   return (
-    <Pane>
-      <DisplaySetting setPagenum={setPagenum} />
+    <>
+      <Pane>
+        <DisplaySetting setPagenum={setPagenum} />
+      </Pane>
       <Result result={favoList} pagenum={pagenum} setPagenum={setPagenum} isFavo={true} />
-    </Pane>
+    </>
   );
 }
 
