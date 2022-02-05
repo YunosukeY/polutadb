@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useWindowSize } from 'react-use';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
@@ -6,7 +7,7 @@ import HR from '../layout/HR';
 import { Pane } from '../../lib/style';
 import { getVideo } from '../../data/utils';
 import { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   icon: {
@@ -14,12 +15,20 @@ const useStyles = makeStyles({
   },
 });
 
-const Releases = () => (
-  <>
-    <LatestRelease />
-    <OldReleases />
-  </>
-);
+const Releases = () => {
+  const width = Math.min(useWindowSize().width - 20, 1000);
+
+  return (
+    <Grid container direction='column' alignItems='center'>
+      <Grid item style={{ width }}>
+        <LatestRelease />
+      </Grid>
+      <Grid item style={{ width }}>
+        <OldReleases />
+      </Grid>
+    </Grid>
+  );
+};
 export default Releases;
 
 const LatestRelease = () => {

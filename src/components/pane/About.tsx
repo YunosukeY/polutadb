@@ -1,15 +1,23 @@
 import * as React from 'react';
+import { useWindowSize } from 'react-use';
 
 import HR from '../layout/HR';
 import { Pane } from '../../lib/style';
+import { Grid } from '@material-ui/core';
 
 export default function About() {
+  const width = Math.min(useWindowSize().width - 20, 1000);
+
   return (
-    <Pane>
-      <h4>About</h4>
-      <HR />
-      <Describe />
-    </Pane>
+    <Grid container direction='column' alignItems='center'>
+      <Grid item style={{ width }}>
+        <Pane>
+          <h4>About</h4>
+          <HR />
+          <Describe />
+        </Pane>
+      </Grid>
+    </Grid>
   );
 }
 
