@@ -17,7 +17,7 @@ export default function Menu() {
 
   return (
     <>
-      <IconButton id='homeButton' color='inherit' onClick={goto('/')}>
+      <IconButton id='searchButton' color='inherit' onClick={goto('/')}>
         <SearchIcon />
       </IconButton>
       <IconButton id='favosButton' color='inherit' onClick={goto('/favos')}>
@@ -29,7 +29,7 @@ export default function Menu() {
       <IconButton id='releasesButton' color='inherit' onClick={goto('/releases')}>
         <ImportContactsIcon />
       </IconButton>
-      <IconButton id='releasesButton' color='inherit' onClick={goto('/about')}>
+      <IconButton id='aboutButton' color='inherit' onClick={goto('/about')}>
         <InfoIcon />
       </IconButton>
     </>

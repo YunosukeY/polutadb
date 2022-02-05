@@ -4,7 +4,7 @@ describe('共通レイアウト', () => {
     cy.visit('/');
 
     cy.get('#searchButton').click();
-    cy.location('pathname').should('eq', '/search');
+    cy.location('pathname').should('eq', '/');
 
     cy.get('#favosButton').click();
     cy.location('pathname').should('eq', '/favos');
@@ -15,8 +15,8 @@ describe('共通レイアウト', () => {
     cy.get('#releasesButton').click();
     cy.location('pathname').should('eq', '/releases');
 
-    cy.get('#homeButton').click();
-    cy.location('pathname').should('eq', '/');
+    cy.get('#aboutButton').click();
+    cy.location('pathname').should('eq', '/about');
   });
 
   it('footer', () => {
