@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar position='fixed' style={{ backgroundColor: '#f1646a' }}>
+      <AppBar position='fixed' style={{ backgroundColor: '#ef5350' }}>
         <Toolbar style={{ position: 'relative' }}>
           <div style={{ flexGrow: 1 }}>{isMobile && <MobileMenu />}</div>
           <h4

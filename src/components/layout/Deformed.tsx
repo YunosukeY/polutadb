@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function Deformed() {
   return (
-    <div style={{ backgroundColor: '#fff8f8', textAlign: 'center' }}>
+    <div style={{ backgroundColor: '#fff', textAlign: 'center' }}>
       {screen.width <= 500 && (
         <img src='/card.png' alt='OmaruPolka' title='OmaruPolka' style={{ width: screen.width }} />
       )}

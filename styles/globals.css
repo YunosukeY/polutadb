@@ -1,8 +1,8 @@
 :root {
-  --theme-color: #f1646a;
+  --theme-color: #ef5350;
   --font-color: dodgerblue;
   --sub-theme-color: dodgerblue;
-  --bg-color: #fff8f8;
+  --bg-color: #fff;
 }
 #main {
   background-color: var(--bg-color);
