@@ -26,7 +26,7 @@ export default function Type() {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>動画のタイプを選択</InputLabel>
+      <InputLabel>動画のタイプ</InputLabel>
       <Select inputRef={ref} {...inputProps} defaultValue=''>
         <MenuItem value={-1}>-</MenuItem>
         {types}

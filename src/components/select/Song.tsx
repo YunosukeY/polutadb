@@ -32,7 +32,7 @@ export default function Song() {
         value={value === -1 ? '' : value}
         getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label='曲を選択' />}
+        renderInput={(params) => <TextField {...params} label='曲' />}
       />
     </FormControl>
   );

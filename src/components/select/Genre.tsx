@@ -26,7 +26,7 @@ export default function Genre() {
   ));
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>曲のジャンルを選択</InputLabel>
+      <InputLabel>曲のジャンル</InputLabel>
       <Select inputRef={ref} {...inputProps} defaultValue=''>
         <MenuItem value={-1}>-</MenuItem>
         {genres}
