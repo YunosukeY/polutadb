@@ -8,7 +8,6 @@ import HR from '../layout/HR';
 import Searches from '../select/Searches';
 import Sort from '../select/Sort';
 import { Pane } from '../../lib/style';
-import DisplaySetting from '../display/DisplaySetting';
 
 const useStyles = makeStyles({
   h4: {
@@ -19,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Select(props: { setPagenum: React.Dispatch<React.SetStateAction<number>> }) {
+export default function Select() {
   const classes = useStyles();
 
   const [isHidden, setIsHidden] = useState(true);
@@ -43,7 +42,6 @@ export default function Select(props: { setPagenum: React.Dispatch<React.SetStat
           </h4>
           <HR />
           <Searches />
-          <DisplaySetting setPagenum={props.setPagenum} />
           <Sort />
         </>
       )}

@@ -14,7 +14,7 @@ export default function Search() {
   return (
     <FormProvider {...methods}>
       <QueryStringUpdater setPagenum={setPagenum} />
-      <Select setPagenum={setPagenum} />
+      <Select />
       <Result pagenum={pagenum} setPagenum={setPagenum} />
     </FormProvider>
   );

@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
-import DisplaySetting from '../display/DisplaySetting';
 import Result from '../result/Result';
-import { Pane } from '../../lib/style';
 import { Singing } from '../../data/interfaces';
 import { singings } from '../../data/singings';
 import { useIsFavo } from '../../lib/AppState';
@@ -20,14 +18,7 @@ export default function Favos() {
     }
   });
 
-  return (
-    <>
-      <Pane>
-        <DisplaySetting setPagenum={setPagenum} />
-      </Pane>
-      <Result result={favoList} pagenum={pagenum} setPagenum={setPagenum} isFavo={true} />
-    </>
-  );
+  return <Result result={favoList} pagenum={pagenum} setPagenum={setPagenum} isFavo={true} />;
 }
 
 function getFavoList() {
