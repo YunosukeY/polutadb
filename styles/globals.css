@@ -109,28 +109,6 @@ h6 {
     max-height: 100%;
   }
 }
-@media screen and (max-width: 960px) {
-  /* iframeを横幅いっぱいのサイズにする */
-  #iframe-content {
-    position: relative;
-    width: 100%;
-    padding: 56.25% 0 0 0;
-  }
-  #iframe-content #iframe-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  #iframe-content #usual-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
 @media screen and (max-width: 1120px) {
   #simple-iframe-parent {
     position: relative;
@@ -143,31 +121,5 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-  }
-}
-@media screen and (min-width: 959px) {
-  #result-table {
-    height: 315px;
-  }
-  #usual-iframe {
-    width: 560px;
-    height: 315px;
-  }
-  #iframe-wrapper {
-    width: 560px;
-    height: 315px;
-  }
-}
-@media screen and (min-width: 1501px) {
-  #iframe-wrapper {
-    width: 640px;
-    height: 360px;
-  }
-  #usual-iframe {
-    width: 640px;
-    height: 360px;
-  }
-  #result-table {
-    height: 360px;
   }
 }
