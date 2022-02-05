@@ -1,63 +1,30 @@
 import * as React from 'react';
-import { useState } from 'react';
-import Modal from '@material-ui/core/Modal';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import { IconButton } from '@material-ui/core';
 
-import { getUrl, getVideo } from '../../data/utils';
 import { Singing } from '../../data/interfaces';
 
-export default function Youtube(props: { singing: Singing; fontsize: number }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const color = '#ff0f1a';
+export default function Youtube(props: { singing: Singing; fontsize: number; hovered: boolean }) {
+  const hoveredColor = '#ff0f1a';
 
   return (
     <>
-      <IconButton onClick={handleOpen}>
-        <YouTubeIcon style={{ fontSize: props.fontsize, color: color }} />
-      </IconButton>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='simple-modal-title'
-        aria-describedby='simple-modal-description'
-      >
-        <Window singing={props.singing} />
-      </Modal>
+      <div style={{ position: 'relative' }}>
+        <div
+          style={{
+            width: 30,
+            height: 30,
+            backgroundColor: 'white',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
+          }}
+        />
+        <IconButton>
+          <YouTubeIcon style={{ fontSize: props.fontsize, color: props.hovered ? hoveredColor : '#000' }} />
+        </IconButton>
+      </div>
     </>
-  );
-}
-
-function Window(props: { singing: Singing }) {
-  return (
-    <div
-      id='simple-iframe-parent'
-      style={{
-        position: 'absolute',
-        backgroundColor: 'black',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-      }}
-    >
-      <iframe
-        id='simple-iframe'
-        width='1120'
-        height='630'
-        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${
-          props.singing.start
-        }&autoplay=1`}
-        frameBorder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-        title={getVideo(props.singing.videoId)}
-      />
-    </div>
   );
 }

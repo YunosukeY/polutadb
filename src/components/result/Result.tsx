@@ -28,7 +28,7 @@ export default function Result(props: {
       <div ref={ref} />
       {props.isFavo ? <FavoHeader favonum={props.result.length} /> : <ResultHeader resultnum={props.result.length} />}
       <HR />
-      <ResultTable
+      <ResultCards
         singings={props.result.slice(
           (props.pagenum - 1) * state.displaynum,
           Math.min(props.pagenum * state.displaynum, props.result.length),
