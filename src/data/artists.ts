@@ -218,4 +218,7 @@ export const artists: Artist[] = [
   /* 214 */ { name: '堀江由衣' },
   /* 215 */ { name: '森カリオペ' },
   /* 216 */ { name: '兎田ぺこら' },
+  /* 217 */ { name: 'Ayase' },
+  /* 218 */ { name: "可憐Girl's" },
+  /* 219 */ { name: 'ピノキオピー' },
 ];

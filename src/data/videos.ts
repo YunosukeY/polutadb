@@ -646,6 +646,34 @@ export const videos: Video[] = [
     date: '2021/12/31',
     typeId: 5,
   },
+  {
+    // 92
+    id: '5EuqR0GavMk',
+    title: 'シネマ - 尾丸ポルカ(cover)',
+    date: '2022/01/23',
+    typeId: 0,
+  },
+  {
+    // 93
+    id: 'ztMF3mBnkFY',
+    title: 'お歌うたって誕生日をいっしょにお迎えしよう！！！！～当日のライブとかの話～【尾丸ポルカ/ホロライブ】',
+    date: '2022/01/29',
+    typeId: 5,
+  },
+  {
+    // 94
+    id: 'ywvR52V7HiI',
+    title: '【#尾丸ポルカ生誕祭】ポルカプロデュース!最強アイドルグループ3DLIVE!',
+    date: '2022/01/30',
+    typeId: 6,
+  },
+  {
+    // 95
+    id: 'mFLu8TKDsrk',
+    title: '【それが私たちのサガだから】徒花ネクロマンシー／COVER LIVE Ver.【ポルカプロデュース】',
+    date: '2022/02/04',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [
