@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -23,19 +23,19 @@ export default function KeyVisual() {
 }
 
 function PickUp() {
-  const settings = {
+  const settings: Settings = {
     dots: true,
     infinite: true,
-    centerMode: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
+    arrows: false,
   };
   return (
-    <div style={{ padding: '20px 0' }}>
+    <div style={{ paddingBottom: 20 }}>
       <Slider {...settings}>
         <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
         <PickUpThumbnail id='TGJ9-1LWFtE' singing={new Singing(0, 64, 0, 0)} />

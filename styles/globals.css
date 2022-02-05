@@ -39,15 +39,7 @@ div[class*='MuiFormControl-root jss'] {
 /* react-slickの上書き */
 .slick-slider {
   margin: 0 auto;
-  max-width: 1120px;
-}
-.slick-prev {
-  left: 15px !important;
-  z-index: 1 !important;
-}
-.slick-next {
-  right: 15px !important;
-  z-index: 1 !important;
+  max-width: 1000px;
 }
 
 /* フォント */
