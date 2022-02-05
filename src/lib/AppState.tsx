@@ -3,15 +3,11 @@ import { atom, useRecoilValue, useRecoilState } from 'recoil';
 
 interface AppState {
   favos: Map<number, boolean>;
-  displaynum: number;
-  displayMode: number;
   sortedBy: number;
 }
 
 const defaultState: AppState = {
   favos: new Map<number, boolean>(),
-  displaynum: 5,
-  displayMode: 0,
   sortedBy: 0,
 };
 
@@ -20,17 +16,11 @@ function getInitialState(): AppState {
 
   tmp = window.localStorage.getItem('favos');
   const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : defaultState.favos;
-  tmp = window.localStorage.getItem('displaynum');
-  const displaynum = tmp !== null ? Number(tmp) : defaultState.displaynum;
-  tmp = window.localStorage.getItem('displayMode');
-  const displayMode = tmp !== null ? Number(tmp) : defaultState.displayMode;
   tmp = window.localStorage.getItem('sortedBy');
   const sortedBy = tmp !== null ? Number(tmp) : defaultState.sortedBy;
 
   return {
     favos,
-    displaynum,
-    displayMode,
     sortedBy,
   };
 }
@@ -49,8 +39,6 @@ export function StatePersistence() {
 
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...state.favos]));
-    window.localStorage.setItem('displaynum', String(state.displaynum));
-    window.localStorage.setItem('displayMode', String(state.displayMode));
     window.localStorage.setItem('sortedBy', String(state.sortedBy));
   }, [state]);
 
