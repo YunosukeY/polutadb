@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 import SearchIcon from '@material-ui/icons/Search';
 import StarIcon from '@material-ui/icons/Star';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
@@ -18,9 +18,6 @@ export default function Menu() {
   return (
     <>
       <IconButton id='homeButton' color='inherit' onClick={goto('/')}>
-        <HomeIcon />
-      </IconButton>
-      <IconButton id='searchButton' color='inherit' onClick={goto('/search')}>
         <SearchIcon />
       </IconButton>
       <IconButton id='favosButton' color='inherit' onClick={goto('/favos')}>
@@ -31,6 +28,9 @@ export default function Menu() {
       </IconButton>
       <IconButton id='releasesButton' color='inherit' onClick={goto('/releases')}>
         <ImportContactsIcon />
+      </IconButton>
+      <IconButton id='releasesButton' color='inherit' onClick={goto('/about')}>
+        <InfoIcon />
       </IconButton>
     </>
   );

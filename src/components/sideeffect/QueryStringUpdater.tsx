@@ -16,7 +16,7 @@ const QueryStringUpdater: React.FC<QueryStringUpdaterProps> = ({ setPagenum }) =
     const q = new Query(watch);
     if (!q.equals(query)) {
       setPagenum(1);
-      router.push(`/search?${q}`, undefined, { scroll: false });
+      router.push(`/?${q}`, undefined, { scroll: false });
     }
   }, [watch]);
 
