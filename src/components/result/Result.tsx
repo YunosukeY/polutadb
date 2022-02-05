@@ -24,7 +24,7 @@ export default function Result(props: {
   return (
     <>
       <div ref={ref} />
-      <div style={{ textAlign: 'center', marginTop: 100, paddingBottom: 50 }}>
+      <div style={{ textAlign: 'center', marginTop: 50 }}>
         {props.isFavo ? <FavoHeader favonum={props.result.length} /> : <ResultHeader resultnum={props.result.length} />}
       </div>
       <ResultCards
