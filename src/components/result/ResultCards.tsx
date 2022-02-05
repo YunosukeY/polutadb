@@ -10,7 +10,7 @@ type ResultCardsProps = {
 
 const ResultCards: React.FC<ResultCardsProps> = ({ singings }) => {
   return (
-    <Grid container spacing={5} style={{ flexShrink: 1 }}>
+    <Grid container>
       {singings.map((singing, i) => (
         <ResultCard singing={singing} key={i} />
       ))}

@@ -26,7 +26,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
   const fontsize = 32;
 
   return (
-    <Grid item xs={12} md={6} xl={4}>
+    <Grid item xs={12} md={6} xl={4} style={{ padding: 20 }}>
       <Card>
         <PickUpThumbnail id={getVideoId(singing.videoId)} singing={singing} />
         <CardContent style={{ paddingBottom: 0 }}>
