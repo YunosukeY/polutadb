@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { useHover } from 'react-use';
+import { useHover, useWindowSize } from 'react-use';
 
 import Youtube from '../result/Youtube';
 import { Singing } from '../../data/interfaces';
 import { getUrl, getVideo } from '../../data/utils';
 import { Modal } from '@material-ui/core';
 import { useState } from 'react';
+import { useWidth } from '../../lib/useWidth';
 
 export default function PickUpThumbnail(props: { id: string; singing: Singing }) {
   const [open, setOpen] = useState(false);
@@ -49,21 +50,26 @@ export default function PickUpThumbnail(props: { id: string; singing: Singing })
 }
 
 function Window(props: { singing: Singing }) {
+  const size = useWidth();
+  const isFull = size === 'xs' || size === 'sm' || size === 'md';
+
+  const { width } = useWindowSize();
+
+  const iframeWidth = isFull ? width : width * 0.7;
+  const iframeHeight = (iframeWidth * 9) / 16;
+
   return (
     <div
-      id='simple-iframe-parent'
       style={{
         position: 'absolute',
-        backgroundColor: 'black',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
       }}
     >
       <iframe
-        id='simple-iframe'
-        width='1120'
-        height='630'
+        width={iframeWidth}
+        height={iframeHeight}
         src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${
           props.singing.start
         }&autoplay=1`}

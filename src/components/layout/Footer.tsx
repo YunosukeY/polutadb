@@ -11,7 +11,7 @@ const WhiteA = styled('a')({
 
 export default function Footer() {
   return (
-    <footer>
+    <footer style={{ backgroundColor: '#ef5350' }}>
       <Grid container justify='center'>
         <Grid item xs={10} sm={10} md={10} lg={9}>
           <div style={{ padding: '20pt 0', textAlign: 'right' }}>
