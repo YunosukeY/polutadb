@@ -23,7 +23,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
   const isFavo = useIsFavo();
   const toggleFavo = useToggleFavo();
 
-  const fontsize = 24;
+  const fontsize = 32;
 
   return (
     <Grid item xs={12} md={6} xl={4}>
