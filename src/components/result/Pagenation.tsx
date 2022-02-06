@@ -7,7 +7,7 @@ export default function Pagenation(props: { pagenum: number; setPagenum: (p: num
   };
 
   return (
-    <div style={{ textAlign: 'center', paddingTop: 10 }}>
+    <div style={{ textAlign: 'center', paddingTop: 40, paddingBottom: 40 }}>
       <Pagination
         count={props.lastPageNum}
         page={props.pagenum}
@@ -17,6 +17,7 @@ export default function Pagenation(props: { pagenum: number; setPagenum: (p: num
         hidePrevButton
         hideNextButton
         style={{ display: 'inline-block' }}
+        size='large'
       />
     </div>
   );

@@ -1,6 +1,6 @@
 describe('トップページ', () => {
   it('sentence', () => {
-    cy.visit('/');
+    cy.visit('/about');
     cy.contains('About');
     cy.contains(
       'PolutaDB（ぽるうたデータベース）では，ホロライブ所属の VTuber 尾丸ポルカさんの歌を検索することができます．',
@@ -18,25 +18,25 @@ describe('トップページ', () => {
   });
 
   it('カードでの遷移（検索）', () => {
-    cy.visit('/');
+    cy.visit('/about');
     cy.contains('Search').click();
-    cy.location('pathname').should('eq', '/search');
+    cy.location('pathname').should('eq', '/');
   });
 
   it('カードでの遷移（お気に入り）', () => {
-    cy.visit('/');
+    cy.visit('/about');
     cy.contains('Favorites').click();
     cy.location('pathname').should('eq', '/favos');
   });
 
   it('カードでの遷移（統計）', () => {
-    cy.visit('/');
+    cy.visit('/about');
     cy.contains('Statistics').click();
     cy.location('pathname').should('eq', '/stats');
   });
 
   it('カードでの遷移（リリースノート）', () => {
-    cy.visit('/');
+    cy.visit('/about');
     cy.contains('Release Notes').click();
     cy.location('pathname').should('eq', '/releases');
   });

@@ -86,3 +86,5 @@ export function getTypeId(videoId: number) {
 export function getVideo(videoId: number) {
   return videos[videoId].title;
 }
+
+export const getVideoId = (videoId: number) => videos[videoId].id;

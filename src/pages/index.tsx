@@ -1,26 +1,21 @@
-import * as React from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import StarIcon from '@material-ui/icons/Star';
-import DonutLargeIcon from '@material-ui/icons/DonutLarge';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import { useState } from 'react';
+import { useForm, FormProvider } from 'react-hook-form';
 
-import About from '../components/pane/About';
-import Card from '../components/top/Card';
+import QueryStringUpdater from '../components/sideeffect/QueryStringUpdater';
+import Select from '../components/pane/Select';
+import Result from '../components/pane/Result';
 
-export default function Top() {
-  const spacing = 2;
+export default function Home() {
+  const [pagenum, setPagenum] = useState(1);
+
+  const methods = useForm();
+
   return (
-    <>
-      <About />
-      <div style={{ paddingTop: 8, paddingBottom: 8 }}>
-        <Grid container spacing={spacing}>
-          <Card link='/search' title='Search' icon={SearchIcon} />
-          <Card link='/favos' title='Favorites' icon={StarIcon} />
-          <Card link='/stats' title='Statistics' icon={DonutLargeIcon} />
-          <Card link='/releases' title='Release Notes' icon={ImportContactsIcon} />
-        </Grid>
-      </div>
-    </>
+    <FormProvider {...methods}>
+      <QueryStringUpdater setPagenum={setPagenum} />
+      <Select />
+      <Result pagenum={pagenum} setPagenum={setPagenum} />
+    </FormProvider>
   );
 }
