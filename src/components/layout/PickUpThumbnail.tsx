@@ -49,7 +49,9 @@ export default function PickUpThumbnail(props: { id: string; singing: Singing })
   );
 }
 
-function Window(props: { singing: Singing }) {
+type WindowProps = { singing: Singing };
+// eslint-disable-next-line react/display-name
+const Window = React.forwardRef<HTMLDivElement, WindowProps>((props, ref) => {
   const size = useWidth();
   const isFull = size === 'xs' || size === 'sm' || size === 'md';
 
@@ -66,6 +68,7 @@ function Window(props: { singing: Singing }) {
         left: '50%',
         transform: 'translate(-50%, -50%)',
       }}
+      ref={ref}
     >
       <iframe
         width={iframeWidth}
@@ -80,4 +83,4 @@ function Window(props: { singing: Singing }) {
       />
     </div>
   );
-}
+});
