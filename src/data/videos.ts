@@ -674,6 +674,13 @@ export const videos: Video[] = [
     date: '2022/02/04',
     typeId: 6,
   },
+  {
+    // 96
+    id: 'NnKF8ZtR5Yg',
+    title: 'お披露目てからの雑談歌枠なんだよな #ねぽらぼ【尾丸ポルカ/ホロライブ】',
+    date: '2022/02/07',
+    typeId: 5,
+  },
 ];
 
 export const types: Type[] = [
