@@ -418,6 +418,10 @@ export const songs: Song[] = [
   /* 414 */ { title: 'You & Me', artistId: 156, genreId: 4 },
   /* 415 */ { title: 'アシタハアタシノカゼガフク', artistId: 220, genreId: 1 },
   /* 416 */ { title: 'ミルククラウン・オン・ソーネチカ', artistId: 221, genreId: 3 },
+  /* 417 */ { title: 'Mugen', artistId: 36, genreId: 4 },
+  /* 418 */ { title: 'ジョバイロ', artistId: 36, genreId: 4 },
+  /* 419 */ { title: '感電', artistId: 222, genreId: 4 },
+  /* 420 */ { title: 'アニマル', artistId: 3, genreId: 44 },
 ];
 
 export const genres: Genre[] = [

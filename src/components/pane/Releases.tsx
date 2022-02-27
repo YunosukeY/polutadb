@@ -73,6 +73,13 @@ const OldReleases: React.FC = ({ children }) => {
 
 const ReleaseArray: React.ReactNode[] = [
   <>
+    <Date date='2022/02/27' />
+    <AddData />
+    <AddVideo videoId={96} />
+    <AddVideo videoId={97} />
+    <AddVideo videoId={98} />
+  </>,
+  <>
     <Date date='2022/02/06' />
     <AddFeature />
     <Content content='サイトのレイアウトをリニューアルしました' />

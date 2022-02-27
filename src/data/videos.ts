@@ -681,6 +681,20 @@ export const videos: Video[] = [
     date: '2022/02/07',
     typeId: 5,
   },
+  {
+    // 97
+    id: 'tEBLqNN2e4M',
+    title: '【歌枠】SINGおうた歌枠ぽるうたSINGうたうたうた【尾丸ポルカ/ホロライブ】',
+    date: '2022/02/17',
+    typeId: 2,
+  },
+  {
+    // 98
+    id: 'fGnwsd9cM-4',
+    title: 'アニマル - 尾丸ポルカ(cover)',
+    date: '2022/02/22',
+    typeId: 0,
+  },
 ];
 
 export const types: Type[] = [
