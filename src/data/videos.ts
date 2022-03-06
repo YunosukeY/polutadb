@@ -695,6 +695,20 @@ export const videos: Video[] = [
     date: '2022/02/22',
     typeId: 0,
   },
+  {
+    // 99
+    id: 'czfjbNitJ4M',
+    title: '【 3DLIVE 】ねねが主役！！！！！ #桃鈴ねね誕生日2022【 桃鈴ねね / ホロライブ 】',
+    date: '2022/03/02',
+    typeId: 6,
+  },
+  {
+    // 100
+    id: 'Cv_2tjVo-p4',
+    title: '【 #さくらみこ生誕祭 】BIRTHDAY PARTY 🎂 4th Virtual3DLive !!【ホロライブ/さくらみこ】',
+    date: '2022/03/05',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [

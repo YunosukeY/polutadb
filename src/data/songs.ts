@@ -421,7 +421,7 @@ export const songs: Song[] = [
   /* 417 */ { title: 'Mugen', artistId: 36, genreId: 4 },
   /* 418 */ { title: 'ジョバイロ', artistId: 36, genreId: 4 },
   /* 419 */ { title: '感電', artistId: 222, genreId: 4 },
-  /* 420 */ { title: 'アニマル', artistId: 3, genreId: 44 },
+  /* 420 */ { title: 'アニマル', artistId: 3, genreId: 4 },
 ];
 
 export const genres: Genre[] = [
