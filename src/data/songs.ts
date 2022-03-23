@@ -422,6 +422,8 @@ export const songs: Song[] = [
   /* 418 */ { title: 'ジョバイロ', artistId: 36, genreId: 4 },
   /* 419 */ { title: '感電', artistId: 222, genreId: 4 },
   /* 420 */ { title: 'アニマル', artistId: 3, genreId: 4 },
+  /* 421 */ { title: '夢見る空へ', artistId: 124, genreId: 0 },
+  /* 422 */ { title: '桜ノ雨', artistId: 190, genreId: 3 },
 ];
 
 export const genres: Genre[] = [
