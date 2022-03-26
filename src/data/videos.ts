@@ -737,6 +737,13 @@ export const videos: Video[] = [
     date: '2022/03/23',
     typeId: 0,
   },
+  {
+    // 105
+    id: 'H9BxfFjajfY',
+    title: '【歌枠】SINGグォオオウグウウウグアア【尾丸ポルカ/ホロライブ】',
+    date: '2022/03/23',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
