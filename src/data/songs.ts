@@ -424,6 +424,8 @@ export const songs: Song[] = [
   /* 420 */ { title: 'アニマル', artistId: 3, genreId: 4 },
   /* 421 */ { title: '夢見る空へ', artistId: 124, genreId: 0 },
   /* 422 */ { title: '桜ノ雨', artistId: 190, genreId: 3 },
+  /* 423 */ { title: 'シーソーゲーム 〜勇敢な恋の歌〜', artistId: 223, genreId: 4 },
+  /* 424 */ { title: 'プリンセスでんぱパワー！シャインオン！', artistId: 122, genreId: 2 },
 ];
 
 export const genres: Genre[] = [

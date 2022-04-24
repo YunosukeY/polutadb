@@ -224,4 +224,5 @@ export const artists: Artist[] = [
   /* 220 */ { name: 'AiM' },
   /* 221 */ { name: 'ユジー' },
   /* 222 */ { name: '米津玄師' },
+  /* 223 */ { name: 'Mr.Children' },
 ];

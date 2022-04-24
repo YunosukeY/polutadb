@@ -744,6 +744,20 @@ export const videos: Video[] = [
     date: '2022/03/23',
     typeId: 2,
   },
+  {
+    // 106
+    id: 'A0btbJAHWVM',
+    title: '【採点】ビブラートを多く出せ！！震え声なら歌ウマVTuberに勝てる説！！【 尾丸ポルカ x ぽこピー 】',
+    date: '2022/03/31',
+    typeId: 5,
+  },
+  {
+    // 107
+    id: '7nMo7zfvjVs',
+    title: '【歌枠】SING 昼 それもいい【尾丸ポルカ/ホロライブ】',
+    date: '2022/04/12',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
@@ -753,5 +767,5 @@ export const types: Type[] = [
   /* 3 */ { name: 'オリジナル曲' },
   /* 4 */ { name: 'GB' },
   /* 5 */ { name: 'その他' },
-  /* 6 */ { name: '3D' },
+  /* 6 */ { name: '3Dライブ' },
 ];
