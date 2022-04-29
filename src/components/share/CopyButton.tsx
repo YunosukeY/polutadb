@@ -17,7 +17,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ target, iconSize }) => {
   return (
     <>
       <CopyToClipboard text={target}>
-        <IconButton onClick={handleClick}>
+        <IconButton onClick={handleClick} aria-label='Copy link'>
           <FileCopyIcon style={{ fontSize: iconSize }} />
         </IconButton>
       </CopyToClipboard>

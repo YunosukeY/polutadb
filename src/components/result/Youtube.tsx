@@ -21,7 +21,7 @@ export default function Youtube(props: { singing: Singing; fontsize: number; hov
             transform: 'translate(-50%,-50%)',
           }}
         />
-        <IconButton>
+        <IconButton aria-label='Play video'>
           <YouTubeIcon style={{ fontSize: props.fontsize, color: props.hovered ? hoveredColor : '#000' }} />
         </IconButton>
       </div>

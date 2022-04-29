@@ -26,6 +26,7 @@ export default function FullTextSearch() {
       }}
       fullWidth
       style={{ paddingTop: 16 }}
+      inputProps={{ 'aria-label': 'Full-text search' }}
     />
   );
 }
