@@ -758,6 +758,13 @@ export const videos: Video[] = [
     date: '2022/04/12',
     typeId: 2,
   },
+  {
+    // 108
+    id: 'vLGCYbnYhPg',
+    title: '【#マリン出航3DLIVE】ゲストとワイワイ！Marine Set Sail!! Concert!!【ホロライブ/宝鐘マリン】',
+    date: '2022/04/27',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [
