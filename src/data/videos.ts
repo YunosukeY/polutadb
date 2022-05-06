@@ -765,6 +765,27 @@ export const videos: Video[] = [
     date: '2022/04/27',
     typeId: 6,
   },
+  {
+    // 109
+    id: 'BfdLsTfFtyY',
+    title: 'キメラ - 尾丸ポルカ(cover)',
+    date: '2022/05/04',
+    typeId: 0,
+  },
+  {
+    // 110
+    id: '52ychNwwJ7Y',
+    title: 'INTERNET OVERDOSE - 尾丸ポルカ(cover)',
+    date: '2022/05/04',
+    typeId: 0,
+  },
+  {
+    // 111
+    id: 'upxoiTb3iPM',
+    title: '【晩酌歌】ポルカのお泊りチャレンジDay！🔥🎪【不知火フレア/ホロライブ】',
+    date: '2022/05/14',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [

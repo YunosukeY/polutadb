@@ -225,4 +225,7 @@ export const artists: Artist[] = [
   /* 221 */ { name: 'ユジー' },
   /* 222 */ { name: '米津玄師' },
   /* 223 */ { name: 'Mr.Children' },
+  /* 224 */ { name: 'Aiobahn feat. KOTOKO' },
+  /* 225 */ { name: 'ブリーフ&トランクス' },
+  /* 226 */ { name: '不知火フレア' },
 ];

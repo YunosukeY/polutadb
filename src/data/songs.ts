@@ -426,6 +426,10 @@ export const songs: Song[] = [
   /* 422 */ { title: '桜ノ雨', artistId: 190, genreId: 3 },
   /* 423 */ { title: 'シーソーゲーム 〜勇敢な恋の歌〜', artistId: 223, genreId: 4 },
   /* 424 */ { title: 'プリンセスでんぱパワー！シャインオン！', artistId: 122, genreId: 2 },
+  /* 425 */ { title: 'キメラ', artistId: 44, genreId: 3 },
+  /* 426 */ { title: 'INTERNET OVERDOSE', artistId: 224, genreId: 5 },
+  /* 427 */ { title: '青のり', artistId: 225, genreId: 4 },
+  /* 428 */ { title: 'Smile & Go!!', artistId: 226, genreId: 0 },
 ];
 
 export const genres: Genre[] = [
