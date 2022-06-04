@@ -228,4 +228,10 @@ export const artists: Artist[] = [
   /* 224 */ { name: 'Aiobahn feat. KOTOKO' },
   /* 225 */ { name: 'ブリーフ&トランクス' },
   /* 226 */ { name: '不知火フレア' },
+  /* 227 */ { name: 'ICHIKO' },
+  /* 228 */ { name: '川田まみ' },
+  /* 229 */ { name: 'MOSAIC.WAV' },
+  /* 230 */ { name: '倉橋ヨエコ' },
+  /* 231 */ { name: 'ORESAMA' },
+  /* 232 */ { name: '麻帆良学園中等部2-A' },
 ];

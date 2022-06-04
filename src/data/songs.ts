@@ -430,6 +430,14 @@ export const songs: Song[] = [
   /* 426 */ { title: 'INTERNET OVERDOSE', artistId: 224, genreId: 5 },
   /* 427 */ { title: '青のり', artistId: 225, genreId: 4 },
   /* 428 */ { title: 'Smile & Go!!', artistId: 226, genreId: 0 },
+  /* 429 */ { title: 'I SAY YES', artistId: 227, genreId: 1 },
+  /* 430 */ { title: 'JOINT', artistId: 228, genreId: 1 },
+  /* 431 */ { title: '最強○×計画', artistId: 229, genreId: 1 },
+  /* 432 */ { title: '楯', artistId: 230, genreId: 4 },
+  /* 433 */ { title: '卵とじ', artistId: 230, genreId: 4 },
+  /* 434 */ { title: 'ワンダードライブ', artistId: 231, genreId: 1 },
+  /* 435 */ { title: 'ハッピー☆マテリアル', artistId: 232, genreId: 1 },
+  /* 436 */ { title: '桜の時', artistId: 14, genreId: 4 },
 ];
 
 export const genres: Genre[] = [

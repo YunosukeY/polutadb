@@ -73,6 +73,11 @@ const OldReleases: React.FC = ({ children }) => {
 
 const ReleaseArray: React.ReactNode[] = [
   <>
+    <Date date='2022/06/04' />
+    <AddData />
+    <AddVideo videoId={112} />
+  </>,
+  <>
     <Date date='2022/05/21' />
     <AddData />
     <AddVideo videoId={109} />

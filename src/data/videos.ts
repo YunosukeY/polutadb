@@ -786,6 +786,21 @@ export const videos: Video[] = [
     date: '2022/05/14',
     typeId: 2,
   },
+  {
+    // 112
+    id: '2wydnX4tlSo',
+    title: '【歌枠】ちょっとだけし～んぐ🎶よく眠れますように【尾丸ポルカ/ホロライブ】',
+    date: '2022/05/24',
+    typeId: 2,
+  },
+  {
+    // 113
+    id: 'SqmvW1KGkIQ',
+    title:
+      '【歌枠】ASAKARAOKE no KEI [ 朝からカラオケの刑 ]～feat.本当にすまないとおもっている～【尾丸ポルカ/ホロライブ】',
+    date: '2022/06/03',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
