@@ -42,7 +42,7 @@ function setChart() {
 }
 
 function calcArtistStats() {
-  const border = 9;
+  const border = 12;
 
   const data: { [index: string]: number } = {};
   artists.forEach((artist) => (data[artist.name] = 0));
