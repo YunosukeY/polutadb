@@ -35,6 +35,9 @@ div[class*='MuiFormControl-root jss'] {
 .MuiPaginationItem-textPrimary.Mui-selected {
   background-color: var(--sub-theme-color) !important;
 }
+.MuiChip-colorPrimary {
+  background-color: var(--sub-theme-color) !important;
+}
 
 /* react-slickの上書き */
 .slick-slider {

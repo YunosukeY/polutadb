@@ -7,7 +7,7 @@ import { getArtist, getSong, getVideoId } from '../../data/utils';
 import { Singing } from '../../data/interfaces';
 import { useIsFavo, useToggleFavo } from '../../lib/AppState';
 import ShareModal from '../share/ShareModal';
-import { Card, CardActions, CardContent } from '@material-ui/core';
+import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
 import PickUpThumbnail from '../layout/PickUpThumbnail';
 
 const SupplementalInfo = styled('div')({
@@ -30,15 +30,28 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
       <Card>
         <PickUpThumbnail id={getVideoId(singing.videoId)} singing={singing} />
         <CardContent style={{ paddingBottom: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', height: 120 }}>
-            <h5 style={{ textAlign: 'center', margin: 0 }}>
-              『{getSong(singing.songId)}』<br />
-              {getArtist(singing.songId)} <br />
-              {singing.withInst === 1 && <SupplementalInfo>アカペラ</SupplementalInfo>}
-              {singing.withInst === 2 && <SupplementalInfo>演奏</SupplementalInfo>}
-              {singing.full === false && <SupplementalInfo>ワンコーラス</SupplementalInfo>}
-            </h5>
-          </div>
+          <Grid
+            container
+            direction='column'
+            justify='center'
+            alignItems='center'
+            style={{ minHeight: 120, maxHeight: 160 }}
+          >
+            <Grid item>
+              <h5 style={{ textAlign: 'center', margin: 0 }}>
+                『{getSong(singing.songId)}』<br />
+                {getArtist(singing.songId)} <br />
+                {singing.withInst === 1 && <SupplementalInfo>アカペラ</SupplementalInfo>}
+                {singing.withInst === 2 && <SupplementalInfo>演奏</SupplementalInfo>}
+                {singing.full === false && <SupplementalInfo>ワンコーラス</SupplementalInfo>}
+              </h5>
+            </Grid>
+            {singing.time == 1 && (
+              <Grid item>
+                <Chip color='primary' label='First Time!' />
+              </Grid>
+            )}
+          </Grid>
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
           <Star isFavo={isFavo(singing.id)} onClick={() => toggleFavo(singing.id)} fontsize={fontsize} />
