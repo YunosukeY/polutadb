@@ -801,6 +801,14 @@ export const videos: Video[] = [
     date: '2022/06/03',
     typeId: 2,
   },
+  {
+    // 114
+    id: '6-2nAu8EycQ',
+    title:
+      '【3D LIVE映像】MOON PRIDE【夜空メル×アキ・ローゼンタール×角巻わため×尾丸ポルカ】美少女戦士セーラームーンCrystal OPテーマ',
+    date: '2022/06/05',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [
