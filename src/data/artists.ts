@@ -234,4 +234,5 @@ export const artists: Artist[] = [
   /* 230 */ { name: '倉橋ヨエコ' },
   /* 231 */ { name: 'ORESAMA' },
   /* 232 */ { name: '麻帆良学園中等部2-A' },
+  /* 233 */ { name: 'てにをは' },
 ];

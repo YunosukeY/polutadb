@@ -809,6 +809,34 @@ export const videos: Video[] = [
     date: '2022/06/05',
     typeId: 6,
   },
+  {
+    // 115
+    id: 'Evoexs-ocNM',
+    title: '【#角巻わため超絶生誕祭2022】角巻わため Special Hyper Birthday 3DLive！🎉【角巻わため/ホロライブ４期生】',
+    date: '2022/06/06',
+    typeId: 6,
+  },
+  {
+    // 116
+    id: '7-kPeaRQKsg',
+    title: '【MOSAIC.WAV】SPACE! WAVE! AKIBA-POP!! / AZKi × 尾丸ポルカ (Cover)',
+    date: '2022/06/14',
+    typeId: 0,
+  },
+  {
+    // 117
+    id: 'Iw0FJmgwdPQ',
+    title: 'Empress - 尾丸ポルカ(cover)',
+    date: '2022/06/16',
+    typeId: 0,
+  },
+  {
+    // 118
+    id: 'KXi0woPvFrs',
+    title: '【歌枠/KARAOKE】ゆったりたっぷりの～んびり【尾丸ポルカ/ホロライブ】',
+    date: '2022/06/29',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [

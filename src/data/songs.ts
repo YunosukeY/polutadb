@@ -439,6 +439,9 @@ export const songs: Song[] = [
   /* 435 */ { title: 'ハッピー☆マテリアル', artistId: 232, genreId: 1 },
   /* 436 */ { title: '桜の時', artistId: 14, genreId: 4 },
   /* 437 */ { title: 'MOON PRIDE', artistId: 81, genreId: 1 },
+  /* 438 */ { title: '群青', artistId: 144, genreId: 4 },
+  /* 439 */ { title: 'SPACE! WAVE! AKIBA-POP!!', artistId: 229, genreId: 4 },
+  /* 440 */ { title: 'Empress', artistId: 233, genreId: 3 },
 ];
 
 export const genres: Genre[] = [
