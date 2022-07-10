@@ -837,6 +837,13 @@ export const videos: Video[] = [
     date: '2022/06/29',
     typeId: 2,
   },
+  {
+    // 119
+    id: '_J_HNeAXM6w',
+    title: 'ペルソナ',
+    date: '2022/01/30',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [
