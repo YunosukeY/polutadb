@@ -844,6 +844,13 @@ export const videos: Video[] = [
     date: '2022/01/30',
     typeId: 3,
   },
+  {
+    // 120
+    id: 'Di8D8BvZZp0',
+    title: '【#兎田ぺこら３周年 / 3DLIVE】Chu! Summer Party♪【ホロライブ】',
+    date: '2022/07/17',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [

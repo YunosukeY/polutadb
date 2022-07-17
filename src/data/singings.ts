@@ -1151,4 +1151,5 @@ export const singings: Singing[] = [
   new Singing(Iota.get(), 118, 119, 5516),
   new Singing(Iota.get(), 118, 322, 5828),
   new Singing(Iota.get(), 119, 441, 0),
+  new Singing(Iota.get(), 120, 95, 1514),
 ];
