@@ -443,6 +443,9 @@ export const songs: Song[] = [
   /* 439 */ { title: 'SPACE! WAVE! AKIBA-POP!!', artistId: 229, genreId: 4 },
   /* 440 */ { title: 'Empress', artistId: 233, genreId: 3 },
   /* 441 */ { title: 'ペルソナ', artistId: 0, genreId: 0 },
+  /* 442 */ { title: 'ベノム', artistId: 234, genreId: 3 },
+  /* 443 */ { title: 'Share The World', artistId: 235, genreId: 1 },
+  /* 444 */ { title: '光るなら', artistId: 236, genreId: 1 },
 ];
 
 export const genres: Genre[] = [

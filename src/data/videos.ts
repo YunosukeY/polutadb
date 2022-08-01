@@ -851,6 +851,35 @@ export const videos: Video[] = [
     date: '2022/07/17',
     typeId: 6,
   },
+  {
+    // 121
+    id: 'oFn0ZypcaM8',
+    title: '【#夏色ReSTART】BIRTHDAY 3DLIVE🎂~今日はまつりが主役~【ホロライブ/夏色まつり】',
+    date: '2022/07/22',
+    typeId: 6,
+  },
+  {
+    // 122
+    id: '8aWNe_3W3k0',
+    title: '【KARAOKE&TALK】すこしげんきなぽるかちゃん～～【尾丸ポルカ/ホロライブ】',
+    date: '2022/07/30',
+    typeId: 2,
+  },
+  {
+    // 123
+    id: '1CSuzzpl3Cc',
+    title:
+      '【100万人目指せ/1M SUBS!?!?】歌って迎えたい！！耐久！？挑んでやるぞ！！！まってろ！！！いま行く！！！！【尾丸ポルカ/ホロライブ】',
+    date: '2022/07/31',
+    typeId: 2,
+  },
+  {
+    // 124
+    id: 'aelRhCHNP0s',
+    title: '【 #さくらみこ4周年 】ゲストあり！Baby Dance Live 🎉4th Anniversary 3D LIVE【ホロライブ/さくらみこ】',
+    date: '2022/08/01',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [
