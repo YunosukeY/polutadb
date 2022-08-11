@@ -446,6 +446,7 @@ export const songs: Song[] = [
   /* 442 */ { title: 'ベノム', artistId: 234, genreId: 3 },
   /* 443 */ { title: 'Share The World', artistId: 235, genreId: 1 },
   /* 444 */ { title: '光るなら', artistId: 236, genreId: 1 },
+  /* 445 */ { title: '星空の下で', artistId: 237, genreId: 4 },
 ];
 
 export const genres: Genre[] = [

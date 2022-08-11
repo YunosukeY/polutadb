@@ -238,4 +238,5 @@ export const artists: Artist[] = [
   /* 234 */ { name: 'かいりきベア' },
   /* 235 */ { name: '東方神起' },
   /* 236 */ { name: 'Goose house' },
+  /* 237 */ { name: 'SHAKALABBITS' },
 ];

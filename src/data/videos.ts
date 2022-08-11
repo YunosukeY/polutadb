@@ -880,6 +880,13 @@ export const videos: Video[] = [
     date: '2022/08/01',
     typeId: 6,
   },
+  {
+    // 125
+    id: 'hwE2yMCafg4',
+    title: '【突然の歌】急に歌うよ～【尾丸ポルカ/ホロライブ】',
+    date: '2022/08/11',
+    typeId: 2,
+  },
 ];
 
 export const types: Type[] = [
