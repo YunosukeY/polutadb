@@ -447,6 +447,11 @@ export const songs: Song[] = [
   /* 443 */ { title: 'Share The World', artistId: 235, genreId: 1 },
   /* 444 */ { title: '光るなら', artistId: 236, genreId: 1 },
   /* 445 */ { title: '星空の下で', artistId: 237, genreId: 4 },
+  /* 446 */ { title: 'グランドエスケープ', artistId: 238, genreId: 1 },
+  /* 447 */ { title: 'サイキョウチックポルカ', artistId: 0, genreId: 0 },
+  /* 448 */ { title: '屋根裏のエピローグ', artistId: 0, genreId: 0 },
+  /* 449 */ { title: '飛んでK！ホロライブサマー', artistId: 124, genreId: 0 },
+  /* 450 */ { title: '怪物', artistId: 144, genreId: 1 },
 ];
 
 export const genres: Genre[] = [

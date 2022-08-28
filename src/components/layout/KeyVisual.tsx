@@ -42,6 +42,9 @@ function PickUp() {
         <PickUpThumbnail id='vbhgQ_C_jaM' singing={new Singing(0, 70, 0, 0)} />
         <PickUpThumbnail id='kdYAZZ5SOFk' singing={new Singing(0, 79, 0, 0)} />
         <PickUpThumbnail id='_J_HNeAXM6w' singing={new Singing(0, 119, 0, 0)} />
+        <PickUpThumbnail id='0bo6MVQxY6Y' singing={new Singing(0, 128, 0, 0)} />
+        <PickUpThumbnail id='zHD5MCUezVo' singing={new Singing(0, 129, 0, 0)} />
+        <PickUpThumbnail id='uefGU_oOCdk' singing={new Singing(0, 130, 0, 0)} />
       </Slider>
     </div>
   );

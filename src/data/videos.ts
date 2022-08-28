@@ -887,6 +887,63 @@ export const videos: Video[] = [
     date: '2022/08/11',
     typeId: 2,
   },
+  {
+    // 126
+    id: 'VsYtOSHzXHA',
+    title: '【3DLIVE】今年もアイドル💓獅白ぼたん2周年！2nd Anniversary Live【#獅白ぼたん2周年】',
+    date: '2022/08/14',
+    typeId: 6,
+  },
+  {
+    // 127
+    id: 'jEaTxwIKamw',
+    title: '舞台 「尾丸ポルカ」～あゝ素晴らしきアイドル人生かな～【#尾丸ポルカ2周年】',
+    date: '2022/08/16',
+    typeId: 6,
+  },
+  {
+    // 128
+    id: '0bo6MVQxY6Y',
+    title: '【オリジナル楽曲】サイキョウチックポルカ【尾丸ポルカ】',
+    date: '2022/08/16',
+    typeId: 3,
+  },
+  {
+    // 129
+    id: 'zHD5MCUezVo',
+    title: '【ホロライブ・サマー2022 MV第1弾】『飛んでK！ホロライブサマー』ショートMV【ホロライブ】',
+    date: '2022/08/18',
+    typeId: 3,
+  },
+  {
+    // 130
+    id: 'uefGU_oOCdk',
+    title: '【オリジナル楽曲】屋根裏のエピローグ【尾丸ポルカ】',
+    date: '2022/08/23',
+    typeId: 3,
+  },
+  {
+    // 131
+    id: 'YFnkzhUyz18',
+    title:
+      'YOASOBI「怪物」/スターアニマル (ときのそら・星街すいせい・大空スバル・尾丸ポルカ・博衣こより・沙花叉クロヱ) cover',
+    date: '2022/08/24',
+    typeId: 0,
+  },
+  {
+    // 132
+    id: 'i5HvPZqVCXU',
+    title: '踊 / Ado Covered by Kotone（天神子兎音）＆ 尾丸ポルカ',
+    date: '2022/08/26',
+    typeId: 0,
+  },
+  {
+    // 133
+    id: 'UtSY7tOqr4k',
+    title: '【#白銀ノエル3周年記念】ゲストあり！！最高の夏の思い出LIVE🍉✨【白銀ノエル/ホロライブ】',
+    date: '2022/08/27',
+    typeId: 6,
+  },
 ];
 
 export const types: Type[] = [
