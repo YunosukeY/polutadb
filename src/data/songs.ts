@@ -452,6 +452,10 @@ export const songs: Song[] = [
   /* 448 */ { title: '屋根裏のエピローグ', artistId: 0, genreId: 0 },
   /* 449 */ { title: '飛んでK！ホロライブサマー', artistId: 124, genreId: 0 },
   /* 450 */ { title: '怪物', artistId: 144, genreId: 1 },
+  /* 451 */ { title: 'ここでキスして。', artistId: 65, genreId: 4 },
+  /* 452 */ { title: 'ダーリンダンス', artistId: 234, genreId: 3 },
+  /* 453 */ { title: '脱法ロック', artistId: 133, genreId: 3 },
+  /* 454 */ { title: 'ホロメン音頭', artistId: 124, genreId: 0 },
 ];
 
 export const genres: Genre[] = [

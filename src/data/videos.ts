@@ -944,6 +944,55 @@ export const videos: Video[] = [
     date: '2022/08/27',
     typeId: 6,
   },
+  {
+    // 134
+    id: 'zQuFRSi5ebc',
+    title: '【#皆で観ようホロサマライブ / 3DLIVE】水着と浴衣で夏の最後を！Climax Story Live【ホロライブJP35名】',
+    date: '2022/08/31',
+    typeId: 6,
+  },
+  {
+    // 135
+    id: 'vQOPE6kHeoU',
+    title: '【ホロライブ・サマー2022 MV第4弾】ホロライブJP35名で踊る『Shiny Smily Story (2022 ver.)』ショートMV',
+    date: '2022/08/31',
+    typeId: 3,
+  },
+  {
+    // 136
+    id: 'mwJGZ8YU7o4',
+    title: '【＃百鬼あやめ４周年記念 / 3DLIVE】Nakiriayame 4th anniversary　~Hapiness to you ♡~',
+    date: '2022/09/03',
+    typeId: 6,
+  },
+  {
+    // 137
+    id: 'Mr5Deaqg60s',
+    title: '【歌枠/Singing】ゆるいうた【尾丸ポルカ/ホロライブ】',
+    date: '2022/09/04',
+    typeId: 2,
+  },
+  {
+    // 138
+    id: 'zkXvWvTX_BE',
+    title: '【#つながるホロライブDAY1】hololive 3rd fes. Link Your Wish【チラ見せ】',
+    date: '2022/03/19',
+    typeId: 6,
+  },
+  {
+    // 139
+    id: 'DJWD3JPDVDk',
+    title: '【重大告知あり】夏バテに効く情報持ってきました【#つながるホロライブ】',
+    date: '2022/07/31',
+    typeId: 6,
+  },
+  {
+    // 140
+    id: 's_uiT5C8BjQ',
+    title: '【ホロライブ・サマー2022 MV第2弾】『ホロメン音頭』【みんなで踊ろうYAGOO Ver.】',
+    date: '2022/08/21',
+    typeId: 3,
+  },
 ];
 
 export const types: Type[] = [
