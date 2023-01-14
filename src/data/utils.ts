@@ -64,8 +64,8 @@ export function getSong(songId: number) {
   return songs[songId].title;
 }
 
-export function getTypeId(videoId: number) {
-  return videos[videoId].typeId;
+export function getType(videoId: number) {
+  return videos[videoId].type;
 }
 
 export function getVideo(videoId: number) {

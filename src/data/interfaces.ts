@@ -6,7 +6,7 @@ export interface Video {
   id: string;
   title: string;
   date: string;
-  typeId: number;
+  type: string;
 }
 
 export interface Type {

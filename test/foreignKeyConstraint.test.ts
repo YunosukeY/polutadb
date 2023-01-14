@@ -13,8 +13,8 @@ describe('外部キー代わりの添字が範囲内か', () => {
 
   test('タイプ->動画', () => {
     for (const video of videos) {
-      expect(video.typeId).toBeGreaterThanOrEqual(0);
-      expect(video.typeId).toBeLessThan(types.length);
+      expect(video.type).toBeGreaterThanOrEqual(0);
+      expect(video.type).toBeLessThan(types.length);
     }
   });
 
