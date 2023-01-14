@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { styled } from '@material-ui/core/styles';
 
 import Star from './Star';
 import { getArtist, getSong, getVideoId } from '../../data/utils';
@@ -9,11 +8,6 @@ import { useIsFavo, useToggleFavo } from '../../lib/AppState';
 import ShareModal from '../share/ShareModal';
 import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
 import PickUpThumbnail from '../layout/PickUpThumbnail';
-
-const SupplementalInfo = styled('div')({
-  fontSize: '15px',
-  marginBottom: '-5px',
-});
 
 type ResultCardProps = {
   singing: Singing;
@@ -41,9 +35,6 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
               <h5 style={{ textAlign: 'center', margin: 0 }}>
                 『{getSong(singing.songId)}』<br />
                 {getArtist(singing.songId)} <br />
-                {singing.withInst === 1 && <SupplementalInfo>アカペラ</SupplementalInfo>}
-                {singing.withInst === 2 && <SupplementalInfo>演奏</SupplementalInfo>}
-                {singing.full === false && <SupplementalInfo>ワンコーラス</SupplementalInfo>}
               </h5>
             </Grid>
             {singing.time == 1 && (

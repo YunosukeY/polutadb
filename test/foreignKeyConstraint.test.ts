@@ -1,16 +1,9 @@
-import { songs, genres } from '../src/data/songs';
+import { songs } from '../src/data/songs';
 import { artists } from '../src/data/artists';
 import { singings } from '../src/data/singings';
 import { videos, types } from '../src/data/videos';
 
 describe('外部キー代わりの添字が範囲内か', () => {
-  test('ジャンル->曲', () => {
-    for (const song of songs) {
-      expect(song.genreId).toBeGreaterThanOrEqual(0);
-      expect(song.genreId).toBeLessThan(genres.length);
-    }
-  });
-
   test('アーティスト->曲', () => {
     for (const song of songs) {
       expect(song.artistId).toBeGreaterThanOrEqual(-1); // アーティストが空のものがある
