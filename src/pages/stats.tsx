@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import * as React from 'react';
+import { useEffect } from 'react';
 
 import ArtistStats from '../components/pane/ArtistStats';
 import SongStats from '../components/pane/SongStats';
@@ -9,7 +10,9 @@ import { useInit } from '../lib/AppState';
 
 const Stats: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();
-  if (!isInit) init(data);
+  useEffect(() => {
+    if (!isInit) init(data);
+  }, []);
 
   return (
     <>

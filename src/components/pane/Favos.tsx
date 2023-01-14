@@ -1,26 +1,24 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import Result from '../result/Result';
 import { Singing } from '../../data/interfaces';
-import { singingsState, useIsFavo } from '../../lib/AppState';
+import { appState, singingsState, useIsFavo } from '../../lib/AppState';
 import { useDisplayNum } from '../../lib/useWidth';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 export default function Favos() {
-  const [pagenum, setPagenum] = useState(1);
+  const [state, setState] = useRecoilState(appState);
   const favoList = getFavoList();
-
   const displaynum = useDisplayNum();
 
   useEffect(() => {
-    // FIXME
-    if (favoList.length === (pagenum - 1) * displaynum) {
-      setPagenum(pagenum - 1);
+    if (favoList.length !== 0 && favoList.length === (state.pagenum - 1) * displaynum) {
+      setState((s) => ({ ...s, pagenum: state.pagenum - 1 }));
     }
   });
 
-  return <Result result={favoList} pagenum={pagenum} setPagenum={setPagenum} isFavo={true} />;
+  return <Result result={favoList} isFavo={true} />;
 }
 
 function getFavoList() {

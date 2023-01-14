@@ -1,4 +1,5 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useRouter } from 'next/router';
 
 import { Query } from '../../lib/query';
 
@@ -13,3 +14,13 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
+
+export const useOnChange = (onChange: (...e: any[]) => void, qUpdater: (q: Query, value: any) => void) => {
+  const router = useRouter();
+  const query = new Query(router.query);
+  return (value: any) => {
+    onChange(value);
+    qUpdater(query, value);
+    router.push(`/?${query}`, undefined, { scroll: false });
+  };
+};

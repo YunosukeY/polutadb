@@ -1,28 +1,27 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
-import QueryStringUpdater from '../components/sideeffect/QueryStringUpdater';
 import Select from '../components/pane/Select';
 import Result from '../components/pane/Result';
 import { Data } from '../data/interfaces';
 import { data } from '../data/data';
 import { NextPage } from 'next';
 import { useInit } from '../lib/AppState';
+import FormUpdater from '../components/sideeffect/FormUpdater';
 
 const Home: NextPage<Data> = (data) => {
-  const [pagenum, setPagenum] = useState(1);
-
   const methods = useForm();
 
   const [isInit, init] = useInit();
-  if (!isInit) init(data);
+  useEffect(() => {
+    if (!isInit) init(data);
+  }, []);
 
   return (
     <FormProvider {...methods}>
-      <QueryStringUpdater setPagenum={setPagenum} />
+      <FormUpdater />
       <Select />
-      <Result pagenum={pagenum} setPagenum={setPagenum} />
+      <Result />
     </FormProvider>
   );
 };

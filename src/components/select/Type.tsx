@@ -1,36 +1,38 @@
 import * as React from 'react';
 import { useFormContext, useController } from 'react-hook-form';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
-import { useStyles } from './utils';
+import { useOnChange, useStyles } from './utils';
 import { useTypes } from '../../data/utils';
+import { Autocomplete } from '@material-ui/lab';
+import { TextField } from '@material-ui/core';
 
 export default function Type() {
   const classes = useStyles();
 
   const { control } = useFormContext();
   const {
-    field: { ref, ...inputProps },
+    field: { onChange, value, ...inputProps },
   } = useController({
     name: 'type',
     control,
+    defaultValue: -1,
   });
 
-  const types = useTypes().map((type) => (
-    <MenuItem value={type.i} key={type.i}>
-      {type.name}
-    </MenuItem>
-  ));
+  const onChangeType = useOnChange(onChange, (q, v) => (q.type = v));
+
+  const types = useTypes();
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>動画のタイプ</InputLabel>
-      <Select inputRef={ref} {...inputProps} defaultValue=''>
-        <MenuItem value={-1}>-</MenuItem>
-        {types}
-      </Select>
+      <Autocomplete
+        options={types}
+        onChange={(e, v) => onChangeType(v == null ? -1 : v.i)}
+        {...inputProps}
+        value={value === -1 ? { name: '', i: -1 } : types.find((v) => v.i === value)}
+        getOptionSelected={(option) => option.i == value}
+        getOptionLabel={(option) => option.name}
+        renderInput={(params) => <TextField {...params} label='動画のタイプ' />}
+      />
     </FormControl>
   );
 }
