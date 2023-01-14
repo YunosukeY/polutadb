@@ -20,15 +20,15 @@ describe('外部キー代わりの添字が範囲内か', () => {
 
   test('曲->歌', () => {
     for (const singing of singings) {
-      expect(singing.songId).toBeGreaterThanOrEqual(0);
-      expect(singing.songId).toBeLessThan(songs.length);
+      expect(singing.song).toBeGreaterThanOrEqual(0);
+      expect(singing.song).toBeLessThan(songs.length);
     }
   });
 
   test('動画->歌', () => {
     for (const singing of singings) {
-      expect(singing.videoId).toBeGreaterThanOrEqual(0);
-      expect(singing.videoId).toBeLessThan(videos.length);
+      expect(singing.video).toBeGreaterThanOrEqual(0);
+      expect(singing.video).toBeLessThan(videos.length);
     }
   });
 });

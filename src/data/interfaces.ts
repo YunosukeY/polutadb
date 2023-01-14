@@ -20,21 +20,21 @@ export interface Song {
 
 export class Singing {
   id: number;
-  videoId: number;
-  songId: number;
+  video: string;
+  song: string;
   start: number;
   time: number; // 何回目か
 
-  static counter = new Map<number, number>();
+  static counter = new Map<string, number>();
 
-  constructor(id: number, videoId: number, songId: number, start: number) {
+  constructor(id: number, video: string, song: string, start: number) {
     this.id = id;
-    this.videoId = videoId;
-    this.songId = songId;
+    this.video = video;
+    this.song = song;
     this.start = start;
 
-    const oldCount = Singing.counter.get(songId) ?? 0;
+    const oldCount = Singing.counter.get(song) ?? 0;
     this.time = oldCount + 1;
-    Singing.counter.set(songId, oldCount + 1);
+    Singing.counter.set(song, oldCount + 1);
   }
 }

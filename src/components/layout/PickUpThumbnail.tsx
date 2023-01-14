@@ -3,7 +3,7 @@ import { useHover, useWindowSize } from 'react-use';
 
 import Youtube from '../result/Youtube';
 import { Singing } from '../../data/interfaces';
-import { getUrl, getVideo } from '../../data/utils';
+import { getUrl } from '../../data/utils';
 import { Modal } from '@material-ui/core';
 import { useState } from 'react';
 import { useWidth } from '../../lib/useWidth';
@@ -29,7 +29,7 @@ export default function PickUpThumbnail(props: { id: string; singing: Singing })
           <img
             src={`https://img.youtube.com/vi/${props.id}/maxresdefault.jpg`}
             style={{ width: '100%' }}
-            alt={getVideo(props.singing.videoId)}
+            alt={props.singing.video}
           />
         </div>
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
@@ -73,13 +73,13 @@ const Window = React.forwardRef<HTMLDivElement, WindowProps>((props, ref) => {
       <iframe
         width={iframeWidth}
         height={iframeHeight}
-        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.videoId)}?start=${
+        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.video)}?start=${
           props.singing.start
         }&autoplay=1`}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
-        title={getVideo(props.singing.videoId)}
+        title={props.singing.video}
       />
     </div>
   );
