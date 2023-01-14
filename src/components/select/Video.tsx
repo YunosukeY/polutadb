@@ -1,39 +1,38 @@
 import * as React from 'react';
 import { useFormContext, useController } from 'react-hook-form';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
 import { useOnChange, useStyles } from './utils';
 import { useVideos } from '../../data/utils';
+import { Autocomplete } from '@material-ui/lab';
+import { TextField } from '@material-ui/core';
 
 export default function Video() {
   const classes = useStyles();
 
   const { control } = useFormContext();
   const {
-    field: { ref, ...inputProps },
+    field: { onChange, value, ...inputProps },
   } = useController({
     name: 'video',
     control,
     defaultValue: -1,
   });
 
-  const onChange = useOnChange(inputProps.onChange, (q, v) => (q.video = v));
+  const onChangeVideo = useOnChange(onChange, (q, v) => (q.video = v));
 
-  const videos = useVideos().map((video) => (
-    <MenuItem value={video.i} key={video.i}>
-      {video.date}: {video.title}
-    </MenuItem>
-  ));
+  const videos = useVideos();
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel>動画</InputLabel>
-      <Select inputRef={ref} {...inputProps} defaultValue='' onChange={(e) => onChange(e.target.value)}>
-        <MenuItem value={-1}>-</MenuItem>
-        {videos}
-      </Select>
+      <Autocomplete
+        options={videos}
+        onChange={(e, v) => onChangeVideo(v == null ? -1 : v.i)}
+        {...inputProps}
+        value={value === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === value)}
+        getOptionSelected={(option) => option.i == value}
+        getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}
+        renderInput={(params) => <TextField {...params} label='動画' />}
+      />
     </FormControl>
   );
 }
