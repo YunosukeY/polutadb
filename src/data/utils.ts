@@ -58,13 +58,13 @@ export const useUrl = (video: string) => {
   const videos = useRecoilValue(videosState);
   return videos?.find((v) => v.title === video)?.id;
 };
-export const useArtist = (song: string) => {
+export const useGetArtist = () => {
   const songs = useRecoilValue(songsState);
-  return songs?.find((s) => s.title === song)?.artist ?? '';
+  return (song: string) => songs?.find((s) => s.title === song)?.artist ?? '';
 };
-export const useType = (video: string) => {
+export const useGetType = () => {
   const videos = useRecoilValue(videosState);
-  return videos?.find((v) => v.title === video)?.type;
+  return (video: string) => videos?.find((v) => v.title === video)?.type;
 };
 export const useVideo = (videoId: number) => {
   const videos = useRecoilValue(videosState);
