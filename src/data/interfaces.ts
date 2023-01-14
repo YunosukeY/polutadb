@@ -22,12 +22,12 @@ export class Singing {
   id: number;
   video: string;
   song: string;
-  start: number;
+  start: string;
   time: number; // 何回目か
 
   static counter = new Map<string, number>();
 
-  constructor(id: number, video: string, song: string, start: number) {
+  constructor(id: number, video: string, song: string, start: string) {
     this.id = id;
     this.video = video;
     this.song = song;

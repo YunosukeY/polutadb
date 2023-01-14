@@ -56,3 +56,12 @@ export const getType = (video: string) => videos.find((v) => v.title === video)?
 export const getVideo = (videoId: number) => videos[videoId].title;
 
 export const getVideoId = (video: string) => videos.find((v) => v.title === video)?.id;
+
+export const parseTime = (s: string) => {
+  let t = 0;
+  s.split(':').forEach((v) => {
+    t *= 60;
+    t += parseInt(v, 10);
+  });
+  return t;
+};
