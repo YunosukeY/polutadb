@@ -56,10 +56,6 @@ export function getArtist(song: string) {
   return artist === undefined ? '' : artist;
 }
 
-export function getSong(songId: number) {
-  return songs[songId].title;
-}
-
 export function getType(video: string) {
   return videos.find((v) => v.title === video)?.type;
 }
