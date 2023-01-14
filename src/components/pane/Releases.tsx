@@ -24,7 +24,11 @@ const Releases = () => {
         <LatestRelease>{ReleaseArray[0]}</LatestRelease>
       </Grid>
       <Grid item style={{ width }}>
-        <OldReleases>{ReleaseArray.slice(1)}</OldReleases>
+        <OldReleases>
+          {ReleaseArray.slice(1).map((node, i) => (
+            <React.Fragment key={i}>{node}</React.Fragment>
+          ))}
+        </OldReleases>
       </Grid>
     </Grid>
   );
