@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { useStyles } from './utils';
+import { useOnChange, useStyles } from './utils';
 import { useTypes } from '../../data/utils';
 
 export default function Type() {
@@ -19,6 +19,8 @@ export default function Type() {
     control,
   });
 
+  const onChange = useOnChange(inputProps.onChange, (q, v) => (q.type = v));
+
   const types = useTypes().map((type) => (
     <MenuItem value={type.i} key={type.i}>
       {type.name}
@@ -27,7 +29,7 @@ export default function Type() {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>動画のタイプ</InputLabel>
-      <Select inputRef={ref} {...inputProps} defaultValue=''>
+      <Select inputRef={ref} {...inputProps} defaultValue='' onChange={(e) => onChange(e.target.value)}>
         <MenuItem value={-1}>-</MenuItem>
         {types}
       </Select>

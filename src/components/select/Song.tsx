@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import { useStyles } from './utils';
+import { useOnChange, useStyles } from './utils';
 import { useSongs } from '../../data/utils';
 
 export default function Song() {
@@ -17,17 +17,15 @@ export default function Song() {
     name: 'song',
     control,
   });
-  const onChangeSong = (event: any, value: any) => {
-    if (value == null) onChange(-1);
-    else onChange(value.i);
-  };
+
+  const onChangeSong = useOnChange(onChange, (q, v) => (q.song = v));
 
   const songs = useSongs();
   return (
     <FormControl className={classes.formControl}>
       <Autocomplete
         options={songs}
-        onChange={onChangeSong}
+        onChange={(e, v) => onChangeSong(v == null ? -1 : v.i)}
         {...inputProps}
         value={value === -1 ? '' : value}
         getOptionSelected={(option) => option.i == value}

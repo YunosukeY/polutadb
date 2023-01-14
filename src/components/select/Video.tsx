@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { useStyles } from './utils';
+import { useOnChange, useStyles } from './utils';
 import { useVideos } from '../../data/utils';
 
 export default function Video() {
@@ -19,6 +19,8 @@ export default function Video() {
     control,
   });
 
+  const onChange = useOnChange(inputProps.onChange, (q, v) => (q.video = v));
+
   const videos = useVideos().map((video) => (
     <MenuItem value={video.i} key={video.i}>
       {video.date}: {video.title}
@@ -27,7 +29,7 @@ export default function Video() {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel>動画</InputLabel>
-      <Select inputRef={ref} {...inputProps} defaultValue=''>
+      <Select inputRef={ref} {...inputProps} defaultValue='' onChange={(e) => onChange(e.target.value)}>
         <MenuItem value={-1}>-</MenuItem>
         {videos}
       </Select>
