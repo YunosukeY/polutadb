@@ -29,7 +29,7 @@ export function getVideos() {
 export function getSongs() {
   let songNames: { title: string; i: number }[] = [];
   songs.forEach((song, i) => {
-    const artist = getArtist(i);
+    const artist = song.artist;
     if (artist === '') {
       songNames.push({ title: song.title, i: i });
     } else {
@@ -47,29 +47,12 @@ export function getArtists() {
   return artistNames;
 }
 
-export function getUrl(videoId: number) {
-  return videos[videoId].id;
-}
+export const getUrl = (video: string) => videos.find((v) => v.title === video)?.id;
 
-export function getArtist(songId: number) {
-  const artistId = songs[songId].artistId;
-  return artistId === -1 ? '' : artists[artistId].name;
-}
+export const getArtist = (song: string) => songs.find((s) => s.title === song)?.artist ?? '';
 
-export function getArtistId(songId: number) {
-  return songs[songId].artistId;
-}
+export const getType = (video: string) => videos.find((v) => v.title === video)?.type;
 
-export function getSong(songId: number) {
-  return songs[songId].title;
-}
+export const getVideo = (videoId: number) => videos[videoId].title;
 
-export function getTypeId(videoId: number) {
-  return videos[videoId].typeId;
-}
-
-export function getVideo(videoId: number) {
-  return videos[videoId].title;
-}
-
-export const getVideoId = (videoId: number) => videos[videoId].id;
+export const getVideoId = (video: string) => videos.find((v) => v.title === video)?.id;
