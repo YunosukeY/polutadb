@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import { useStyles } from './utils';
-import { getTypes } from '../../data/utils';
+import { useTypes } from '../../data/utils';
 
 export default function Type() {
   const classes = useStyles();
@@ -19,7 +19,7 @@ export default function Type() {
     control,
   });
 
-  const types = getTypes().map((type) => (
+  const types = useTypes().map((type) => (
     <MenuItem value={type.i} key={type.i}>
       {type.name}
     </MenuItem>

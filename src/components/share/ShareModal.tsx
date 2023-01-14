@@ -2,7 +2,7 @@ import React from 'react';
 import { TwitterShareButton, TwitterIcon, LineShareButton, LineIcon } from 'react-share';
 
 import { Singing } from '../../data/interfaces';
-import { getArtist, getUrl, parseTime } from '../../data/utils';
+import { useArtist, useUrl, parseTime } from '../../data/utils';
 import CopyButton from './CopyButton';
 
 type ShareModalProps = {
@@ -13,8 +13,8 @@ const ShareModal: React.FC<ShareModalProps> = ({ singing, fontsize }) => {
   const padding = 10;
   const buttonSize = fontsize + 2 * 12;
 
-  const url = `https://youtu.be/${getUrl(singing.video)}?t=${parseTime(singing.start)}`;
-  const title = `『${singing.video}』より『${singing.song}』 / ${getArtist(singing.song)}`;
+  const url = `https://youtu.be/${useUrl(singing.video)}?t=${parseTime(singing.start)}`;
+  const title = `『${singing.video}』より『${singing.song}』 / ${useArtist(singing.song)}`;
   const hashtags = ['ぽるうた', '尾丸ポルカ'];
 
   return (

@@ -6,17 +6,21 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 import HR from '../layout/HR';
 import { Pane, Chartdiv } from '../../lib/style';
-import { songs } from '../../data/songs';
-import { singings } from '../../data/singings';
+import { singingsState, songsState } from '../../lib/AppState';
+import { useRecoilValue } from 'recoil';
+import { Singing, Song } from '../../data/interfaces';
 
 export default function SongStats() {
+  const songs = useRecoilValue(songsState);
+  const singings = useRecoilValue(singingsState);
+
   useEffect(() => {
-    setChart();
+    setChart(songs, singings);
   });
 
   return (
     <Pane>
-      <h4 style={{ textAlign: 'center' }}>{songs.length} Songs</h4>
+      <h4 style={{ textAlign: 'center' }}>{songs?.length} Songs</h4>
       <HR />
       <Chartdiv id='song-stats' />
     </Pane>
@@ -24,11 +28,11 @@ export default function SongStats() {
 }
 
 // see https://www.amcharts.com/demos/pie-chart/
-function setChart() {
+function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
   am4core.useTheme(am4themes_animated);
 
   const chart = am4core.create('song-stats', am4charts.PieChart);
-  chart.data = calcSongStats();
+  chart.data = calcSongStats(songs, singings);
   const pieSeries = chart.series.push(new am4charts.PieSeries());
   pieSeries.dataFields.value = 'count';
   pieSeries.dataFields.category = 'song';
@@ -40,22 +44,22 @@ function setChart() {
   chart.hiddenState.properties.radius = am4core.percent(0);
 }
 
-function calcSongStats() {
+function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefined) {
   const border = 7;
 
   const data: { [index: string]: number } = {};
-  songs.forEach((song) => (data[song.title] = 0));
-  singings.forEach((singing) => data[singing.song]++);
+  songs?.forEach((song) => (data[song.title] = 0));
+  singings?.forEach((singing) => data[singing.song]++);
   // その他の計算
   let others = 0;
-  songs.forEach((song) => {
+  songs?.forEach((song) => {
     if (data[song.title] <= border) {
       others++;
     }
   });
 
   let res: { song: string; count: number }[] = [];
-  songs.forEach((song) => {
+  songs?.forEach((song) => {
     if (data[song.title] > border) {
       res.push({ song: song.title, count: data[song.title] });
     }

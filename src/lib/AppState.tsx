@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
-import { atom, useRecoilValue, useRecoilState } from 'recoil';
+import { atom, useRecoilValue, useRecoilState, selector } from 'recoil';
+import { Artist, Data, Singing, Song, Type, Video } from '../data/interfaces';
 
-type AppState = {
+export type AppState = {
   favos: Map<number, boolean>;
   sortedBy: number;
+  artists?: Artist[];
+  videos?: Video[];
+  types?: Type[];
+  songs?: Song[];
+  singings?: Singing[];
 };
 
 const defaultState: AppState = {
@@ -28,6 +34,27 @@ function getInitialState(): AppState {
 export const appState = atom<AppState>({
   key: 'userState',
   default: defaultState,
+});
+
+export const artistsState = selector({
+  key: 'artistsState',
+  get: ({ get }) => get(appState).artists,
+});
+export const videosState = selector({
+  key: 'videosState',
+  get: ({ get }) => get(appState).videos,
+});
+export const typesState = selector({
+  key: 'typesState',
+  get: ({ get }) => get(appState).types,
+});
+export const songsState = selector({
+  key: 'songsState',
+  get: ({ get }) => get(appState).songs,
+});
+export const singingsState = selector({
+  key: 'singingsState',
+  get: ({ get }) => get(appState).singings,
 });
 
 export function StatePersistence() {

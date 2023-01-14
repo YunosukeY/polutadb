@@ -5,7 +5,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 import HR from '../layout/HR';
 import { Pane } from '../../lib/style';
-import { getVideo } from '../../data/utils';
+import { useVideo } from '../../data/utils';
 import { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 
@@ -562,7 +562,7 @@ function AddFeature() {
 }
 
 function AddVideo(props: { videoId: number }) {
-  return <Content content={`『${getVideo(props.videoId)}』分を追加しました`} />;
+  return <Content content={`『${useVideo(props.videoId)}』分を追加しました`} />;
 }
 
 function ContentType(props: { type: string }) {

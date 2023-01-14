@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 
 import Result from '../result/Result';
 import { Singing } from '../../data/interfaces';
-import { singings } from '../../data/singings';
-import { useIsFavo } from '../../lib/AppState';
+import { singingsState, useIsFavo } from '../../lib/AppState';
 import { useDisplayNum } from '../../lib/useWidth';
+import { useRecoilValue } from 'recoil';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useState(1);
@@ -23,10 +23,12 @@ export default function Favos() {
 }
 
 function getFavoList() {
+  const singings = useRecoilValue(singingsState);
+
   const isFavo = useIsFavo();
 
   const res = new Array<Singing>();
-  singings.forEach((singing) => {
+  singings?.forEach((singing) => {
     if (isFavo(singing.id)) {
       res.push(singing);
     }

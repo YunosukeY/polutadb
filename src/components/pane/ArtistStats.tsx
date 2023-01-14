@@ -6,18 +6,22 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 import HR from '../layout/HR';
 import { Pane, Chartdiv } from '../../lib/style';
-import { getArtist } from '../../data/utils';
-import { artists } from '../../data/artists';
-import { singings } from '../../data/singings';
+import { useArtist } from '../../data/utils';
+import { useRecoilValue } from 'recoil';
+import { artistsState, singingsState } from '../../lib/AppState';
+import { Artist, Singing } from '../../data/interfaces';
 
 export default function ArtistStats() {
+  const artists = useRecoilValue(artistsState);
+  const singings = useRecoilValue(singingsState);
+
   useEffect(() => {
-    setChart();
+    setChart(artists, singings);
   });
 
   return (
     <Pane>
-      <h4 style={{ textAlign: 'center' }}>{artists.length} Artists</h4>
+      <h4 style={{ textAlign: 'center' }}>{artists?.length} Artists</h4>
       <HR />
       <Chartdiv id='artist-stats' />
     </Pane>
@@ -25,11 +29,11 @@ export default function ArtistStats() {
 }
 
 // see https://www.amcharts.com/demos/pie-chart/
-function setChart() {
+function setChart(artists: Artist[] | undefined, singings: Singing[] | undefined) {
   am4core.useTheme(am4themes_animated);
 
   const chart = am4core.create('artist-stats', am4charts.PieChart);
-  chart.data = calcArtistStats();
+  chart.data = calcArtistStats(artists, singings);
   const pieSeries = chart.series.push(new am4charts.PieSeries());
   pieSeries.dataFields.value = 'count';
   pieSeries.dataFields.category = 'artist';
@@ -41,22 +45,22 @@ function setChart() {
   chart.hiddenState.properties.radius = am4core.percent(0);
 }
 
-function calcArtistStats() {
+function calcArtistStats(artists: Artist[] | undefined, singings: Singing[] | undefined) {
   const border = 12;
 
   const data: { [index: string]: number } = {};
-  artists.forEach((artist) => (data[artist.name] = 0));
-  singings.forEach((singing) => data[getArtist(singing.song)]++);
+  artists?.forEach((artist) => (data[artist.name] = 0));
+  singings?.forEach((singing) => data[useArtist(singing.song)]++);
   // その他の計算
   let others = 0;
-  artists.forEach((artist) => {
+  artists?.forEach((artist) => {
     if (data[artist.name] <= border) {
       others++;
     }
   });
 
   let res: { artist: string; count: number }[] = [];
-  artists.forEach((artist) => {
+  artists?.forEach((artist) => {
     if (data[artist.name] > border) {
       res.push({ artist: artist.name, count: data[artist.name] });
     }

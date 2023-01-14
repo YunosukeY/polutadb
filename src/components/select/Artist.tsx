@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { useStyles } from './utils';
-import { getArtists } from '../../data/utils';
+import { useArtists } from '../../data/utils';
 
 export default function Artist() {
   const classes = useStyles();
@@ -22,7 +22,7 @@ export default function Artist() {
     else onChange(value.i);
   };
 
-  const artists = getArtists();
+  const artists = useArtists();
   return (
     <FormControl className={classes.formControl}>
       <Autocomplete

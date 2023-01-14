@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { useStyles } from './utils';
-import { getSongs } from '../../data/utils';
+import { useSongs } from '../../data/utils';
 
 export default function Song() {
   const classes = useStyles();
@@ -22,7 +22,7 @@ export default function Song() {
     else onChange(value.i);
   };
 
-  const songs = getSongs();
+  const songs = useSongs();
   return (
     <FormControl className={classes.formControl}>
       <Autocomplete

@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import { useStyles } from './utils';
-import { getVideos } from '../../data/utils';
+import { useVideos } from '../../data/utils';
 
 export default function Video() {
   const classes = useStyles();
@@ -19,7 +19,7 @@ export default function Video() {
     control,
   });
 
-  const videos = getVideos().map((video) => (
+  const videos = useVideos().map((video) => (
     <MenuItem value={video.i} key={video.i}>
       {video.date}: {video.title}
     </MenuItem>
