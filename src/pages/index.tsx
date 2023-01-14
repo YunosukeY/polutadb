@@ -22,7 +22,6 @@ const Home: NextPage<Data> = (data) => {
 
   return (
     <FormProvider {...methods}>
-      <QueryStringUpdater setPagenum={setPagenum} />
       <Select />
       <Result pagenum={pagenum} setPagenum={setPagenum} />
     </FormProvider>
