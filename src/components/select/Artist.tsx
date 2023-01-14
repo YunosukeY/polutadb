@@ -16,6 +16,7 @@ export default function Artist() {
   } = useController({
     name: 'artist',
     control,
+    defaultValue: -1,
   });
 
   const onChangeArtist = useOnChange(onChange, (q, v) => (q.artist = v));
@@ -27,7 +28,7 @@ export default function Artist() {
         options={artists}
         onChange={(e, v) => onChangeArtist(v == null ? -1 : v.i)}
         {...inputProps}
-        value={value === -1 ? '' : value}
+        value={value === -1 ? { name: '', i: -1 } : artists.find((v) => v.i === value)}
         getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.name}
         renderInput={(params) => <TextField {...params} label='アーティスト' />}

@@ -12,6 +12,7 @@ export default function FullTextSearch() {
   } = useController({
     name: 'query',
     control,
+    defaultValue: '',
   });
 
   const onChange = useOnChange(inputProps.onChange, (q, v) => (q.query = v));

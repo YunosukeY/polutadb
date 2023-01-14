@@ -17,6 +17,7 @@ export default function Type() {
   } = useController({
     name: 'type',
     control,
+    defaultValue: -1,
   });
 
   const onChange = useOnChange(inputProps.onChange, (q, v) => (q.type = v));

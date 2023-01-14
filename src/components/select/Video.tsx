@@ -17,6 +17,7 @@ export default function Video() {
   } = useController({
     name: 'video',
     control,
+    defaultValue: -1,
   });
 
   const onChange = useOnChange(inputProps.onChange, (q, v) => (q.video = v));

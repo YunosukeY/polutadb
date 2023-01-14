@@ -16,6 +16,7 @@ export default function Song() {
   } = useController({
     name: 'song',
     control,
+    defaultValue: -1,
   });
 
   const onChangeSong = useOnChange(onChange, (q, v) => (q.song = v));
@@ -27,7 +28,7 @@ export default function Song() {
         options={songs}
         onChange={(e, v) => onChangeSong(v == null ? -1 : v.i)}
         {...inputProps}
-        value={value === -1 ? '' : value}
+        value={value === -1 ? { title: '', i: -1 } : songs.find((v) => v.i === value)}
         getOptionSelected={(option) => option.i == value}
         getOptionLabel={(option) => option.title}
         renderInput={(params) => <TextField {...params} label='曲' />}
