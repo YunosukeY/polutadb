@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
@@ -16,7 +16,9 @@ const Home: NextPage<Data> = (data) => {
   const methods = useForm();
 
   const [isInit, init] = useInit();
-  if (!isInit) init(data);
+  useEffect(() => {
+    if (!isInit) init(data);
+  }, []);
 
   return (
     <FormProvider {...methods}>

@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import * as React from 'react';
+import { useEffect } from 'react';
 
 import About from '../components/pane/About';
 import { data } from '../data/data';
@@ -8,7 +9,9 @@ import { useInit } from '../lib/AppState';
 
 const Top: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();
-  if (!isInit) init(data);
+  useEffect(() => {
+    if (!isInit) init(data);
+  }, []);
 
   return <About />;
 };
