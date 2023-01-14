@@ -1,13 +1,6 @@
 import { videos, types } from './videos';
 import { artists } from './artists';
-import { songs, genres } from './songs';
-
-export function getGenres() {
-  let genreNames: { name: string; i: number }[] = [];
-  genres.forEach((genre, i) => genreNames.push({ name: genre.name, i: i }));
-  genreNames = genreNames.sort((a, b) => (a.name > b.name ? 1 : -1));
-  return genreNames;
-}
+import { songs } from './songs';
 
 export function getTypes() {
   let typeNames: { name: string; i: number }[] = [];
@@ -69,14 +62,6 @@ export function getArtistId(songId: number) {
 
 export function getSong(songId: number) {
   return songs[songId].title;
-}
-
-export function getGenreId(songId: number) {
-  return songs[songId].genreId;
-}
-
-export function getGenre(songId: number) {
-  return genres[songs[songId].genreId].name;
 }
 
 export function getTypeId(videoId: number) {

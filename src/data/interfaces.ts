@@ -16,11 +16,6 @@ export interface Type {
 export interface Song {
   title: string;
   artistId: number;
-  genreId: number;
-}
-
-export interface Genre {
-  name: string;
 }
 
 export class Singing {

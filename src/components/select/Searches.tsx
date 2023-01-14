@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 
 import FullTextSearch from './FullTextSearch';
-import Genre from './Genre';
 import Type from './Type';
 import Video from './Video';
 import Song from './Song';
@@ -24,9 +23,6 @@ const Searches: React.FC = () => {
     <>
       <FullTextSearch />
       <Grid container>
-        <Grid item xs={12} sm={6} className={classes.gridItem}>
-          <Genre />
-        </Grid>
         <Grid item xs={12} sm={6} className={classes.gridItem}>
           <Type />
         </Grid>
