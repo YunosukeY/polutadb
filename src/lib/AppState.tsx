@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { atom, useRecoilValue, useRecoilState } from 'recoil';
 
-interface AppState {
+type AppState = {
   favos: Map<number, boolean>;
   sortedBy: number;
-}
+};
 
 const defaultState: AppState = {
   favos: new Map<number, boolean>(),

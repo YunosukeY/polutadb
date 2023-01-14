@@ -1,22 +1,22 @@
-export interface Artist {
+export type Artist = {
   name: string;
-}
+};
 
-export interface Video {
+export type Video = {
   id: string;
   title: string;
   date: string;
   type: string;
-}
+};
 
-export interface Type {
+export type Type = {
   name: string;
-}
+};
 
-export interface Song {
+export type Song = {
   title: string;
   artist: string | undefined;
-}
+};
 
 export class Singing {
   id: number;

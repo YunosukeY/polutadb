@@ -4,9 +4,9 @@ import { useFormContext } from 'react-hook-form';
 
 import { Query } from '../../lib/query';
 
-interface QueryStringUpdaterProps {
+type QueryStringUpdaterProps = {
   setPagenum: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
 const QueryStringUpdater: React.FC<QueryStringUpdaterProps> = ({ setPagenum }) => {
   const watch = useFormContext().watch();

@@ -5,10 +5,10 @@ import { Singing } from '../../data/interfaces';
 import { getArtist, getUrl, parseTime } from '../../data/utils';
 import CopyButton from './CopyButton';
 
-interface ShareModalProps {
+type ShareModalProps = {
   singing: Singing;
   fontsize: number;
-}
+};
 const ShareModal: React.FC<ShareModalProps> = ({ singing, fontsize }) => {
   const padding = 10;
   const buttonSize = fontsize + 2 * 12;
