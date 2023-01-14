@@ -7,6 +7,7 @@ import { Data } from '../data/interfaces';
 import { data } from '../data/data';
 import { NextPage } from 'next';
 import { useInit } from '../lib/AppState';
+import FormUpdater from '../components/sideeffect/FormUpdater';
 
 const Home: NextPage<Data> = (data) => {
   const methods = useForm();
@@ -18,6 +19,7 @@ const Home: NextPage<Data> = (data) => {
 
   return (
     <FormProvider {...methods}>
+      <FormUpdater />
       <Select />
       <Result />
     </FormProvider>
