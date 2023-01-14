@@ -12,6 +12,7 @@ const QueryStringUpdater: React.FC<QueryStringUpdaterProps> = ({ setPagenum }) =
   const watch = useFormContext().watch();
   const router = useRouter();
   const query = new Query(router.query);
+  // FIXME
   useEffect(() => {
     const q = new Query(watch);
     if (!q.equals(query)) {
