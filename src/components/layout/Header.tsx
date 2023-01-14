@@ -5,9 +5,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { Button } from '@material-ui/core';
+import { appState } from '../../lib/AppState';
+import { useSetRecoilState } from 'recoil';
 
 export default function Header() {
   const router = useRouter();
+
+  const setState = useSetRecoilState(appState);
+  const initPage = () => {
+    setState((state) => ({ ...state, pagenum: 1 }));
+  };
 
   return (
     <header>
@@ -15,7 +22,10 @@ export default function Header() {
         <Toolbar style={{ position: 'relative' }}>
           <div style={{ flexGrow: 1 }} />
           <Button
-            onClick={() => router.push('/')}
+            onClick={() => {
+              initPage();
+              router.push('/');
+            }}
             style={{
               position: 'absolute',
               top: '50%',
