@@ -3,7 +3,7 @@ import { useHover, useWindowSize } from 'react-use';
 
 import Youtube from '../result/Youtube';
 import { Singing } from '../../data/interfaces';
-import { getUrl } from '../../data/utils';
+import { useUrl, parseTime } from '../../data/utils';
 import { Modal } from '@material-ui/core';
 import { useState } from 'react';
 import { useWidth } from '../../lib/useWidth';
@@ -73,9 +73,9 @@ const Window = React.forwardRef<HTMLDivElement, WindowProps>((props, ref) => {
       <iframe
         width={iframeWidth}
         height={iframeHeight}
-        src={`https://www.youtube-nocookie.com/embed/${getUrl(props.singing.video)}?start=${
-          props.singing.start
-        }&autoplay=1`}
+        src={`https://www.youtube-nocookie.com/embed/${useUrl(props.singing.video)}?start=${parseTime(
+          props.singing.start,
+        )}&autoplay=1`}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen

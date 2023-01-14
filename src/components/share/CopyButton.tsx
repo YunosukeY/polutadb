@@ -5,10 +5,10 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-interface CopyButtonProps {
+type CopyButtonProps = {
   target: string;
   iconSize: number;
-}
+};
 const CopyButton: React.FC<CopyButtonProps> = ({ target, iconSize }) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => setOpen(true);

@@ -4,14 +4,15 @@ import { useFormContext } from 'react-hook-form';
 
 import { Query } from '../../lib/query';
 
-interface QueryStringUpdaterProps {
+type QueryStringUpdaterProps = {
   setPagenum: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
 const QueryStringUpdater: React.FC<QueryStringUpdaterProps> = ({ setPagenum }) => {
   const watch = useFormContext().watch();
   const router = useRouter();
   const query = new Query(router.query);
+  // FIXME
   useEffect(() => {
     const q = new Query(watch);
     if (!q.equals(query)) {

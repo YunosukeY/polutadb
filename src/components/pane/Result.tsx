@@ -14,7 +14,7 @@ export default function ResultPane(props: {
   const state = useRecoilValue(appState);
   const router = useRouter();
   const query = new Query(router.query);
-  const result = search(query, state.sortedBy);
+  const result = search(query, state);
 
   return <Result result={result} {...props} isFavo={false} />;
 }

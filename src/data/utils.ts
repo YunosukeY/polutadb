@@ -1,10 +1,11 @@
-import { videos, types } from './videos';
-import { artists } from './artists';
-import { songs } from './songs';
+import { useRecoilValue } from 'recoil';
+import { artistsState, songsState, typesState, videosState } from '../lib/AppState';
 
-export function getTypes() {
+export function useTypes() {
+  const types = useRecoilValue(typesState);
+
   let typeNames: { name: string; i: number }[] = [];
-  types.forEach((type, i) => {
+  types?.forEach((type, i) => {
     if (type.name !== 'その他') {
       typeNames.push({ name: type.name, i: i });
     }
@@ -14,10 +15,12 @@ export function getTypes() {
   return typeNames;
 }
 
-export function getVideos() {
+export function useVideos() {
+  const videos = useRecoilValue(videosState);
+
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: { date: string; title: string; i: number }[] = [];
-  videos.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
+  videos?.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
   videoNames = videoNames.sort((a, b) => {
     if (a.date > b.date) return -1;
     else if (a.date < b.date) return 1;
@@ -26,9 +29,11 @@ export function getVideos() {
   return videoNames;
 }
 
-export function getSongs() {
+export function useSongs() {
+  const songs = useRecoilValue(songsState);
+
   let songNames: { title: string; i: number }[] = [];
-  songs.forEach((song, i) => {
+  songs?.forEach((song, i) => {
     const artist = song.artist;
     if (artist === '') {
       songNames.push({ title: song.title, i: i });
@@ -40,19 +45,41 @@ export function getSongs() {
   return songNames;
 }
 
-export function getArtists() {
+export function useArtists() {
+  const artists = useRecoilValue(artistsState);
+
   let artistNames: { name: string; i: number }[] = [];
-  artists.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
+  artists?.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
   artistNames = artistNames.sort((a, b) => (a.name > b.name ? 1 : -1));
   return artistNames;
 }
 
-export const getUrl = (video: string) => videos.find((v) => v.title === video)?.id;
+export const useUrl = (video: string) => {
+  const videos = useRecoilValue(videosState);
+  return videos?.find((v) => v.title === video)?.id;
+};
+export const useGetArtist = () => {
+  const songs = useRecoilValue(songsState);
+  return (song: string) => songs?.find((s) => s.title === song)?.artist ?? '';
+};
+export const useGetType = () => {
+  const videos = useRecoilValue(videosState);
+  return (video: string) => videos?.find((v) => v.title === video)?.type;
+};
+export const useVideo = (videoId: number) => {
+  const videos = useRecoilValue(videosState);
+  return videos?.[videoId].title;
+};
+export const useVideoId = (video: string) => {
+  const videos = useRecoilValue(videosState);
+  return videos?.find((v) => v.title === video)?.id;
+};
 
-export const getArtist = (song: string) => songs.find((s) => s.title === song)?.artist ?? '';
-
-export const getType = (video: string) => videos.find((v) => v.title === video)?.type;
-
-export const getVideo = (videoId: number) => videos[videoId].title;
-
-export const getVideoId = (video: string) => videos.find((v) => v.title === video)?.id;
+export const parseTime = (s: string) => {
+  let t = 0;
+  s.split(':').forEach((v) => {
+    t *= 60;
+    t += parseInt(v, 10);
+  });
+  return t;
+};

@@ -4,11 +4,11 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
-interface StarProps {
+type StarProps = {
   isFavo: boolean;
   onClick: () => void;
   fontsize: number;
-}
+};
 
 const useStyles = makeStyles({
   icon: {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import Star from './Star';
-import { getArtist, getVideoId } from '../../data/utils';
+import { useGetArtist, useVideoId } from '../../data/utils';
 import { Singing } from '../../data/interfaces';
 import { useIsFavo, useToggleFavo } from '../../lib/AppState';
 import ShareModal from '../share/ShareModal';
@@ -19,7 +19,9 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
 
   const fontsize = 32;
 
-  const videoId = getVideoId(singing.video);
+  const videoId = useVideoId(singing.video);
+  const getArtist = useGetArtist();
+  const artist = getArtist(singing.song);
   if (videoId === undefined) return null;
 
   return (
@@ -37,7 +39,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
             <Grid item>
               <h5 style={{ textAlign: 'center', margin: 0 }}>
                 『{singing.song}』<br />
-                {getArtist(singing.song)} <br />
+                {artist} <br />
               </h5>
             </Grid>
             {singing.time == 1 && (

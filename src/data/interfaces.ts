@@ -1,33 +1,46 @@
-export interface Artist {
+export type Artist = {
   name: string;
-}
+};
 
-export interface Video {
+export type Video = {
   id: string;
   title: string;
   date: string;
   type: string;
-}
+};
 
-export interface Type {
+export type Type = {
   name: string;
-}
+};
 
-export interface Song {
+export type Song = {
   title: string;
-  artist: string | undefined;
-}
+  artist: string;
+};
+
+export type RawSinging = {
+  video: string;
+  song: string;
+  start: string;
+};
+export type Data = {
+  artists: Artist[];
+  videos: Video[];
+  types: Type[];
+  songs: Song[];
+  singings: RawSinging[];
+};
 
 export class Singing {
   id: number;
   video: string;
   song: string;
-  start: number;
+  start: string;
   time: number; // 何回目か
 
   static counter = new Map<string, number>();
 
-  constructor(id: number, video: string, song: string, start: number) {
+  constructor(id: number, video: string, song: string, start: string) {
     this.id = id;
     this.video = video;
     this.song = song;
