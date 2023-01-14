@@ -7,8 +7,6 @@ import Type from './Type';
 import Video from './Video';
 import Song from './Song';
 import Artist from './Artist';
-import Inst from './Inst';
-import Length from './Length';
 
 const useStyles = makeStyles({
   gridItem: {
@@ -36,14 +34,6 @@ const Searches: React.FC = () => {
         </Grid>
         <Grid item xs={12} sm={6} className={classes.gridItem}>
           <Artist />
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={12} sm={6}>
-          <Inst />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Length />
         </Grid>
       </Grid>
     </>
