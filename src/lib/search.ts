@@ -1,8 +1,9 @@
 import { Query } from './query';
-import { getArtist, getSong, getArtistId, getType, getVideo } from '../data/utils';
+import { getArtist, getSong, getType, getVideo } from '../data/utils';
 import { Singing } from '../data/interfaces';
 import { singings } from '../data/singings';
 import { types } from '../data/videos';
+import { artists } from '../data/artists';
 
 export function search(query: Query, sortedBy: number) {
   let tmpres: Singing[] = JSON.parse(JSON.stringify(singings));
@@ -14,7 +15,8 @@ export function search(query: Query, sortedBy: number) {
 
   if (query.video !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.videoId === query.video);
   if (query.song !== -1) tmpres = tmpres.filter((singingInfo) => singingInfo.songId === query.song);
-  if (query.artist !== -1) tmpres = tmpres.filter((singingInfo) => getArtistId(singingInfo.songId) === query.artist);
+  if (query.artist !== -1)
+    tmpres = tmpres.filter((singingInfo) => getArtist(singingInfo.songId) === artists[query.artist]?.name);
   if (query.type !== -1) {
     tmpres = tmpres.filter((singingInfo) => getType(singingInfo.videoId) === types[query.type].name);
   }

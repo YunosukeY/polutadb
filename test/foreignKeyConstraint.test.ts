@@ -6,8 +6,8 @@ import { videos, types } from '../src/data/videos';
 describe('外部キー代わりの添字が範囲内か', () => {
   test('アーティスト->曲', () => {
     for (const song of songs) {
-      expect(song.artistId).toBeGreaterThanOrEqual(-1); // アーティストが空のものがある
-      expect(song.artistId).toBeLessThan(artists.length);
+      expect(song.artist).toBeGreaterThanOrEqual(-1); // アーティストが空のものがある
+      expect(song.artist).toBeLessThan(artists.length);
     }
   });
 

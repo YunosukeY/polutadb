@@ -15,7 +15,7 @@ export interface Type {
 
 export interface Song {
   title: string;
-  artistId: number;
+  artist: string | undefined;
 }
 
 export class Singing {

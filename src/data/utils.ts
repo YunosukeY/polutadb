@@ -52,12 +52,8 @@ export function getUrl(videoId: number) {
 }
 
 export function getArtist(songId: number) {
-  const artistId = songs[songId].artistId;
-  return artistId === -1 ? '' : artists[artistId].name;
-}
-
-export function getArtistId(songId: number) {
-  return songs[songId].artistId;
+  const artist = songs[songId].artist;
+  return artist === undefined ? '' : artist;
 }
 
 export function getSong(songId: number) {
