@@ -18,6 +18,19 @@ export type Song = {
   artist: string | undefined;
 };
 
+export type RawSinging = {
+  video: string;
+  song: string;
+  start: string;
+};
+export type Data = {
+  artists: Artist[];
+  videos: Video[];
+  types: Type[];
+  songs: Song[];
+  singings: RawSinging[];
+};
+
 export class Singing {
   id: number;
   video: string;
