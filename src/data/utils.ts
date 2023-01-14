@@ -47,21 +47,12 @@ export function getArtists() {
   return artistNames;
 }
 
-export function getUrl(video: string) {
-  return videos.find((v) => v.title === video)?.id;
-}
+export const getUrl = (video: string) => videos.find((v) => v.title === video)?.id;
 
-export function getArtist(song: string) {
-  const artist = songs.find((s) => s.title === song)?.artist;
-  return artist === undefined ? '' : artist;
-}
+export const getArtist = (song: string) => songs.find((s) => s.title === song)?.artist ?? '';
 
-export function getType(video: string) {
-  return videos.find((v) => v.title === video)?.type;
-}
+export const getType = (video: string) => videos.find((v) => v.title === video)?.type;
 
-export function getVideo(videoId: number) {
-  return videos[videoId].title;
-}
+export const getVideo = (videoId: number) => videos[videoId].title;
 
 export const getVideoId = (video: string) => videos.find((v) => v.title === video)?.id;
