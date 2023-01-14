@@ -14,8 +14,7 @@ export default function Favos() {
   const displaynum = useDisplayNum();
 
   useEffect(() => {
-    // FIXME
-    if (favoList.length === (pagenum - 1) * displaynum) {
+    if (favoList.length !== 0 && favoList.length === (pagenum - 1) * displaynum) {
       setPagenum(pagenum - 1);
     }
   });
