@@ -98,3 +98,24 @@ export const useToggleFavo = () => {
     }
   };
 };
+
+export const useInit = () => {
+  const [state, setState] = useRecoilState(appState);
+
+  const initialized =
+    state.artists !== undefined &&
+    state.videos !== undefined &&
+    state.types !== undefined &&
+    state.songs !== undefined &&
+    state.singings !== undefined;
+
+  const initialize = (data: Data) => {
+    setState((state) => ({
+      ...state,
+      ...data,
+      singings: data.singings.map((o, i) => new Singing(i, o.video, o.song, o.start)),
+    }));
+  };
+
+  return [initialized, initialize] as const;
+};

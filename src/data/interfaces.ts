@@ -15,7 +15,7 @@ export type Type = {
 
 export type Song = {
   title: string;
-  artist: string | undefined;
+  artist: string;
 };
 
 export type RawSinging = {

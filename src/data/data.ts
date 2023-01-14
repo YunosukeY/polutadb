@@ -1161,7 +1161,7 @@ const songs: Song[] = [
   },
   {
     title: '旅立ちの日に',
-    artist: undefined,
+    artist: '',
   },
   {
     title: 'GO!GO!MANIAC',
@@ -2297,7 +2297,7 @@ const songs: Song[] = [
   },
   {
     title: 'GO MY WAY!!',
-    artist: undefined,
+    artist: '',
   },
   {
     title: 'DRIVE US CRAZY',

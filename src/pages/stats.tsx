@@ -1,13 +1,27 @@
+import { NextPage } from 'next';
 import * as React from 'react';
 
 import ArtistStats from '../components/pane/ArtistStats';
 import SongStats from '../components/pane/SongStats';
+import { data } from '../data/data';
+import { Data } from '../data/interfaces';
+import { useInit } from '../lib/AppState';
 
-export default function Stats() {
+const Stats: NextPage<Data> = (data) => {
+  const [isInit, init] = useInit();
+  if (!isInit) init(data);
+
   return (
     <>
       <ArtistStats />
       <SongStats />
     </>
   );
+};
+export default Stats;
+
+export async function getStaticProps(): Promise<{ props: Data }> {
+  return {
+    props: data,
+  };
 }
