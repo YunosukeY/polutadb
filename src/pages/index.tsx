@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
-import QueryStringUpdater from '../components/sideeffect/QueryStringUpdater';
 import Select from '../components/pane/Select';
 import Result from '../components/pane/Result';
 import { Data } from '../data/interfaces';
@@ -11,8 +9,6 @@ import { NextPage } from 'next';
 import { useInit } from '../lib/AppState';
 
 const Home: NextPage<Data> = (data) => {
-  const [pagenum, setPagenum] = useState(1);
-
   const methods = useForm();
 
   const [isInit, init] = useInit();
@@ -23,7 +19,7 @@ const Home: NextPage<Data> = (data) => {
   return (
     <FormProvider {...methods}>
       <Select />
-      <Result pagenum={pagenum} setPagenum={setPagenum} />
+      <Result />
     </FormProvider>
   );
 };

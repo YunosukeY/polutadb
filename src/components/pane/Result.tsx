@@ -7,14 +7,11 @@ import { appState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
 import { search } from '../../lib/search';
 
-export default function ResultPane(props: {
-  pagenum: number;
-  setPagenum: React.Dispatch<React.SetStateAction<number>>;
-}) {
+export default function ResultPane() {
   const state = useRecoilValue(appState);
   const router = useRouter();
   const query = new Query(router.query);
   const result = search(query, state);
 
-  return <Result result={result} {...props} isFavo={false} />;
+  return <Result result={result} isFavo={false} />;
 }

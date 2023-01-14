@@ -5,6 +5,7 @@ import { Artist, Data, Singing, Song, Type, Video } from '../data/interfaces';
 export type AppState = {
   favos: Map<number, boolean>;
   sortedBy: number;
+  pagenum: number;
   artists?: Artist[];
   videos?: Video[];
   types?: Type[];
@@ -15,6 +16,7 @@ export type AppState = {
 const defaultState: AppState = {
   favos: new Map<number, boolean>(),
   sortedBy: 0,
+  pagenum: 1,
 };
 
 function getInitialState(): AppState {
@@ -28,6 +30,7 @@ function getInitialState(): AppState {
   return {
     favos,
     sortedBy,
+    pagenum: 1,
   };
 }
 
