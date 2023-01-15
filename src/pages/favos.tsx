@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 
 import Favos from '../components/pane/Favos';
-import { data } from '../data/data';
+import { fetchData } from '../data/data';
 import { Data } from '../data/interfaces';
 import { useInit } from '../lib/AppState';
 
@@ -19,6 +19,6 @@ export default page;
 
 export async function getStaticProps(): Promise<{ props: Data }> {
   return {
-    props: data,
+    props: await fetchData(),
   };
 }

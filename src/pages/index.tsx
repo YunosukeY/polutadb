@@ -4,7 +4,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import Select from '../components/pane/Select';
 import Result from '../components/pane/Result';
 import { Data } from '../data/interfaces';
-import { data } from '../data/data';
+import { fetchData } from '../data/data';
 import { NextPage } from 'next';
 import { useInit } from '../lib/AppState';
 import FormUpdater from '../components/sideeffect/FormUpdater';
@@ -29,6 +29,6 @@ export default Home;
 
 export async function getStaticProps(): Promise<{ props: Data }> {
   return {
-    props: data,
+    props: await fetchData(),
   };
 }
