@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import ArtistStats from '../components/pane/ArtistStats';
 import SongStats from '../components/pane/SongStats';
-import { data } from '../data/data';
+import { fetchData } from '../data/data';
 import { Data } from '../data/interfaces';
 import { useInit } from '../lib/AppState';
 
@@ -25,6 +25,6 @@ export default Stats;
 
 export async function getStaticProps(): Promise<{ props: Data }> {
   return {
-    props: data,
+    props: await fetchData(),
   };
 }
