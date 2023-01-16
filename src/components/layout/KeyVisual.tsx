@@ -37,13 +37,47 @@ function PickUp() {
   return (
     <div style={{ paddingBottom: 20 }}>
       <Slider {...settings}>
-        <PickUpThumbnail id='LQ_eazT56FA' singing={new Singing(0, 27, 0, 0)} />
-        <PickUpThumbnail id='TGJ9-1LWFtE' singing={new Singing(0, 64, 0, 0)} />
-        <PickUpThumbnail id='vbhgQ_C_jaM' singing={new Singing(0, 70, 0, 0)} />
-        <PickUpThumbnail id='kdYAZZ5SOFk' singing={new Singing(0, 79, 0, 0)} />
-        <PickUpThumbnail id='0bo6MVQxY6Y' singing={new Singing(0, 128, 0, 0)} />
-        <PickUpThumbnail id='zHD5MCUezVo' singing={new Singing(0, 129, 0, 0)} />
-        <PickUpThumbnail id='uefGU_oOCdk' singing={new Singing(0, 130, 0, 0)} />
+        <PickUpThumbnail
+          id='LQ_eazT56FA'
+          singing={
+            new Singing(0, '【ORIGINAL SONG+MV】HOLOGRAM CIRCUS - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')
+          }
+        />
+        <PickUpThumbnail
+          id='TGJ9-1LWFtE'
+          singing={new Singing(0, '【ORIGINAL SONG+MV】ぽ - Omaru Polka【尾丸ポルカ/ホロライブ/4K】', '', '0:00')}
+        />
+        <PickUpThumbnail
+          id='vbhgQ_C_jaM'
+          singing={
+            new Singing(0, '【ORIGINAL SONG+MV】エヴァーブルー - Omaru Polka【尾丸ポルカ/ホロライブ/4K】', '', '0:00')
+          }
+        />
+        <PickUpThumbnail
+          id='kdYAZZ5SOFk'
+          singing={
+            new Singing(0, '【ORIGINAL SONG+MV】Pastel Tea Time - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')
+          }
+        />
+        <PickUpThumbnail
+          id='0bo6MVQxY6Y'
+          singing={new Singing(0, '【オリジナル楽曲】サイキョウチックポルカ【尾丸ポルカ】', '', '0:00')}
+        />
+        <PickUpThumbnail
+          id='zHD5MCUezVo'
+          singing={
+            new Singing(
+              0,
+              '【ホロライブ・サマー2022 MV第1弾】『飛んでK！ホロライブサマー』ショートMV【ホロライブ】',
+              '',
+              '0:00',
+            )
+          }
+        />
+        <PickUpThumbnail
+          id='uefGU_oOCdk'
+          singing={new Singing(0, '【オリジナル楽曲】屋根裏のエピローグ【尾丸ポルカ】', '', '0:00')}
+        />
       </Slider>
     </div>
   );
