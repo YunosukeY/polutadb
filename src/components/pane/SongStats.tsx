@@ -45,7 +45,7 @@ function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
 }
 
 function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefined) {
-  const border = 7;
+  const border = 8;
 
   const data: { [index: string]: number } = {};
   songs?.forEach((song) => (data[song.title] = 0));
