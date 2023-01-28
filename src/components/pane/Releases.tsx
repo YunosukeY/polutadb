@@ -77,8 +77,7 @@ const OldReleases: React.FC = ({ children }) => {
 
 const ReleaseArray: React.ReactNode[] = [
   <>
-    {/** TODO: */}
-    <Date date='2023/01/XX' />
+    <Date date='2023/01/28' />
     <AddData />
     <AddVideo videoId={141} />
     <AddVideo videoId={142} />
