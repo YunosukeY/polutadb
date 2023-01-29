@@ -17,7 +17,7 @@ const FormUpdater: React.FC = () => {
       setState((state) => ({ ...state, pagenum: 1 }));
       Object.entries(urlQuery).forEach(([key, value]) => setValue(key, value));
     }
-  }, [urlQuery]);
+  }, [urlQuery, watch()]);
 
   return null;
 };
