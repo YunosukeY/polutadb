@@ -5,8 +5,8 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
-import Radio from './Radio';
-import { appState } from '../../store/state';
+import Radio from '../Search/util/Radio';
+import { appState } from '../../../store/state';
 
 export default function Sort() {
   const [state, setState] = useRecoilState(appState);

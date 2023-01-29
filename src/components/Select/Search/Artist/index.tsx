@@ -4,8 +4,8 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import { useOnChange, useStyles } from './utils';
-import { useArtists } from '../../data/utils';
+import { useOnChange, useStyles } from '../util';
+import { useArtists } from '../../../../data/utils';
 
 export default function Artist() {
   const classes = useStyles();

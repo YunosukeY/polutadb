@@ -3,7 +3,7 @@ import { useFormContext, useController } from 'react-hook-form';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { useOnChange } from './utils';
+import { useOnChange } from '../util';
 
 export default function FullTextSearch() {
   const { control } = useFormContext();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Radio from './Radio';
+import Radio from '.';
 
 export default {
   title: 'select/Radio',

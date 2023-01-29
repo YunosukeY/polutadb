@@ -4,8 +4,8 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import { useOnChange, useStyles } from './utils';
-import { useSongs } from '../../data/utils';
+import { useOnChange, useStyles } from '../util';
+import { useSongs } from '../../../../data/utils';
 
 export default function Song() {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import ResultCount from './ResultCount';
-import Pagenation from '../result/Pagenation';
+import Pagenation from './Pagenation';
 import FavoCount from '../favos/FavoCount';
 import { Singing } from '../../data/types';
 import ResultCards from './ResultCards';

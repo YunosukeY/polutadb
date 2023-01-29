@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Searches: React.FC = () => {
+const Search: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -39,4 +39,4 @@ const Searches: React.FC = () => {
     </>
   );
 };
-export default Searches;
+export default Search;
