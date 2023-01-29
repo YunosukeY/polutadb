@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/globals.css';
 
-import { AppStateProvider } from '../src/lib/AppState';
+import { RecoilRoot } from 'recoil';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,8 +9,8 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <AppStateProvider>
+    <RecoilRoot>
       <Story />
-    </AppStateProvider>
+    </RecoilRoot>
   ),
 ];
