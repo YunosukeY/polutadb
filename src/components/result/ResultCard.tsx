@@ -6,7 +6,7 @@ import { useGetArtist, useVideoId } from '../../data/utils';
 import { Singing } from '../../data/types';
 import ShareButtons from '../share/ShareButtons';
 import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
-import Thumbnail from '../layout/Thumbnail';
+import Thumbnail from '../common/Thumbnail';
 import { useIsFavo, useToggleFavo } from '../../store/hooks';
 
 type ResultCardProps = {

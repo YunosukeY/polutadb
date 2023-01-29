@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DeformedIcon from './DeformedIcon';
+import DeformedIcon from '.';
 
 export default {
   title: 'layout/DeformedIcon',

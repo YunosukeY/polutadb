@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '../../styles/globals.css';
-import Layout from '../components/layout/Layout';
+import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
 import { AppComponent } from 'next/dist/next-server/lib/router/router';

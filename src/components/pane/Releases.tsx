@@ -3,7 +3,7 @@ import { useWindowSize } from 'react-use';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
-import HR from '../layout/HR';
+import HR from '../common/HR';
 import { useVideo } from '../../data/utils';
 import { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
-import HR from '../layout/HR';
+import HR from '../common/HR';
 import { Grid } from '@material-ui/core';
 import Pane from '../common/Pane';
 
