@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 
 import Result from '../result/Result';
-import { Singing } from '../../data/interfaces';
+import { Singing } from '../../data/types';
 import { appState, singingsState, useIsFavo } from '../../lib/AppState';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';

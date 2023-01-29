@@ -1,6 +1,6 @@
 import { Query } from './query';
 import { useGetArtist, useGetType } from '../data/utils';
-import { Singing } from '../data/interfaces';
+import { Singing } from '../data/types';
 import { AppState } from './AppState';
 
 export function search(query: Query, state: AppState) {

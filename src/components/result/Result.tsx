@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import ResultHeader from '../result/ResultHeader';
+import ResultCount from './ResultCount';
 import Pagenation from '../result/Pagenation';
-import FavoHeader from '../favos/FavoHeader';
-import { Singing } from '../../data/interfaces';
+import FavoCount from '../favos/FavoCount';
+import { Singing } from '../../data/types';
 import ResultCards from './ResultCards';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState } from 'recoil';
@@ -24,7 +24,7 @@ export default function Result(props: { result: Singing[]; isFavo: boolean }) {
     <>
       <div ref={ref} />
       <div style={{ textAlign: 'center', marginTop: 50 }}>
-        {props.isFavo ? <FavoHeader favonum={props.result.length} /> : <ResultHeader resultnum={props.result.length} />}
+        {props.isFavo ? <FavoCount favonum={props.result.length} /> : <ResultCount resultnum={props.result.length} />}
       </div>
       <ResultCards
         singings={props.result.slice(

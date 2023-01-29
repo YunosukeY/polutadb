@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import Favos from '../components/pane/Favos';
 import { fetchData } from '../data/data';
-import { Data } from '../data/interfaces';
+import { Data } from '../data/types';
 import { useInit } from '../lib/AppState';
 
 const page: NextPage<Data> = (data) => {

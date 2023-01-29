@@ -4,9 +4,9 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Deformed from './Deformed';
-import PickUpThumbnail from './PickUpThumbnail';
-import { Singing } from '../../data/interfaces';
+import DeformedIcon from './DeformedIcon';
+import Thumbnail from './Thumbnail';
+import { Singing } from '../../data/types';
 
 export default function KeyVisual() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function KeyVisual() {
   return (
     <>
       {isTop() && <PickUp />}
-      {!isTop() && <Deformed />}
+      {!isTop() && <DeformedIcon />}
     </>
   );
 }
@@ -37,33 +37,33 @@ function PickUp() {
   return (
     <div style={{ paddingBottom: 20 }}>
       <Slider {...settings}>
-        <PickUpThumbnail
+        <Thumbnail
           id='LQ_eazT56FA'
           singing={
             new Singing(0, '【ORIGINAL SONG+MV】HOLOGRAM CIRCUS - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')
           }
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='TGJ9-1LWFtE'
           singing={new Singing(0, '【ORIGINAL SONG+MV】ぽ - Omaru Polka【尾丸ポルカ/ホロライブ/4K】', '', '0:00')}
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='vbhgQ_C_jaM'
           singing={
             new Singing(0, '【ORIGINAL SONG+MV】エヴァーブルー - Omaru Polka【尾丸ポルカ/ホロライブ/4K】', '', '0:00')
           }
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='kdYAZZ5SOFk'
           singing={
             new Singing(0, '【ORIGINAL SONG+MV】Pastel Tea Time - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')
           }
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='0bo6MVQxY6Y'
           singing={new Singing(0, '【オリジナル楽曲】サイキョウチックポルカ【尾丸ポルカ】', '', '0:00')}
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='zHD5MCUezVo'
           singing={
             new Singing(
@@ -74,7 +74,7 @@ function PickUp() {
             )
           }
         />
-        <PickUpThumbnail
+        <Thumbnail
           id='uefGU_oOCdk'
           singing={new Singing(0, '【オリジナル楽曲】屋根裏のエピローグ【尾丸ポルカ】', '', '0:00')}
         />

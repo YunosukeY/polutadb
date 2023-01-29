@@ -2,13 +2,13 @@ import * as React from 'react';
 import { useHover, useWindowSize } from 'react-use';
 
 import Youtube from '../result/Youtube';
-import { Singing } from '../../data/interfaces';
+import { Singing } from '../../data/types';
 import { useUrl, parseTime } from '../../data/utils';
 import { Modal } from '@material-ui/core';
 import { useState } from 'react';
 import { useWidth } from '../../lib/useWidth';
 
-export default function PickUpThumbnail(props: { id: string; singing: Singing }) {
+export default function Thumbnail(props: { id: string; singing: Singing }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);

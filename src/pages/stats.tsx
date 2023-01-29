@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import ArtistStats from '../components/pane/ArtistStats';
 import SongStats from '../components/pane/SongStats';
 import { fetchData } from '../data/data';
-import { Data } from '../data/interfaces';
+import { Data } from '../data/types';
 import { useInit } from '../lib/AppState';
 
 const Stats: NextPage<Data> = (data) => {

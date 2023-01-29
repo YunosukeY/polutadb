@@ -9,7 +9,7 @@ import { Pane, Chartdiv } from '../../lib/style';
 import { useGetArtist } from '../../data/utils';
 import { useRecoilValue } from 'recoil';
 import { artistsState, singingsState } from '../../lib/AppState';
-import { Artist, Singing } from '../../data/interfaces';
+import { Artist, Singing } from '../../data/types';
 
 export default function ArtistStats() {
   const artists = useRecoilValue(artistsState);

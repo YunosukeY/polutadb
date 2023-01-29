@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { atom, useRecoilValue, useRecoilState, selector } from 'recoil';
-import { Artist, Data, Singing, Song, Type, Video } from '../data/interfaces';
+import { Artist, Data, Singing, Song, Type, Video } from '../data/types';
 
 export type AppState = {
   favos: Map<number, boolean>;

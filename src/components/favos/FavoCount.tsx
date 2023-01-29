@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function FavoHeader(props: { favonum: number }) {
+export default function FavoCount(props: { favonum: number }) {
   return (
     <div>
       <h4 style={{ display: 'inline', color: '#ef5350' }}>{`${props.favonum} `}</h4>

@@ -3,7 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 
 import Select from '../components/pane/Select';
 import Result from '../components/pane/Result';
-import { Data } from '../data/interfaces';
+import { Data } from '../data/types';
 import { fetchData } from '../data/data';
 import { NextPage } from 'next';
 import { useInit } from '../lib/AppState';

@@ -3,11 +3,11 @@ import Grid from '@material-ui/core/Grid';
 
 import Star from './Star';
 import { useGetArtist, useVideoId } from '../../data/utils';
-import { Singing } from '../../data/interfaces';
+import { Singing } from '../../data/types';
 import { useIsFavo, useToggleFavo } from '../../lib/AppState';
-import ShareModal from '../share/ShareModal';
+import ShareButtons from '../share/ShareButtons';
 import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
-import PickUpThumbnail from '../layout/PickUpThumbnail';
+import Thumbnail from '../layout/Thumbnail';
 
 type ResultCardProps = {
   singing: Singing;
@@ -27,7 +27,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
   return (
     <Grid item xs={12} md={6} xl={4} style={{ padding: 20 }}>
       <Card>
-        <PickUpThumbnail id={videoId} singing={singing} />
+        <Thumbnail id={videoId} singing={singing} />
         <CardContent style={{ paddingBottom: 0 }}>
           <Grid
             container
@@ -51,7 +51,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
           <Star isFavo={isFavo(singing.id)} onClick={() => toggleFavo(singing.id)} fontsize={fontsize} />
-          <ShareModal singing={singing} fontsize={fontsize} />
+          <ShareButtons singing={singing} fontsize={fontsize} />
         </CardActions>
       </Card>
     </Grid>

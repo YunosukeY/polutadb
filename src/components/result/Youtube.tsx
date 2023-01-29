@@ -2,7 +2,7 @@ import * as React from 'react';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import { IconButton } from '@material-ui/core';
 
-import { Singing } from '../../data/interfaces';
+import { Singing } from '../../data/types';
 
 export default function Youtube(props: { singing: Singing; fontsize: number; hovered: boolean }) {
   const hoveredColor = '#ff0f1a';

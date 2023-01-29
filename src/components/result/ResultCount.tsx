@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function ResultHeader(props: { resultnum: number }) {
+export default function ResultCount(props: { resultnum: number }) {
   return (
     <div>
       <h4 style={{ display: 'inline', color: '#ef5350' }}>{`${props.resultnum} `}</h4>

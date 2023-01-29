@@ -1,15 +1,15 @@
 import React from 'react';
 import { TwitterShareButton, TwitterIcon, LineShareButton, LineIcon } from 'react-share';
 
-import { Singing } from '../../data/interfaces';
+import { Singing } from '../../data/types';
 import { useGetArtist, useUrl, parseTime } from '../../data/utils';
 import CopyButton from './CopyButton';
 
-type ShareModalProps = {
+type ShareButtonsProps = {
   singing: Singing;
   fontsize: number;
 };
-const ShareModal: React.FC<ShareModalProps> = ({ singing, fontsize }) => {
+const ShareButtons: React.FC<ShareButtonsProps> = ({ singing, fontsize }) => {
   const padding = 10;
   const buttonSize = fontsize + 2 * 12;
 
@@ -30,4 +30,4 @@ const ShareModal: React.FC<ShareModalProps> = ({ singing, fontsize }) => {
     </>
   );
 };
-export default ShareModal;
+export default ShareButtons;

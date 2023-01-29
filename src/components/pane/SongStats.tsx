@@ -8,7 +8,7 @@ import HR from '../layout/HR';
 import { Pane, Chartdiv } from '../../lib/style';
 import { singingsState, songsState } from '../../lib/AppState';
 import { useRecoilValue } from 'recoil';
-import { Singing, Song } from '../../data/interfaces';
+import { Singing, Song } from '../../data/types';
 
 export default function SongStats() {
   const songs = useRecoilValue(songsState);
