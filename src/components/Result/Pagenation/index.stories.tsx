@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Pagenation from './Pagenation';
+import Pagenation from '.';
 
 export default {
   title: 'result/Pagenation',

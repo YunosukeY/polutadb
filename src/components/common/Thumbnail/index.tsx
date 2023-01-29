@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useHover, useWindowSize } from 'react-use';
 
-import Youtube from '../result/Youtube';
-import { Singing } from '../../data/types';
-import { useUrl, parseTime } from '../../data/utils';
+import Youtube from './Youtube';
+import { Singing } from '../../../data/types';
+import { useUrl, parseTime } from '../../../data/utils';
 import { Modal } from '@material-ui/core';
 import { useState } from 'react';
-import { useWidth } from '../../lib/useWidth';
+import { useWidth } from '../../../lib/useWidth';
 
 export default function Thumbnail(props: { id: string; singing: Singing }) {
   const [open, setOpen] = useState(false);

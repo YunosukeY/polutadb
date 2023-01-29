@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Singing } from '../../data/types';
+import { Singing } from '../../../data/types';
 import { Grid } from '@material-ui/core';
 import ResultCard from './ResultCard';
 

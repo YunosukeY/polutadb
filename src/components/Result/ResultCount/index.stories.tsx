@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ResultCount from './ResultCount';
+import ResultCount from '.';
 
 export default {
   title: 'result/ResultCount',

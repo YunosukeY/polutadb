@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { useRecoilValue } from 'recoil';
 
-import Result from '../result/Result';
+import Result from '../Result';
 import { Query } from '../../lib/query';
 import { search } from '../../lib/search';
 import { appState } from '../../store/state';
