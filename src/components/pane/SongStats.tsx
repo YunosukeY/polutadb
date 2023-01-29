@@ -5,10 +5,11 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 import HR from '../layout/HR';
-import { Pane, Chartdiv } from '../../lib/style';
-import { singingsState, songsState } from '../../lib/AppState';
 import { useRecoilValue } from 'recoil';
 import { Singing, Song } from '../../data/types';
+import { songsState, singingsState } from '../../store/selector';
+import Pane from '../common/Pane';
+import ChartDiv from '../common/ChartDiv';
 
 export default function SongStats() {
   const songs = useRecoilValue(songsState);
@@ -22,7 +23,7 @@ export default function SongStats() {
     <Pane>
       <h4 style={{ textAlign: 'center' }}>{songs?.length} Songs</h4>
       <HR />
-      <Chartdiv id='song-stats' />
+      <ChartDiv id='song-stats' />
     </Pane>
   );
 }

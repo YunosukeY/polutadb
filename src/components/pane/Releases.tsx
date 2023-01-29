@@ -4,10 +4,10 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 import HR from '../layout/HR';
-import { Pane } from '../../lib/style';
 import { useVideo } from '../../data/utils';
 import { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
+import Pane from '../common/Pane';
 
 const useStyles = makeStyles({
   icon: {

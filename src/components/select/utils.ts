@@ -1,9 +1,9 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
-import { appState } from '../../lib/AppState';
 
 import { Query } from '../../lib/query';
+import { appState } from '../../store/state';
 
 export type EachSelectProps = { query: Query };
 

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
 import HR from '../layout/HR';
-import { Pane } from '../../lib/style';
 import { Grid } from '@material-ui/core';
+import Pane from '../common/Pane';
 
 export default function About() {
   const width = Math.min(useWindowSize().width - 20, 1000);

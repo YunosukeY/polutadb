@@ -7,7 +7,7 @@ import { Singing } from '../../data/types';
 import ResultCards from './ResultCards';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState } from 'recoil';
-import { appState } from '../../lib/AppState';
+import { appState } from '../../store/state';
 
 export default function Result(props: { result: Singing[]; isFavo: boolean }) {
   const [state, setState] = useRecoilState(appState);

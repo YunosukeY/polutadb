@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import Radio from './Radio';
-import { appState } from '../../lib/AppState';
+import { appState } from '../../store/state';
 
 export default function Sort() {
   const [state, setState] = useRecoilState(appState);

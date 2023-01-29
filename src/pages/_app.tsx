@@ -6,8 +6,8 @@ import { RecoilRoot } from 'recoil';
 
 import '../../styles/globals.css';
 import Layout from '../components/layout/Layout';
-import { StatePersistence } from '../lib/AppState';
 import * as gtag from '../lib/gtag';
+import Persistence from '../store/Persistence';
 
 function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
   const router = useRouter();
@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
         <meta name='viewport' content='width=device-width,initial-scale=1' />
       </Head>
       <RecoilRoot>
-        <StatePersistence />
+        <Persistence />
         <Layout>
           <Component {...pageProps} />
         </Layout>

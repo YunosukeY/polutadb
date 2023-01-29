@@ -5,8 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { Button } from '@material-ui/core';
-import { appState } from '../../lib/AppState';
 import { useSetRecoilState } from 'recoil';
+import { appState } from '../../store/state';
 
 export default function Header() {
   const router = useRouter();

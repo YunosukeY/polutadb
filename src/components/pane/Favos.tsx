@@ -3,9 +3,11 @@ import { useEffect } from 'react';
 
 import Result from '../result/Result';
 import { Singing } from '../../data/types';
-import { appState, singingsState, useIsFavo } from '../../lib/AppState';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import { useIsFavo } from '../../store/hooks';
+import { singingsState } from '../../store/selector';
+import { appState } from '../../store/state';
 
 export default function Favos() {
   const [state, setState] = useRecoilState(appState);

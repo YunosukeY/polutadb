@@ -6,7 +6,7 @@ import ArtistStats from '../components/pane/ArtistStats';
 import SongStats from '../components/pane/SongStats';
 import { fetchData } from '../data/data';
 import { Data } from '../data/types';
-import { useInit } from '../lib/AppState';
+import { useInit } from '../store/hooks';
 
 const Stats: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();

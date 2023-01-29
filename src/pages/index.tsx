@@ -6,8 +6,8 @@ import Result from '../components/pane/Result';
 import { Data } from '../data/types';
 import { fetchData } from '../data/data';
 import { NextPage } from 'next';
-import { useInit } from '../lib/AppState';
 import FormUpdater from '../components/sideeffect/FormUpdater';
+import { useInit } from '../store/hooks';
 
 const Home: NextPage<Data> = (data) => {
   const methods = useForm();

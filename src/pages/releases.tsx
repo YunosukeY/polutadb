@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Releases from '../components/pane/Releases';
 import { fetchData } from '../data/data';
 import { Data } from '../data/types';
-import { useInit } from '../lib/AppState';
+import { useInit } from '../store/hooks';
 
 const page: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();

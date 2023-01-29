@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { useRecoilValue } from 'recoil';
 
 import Result from '../result/Result';
-import { appState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
 import { search } from '../../lib/search';
+import { appState } from '../../store/state';
 
 export default function ResultPane() {
   const state = useRecoilValue(appState);

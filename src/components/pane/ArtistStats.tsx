@@ -5,11 +5,12 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 import HR from '../layout/HR';
-import { Pane, Chartdiv } from '../../lib/style';
 import { useGetArtist } from '../../data/utils';
 import { useRecoilValue } from 'recoil';
-import { artistsState, singingsState } from '../../lib/AppState';
 import { Artist, Singing } from '../../data/types';
+import { artistsState, singingsState } from '../../store/selector';
+import ChartDiv from '../common/ChartDiv';
+import Pane from '../common/Pane';
 
 export default function ArtistStats() {
   const artists = useRecoilValue(artistsState);
@@ -24,7 +25,7 @@ export default function ArtistStats() {
     <Pane>
       <h4 style={{ textAlign: 'center' }}>{artists?.length} Artists</h4>
       <HR />
-      <Chartdiv id='artist-stats' />
+      <ChartDiv id='artist-stats' />
     </Pane>
   );
 }

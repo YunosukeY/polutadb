@@ -10,7 +10,7 @@ import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { appState } from '../../lib/AppState';
+import { appState } from '../../store/state';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);

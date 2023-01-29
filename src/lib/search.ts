@@ -1,7 +1,7 @@
 import { Query } from './query';
 import { useGetArtist, useGetType } from '../data/utils';
 import { Singing } from '../data/types';
-import { AppState } from './AppState';
+import { AppState } from '../store/state';
 
 export function search(query: Query, state: AppState) {
   const getArtist = useGetArtist();
