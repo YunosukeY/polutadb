@@ -1,9 +1,11 @@
+import path from 'path';
+import base from 'paths.macro';
 import React from 'react';
 
 import FavoCount from '.';
 
 export default {
-  title: 'favos/FavoCount',
+  title: path.relative('/src', base),
 };
 
 export const tenFavos = () => {

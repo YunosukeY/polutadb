@@ -1,9 +1,11 @@
+import path from 'path';
+import base from 'paths.macro';
 import React from 'react';
 
 import Pagenation from '.';
 
 export default {
-  title: 'result/Pagenation',
+  title: path.relative('/src', base),
 };
 
 export const firstPage = () => {

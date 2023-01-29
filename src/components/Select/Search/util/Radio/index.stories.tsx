@@ -1,9 +1,10 @@
 import React from 'react';
-
+import path from 'path';
+import base from 'paths.macro';
 import Radio from '.';
 
 export default {
-  title: 'select/Radio',
+  title: path.relative('/src', base),
 };
 
 export const showRadio = () => {

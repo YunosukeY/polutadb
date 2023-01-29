@@ -1,9 +1,11 @@
+import path from 'path';
+import base from 'paths.macro';
 import React from 'react';
 
 import ResultCount from '.';
 
 export default {
-  title: 'result/ResultCount',
+  title: path.relative('/src', base),
 };
 
 export const tenResults = () => {

@@ -1,9 +1,11 @@
+import path from 'path';
+import base from 'paths.macro';
 import React from 'react';
 
 import Star from '.';
 
 export default {
-  title: 'result/Star',
+  title: path.relative('/src', base),
 };
 
 export const favo = () => {
