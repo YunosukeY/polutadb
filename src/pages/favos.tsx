@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import Favos from '../components/pane/Favos';
+import Favos from '../components/Favos';
 import { fetchData } from '../data/data';
 import { Data } from '../data/types';
 import { useInit } from '../store/hooks';

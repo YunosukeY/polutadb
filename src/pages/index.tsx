@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
 import Select from '../components/Select';
-import Result from '../components/pane/Result';
+import Result from '../components/Result';
 import { Data } from '../data/types';
 import { fetchData } from '../data/data';
 import { NextPage } from 'next';

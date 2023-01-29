@@ -2,12 +2,12 @@ import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import Star from './Star';
-import { useGetArtist, useVideoId } from '../../../../data/utils';
-import { Singing } from '../../../../data/types';
+import { useGetArtist, useVideoId } from '../../../../../data/utils';
+import { Singing } from '../../../../../data/types';
 import ShareButtons from './ShareButtons';
 import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
-import Thumbnail from '../../../common/Thumbnail';
-import { useIsFavo, useToggleFavo } from '../../../../store/hooks';
+import Thumbnail from '../../../Thumbnail';
+import { useIsFavo, useToggleFavo } from '../../../../../store/hooks';
 
 type ResultCardProps = {
   singing: Singing;

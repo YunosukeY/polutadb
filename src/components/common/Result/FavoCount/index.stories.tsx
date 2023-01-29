@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FavoCount from './FavoCount';
+import FavoCount from '.';
 
 export default {
   title: 'favos/FavoCount',
