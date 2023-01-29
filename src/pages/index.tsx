@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
-import Select from '../components/pane/Select';
-import Result from '../components/pane/Result';
-import { Data } from '../data/interfaces';
+import Select from '../components/Select';
+import Result from '../components/Result';
+import { Data } from '../data/types';
 import { fetchData } from '../data/data';
 import { NextPage } from 'next';
-import { useInit } from '../lib/AppState';
 import FormUpdater from '../components/sideeffect/FormUpdater';
+import { useInit } from '../store/hooks';
 
 const Home: NextPage<Data> = (data) => {
   const methods = useForm();

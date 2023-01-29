@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '../../styles/globals.css';
-import Layout from '../components/layout/Layout';
-import { StatePersistence } from '../lib/AppState';
+import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
+import Persistence from '../store/Persistence';
+import { AppComponent } from 'next/dist/next-server/lib/router/router';
 
-function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
+const MyApp: AppComponent = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
     if (window.location.hostname !== 'localhost') {
@@ -30,13 +31,13 @@ function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
         <meta name='viewport' content='width=device-width,initial-scale=1' />
       </Head>
       <RecoilRoot>
-        <StatePersistence />
+        <Persistence />
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </RecoilRoot>
     </>
   );
-}
+};
 
 export default MyApp;

@@ -3,8 +3,8 @@ import * as React from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useShallowCompareEffect } from 'react-use';
 import { useSetRecoilState } from 'recoil';
-import { appState } from '../../lib/AppState';
 import { Query } from '../../lib/query';
+import { appState } from '../../store/state';
 
 const FormUpdater: React.FC = () => {
   const { watch, setValue } = useFormContext();
