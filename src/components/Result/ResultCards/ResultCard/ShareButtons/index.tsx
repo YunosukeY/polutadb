@@ -1,8 +1,8 @@
 import React from 'react';
 import { TwitterShareButton, TwitterIcon, LineShareButton, LineIcon } from 'react-share';
 
-import { Singing } from '../../data/types';
-import { useGetArtist, useUrl, parseTime } from '../../data/utils';
+import { Singing } from '../../../../../data/types';
+import { useGetArtist, useUrl, parseTime } from '../../../../../data/utils';
 import CopyButton from './CopyButton';
 
 type ShareButtonsProps = {
