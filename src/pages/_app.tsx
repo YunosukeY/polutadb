@@ -8,7 +8,7 @@ import '../../styles/globals.css';
 import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
-import { AppComponent } from 'next/dist/next-server/lib/router/router';
+import { AppComponent } from 'next/dist/shared/lib/router/router';
 
 const MyApp: AppComponent = ({ Component, pageProps }) => {
   const router = useRouter();
