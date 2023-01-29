@@ -7,7 +7,9 @@ export const fetchData = async () => {
 
   const m = new Map(data.videos.map((v) => [v.title, v.date]));
   data.singings.sort((a, b) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const aDate = m.get(a.video)!;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const bDate = m.get(b.video)!;
     if (aDate > bDate) return 1;
     else if (aDate < bDate) return -1;
