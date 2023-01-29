@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Releases from './Releases';
+import Releases from '.';
 
 export default {
   title: 'pane/Releases',

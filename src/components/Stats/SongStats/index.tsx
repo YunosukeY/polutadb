@@ -4,12 +4,12 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
-import HR from '../common/HR';
+import HR from '../../common/HR';
 import { useRecoilValue } from 'recoil';
-import { Singing, Song } from '../../data/types';
-import { songsState, singingsState } from '../../store/selector';
-import Pane from '../common/Pane';
-import ChartDiv from '../common/ChartDiv';
+import { Singing, Song } from '../../../data/types';
+import { songsState, singingsState } from '../../../store/selector';
+import Pane from '../../common/Pane';
+import ChartDiv from '../../common/ChartDiv';
 
 export default function SongStats() {
   const songs = useRecoilValue(songsState);

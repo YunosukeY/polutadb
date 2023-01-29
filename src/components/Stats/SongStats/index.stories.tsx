@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SongStats from './SongStats';
+import SongStats from '.';
 
 export default {
   title: 'pane/SongStats',
