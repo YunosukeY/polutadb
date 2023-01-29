@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import * as am4core from '@amcharts/amcharts4/core';
-import * as am4charts from '@amcharts/amcharts4/charts';
-import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-
+import * as am5 from '@amcharts/amcharts5';
+import * as am5percent from '@amcharts/amcharts5/percent';
+import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import HR from '../../common/HR';
 import { useGetArtist } from '../../../data/utils';
 import { useRecoilValue } from 'recoil';
@@ -18,7 +17,8 @@ export default function ArtistStats() {
   const getArtist = useGetArtist();
 
   useEffect(() => {
-    setChart(artists, singings, getArtist);
+    const root = setChart(artists, singings, getArtist);
+    return () => root.dispose();
   });
 
   return (
@@ -32,19 +32,28 @@ export default function ArtistStats() {
 
 // see https://www.amcharts.com/demos/pie-chart/
 function setChart(artists: Artist[] | undefined, singings: Singing[] | undefined, getArtist: (song: string) => string) {
-  am4core.useTheme(am4themes_animated);
+  const root = am5.Root.new('artist-stats');
+  root.setThemes([am5themes_Animated.new(root)]);
 
-  const chart = am4core.create('artist-stats', am4charts.PieChart);
-  chart.data = calcArtistStats(artists, singings, getArtist);
-  const pieSeries = chart.series.push(new am4charts.PieSeries());
-  pieSeries.dataFields.value = 'count';
-  pieSeries.dataFields.category = 'artist';
-  pieSeries.slices.template.stroke = am4core.color('#fff');
-  pieSeries.slices.template.strokeOpacity = 1;
-  pieSeries.hiddenState.properties.opacity = 1;
-  pieSeries.hiddenState.properties.endAngle = -90;
-  pieSeries.hiddenState.properties.startAngle = -90;
-  chart.hiddenState.properties.radius = am4core.percent(0);
+  const chart = root.container.children.push(am5percent.PieChart.new(root, {}));
+
+  const series = chart.series.push(
+    am5percent.PieSeries.new(root, {
+      categoryField: 'artist',
+      valueField: 'count',
+    }),
+  );
+  series.data.setAll(calcArtistStats(artists, singings, getArtist));
+
+  series.slices.template.setAll({
+    fillOpacity: 0.9,
+    stroke: am5.color('#fff'),
+    strokeWidth: 1,
+  });
+  series.appear();
+  chart.appear();
+
+  return root;
 }
 
 function calcArtistStats(

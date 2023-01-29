@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import * as am4core from '@amcharts/amcharts4/core';
-import * as am4charts from '@amcharts/amcharts4/charts';
-import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import * as am5 from '@amcharts/amcharts5';
+import * as am5percent from '@amcharts/amcharts5/percent';
+import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
 import HR from '../../common/HR';
 import { useRecoilValue } from 'recoil';
@@ -16,7 +16,8 @@ export default function SongStats() {
   const singings = useRecoilValue(singingsState);
 
   useEffect(() => {
-    setChart(songs, singings);
+    const root = setChart(songs, singings);
+    return () => root.dispose();
   });
 
   return (
@@ -30,19 +31,28 @@ export default function SongStats() {
 
 // see https://www.amcharts.com/demos/pie-chart/
 function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
-  am4core.useTheme(am4themes_animated);
+  const root = am5.Root.new('song-stats');
+  root.setThemes([am5themes_Animated.new(root)]);
 
-  const chart = am4core.create('song-stats', am4charts.PieChart);
-  chart.data = calcSongStats(songs, singings);
-  const pieSeries = chart.series.push(new am4charts.PieSeries());
-  pieSeries.dataFields.value = 'count';
-  pieSeries.dataFields.category = 'song';
-  pieSeries.slices.template.stroke = am4core.color('#fff');
-  pieSeries.slices.template.strokeOpacity = 1;
-  pieSeries.hiddenState.properties.opacity = 1;
-  pieSeries.hiddenState.properties.endAngle = -90;
-  pieSeries.hiddenState.properties.startAngle = -90;
-  chart.hiddenState.properties.radius = am4core.percent(0);
+  const chart = root.container.children.push(am5percent.PieChart.new(root, {}));
+
+  const series = chart.series.push(
+    am5percent.PieSeries.new(root, {
+      categoryField: 'song',
+      valueField: 'count',
+    }),
+  );
+  series.data.setAll(calcSongStats(songs, singings));
+
+  series.slices.template.setAll({
+    fillOpacity: 0.9,
+    stroke: am5.color('#fff'),
+    strokeWidth: 1,
+  });
+  series.appear();
+  chart.appear();
+
+  return root;
 }
 
 function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefined) {
