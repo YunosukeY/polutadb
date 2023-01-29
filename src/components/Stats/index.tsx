@@ -1,6 +1,7 @@
+import dynamic from 'next/dynamic';
 import React from 'react';
-import ArtistStats from './ArtistStats';
-import SongStats from './SongStats';
+const ArtistStats = dynamic(() => import('./ArtistStats'), { ssr: false });
+const SongStats = dynamic(() => import('./SongStats'), { ssr: false });
 
 const Stats: React.FC = () => {
   return (
