@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { useOnChange } from '../util';
+import { useDebounce } from 'react-use';
 
 export default function FullTextSearch() {
   const { control } = useFormContext();
@@ -17,11 +18,15 @@ export default function FullTextSearch() {
 
   const onChange = useOnChange(inputProps.onChange, (q, v) => (q.query = v));
 
+  const [input, setInput] = React.useState('');
+  useDebounce(() => onChange(input), 300, [input]);
+
   return (
     <TextField
       inputRef={ref}
       {...inputProps}
-      onChange={(e) => onChange(e.target.value)}
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
       InputProps={{
         startAdornment: (
           <InputAdornment position='start'>
