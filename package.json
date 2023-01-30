@@ -61,5 +61,8 @@
     "@types/react-copy-to-clipboard": "^5.0.1",
     "babel-loader": "^8.2.2",
     "paths.macro": "^3.0.1"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0"
   }
 }
