@@ -1,8 +1,9 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
+import { FCWithChildren } from '../../../types/react';
 import KeyVisual from './KeyVisual';
 
-const Main: React.FC = ({ children }) => {
+const Main: FCWithChildren = ({ children }) => {
   return (
     <div id='main'>
       <KeyVisual />
