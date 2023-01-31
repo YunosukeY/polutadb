@@ -8,6 +8,7 @@ import { useVideo } from '../../data/utils';
 import { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import Pane from '../common/Pane';
+import { FCWithChildren } from '../../types/react';
 
 const useStyles = makeStyles({
   icon: {
@@ -35,7 +36,7 @@ const Releases = () => {
 };
 export default Releases;
 
-const LatestRelease: React.FC = ({ children }) => {
+const LatestRelease: FCWithChildren = ({ children }) => {
   return (
     <Pane>
       <h4>Latest Release Note</h4>
@@ -45,7 +46,7 @@ const LatestRelease: React.FC = ({ children }) => {
   );
 };
 
-const OldReleases: React.FC = ({ children }) => {
+const OldReleases: FCWithChildren = ({ children }) => {
   const classes = useStyles();
 
   const [isHidden, setIsHidden] = useState(true);

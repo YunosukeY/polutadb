@@ -1,7 +1,8 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
+import { FCWithChildren } from '../../types/react';
 
-const Pane: React.FC = ({ children }) => (
+const Pane: FCWithChildren = ({ children }) => (
   <Paper variant='outlined' style={{ padding: 20, marginTop: 10, marginBottom: 10 }}>
     {children}
   </Paper>
