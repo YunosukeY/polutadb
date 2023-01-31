@@ -62,6 +62,10 @@ export default function PickUp() {
           id='uefGU_oOCdk'
           singing={new Singing(0, '【オリジナル楽曲】屋根裏のエピローグ【尾丸ポルカ】', '', '0:00')}
         />
+        <Thumbnail
+          id='g-K6PJi7b0o'
+          singing={new Singing(0, '【ORIGINAL SONG+MV】ペルソナ - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')}
+        />
       </Slider>
     </div>
   );
