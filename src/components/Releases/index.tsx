@@ -610,10 +610,5 @@ function ContentType(props: { type: string }) {
 }
 
 function Content(props: { content: string }) {
-  return (
-    <>
-      ・{props.content}
-      <br />
-    </>
-  );
+  return <Typography variant='body1'>・{props.content}</Typography>;
 }

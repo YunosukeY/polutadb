@@ -38,8 +38,10 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
           >
             <Grid item>
               <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
-                『{singing.song}』<br />
-                {artist} <br />
+                『{singing.song}』
+              </Typography>
+              <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
+                {artist}
               </Typography>
             </Grid>
             {singing.time == 1 && (
