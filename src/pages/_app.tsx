@@ -9,6 +9,9 @@ import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
 import { AppComponent } from 'next/dist/shared/lib/router/router';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+
+const theme = createMuiTheme();
 
 const MyApp: AppComponent = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -31,10 +34,12 @@ const MyApp: AppComponent = ({ Component, pageProps }) => {
         <meta name='viewport' content='width=device-width,initial-scale=1' />
       </Head>
       <RecoilRoot>
-        <Persistence />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider theme={theme}>
+          <Persistence />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </RecoilRoot>
     </>
   );
