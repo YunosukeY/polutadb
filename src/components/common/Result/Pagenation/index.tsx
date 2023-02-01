@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Pagination from '@material-ui/lab/Pagination';
+import Pagination from '@mui/material/Pagination';
 
 export default function Pagenation(props: { pagenum: number; setPagenum: (p: number) => void; lastPageNum: number }) {
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {

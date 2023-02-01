@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useFormContext, useController } from 'react-hook-form';
-import FormControl from '@material-ui/core/FormControl';
+import FormControl from '@mui/material/FormControl';
 
 import { useOnChange, useStyles } from '../util';
 import { useVideos } from '../../../../data/utils';
-import { Autocomplete } from '@material-ui/lab';
-import { TextField } from '@material-ui/core';
+import { Autocomplete } from '@mui/material';
+import { TextField } from '@mui/material';
 
 export default function Video() {
   const classes = useStyles();
@@ -29,7 +29,7 @@ export default function Video() {
         onChange={(e, v) => onChangeVideo(v == null ? -1 : v.i)}
         {...inputProps}
         value={value === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === value)}
-        getOptionSelected={(option) => option.i == value}
+        isOptionEqualToValue={(option) => option.i == value}
         getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}
         renderInput={(params) => <TextField {...params} label='動画' />}
       />

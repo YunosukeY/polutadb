@@ -4,7 +4,7 @@ import { useHover, useWindowSize } from 'react-use';
 import Youtube from './Youtube';
 import { Singing } from '../../../data/types';
 import { useUrl, parseTime } from '../../../data/utils';
-import { Modal } from '@material-ui/core';
+import { Modal } from '@mui/material';
 import { useState } from 'react';
 import { useWidth } from '../../../lib/useWidth';
 

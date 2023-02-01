@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useWindowSize } from 'react-use';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 import HR from '../common/HR';
 import { useVideo } from '../../data/utils';
 import { useState } from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import Pane from '../common/Pane';
 import { FCWithChildren } from '../../types/react';
 

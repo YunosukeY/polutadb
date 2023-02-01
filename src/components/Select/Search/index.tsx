@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/styles';
+import Grid from '@mui/material/Grid';
+import { makeStyles } from '@mui/styles';
 
 import FullTextSearch from './FullTextSearch';
 import Type from './Type';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
 import HR from '../common/HR';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import Pane from '../common/Pane';
 
 export default function About() {

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 
 import Star from './Star';
 import { useGetArtist, useVideoId } from '../../../../../data/utils';
 import { Singing } from '../../../../../data/types';
 import ShareButtons from './ShareButtons';
-import { Card, CardActions, CardContent, Chip } from '@material-ui/core';
+import { Card, CardActions, CardContent, Chip } from '@mui/material';
 import Thumbnail from '../../../Thumbnail';
 import { useIsFavo, useToggleFavo } from '../../../../../store/hooks';
 
@@ -32,7 +32,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
           <Grid
             container
             direction='column'
-            justify='center'
+            justifyContent='center'
             alignItems='center'
             style={{ minHeight: 120, maxHeight: 160 }}
           >
