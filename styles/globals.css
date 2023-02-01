@@ -13,20 +13,6 @@
   flex: 1;
 }
 
-/* material-uiの上書き */
-div[class*='makeStyles-formControl'],
-div[class*='MuiFormControl-root jss'] {
-  height: 3rem !important;
-}
-.MuiPaper-root {
-  border: solid 1px #dcdbdc;
-}
-.MuiCardContent-root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* react-slickの上書き */
 .slick-slider {
   margin: 0 auto;

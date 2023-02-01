@@ -10,7 +10,6 @@ import { appState } from '../../../store/state';
 
 const Bar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
-  border: '0 !important',
 }));
 
 export default function Header() {
