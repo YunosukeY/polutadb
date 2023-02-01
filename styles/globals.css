@@ -1,7 +1,6 @@
 :root {
   --theme-color: #ef5350;
   --font-color: dodgerblue;
-  --sub-theme-color: dodgerblue;
   --bg-color: #fff;
 }
 
@@ -27,16 +26,6 @@ div[class*='MuiFormControl-root jss'] {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.MuiCheckbox-colorPrimary.Mui-checked,
-.MuiRadio-colorPrimary.Mui-checked {
-  color: var(--sub-theme-color) !important;
-}
-.MuiPaginationItem-textPrimary.Mui-selected {
-  background-color: var(--sub-theme-color) !important;
-}
-.MuiChip-colorPrimary {
-  background-color: var(--sub-theme-color) !important;
 }
 
 /* react-slickの上書き */
