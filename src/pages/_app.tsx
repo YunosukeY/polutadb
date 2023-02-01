@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
-import '../../styles/globals.css';
 import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
@@ -25,6 +24,25 @@ const theme = createTheme({
       main: '#ef5350',
     },
   },
+  typography: (palette) => ({
+    fontFamily: 'Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif !important',
+    h4: {
+      fontSize: '2.28rem',
+      color: palette.primary.main,
+      fontFamily: 'Comfortaa',
+      marginTop: '0px',
+      marginBottom: '0.912rem',
+    },
+    h5: {
+      fontSize: '1.64rem',
+      margin: '1.0933333333rem 0 0.656rem',
+      color: palette.primary.main,
+    },
+    h6: {
+      fontSize: '1.15rem',
+      margin: '0.7666666667rem 0 0.46rem',
+    },
+  }),
 });
 
 const MyApp: AppComponent = ({ Component, pageProps }) => {

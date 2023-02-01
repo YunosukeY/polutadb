@@ -5,7 +5,7 @@ import Star from './Star';
 import { useGetArtist, useVideoId } from '../../../../../data/utils';
 import { Singing } from '../../../../../data/types';
 import ShareButtons from './ShareButtons';
-import { Card, CardActions, CardContent, Chip } from '@mui/material';
+import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import Thumbnail from '../../../Thumbnail';
 import { useIsFavo, useToggleFavo } from '../../../../../store/hooks';
 
@@ -37,10 +37,10 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
             style={{ minHeight: 120, maxHeight: 160 }}
           >
             <Grid item>
-              <h5 style={{ textAlign: 'center', margin: 0 }}>
+              <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
                 『{singing.song}』<br />
                 {artist} <br />
-              </h5>
+              </Typography>
             </Grid>
             {singing.time == 1 && (
               <Grid item>

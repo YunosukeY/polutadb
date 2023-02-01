@@ -6,7 +6,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import HR from '../common/HR';
 import { useVideo } from '../../data/utils';
 import { useState } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import Pane from '../common/Pane';
 import { FCWithChildren } from '../../types/react';
@@ -40,7 +40,7 @@ export default Releases;
 const LatestRelease: FCWithChildren = ({ children }) => {
   return (
     <Pane>
-      <h4>Latest Release Note</h4>
+      <Typography variant='h4'>Latest Release Note</Typography>
       <HR />
       {children}
     </Pane>
@@ -58,17 +58,17 @@ const OldReleases: FCWithChildren = ({ children }) => {
   return (
     <Pane>
       {isHidden && (
-        <h4 onClick={onClick} style={{ marginBottom: 0 }}>
+        <Typography variant='h4' onClick={onClick} style={{ marginBottom: 0 }}>
           Old Release Notes
           <ArrowDropDownIcon className={classes.icon} />
-        </h4>
+        </Typography>
       )}
       {!isHidden && (
         <>
-          <h4 onClick={onClick}>
+          <Typography variant='h4' onClick={onClick}>
             Old Release Notes
             <ArrowDropUpIcon className={classes.icon} />
-          </h4>
+          </Typography>
           <HR />
           {children}
         </>
@@ -582,7 +582,11 @@ const ReleaseArray: React.ReactNode[] = [
 ];
 
 function Date(props: { date: string }) {
-  return <h5 style={{ marginTop: '30px' }}>{props.date}</h5>;
+  return (
+    <Typography variant='h5' style={{ marginTop: '30px' }}>
+      {props.date}
+    </Typography>
+  );
 }
 
 function AddData() {
@@ -598,7 +602,11 @@ function AddVideo(props: { videoId: number }) {
 }
 
 function ContentType(props: { type: string }) {
-  return <h6 style={{ marginTop: '30px' }}>{props.type}</h6>;
+  return (
+    <Typography variant='h6' style={{ marginTop: '30px' }}>
+      {props.type}
+    </Typography>
+  );
 }
 
 function Content(props: { content: string }) {

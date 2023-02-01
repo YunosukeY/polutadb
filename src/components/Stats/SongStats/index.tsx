@@ -10,6 +10,7 @@ import { Singing, Song } from '../../../data/types';
 import { songsState, singingsState } from '../../../store/selector';
 import Pane from '../../common/Pane';
 import ChartDiv from '../../common/ChartDiv';
+import { Typography } from '@mui/material';
 
 export default function SongStats() {
   const songs = useRecoilValue(songsState);
@@ -22,7 +23,9 @@ export default function SongStats() {
 
   return (
     <Pane>
-      <h4 style={{ textAlign: 'center' }}>{songs?.length} Songs</h4>
+      <Typography variant='h4' style={{ textAlign: 'center' }}>
+        {songs?.length} Songs
+      </Typography>
       <HR />
       <ChartDiv id='song-stats' />
     </Pane>

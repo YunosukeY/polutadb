@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
 import HR from '../common/HR';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Pane from '../common/Pane';
 
 export default function About() {
@@ -12,7 +12,7 @@ export default function About() {
     <Grid container direction='column' alignItems='center'>
       <Grid item style={{ width }}>
         <Pane>
-          <h4>About</h4>
+          <Typography variant='h4'>About</Typography>
           <HR />
           <Describe />
         </Pane>

@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 
 import Menu from './Menu';
 import { useRouter } from 'next/router';
-import { Button, styled } from '@mui/material';
+import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
 import { appState } from '../../../store/state';
 
@@ -39,7 +39,8 @@ export default function Header() {
               height: 64,
             }}
           >
-            <h4
+            <Typography
+              variant='h4'
               style={{
                 color: 'white',
                 margin: 0,
@@ -47,7 +48,7 @@ export default function Header() {
               }}
             >
               PolutaDB
-            </h4>
+            </Typography>
           </Button>
           <Menu />
         </Toolbar>
