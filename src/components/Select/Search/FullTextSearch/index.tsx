@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useFormContext, useController } from 'react-hook-form';
-import SearchIcon from '@material-ui/icons/Search';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import { useOnChange } from '../util';
 import { useDebounce, useMount } from 'react-use';
 import { useRouter } from 'next/router';
@@ -29,6 +29,7 @@ export default function FullTextSearch() {
 
   return (
     <TextField
+      variant="standard"
       inputRef={ref}
       {...inputProps}
       value={input}
@@ -42,7 +43,6 @@ export default function FullTextSearch() {
       }}
       fullWidth
       style={{ paddingTop: 16 }}
-      inputProps={{ 'aria-label': 'Full-text search' }}
-    />
+      inputProps={{ 'aria-label': 'Full-text search' }} />
   );
 }

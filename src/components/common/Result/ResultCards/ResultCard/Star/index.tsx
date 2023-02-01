@@ -1,8 +1,8 @@
 import * as React from 'react';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { IconButton } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { IconButton } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 type StarProps = {
   isFavo: boolean;
@@ -21,7 +21,7 @@ export default function Star(props: StarProps) {
   const classes = useStyles(props);
 
   return (
-    <IconButton onClick={props.onClick} aria-label='Favorite'>
+    <IconButton onClick={props.onClick} aria-label='Favorite' size="large">
       {props.isFavo && <StarIcon className={classes.icon} />}
       {!props.isFavo && <StarBorderIcon className={classes.icon} />}
     </IconButton>

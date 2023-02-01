@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Grid, { GridSize } from '@material-ui/core/Grid';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid, { GridSize } from '@mui/material/Grid';
+import Radio from '@mui/material/Radio';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default function MyRadio(props: { value: number; label: string; xs: GridSize; sm: GridSize }) {
   return (

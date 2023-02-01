@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Grid, { GridSize } from '@material-ui/core/Grid';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Checkbox as MuiCheckbox } from '@material-ui/core';
+import Grid, { GridSize } from '@mui/material/Grid';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { Checkbox as MuiCheckbox } from '@mui/material';
 
 type CheckboxProps = { xs: GridSize; checked: boolean; onChange: any; label: string };
 

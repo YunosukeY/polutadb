@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import StarIcon from '@material-ui/icons/Star';
-import DonutLargeIcon from '@material-ui/icons/DonutLarge';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import StarIcon from '@mui/icons-material/Star';
+import DonutLargeIcon from '@mui/icons-material/DonutLarge';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { appState } from '../../../../store/state';
@@ -21,14 +21,12 @@ export default function Menu() {
     setOpen(false);
   };
 
-  return (
-    <>
-      <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='Menu'>
-        <MenuIcon />
-      </IconButton>
-      <MenuDrawer open={open} handleDrawerClose={handleDrawerClose} />
-    </>
-  );
+  return <>
+    <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='Menu' size="large">
+      <MenuIcon />
+    </IconButton>
+    <MenuDrawer open={open} handleDrawerClose={handleDrawerClose} />
+  </>;
 }
 
 type MenuDrawerProps = {

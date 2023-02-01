@@ -9,6 +9,16 @@ import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
 import { AppComponent } from 'next/dist/shared/lib/router/router';
+import { createTheme, ThemeProvider, Theme, StyledEngineProvider } from '@mui/material';
+
+
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
+
+const theme = createTheme();
 
 const MyApp: AppComponent = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -24,20 +34,22 @@ const MyApp: AppComponent = ({ Component, pageProps }) => {
     }
   }, [router.events]);
 
-  return (
-    <>
-      <Head>
-        <title>ぽるうたデータベース｜尾丸ポルカさんの歌を検索！</title>
-        <meta name='viewport' content='width=device-width,initial-scale=1' />
-      </Head>
-      <RecoilRoot>
-        <Persistence />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </RecoilRoot>
-    </>
-  );
+  return <>
+    <Head>
+      <title>ぽるうたデータベース｜尾丸ポルカさんの歌を検索！</title>
+      <meta name='viewport' content='width=device-width,initial-scale=1' />
+    </Head>
+    <RecoilRoot>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <Persistence />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </StyledEngineProvider>
+    </RecoilRoot>
+  </>;
 };
 
 export default MyApp;

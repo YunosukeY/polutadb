@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { IconButton } from '@material-ui/core';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
+import { IconButton } from '@mui/material';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 type CopyButtonProps = {
@@ -14,27 +14,25 @@ const CopyButton: React.FC<CopyButtonProps> = ({ target, iconSize }) => {
   const handleClick = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  return (
-    <>
-      <CopyToClipboard text={target}>
-        <IconButton onClick={handleClick} aria-label='Copy link'>
-          <FileCopyIcon style={{ fontSize: iconSize }} />
-        </IconButton>
-      </CopyToClipboard>
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-      >
-        <MuiAlert elevation={6} variant='filled' severity='success'>
-          Copied!
-        </MuiAlert>
-      </Snackbar>
-    </>
-  );
+  return <>
+    <CopyToClipboard text={target}>
+      <IconButton onClick={handleClick} aria-label='Copy link' size="large">
+        <FileCopyIcon style={{ fontSize: iconSize }} />
+      </IconButton>
+    </CopyToClipboard>
+    <Snackbar
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+      }}
+      open={open}
+      autoHideDuration={6000}
+      onClose={handleClose}
+    >
+      <MuiAlert elevation={6} variant='filled' severity='success'>
+        Copied!
+      </MuiAlert>
+    </Snackbar>
+  </>;
 };
 export default CopyButton;
