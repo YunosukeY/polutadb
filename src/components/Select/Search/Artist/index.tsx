@@ -23,7 +23,7 @@ export default function Artist() {
 
   const artists = useArtists();
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl variant="standard" className={classes.formControl}>
       <Autocomplete
         options={artists}
         onChange={(e, v) => onChangeArtist(v == null ? -1 : v.i)}
@@ -31,7 +31,7 @@ export default function Artist() {
         value={value === -1 ? { name: '', i: -1 } : artists.find((v) => v.i === value)}
         isOptionEqualToValue={(option) => option.i == value}
         getOptionLabel={(option) => option.name}
-        renderInput={(params) => <TextField {...params} label='アーティスト' />}
+        renderInput={(params) => <TextField variant="standard" {...params} label='アーティスト' />}
       />
     </FormControl>
   );

@@ -23,7 +23,7 @@ export default function Video() {
 
   const videos = useVideos();
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl variant="standard" className={classes.formControl}>
       <Autocomplete
         options={videos}
         onChange={(e, v) => onChangeVideo(v == null ? -1 : v.i)}
@@ -31,7 +31,7 @@ export default function Video() {
         value={value === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === value)}
         isOptionEqualToValue={(option) => option.i == value}
         getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}
-        renderInput={(params) => <TextField {...params} label='動画' />}
+        renderInput={(params) => <TextField variant="standard" {...params} label='動画' />}
       />
     </FormControl>
   );

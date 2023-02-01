@@ -23,7 +23,7 @@ export default function Song() {
 
   const songs = useSongs();
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl variant="standard" className={classes.formControl}>
       <Autocomplete
         options={songs}
         onChange={(e, v) => onChangeSong(v == null ? -1 : v.i)}
@@ -31,7 +31,7 @@ export default function Song() {
         value={value === -1 ? { title: '', i: -1 } : songs.find((v) => v.i === value)}
         isOptionEqualToValue={(option) => option.i == value}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label='曲' />}
+        renderInput={(params) => <TextField variant="standard" {...params} label='曲' />}
       />
     </FormControl>
   );

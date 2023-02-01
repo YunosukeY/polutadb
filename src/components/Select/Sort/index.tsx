@@ -16,7 +16,7 @@ export default function Sort() {
   };
 
   return (
-    <FormControl style={{ width: '100%' }}>
+    <FormControl variant="standard" style={{ width: '100%' }}>
       <FormLabel>ソート</FormLabel>
       <RadioGroup value={state.sortedBy} onChange={handleChange}>
         <Grid container style={{ padding: 5 }}>

@@ -29,6 +29,7 @@ export default function FullTextSearch() {
 
   return (
     <TextField
+      variant="standard"
       inputRef={ref}
       {...inputProps}
       value={input}
@@ -42,7 +43,6 @@ export default function FullTextSearch() {
       }}
       fullWidth
       style={{ paddingTop: 16 }}
-      inputProps={{ 'aria-label': 'Full-text search' }}
-    />
+      inputProps={{ 'aria-label': 'Full-text search' }} />
   );
 }

@@ -23,7 +23,7 @@ export default function Type() {
 
   const types = useTypes();
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl variant="standard" className={classes.formControl}>
       <Autocomplete
         options={types}
         onChange={(e, v) => onChangeType(v == null ? -1 : v.i)}
@@ -31,7 +31,7 @@ export default function Type() {
         value={value === -1 ? { name: '', i: -1 } : types.find((v) => v.i === value)}
         isOptionEqualToValue={(option) => option.i == value}
         getOptionLabel={(option) => option.name}
-        renderInput={(params) => <TextField {...params} label='動画のタイプ' />}
+        renderInput={(params) => <TextField variant="standard" {...params} label='動画のタイプ' />}
       />
     </FormControl>
   );
