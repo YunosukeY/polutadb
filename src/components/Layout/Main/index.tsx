@@ -5,7 +5,7 @@ import KeyVisual from './KeyVisual';
 
 const Main: FCWithChildren = ({ children }) => {
   return (
-    <div id='main'>
+    <>
       <KeyVisual />
       <div style={{ padding: 10 }}>
         <Grid container justifyContent='center'>
@@ -14,7 +14,7 @@ const Main: FCWithChildren = ({ children }) => {
           </Grid>
         </Grid>
       </div>
-    </div>
+    </>
   );
 };
 

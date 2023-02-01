@@ -5,6 +5,12 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import Thumbnail from '../../../../common/Thumbnail';
 import { Singing } from '../../../../../data/types';
+import { styled } from '@mui/styles';
+
+const ThumbnailSlider = styled(Slider)({
+  margin: '0 auto',
+  maxWidth: '1000px',
+});
 
 export default function PickUp() {
   const settings: Settings = {
@@ -20,7 +26,7 @@ export default function PickUp() {
   };
   return (
     <div style={{ paddingBottom: 20 }}>
-      <Slider {...settings}>
+      <ThumbnailSlider {...settings}>
         <Thumbnail
           id='LQ_eazT56FA'
           singing={
@@ -66,7 +72,7 @@ export default function PickUp() {
           id='g-K6PJi7b0o'
           singing={new Singing(0, '【ORIGINAL SONG+MV】ペルソナ - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')}
         />
-      </Slider>
+      </ThumbnailSlider>
     </div>
   );
 }

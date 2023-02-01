@@ -3,22 +3,6 @@
   --bg-color: #fff;
 }
 
-/* footer固定 */
-#__next {
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-}
-#main {
-  flex: 1;
-}
-
-/* react-slickの上書き */
-.slick-slider {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
 /* フォント */
 label,
 h1,
