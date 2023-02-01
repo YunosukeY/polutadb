@@ -4,9 +4,13 @@ import Toolbar from '@mui/material/Toolbar';
 
 import Menu from './Menu';
 import { useRouter } from 'next/router';
-import { Button } from '@mui/material';
+import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
 import { appState } from '../../../store/state';
+
+const Bar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main,
+}));
 
 export default function Header() {
   const router = useRouter();
@@ -18,7 +22,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar position='fixed' style={{ backgroundColor: '#ef5350', border: 0 }}>
+      <Bar position='fixed'>
         <Toolbar style={{ position: 'relative' }}>
           <div style={{ flexGrow: 1 }} />
           <Button
@@ -35,7 +39,8 @@ export default function Header() {
               height: 64,
             }}
           >
-            <h4
+            <Typography
+              variant='h4'
               style={{
                 color: 'white',
                 margin: 0,
@@ -43,11 +48,11 @@ export default function Header() {
               }}
             >
               PolutaDB
-            </h4>
+            </Typography>
           </Button>
           <Menu />
         </Toolbar>
-      </AppBar>
+      </Bar>
       <Toolbar />
     </header>
   );
