@@ -1,5 +1,7 @@
-import { useRecoilValue, useRecoilState } from 'recoil';
-import { Data, Singing } from '../data/types';
+import { useMount } from 'react-use';
+import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
+import { Data } from '../data/types';
+import { initializedState, initializeState } from './selector';
 import { appState } from './state';
 
 export const useIsFavo = () => {
@@ -29,23 +31,13 @@ export const useToggleFavo = () => {
   };
 };
 
-export const useInit = () => {
-  const [state, setState] = useRecoilState(appState);
+export const useInit = (data: Data) => {
+  const initialized = useRecoilValue(initializedState);
+  const initialize = useSetRecoilState(initializeState);
 
-  const initialized =
-    state.artists !== undefined &&
-    state.videos !== undefined &&
-    state.types !== undefined &&
-    state.songs !== undefined &&
-    state.singings !== undefined;
+  useMount(() => {
+    if (!initialized) initialize(data);
+  });
 
-  const initialize = (data: Data) => {
-    setState((state) => ({
-      ...state,
-      ...data,
-      singings: data.singings.map((o, i) => new Singing(i, o.video, o.song, o.start)),
-    }));
-  };
-
-  return [initialized, initialize] as const;
+  return;
 };
