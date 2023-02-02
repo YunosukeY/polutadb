@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { NextPage } from 'next';
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useMount } from 'react-use';
 
 import Releases from '../components/Releases';
 import { fetchData } from '../data/data';
@@ -9,9 +10,9 @@ import { useInit } from '../store/hooks';
 
 const page: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();
-  useEffect(() => {
+  useMount(() => {
     if (!isInit) init(data);
-  }, []);
+  });
 
   return <Releases />;
 };
