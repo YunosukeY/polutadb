@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useMount } from 'react-use';
 
 import Stats from '../components/Stats';
 import { fetchData } from '../data/data';
@@ -9,9 +9,9 @@ import { useInit } from '../store/hooks';
 
 const StatsPage: NextPage<Data> = (data) => {
   const [isInit, init] = useInit();
-  useEffect(() => {
+  useMount(() => {
     if (!isInit) init(data);
-  }, []);
+  });
 
   return <Stats />;
 };

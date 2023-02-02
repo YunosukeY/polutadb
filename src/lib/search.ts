@@ -3,7 +3,7 @@ import { useGetArtist, useGetType } from '../data/utils';
 import { Singing } from '../data/types';
 import { AppState } from '../store/state';
 
-export function search(query: Query, state: AppState) {
+export function useSearch(query: Query, state: AppState) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 

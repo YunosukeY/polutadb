@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 
 import Select from '../components/Select';
@@ -8,14 +8,15 @@ import { fetchData } from '../data/data';
 import { NextPage } from 'next';
 import FormUpdater from '../components/sideeffect/FormUpdater';
 import { useInit } from '../store/hooks';
+import { useMount } from 'react-use';
 
 const Home: NextPage<Data> = (data) => {
   const methods = useForm();
 
   const [isInit, init] = useInit();
-  useEffect(() => {
+  useMount(() => {
     if (!isInit) init(data);
-  }, []);
+  });
 
   return (
     <FormProvider {...methods}>

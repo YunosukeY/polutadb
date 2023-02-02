@@ -11,7 +11,7 @@ import { appState } from '../../store/state';
 
 export default function Favos() {
   const [state, setState] = useRecoilState(appState);
-  const favoList = getFavoList();
+  const favoList = useFavoList();
   const displaynum = useDisplayNum();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Favos() {
   return <Result result={favoList} isFavo={true} />;
 }
 
-function getFavoList() {
+function useFavoList() {
   const singings = useRecoilValue(singingsState);
 
   const isFavo = useIsFavo();

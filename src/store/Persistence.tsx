@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useMount } from 'react-use';
 import { useRecoilState } from 'recoil';
 import { AppState, appState, defaultState } from './state';
 
@@ -20,9 +21,9 @@ function getInitialState(): AppState {
 const Persistence: React.FC = () => {
   const [state, setState] = useRecoilState(appState);
 
-  useEffect(() => {
+  useMount(() => {
     setState(getInitialState());
-  }, []);
+  });
 
   useEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...state.favos]));
