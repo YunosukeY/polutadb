@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
 
 import { Query } from '../../../../lib/query';
-import { appState } from '../../../../store/state';
+import { initPage } from '../../../../store/selector';
 
 export type EachSelectProps = { query: Query };
 
@@ -22,14 +22,11 @@ export const useStyles = makeStyles((theme: Theme) =>
 export const useOnChange = (onChange: (...e: any[]) => void, qUpdater: (q: Query, value: any) => void) => {
   const router = useRouter();
   const query = new Query(router.query);
-  const setState = useSetRecoilState(appState);
-  const initPage = () => {
-    setState((state) => ({ ...state, pagenum: 1 }));
-  };
+  const init = useSetRecoilState(initPage);
   return (value: any) => {
     onChange(value);
     qUpdater(query, value);
-    initPage();
+    init();
     router.push(`/?${query}`, undefined, { scroll: false });
   };
 };

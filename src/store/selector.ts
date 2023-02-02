@@ -72,3 +72,11 @@ export const isFavoState = selector<(singingId: number) => boolean>({
   key: 'isFavoState',
   get: ({ get }) => (singingId: number) => Boolean(get(appState).favos.get(singingId)),
 });
+
+export const initPage = selector<void>({
+  key: 'initPage',
+  get: () => {
+    return;
+  },
+  set: ({ set }) => set(appState, (prev) => ({ ...prev, pagenum: 1 })),
+});

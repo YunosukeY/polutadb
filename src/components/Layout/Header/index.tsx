@@ -6,7 +6,7 @@ import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
-import { appState } from '../../../store/state';
+import { initPage } from '../../../store/selector';
 
 const Bar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -15,10 +15,7 @@ const Bar = styled(AppBar)(({ theme }) => ({
 export default function Header() {
   const router = useRouter();
 
-  const setState = useSetRecoilState(appState);
-  const initPage = () => {
-    setState((state) => ({ ...state, pagenum: 1 }));
-  };
+  const init = useSetRecoilState(initPage);
 
   return (
     <header>
@@ -27,7 +24,7 @@ export default function Header() {
           <div style={{ flexGrow: 1 }} />
           <Button
             onClick={() => {
-              initPage();
+              init();
               router.push('/');
             }}
             style={{
