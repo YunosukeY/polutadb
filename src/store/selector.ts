@@ -1,4 +1,4 @@
-import { selector, selectorFamily } from 'recoil';
+import { DefaultValue, selector, selectorFamily } from 'recoil';
 import { Data, Singing } from '../data/types';
 import { appState } from './state';
 
@@ -46,11 +46,13 @@ export const initializeState = selector<Data>({
     throw new Error();
   },
   set: ({ set }, newValue) => {
-    set(appState, (prev) => ({
-      ...prev,
-      ...newValue,
-      singings: (newValue as Data).singings.map((o, i) => new Singing(i, o.video, o.song, o.start)),
-    }));
+    newValue instanceof DefaultValue
+      ? set(appState, newValue)
+      : set(appState, (prev) => ({
+          ...prev,
+          ...newValue,
+          singings: newValue.singings.map((o, i) => new Singing(i, o.video, o.song, o.start)),
+        }));
   },
 });
 
@@ -58,10 +60,12 @@ export const favoState = selectorFamily<boolean, { singingId: number }>({
   key: 'favoState',
   get: ({ singingId }) => ({ get }) => Boolean(get(appState).favos.get(singingId)),
   set: ({ singingId }) => ({ set }, newValue) => {
-    set(appState, (prev) => ({
-      ...prev,
-      favos: prev.favos.set(singingId, newValue as boolean),
-    }));
+    newValue instanceof DefaultValue
+      ? set(appState, newValue)
+      : set(appState, (prev) => ({
+          ...prev,
+          favos: prev.favos.set(singingId, newValue),
+        }));
   },
 });
 export const isFavoState = selector<(singingId: number) => boolean>({
