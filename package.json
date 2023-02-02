@@ -12,8 +12,6 @@
     "test": "jest",
     "lint": "eslint src",
     "format": "eslint --fix src && prettier --write src",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -24,7 +22,6 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.7",
     "@mui/styles": "^5.11.7",
-    "@storybook/addon-a11y": "^6.1.21",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",
@@ -55,10 +52,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/react": "^6.1.21",
     "@types/gtag.js": "^0.0.12",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "babel-loader": "^9.0.0",
