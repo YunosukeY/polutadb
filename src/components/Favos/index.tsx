@@ -5,8 +5,7 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { useIsFavo } from '../../store/hooks';
-import { singingsState } from '../../store/selector';
+import { isFavoState, singingsState } from '../../store/selector';
 import { appState } from '../../store/state';
 
 export default function Favos() {
@@ -26,7 +25,7 @@ export default function Favos() {
 function useFavoList() {
   const singings = useRecoilValue(singingsState);
 
-  const isFavo = useIsFavo();
+  const isFavo = useRecoilValue(isFavoState);
 
   const res = new Array<Singing>();
   singings?.forEach((singing) => {

@@ -1,4 +1,4 @@
-import { selector } from 'recoil';
+import { selector, selectorFamily } from 'recoil';
 import { Data, Singing } from '../data/types';
 import { appState } from './state';
 
@@ -52,4 +52,19 @@ export const initializeState = selector<Data>({
       singings: (newValue as Data).singings.map((o, i) => new Singing(i, o.video, o.song, o.start)),
     }));
   },
+});
+
+export const favoState = selectorFamily<boolean, { singingId: number }>({
+  key: 'favoState',
+  get: ({ singingId }) => ({ get }) => Boolean(get(appState).favos.get(singingId)),
+  set: ({ singingId }) => ({ set }, newValue) => {
+    set(appState, (prev) => ({
+      ...prev,
+      favos: prev.favos.set(singingId, newValue as boolean),
+    }));
+  },
+});
+export const isFavoState = selector<(singingId: number) => boolean>({
+  key: 'isFavoState',
+  get: ({ get }) => (singingId: number) => Boolean(get(appState).favos.get(singingId)),
 });
