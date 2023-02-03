@@ -5,8 +5,9 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { isFavoState, singingsState } from '../../store/selector';
+import { singingsState } from '../../store/selector';
 import { pageState } from '../../store/pageState';
+import { isFavoSelector } from '../../store/favoState';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useRecoilState(pageState);
@@ -25,7 +26,7 @@ export default function Favos() {
 function useFavoList() {
   const singings = useRecoilValue(singingsState);
 
-  const isFavo = useRecoilValue(isFavoState);
+  const isFavo = useRecoilValue(isFavoSelector);
 
   const res = new Array<Singing>();
   singings?.forEach((singing) => {

@@ -8,14 +8,14 @@ import ShareButtons from './ShareButtons';
 import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import Thumbnail from '../../../Thumbnail';
 import { useRecoilState } from 'recoil';
-import { favoState } from '../../../../../store/selector';
+import { favoSelector } from '../../../../../store/favoState';
 
 type ResultCardProps = {
   singing: Singing;
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
-  const [isFavo, setFavo] = useRecoilState(favoState({ singingId: singing.id }));
+  const [isFavo, setFavo] = useRecoilState(favoSelector({ singingId: singing.id }));
 
   const fontsize = 32;
 
