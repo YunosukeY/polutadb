@@ -72,13 +72,3 @@ export const isFavoState = selector<(singingId: number) => boolean>({
   key: 'isFavoState',
   get: ({ get }) => (singingId: number) => Boolean(get(appState).favos.get(singingId)),
 });
-
-export const sortState = selector<number>({
-  key: 'sortState',
-  get: ({ get }) => get(appState).sortedBy,
-  set: ({ set }, newValue) => {
-    newValue instanceof DefaultValue
-      ? set(appState, newValue)
-      : set(appState, (prev) => ({ ...prev, sortedBy: newValue }));
-  },
-});

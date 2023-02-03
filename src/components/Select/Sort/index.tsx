@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 import Radio from '../Search/util/Radio';
-import { sortState } from '../../../store/selector';
+import { sortState } from '../../../store/sortState';
 
 export default function Sort() {
   const [sort, setSort] = useRecoilState(sortState);

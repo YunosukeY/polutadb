@@ -3,7 +3,6 @@ import { Artist, Video, Song, Singing, Type } from '../data/types';
 
 export type AppState = {
   favos: Map<number, boolean>;
-  sortedBy: number;
   artists?: Artist[];
   videos?: Video[];
   types?: Type[];
@@ -13,7 +12,6 @@ export type AppState = {
 
 export const defaultState: AppState = {
   favos: new Map<number, boolean>(),
-  sortedBy: 0,
 };
 
 export const appState = atom<AppState>({
