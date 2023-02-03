@@ -18,22 +18,18 @@ export const artistsSelector = selector({
   key: `${dataAtom.key}/artistsSelector`,
   get: ({ get }) => get(dataAtom).artists,
 });
-
 export const videosSelector = selector({
   key: `${dataAtom.key}/videosSelector`,
   get: ({ get }) => get(dataAtom).videos,
 });
-
 export const typesSelector = selector({
   key: `${dataAtom.key}/typesSelector`,
   get: ({ get }) => get(dataAtom).types,
 });
-
 export const songsSelector = selector({
   key: `${dataAtom.key}/songsSelector`,
   get: ({ get }) => get(dataAtom).songs,
 });
-
 export const singingsSelector = selector({
   key: `${dataAtom.key}/singingsSelector`,
   get: ({ get }) => get(dataAtom).singings,
