@@ -1,9 +1,9 @@
 import { Query } from './query';
 import { useGetArtist, useGetType } from '../data/utils';
 import { Singing } from '../data/types';
-import { DataState } from '../store/dataState';
+import { DataAtom } from '../store/dataAtom';
 
-export function useSearch(query: Query, state: DataState, sort: number) {
+export function useSearch(query: Query, state: DataAtom, sort: number) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 

@@ -6,7 +6,7 @@ import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
-import { initPage } from '../../../store/pageState';
+import { initPageSelector } from '../../../store/pageAtom';
 
 const Bar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -15,7 +15,7 @@ const Bar = styled(AppBar)(({ theme }) => ({
 export default function Header() {
   const router = useRouter();
 
-  const init = useSetRecoilState(initPage);
+  const init = useSetRecoilState(initPageSelector);
 
   return (
     <header>

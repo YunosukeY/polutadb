@@ -5,12 +5,12 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { singingsState } from '../../store/dataState';
-import { pageState } from '../../store/pageState';
-import { isFavoSelector } from '../../store/favoState';
+import { singingsSelector } from '../../store/dataAtom';
+import { pageAtom } from '../../store/pageAtom';
+import { isFavoSelector } from '../../store/favoAtom';
 
 export default function Favos() {
-  const [pagenum, setPagenum] = useRecoilState(pageState);
+  const [pagenum, setPagenum] = useRecoilState(pageAtom);
   const favoList = useFavoList();
   const displaynum = useDisplayNum();
 
@@ -24,7 +24,7 @@ export default function Favos() {
 }
 
 function useFavoList() {
-  const singings = useRecoilValue(singingsState);
+  const singings = useRecoilValue(singingsSelector);
 
   const isFavo = useRecoilValue(isFavoSelector);
 

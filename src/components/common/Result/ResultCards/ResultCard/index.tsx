@@ -8,7 +8,7 @@ import ShareButtons from './ShareButtons';
 import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import Thumbnail from '../../../Thumbnail';
 import { useRecoilState } from 'recoil';
-import { favoSelector } from '../../../../../store/favoState';
+import { favoSelector } from '../../../../../store/favoAtom';
 
 type ResultCardProps = {
   singing: Singing;

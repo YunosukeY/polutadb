@@ -10,7 +10,7 @@ import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { initPage } from '../../../../store/pageState';
+import { initPageSelector } from '../../../../store/pageAtom';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
     router.push(url);
   };
 
-  const init = useSetRecoilState(initPage);
+  const init = useSetRecoilState(initPageSelector);
 
   return (
     <Drawer anchor='right' open={open} onClose={handleDrawerClose}>

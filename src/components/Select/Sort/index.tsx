@@ -6,10 +6,10 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 import Radio from '../Search/util/Radio';
-import { sortState } from '../../../store/sortState';
+import { sortAtom } from '../../../store/sortAtom';
 
 export default function Sort() {
-  const [sort, setSort] = useRecoilState(sortState);
+  const [sort, setSort] = useRecoilState(sortAtom);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSort(Number(event.target.value));

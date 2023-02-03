@@ -5,12 +5,12 @@ import { useRecoilValue } from 'recoil';
 import Result from '../common/Result';
 import { Query } from '../../lib/query';
 import { useSearch } from '../../lib/search';
-import { dataState } from '../../store/dataState';
-import { sortState } from '../../store/sortState';
+import { dataAtom } from '../../store/dataAtom';
+import { sortAtom } from '../../store/sortAtom';
 
 export default function ResultPane() {
-  const state = useRecoilValue(dataState);
-  const sort = useRecoilValue(sortState);
+  const state = useRecoilValue(dataAtom);
+  const sort = useRecoilValue(sortAtom);
   const router = useRouter();
   const query = new Query(router.query);
   const result = useSearch(query, state, sort);

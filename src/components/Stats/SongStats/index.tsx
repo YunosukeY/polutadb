@@ -7,14 +7,14 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import HR from '../../common/HR';
 import { useRecoilValue } from 'recoil';
 import { Singing, Song } from '../../../data/types';
-import { songsState, singingsState } from '../../../store/dataState';
+import { songsSelector, singingsSelector } from '../../../store/dataAtom';
 import Pane from '../../common/Pane';
 import ChartDiv from '../../common/ChartDiv';
 import { Typography } from '@mui/material';
 
 export default function SongStats() {
-  const songs = useRecoilValue(songsState);
-  const singings = useRecoilValue(singingsState);
+  const songs = useRecoilValue(songsSelector);
+  const singings = useRecoilValue(singingsSelector);
 
   useEffect(() => {
     const root = setChart(songs, singings);

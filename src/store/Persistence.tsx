@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useRecoilState } from 'recoil';
-import { favoState } from './favoState';
-import { sortState } from './sortState';
+import { favoAtom } from './favoAtom';
+import { sortAtom } from './sortAtom';
 
 function getInitialState(): [Map<number, boolean>, number] {
   let tmp;
@@ -16,8 +16,8 @@ function getInitialState(): [Map<number, boolean>, number] {
 }
 
 const Persistence: React.FC = () => {
-  const [favo, setFavo] = useRecoilState(favoState);
-  const [sort, setSort] = useRecoilState(sortState);
+  const [favo, setFavo] = useRecoilState(favoAtom);
+  const [sort, setSort] = useRecoilState(sortAtom);
 
   useMount(() => {
     const [favo, sort] = getInitialState();
