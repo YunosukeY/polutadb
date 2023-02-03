@@ -14,7 +14,6 @@ function getInitialState(): AppState {
   return {
     favos,
     sortedBy,
-    pagenum: 1,
   };
 }
 

@@ -6,7 +6,7 @@ import Menu from './Menu';
 import { useRouter } from 'next/router';
 import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
-import { initPage } from '../../../store/selector';
+import { initPage } from '../../../store/pageState';
 
 const Bar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,

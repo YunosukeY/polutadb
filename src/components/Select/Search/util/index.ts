@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
 
 import { Query } from '../../../../lib/query';
-import { initPage } from '../../../../store/selector';
+import { initPage } from '../../../../store/pageState';
 
 export type EachSelectProps = { query: Query };
 

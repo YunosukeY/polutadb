@@ -5,7 +5,8 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { isFavoState, pageState, singingsState } from '../../store/selector';
+import { isFavoState, singingsState } from '../../store/selector';
+import { pageState } from '../../store/pageState';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useRecoilState(pageState);

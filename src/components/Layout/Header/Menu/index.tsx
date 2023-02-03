@@ -10,7 +10,7 @@ import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { initPage } from '../../../../store/selector';
+import { initPage } from '../../../../store/pageState';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);

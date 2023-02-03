@@ -7,7 +7,7 @@ import { Singing } from '../../../data/types';
 import ResultCards from './ResultCards';
 import { useDisplayNum } from '../../../lib/useWidth';
 import { useRecoilState } from 'recoil';
-import { pageState } from '../../../store/selector';
+import { pageState } from '../../../store/pageState';
 
 export default function Result(props: { result: Singing[]; isFavo: boolean }) {
   const [pagenum, setPagenum] = useRecoilState(pageState);

@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import { useShallowCompareEffect } from 'react-use';
 import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
-import { initPage } from '../../store/selector';
+import { initPage } from '../../store/pageState';
 
 const FormUpdater: React.FC = () => {
   const { watch, setValue } = useFormContext();
