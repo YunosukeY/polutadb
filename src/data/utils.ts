@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { artistsState, songsState, typesState, videosState } from '../store/selector';
+import { artistsState, songsState, typesState, videosState } from '../store/dataState';
 
 export function useTypes() {
   const types = useRecoilValue(typesState);

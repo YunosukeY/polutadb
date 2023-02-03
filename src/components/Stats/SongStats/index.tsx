@@ -7,7 +7,7 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import HR from '../../common/HR';
 import { useRecoilValue } from 'recoil';
 import { Singing, Song } from '../../../data/types';
-import { songsState, singingsState } from '../../../store/selector';
+import { songsState, singingsState } from '../../../store/dataState';
 import Pane from '../../common/Pane';
 import ChartDiv from '../../common/ChartDiv';
 import { Typography } from '@mui/material';

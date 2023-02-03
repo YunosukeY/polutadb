@@ -1,7 +1,7 @@
 import { useMount } from 'react-use';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Data } from '../data/types';
-import { initializedState, initializeState } from './selector';
+import { initializedState, initializeState } from './dataState';
 
 export const useInit = (data: Data) => {
   const initialized = useRecoilValue(initializedState);

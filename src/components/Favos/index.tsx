@@ -5,7 +5,7 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { singingsState } from '../../store/selector';
+import { singingsState } from '../../store/dataState';
 import { pageState } from '../../store/pageState';
 import { isFavoSelector } from '../../store/favoState';
 

@@ -7,7 +7,7 @@ import HR from '../../common/HR';
 import { useGetArtist } from '../../../data/utils';
 import { useRecoilValue } from 'recoil';
 import { Artist, Singing } from '../../../data/types';
-import { artistsState, singingsState } from '../../../store/selector';
+import { artistsState, singingsState } from '../../../store/dataState';
 import ChartDiv from '../../common/ChartDiv';
 import Pane from '../../common/Pane';
 import { Typography } from '@mui/material';
