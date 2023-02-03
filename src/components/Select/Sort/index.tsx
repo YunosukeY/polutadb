@@ -6,19 +6,19 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 import Radio from '../Search/util/Radio';
-import { appState } from '../../../store/state';
+import { sortState } from '../../../store/selector';
 
 export default function Sort() {
-  const [state, setState] = useRecoilState(appState);
+  const [sort, setSort] = useRecoilState(sortState);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState((state) => ({ ...state, sortedBy: Number(event.target.value) }));
+    setSort(Number(event.target.value));
   };
 
   return (
-    <FormControl variant="standard" style={{ width: '100%' }}>
+    <FormControl variant='standard' style={{ width: '100%' }}>
       <FormLabel>ソート</FormLabel>
-      <RadioGroup value={state.sortedBy} onChange={handleChange}>
+      <RadioGroup value={sort} onChange={handleChange}>
         <Grid container style={{ padding: 5 }}>
           <Radio value={0} label='時系列順' xs={4} sm={2} />
           <Radio value={1} label='曲名順' xs={3} sm={2} />

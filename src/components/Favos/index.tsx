@@ -5,17 +5,16 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { isFavoState, singingsState } from '../../store/selector';
-import { appState } from '../../store/state';
+import { isFavoState, pageState, singingsState } from '../../store/selector';
 
 export default function Favos() {
-  const [state, setState] = useRecoilState(appState);
+  const [pagenum, setPagenum] = useRecoilState(pageState);
   const favoList = useFavoList();
   const displaynum = useDisplayNum();
 
   useEffect(() => {
-    if (favoList.length !== 0 && favoList.length === (state.pagenum - 1) * displaynum) {
-      setState((s) => ({ ...s, pagenum: state.pagenum - 1 }));
+    if (favoList.length !== 0 && favoList.length === (pagenum - 1) * displaynum) {
+      setPagenum(pagenum - 1);
     }
   });
 

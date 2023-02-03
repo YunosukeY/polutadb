@@ -7,14 +7,14 @@ import { Singing } from '../../../data/types';
 import ResultCards from './ResultCards';
 import { useDisplayNum } from '../../../lib/useWidth';
 import { useRecoilState } from 'recoil';
-import { appState } from '../../../store/state';
+import { pageState } from '../../../store/selector';
 
 export default function Result(props: { result: Singing[]; isFavo: boolean }) {
-  const [state, setState] = useRecoilState(appState);
+  const [pagenum, setPagenum] = useRecoilState(pageState);
 
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
-    setState((state) => ({ ...state, pagenum: p }));
+    setPagenum(p);
     ref?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -27,13 +27,10 @@ export default function Result(props: { result: Singing[]; isFavo: boolean }) {
         {props.isFavo ? <FavoCount favonum={props.result.length} /> : <ResultCount resultnum={props.result.length} />}
       </div>
       <ResultCards
-        singings={props.result.slice(
-          (state.pagenum - 1) * displaynum,
-          Math.min(state.pagenum * displaynum, props.result.length),
-        )}
+        singings={props.result.slice((pagenum - 1) * displaynum, Math.min(pagenum * displaynum, props.result.length))}
       />
       <Pagenation
-        pagenum={state.pagenum}
+        pagenum={pagenum}
         setPagenum={onPageClick}
         lastPageNum={Math.ceil(props.result.length / displaynum)}
       />
