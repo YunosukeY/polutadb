@@ -21,7 +21,7 @@ export default function Star(props: StarProps) {
   const classes = useStyles(props);
 
   return (
-    <IconButton onClick={props.onClick} aria-label='Favorite' size="large">
+    <IconButton onClick={props.onClick} aria-label='Favorite' size='large'>
       {props.isFavo && <StarIcon className={classes.icon} />}
       {!props.isFavo && <StarBorderIcon className={classes.icon} />}
     </IconButton>

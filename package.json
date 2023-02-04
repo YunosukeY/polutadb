@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src",
+    "lint": "eslint src && yarn prettier --check src",
     "format": "eslint --fix src && prettier --write src"
   },
   "dependencies": {
