@@ -26,7 +26,7 @@ const Persistence: React.FC = () => {
   });
 
   useEffect(() => {
-    window.localStorage.setItem('favos', JSON.stringify([favo]));
+    window.localStorage.setItem('favos', JSON.stringify([...favo]));
     window.localStorage.setItem('sortedBy', String(sort));
   }, [favo, sort]);
 
