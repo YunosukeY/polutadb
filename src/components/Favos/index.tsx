@@ -7,7 +7,7 @@ import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { singingsSelector } from '../../store/dataAtom';
 import { pageAtom } from '../../store/pageAtom';
-import { isFavoSelector } from '../../store/favoAtom';
+import { favoAtom } from '../../store/favoAtom';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useRecoilState(pageAtom);
@@ -26,11 +26,11 @@ export default function Favos() {
 function useFavoList() {
   const singings = useRecoilValue(singingsSelector);
 
-  const isFavo = useRecoilValue(isFavoSelector);
+  const isFavo = useRecoilValue(favoAtom);
 
   const res = new Array<Singing>();
   singings?.forEach((singing) => {
-    if (isFavo(singing.id)) {
+    if (isFavo.get(singing.id)) {
       res.push(singing);
     }
   });
