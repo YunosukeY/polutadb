@@ -1,9 +1,9 @@
 import { Query } from './query';
 import { useGetArtist, useGetType } from '../data/utils';
 import { Singing } from '../data/types';
-import { AppState } from '../store/state';
+import { DataAtom } from '../store/dataAtom';
 
-export function useSearch(query: Query, state: AppState) {
+export function useSearch(query: Query, state: DataAtom, sort: number) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 
@@ -28,9 +28,9 @@ export function useSearch(query: Query, state: AppState) {
   }
 
   tmpres.reverse();
-  if (state.sortedBy === 1) {
+  if (sort === 1) {
     tmpres.sort(compBySongTitle);
-  } else if (state.sortedBy === 2) {
+  } else if (sort === 2) {
     tmpres.sort(compByArtistName(getArtist));
   }
 

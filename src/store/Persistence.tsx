@@ -1,34 +1,34 @@
 import React, { useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useRecoilState } from 'recoil';
-import { AppState, appState, defaultState } from './state';
+import { favoAtom } from './favoAtom';
+import { sortAtom } from './sortAtom';
 
-function getInitialState(): AppState {
+function getInitialState(): [Map<number, boolean>, number] {
   let tmp;
 
   tmp = window.localStorage.getItem('favos');
-  const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : defaultState.favos;
+  const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : new Map<number, boolean>();
   tmp = window.localStorage.getItem('sortedBy');
-  const sortedBy = tmp !== null ? Number(tmp) : defaultState.sortedBy;
+  const sortedBy = tmp !== null ? Number(tmp) : 0;
 
-  return {
-    favos,
-    sortedBy,
-    pagenum: 1,
-  };
+  return [favos, sortedBy];
 }
 
 const Persistence: React.FC = () => {
-  const [state, setState] = useRecoilState(appState);
+  const [favo, setFavo] = useRecoilState(favoAtom);
+  const [sort, setSort] = useRecoilState(sortAtom);
 
   useMount(() => {
-    setState(getInitialState());
+    const [favo, sort] = getInitialState();
+    setFavo(favo);
+    setSort(sort);
   });
 
   useEffect(() => {
-    window.localStorage.setItem('favos', JSON.stringify([...state.favos]));
-    window.localStorage.setItem('sortedBy', String(state.sortedBy));
-  }, [state]);
+    window.localStorage.setItem('favos', JSON.stringify([...favo]));
+    window.localStorage.setItem('sortedBy', String(sort));
+  }, [favo, sort]);
 
   return <></>;
 };

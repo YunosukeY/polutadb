@@ -7,14 +7,14 @@ import HR from '../../common/HR';
 import { useGetArtist } from '../../../data/utils';
 import { useRecoilValue } from 'recoil';
 import { Artist, Singing } from '../../../data/types';
-import { artistsState, singingsState } from '../../../store/selector';
+import { artistsSelector, singingsSelector } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
 import Pane from '../../common/Pane';
 import { Typography } from '@mui/material';
 
 export default function ArtistStats() {
-  const artists = useRecoilValue(artistsState);
-  const singings = useRecoilValue(singingsState);
+  const artists = useRecoilValue(artistsSelector);
+  const singings = useRecoilValue(singingsSelector);
   const getArtist = useGetArtist();
 
   useEffect(() => {

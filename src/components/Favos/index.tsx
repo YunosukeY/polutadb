@@ -5,18 +5,18 @@ import Result from '../common/Result';
 import { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { useIsFavo } from '../../store/hooks';
-import { singingsState } from '../../store/selector';
-import { appState } from '../../store/state';
+import { singingsSelector } from '../../store/dataAtom';
+import { pageAtom } from '../../store/pageAtom';
+import { favoAtom } from '../../store/favoAtom';
 
 export default function Favos() {
-  const [state, setState] = useRecoilState(appState);
+  const [pagenum, setPagenum] = useRecoilState(pageAtom);
   const favoList = useFavoList();
   const displaynum = useDisplayNum();
 
   useEffect(() => {
-    if (favoList.length !== 0 && favoList.length === (state.pagenum - 1) * displaynum) {
-      setState((s) => ({ ...s, pagenum: state.pagenum - 1 }));
+    if (favoList.length !== 0 && favoList.length === (pagenum - 1) * displaynum) {
+      setPagenum(pagenum - 1);
     }
   });
 
@@ -24,13 +24,13 @@ export default function Favos() {
 }
 
 function useFavoList() {
-  const singings = useRecoilValue(singingsState);
+  const singings = useRecoilValue(singingsSelector);
 
-  const isFavo = useIsFavo();
+  const isFavo = useRecoilValue(favoAtom);
 
   const res = new Array<Singing>();
   singings?.forEach((singing) => {
-    if (isFavo(singing.id)) {
+    if (isFavo.get(singing.id)) {
       res.push(singing);
     }
   });

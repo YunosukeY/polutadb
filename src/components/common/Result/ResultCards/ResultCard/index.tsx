@@ -7,15 +7,15 @@ import { Singing } from '../../../../../data/types';
 import ShareButtons from './ShareButtons';
 import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
 import Thumbnail from '../../../Thumbnail';
-import { useIsFavo, useToggleFavo } from '../../../../../store/hooks';
+import { useRecoilState } from 'recoil';
+import { favoSelector } from '../../../../../store/favoAtom';
 
 type ResultCardProps = {
   singing: Singing;
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
-  const isFavo = useIsFavo();
-  const toggleFavo = useToggleFavo();
+  const [isFavo, setFavo] = useRecoilState(favoSelector({ singingId: singing.id }));
 
   const fontsize = 32;
 
@@ -52,7 +52,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
           </Grid>
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
-          <Star isFavo={isFavo(singing.id)} onClick={() => toggleFavo(singing.id)} fontsize={fontsize} />
+          <Star isFavo={isFavo} onClick={() => setFavo(!isFavo)} fontsize={fontsize} />
           <ShareButtons singing={singing} fontsize={fontsize} />
         </CardActions>
       </Card>

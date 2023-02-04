@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil';
-import { artistsState, songsState, typesState, videosState } from '../store/selector';
+import { artistsSelector, songsSelector, typesSelector, videosSelector } from '../store/dataAtom';
 
 export function useTypes() {
-  const types = useRecoilValue(typesState);
+  const types = useRecoilValue(typesSelector);
 
   let typeNames: { name: string; i: number }[] = [];
   types?.forEach((type, i) => {
@@ -16,7 +16,7 @@ export function useTypes() {
 }
 
 export function useVideos() {
-  const videos = useRecoilValue(videosState);
+  const videos = useRecoilValue(videosSelector);
 
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: { date: string; title: string; i: number }[] = [];
@@ -30,7 +30,7 @@ export function useVideos() {
 }
 
 export function useSongs() {
-  const songs = useRecoilValue(songsState);
+  const songs = useRecoilValue(songsSelector);
 
   let songNames: { title: string; i: number }[] = [];
   songs?.forEach((song, i) => {
@@ -46,7 +46,7 @@ export function useSongs() {
 }
 
 export function useArtists() {
-  const artists = useRecoilValue(artistsState);
+  const artists = useRecoilValue(artistsSelector);
 
   let artistNames: { name: string; i: number }[] = [];
   artists?.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
@@ -55,23 +55,23 @@ export function useArtists() {
 }
 
 export const useUrl = (video: string) => {
-  const videos = useRecoilValue(videosState);
+  const videos = useRecoilValue(videosSelector);
   return videos?.find((v) => v.title === video)?.id;
 };
 export const useGetArtist = () => {
-  const songs = useRecoilValue(songsState);
+  const songs = useRecoilValue(songsSelector);
   return (song: string) => songs?.find((s) => s.title === song)?.artist ?? '';
 };
 export const useGetType = () => {
-  const videos = useRecoilValue(videosState);
+  const videos = useRecoilValue(videosSelector);
   return (video: string) => videos?.find((v) => v.title === video)?.type;
 };
 export const useVideo = (videoId: number) => {
-  const videos = useRecoilValue(videosState);
+  const videos = useRecoilValue(videosSelector);
   return videos?.[videoId].title;
 };
 export const useVideoId = (video: string) => {
-  const videos = useRecoilValue(videosState);
+  const videos = useRecoilValue(videosSelector);
   return videos?.find((v) => v.title === video)?.id;
 };
 

@@ -10,7 +10,7 @@ import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { appState } from '../../../../store/state';
+import { initPageSelector } from '../../../../store/pageAtom';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);
@@ -21,12 +21,14 @@ export default function Menu() {
     setOpen(false);
   };
 
-  return <>
-    <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='Menu' size="large">
-      <MenuIcon />
-    </IconButton>
-    <MenuDrawer open={open} handleDrawerClose={handleDrawerClose} />
-  </>;
+  return (
+    <>
+      <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='Menu' size='large'>
+        <MenuIcon />
+      </IconButton>
+      <MenuDrawer open={open} handleDrawerClose={handleDrawerClose} />
+    </>
+  );
 }
 
 type MenuDrawerProps = {
@@ -40,10 +42,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
     router.push(url);
   };
 
-  const setState = useSetRecoilState(appState);
-  const initPage = () => {
-    setState((state) => ({ ...state, pagenum: 1 }));
-  };
+  const init = useSetRecoilState(initPageSelector);
 
   return (
     <Drawer anchor='right' open={open} onClose={handleDrawerClose}>
@@ -51,7 +50,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
         <ListItem
           button
           onClick={() => {
-            initPage();
+            init();
             goto('/');
           }}
         >
@@ -63,7 +62,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
         <ListItem
           button
           onClick={() => {
-            initPage();
+            init();
             goto('/favos');
           }}
         >

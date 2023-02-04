@@ -8,15 +8,11 @@ import { fetchData } from '../data/data';
 import { NextPage } from 'next';
 import FormUpdater from '../components/sideeffect/FormUpdater';
 import { useInit } from '../store/hooks';
-import { useMount } from 'react-use';
 
 const Home: NextPage<Data> = (data) => {
   const methods = useForm();
 
-  const [isInit, init] = useInit();
-  useMount(() => {
-    if (!isInit) init(data);
-  });
+  useInit(data);
 
   return (
     <FormProvider {...methods}>

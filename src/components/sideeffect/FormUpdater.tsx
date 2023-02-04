@@ -4,17 +4,17 @@ import { useFormContext } from 'react-hook-form';
 import { useShallowCompareEffect } from 'react-use';
 import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
-import { appState } from '../../store/state';
+import { initPageSelector } from '../../store/pageAtom';
 
 const FormUpdater: React.FC = () => {
   const { watch, setValue } = useFormContext();
   const urlQuery = new Query(useRouter().query);
-  const setState = useSetRecoilState(appState);
+  const init = useSetRecoilState(initPageSelector);
 
   useShallowCompareEffect(() => {
     const formQuery = new Query(watch());
     if (!formQuery.equals(urlQuery)) {
-      setState((state) => ({ ...state, pagenum: 1 }));
+      init();
       Object.entries(urlQuery).forEach(([key, value]) => setValue(key, value));
     }
   }, [urlQuery, watch()]);
