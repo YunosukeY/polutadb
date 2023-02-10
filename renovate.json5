@@ -6,6 +6,9 @@
   automerge: false,
   platformAutomerge: false,
   rebaseWhen: 'never',
+  patch: {
+    enabled: false,
+  },
 
   labels: ['dependencies'],
 
