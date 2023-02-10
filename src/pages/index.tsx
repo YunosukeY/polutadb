@@ -16,9 +16,9 @@ const Home: NextPage<Data> = (data) => {
 
   return (
     <FormProvider {...methods}>
-      <FormUpdater />
       <Select />
       <Result />
+      <FormUpdater />
     </FormProvider>
   );
 };
