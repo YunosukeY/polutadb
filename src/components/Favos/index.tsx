@@ -18,7 +18,7 @@ export default function Favos() {
     if (favoList.length !== 0 && favoList.length === (pagenum - 1) * displaynum) {
       setPagenum(pagenum - 1);
     }
-  });
+  }, [displaynum, favoList.length, pagenum, setPagenum]);
 
   return <Result result={favoList} isFavo={true} />;
 }
