@@ -1,12 +1,19 @@
 import * as React from 'react';
 import { useHover, useWindowSize } from 'react-use';
 
-import Youtube from './Youtube';
+import YouTube from '@mui/icons-material/YouTube';
 import { Singing } from '../../../data/types';
 import { useUrl, parseTime } from '../../../data/utils';
 import { Modal } from '@mui/material';
 import { useState } from 'react';
 import { useWidth } from '../../../lib/useWidth';
+
+const centering: React.CSSProperties = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%,-50%)',
+};
 
 export default function Thumbnail(props: { id: string; singing: Singing }) {
   const [open, setOpen] = useState(false);
@@ -17,26 +24,9 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
     setOpen(false);
   };
 
-  const Dummy = () => (
-    <div onClick={handleOpen} style={{ width: '100%', height: '100%', position: 'absolute', top: '0%' }} />
-  );
-  const [hoverable, hovered] = useHover(Dummy);
-
   return (
     <>
-      <div style={{ position: 'relative' }}>
-        <div style={{ backgroundColor: '#000000' }}>
-          <img
-            src={`https://img.youtube.com/vi/${props.id}/maxresdefault.jpg`}
-            style={{ width: '100%' }}
-            alt={props.singing.video}
-          />
-        </div>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-          <Youtube singing={props.singing} fontsize={70} hovered={hovered} />
-        </div>
-        {hoverable}
-      </div>
+      <Img id={props.id} onClick={handleOpen} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -48,6 +38,39 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
     </>
   );
 }
+
+type ImgProps = {
+  id: string;
+  onClick: () => void;
+};
+const Img: React.FC<ImgProps> = ({ id, onClick }) => {
+  const Dummy = () => (
+    <div onClick={onClick} style={{ width: '100%', height: '100%', position: 'absolute', top: '0%' }} />
+  );
+  const [hoverable, hovered] = useHover(Dummy);
+
+  return (
+    <div style={{ position: 'relative' }}>
+      <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} style={{ width: '100%' }} />
+      <div
+        style={{
+          ...centering,
+          width: 30,
+          height: 30,
+          backgroundColor: 'white',
+        }}
+      />
+      <YouTube
+        style={{
+          ...centering,
+          fontSize: 70,
+          color: hovered ? '#ff0f1a' : '#000',
+        }}
+      />
+      {hoverable}
+    </div>
+  );
+};
 
 type WindowProps = { singing: Singing };
 // eslint-disable-next-line react/display-name
@@ -61,15 +84,7 @@ const Window = React.forwardRef<HTMLDivElement, WindowProps>((props, ref) => {
   const iframeHeight = (iframeWidth * 9) / 16;
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-      }}
-      ref={ref}
-    >
+    <div style={centering} ref={ref}>
       <iframe
         width={iframeWidth}
         height={iframeHeight}
