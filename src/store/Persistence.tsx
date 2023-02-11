@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useMount } from 'react-use';
+import React from 'react';
+import { useMount, useUpdateEffect } from 'react-use';
 import { useRecoilState } from 'recoil';
 import { favoAtom } from './favoAtom';
 import { sortAtom } from './sortAtom';
@@ -24,8 +24,7 @@ const Persistence: React.FC = () => {
     setFavo(favo);
     setSort(sort);
   });
-
-  useEffect(() => {
+  useUpdateEffect(() => {
     window.localStorage.setItem('favos', JSON.stringify([...favo]));
     window.localStorage.setItem('sortedBy', String(sort));
   }, [favo, sort]);

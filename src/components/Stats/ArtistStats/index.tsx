@@ -20,7 +20,7 @@ export default function ArtistStats() {
   useEffect(() => {
     const root = setChart(artists, singings, getArtist);
     return () => root.dispose();
-  });
+  }, [artists, getArtist, singings]);
 
   return (
     <Pane>
