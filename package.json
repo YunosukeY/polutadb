@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src && yarn prettier --check src",
-    "format": "eslint --fix src && prettier --write src"
+    "format": "eslint --fix src && prettier --write src",
+    "test": "jest"
   },
   "dependencies": {
     "@amcharts/amcharts5": "5.3.0",
