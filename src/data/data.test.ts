@@ -8,14 +8,14 @@ describe('data consistency', () => {
   });
 
   describe('unique constraint', () => {
-    it('artists.name', () => {
+    test('artists.name', () => {
       data.artists.forEach((a) => {
         const same = data.artists.filter((a2) => a2.name === a.name);
         expect(same).toHaveLength(1);
       });
     });
 
-    it('songs.title', () => {
+    test('songs.title', () => {
       data.songs.forEach((s) => {
         const same = data.songs.filter((s2) => s2.title === s.title);
         expect(same).toHaveLength(1);
@@ -24,14 +24,14 @@ describe('data consistency', () => {
   });
 
   describe('foreign key constraint', () => {
-    it('types.name -> videos.type', () => {
+    test('types.name -> videos.type', () => {
       data.videos.forEach((v) => {
         const ref = data.types.find((t) => t.name === v.type);
         expect(ref).not.toBeUndefined();
       });
     });
 
-    it('artists.name -> song.artist', () => {
+    test('artists.name -> song.artist', () => {
       data.songs.forEach((s) => {
         if (!s.artist) return;
         const ref = data.artists.find((a) => a.name === s.artist);
@@ -39,14 +39,14 @@ describe('data consistency', () => {
       });
     });
 
-    it('videos.title -> singings.video', () => {
+    test('videos.title -> singings.video', () => {
       data.singings.forEach((s) => {
         const ref = data.videos.find((v) => v.title === s.video);
         expect(ref).not.toBeUndefined();
       });
     });
 
-    it('songs.title -> singings.song', () => {
+    test('songs.title -> singings.song', () => {
       data.singings.forEach((s) => {
         const ref = data.songs.find((song) => song.title === s.song);
         expect(ref).not.toBeUndefined();
