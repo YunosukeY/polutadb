@@ -14,6 +14,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --pure-lockfile
       - run: yarn lint
   tsc:
@@ -23,6 +28,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --pure-lockfile
       - run: yarn tsc
   test:
@@ -32,5 +42,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --pure-lockfile
       - run: yarn test
