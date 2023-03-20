@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint src && yarn prettier --check src",
     "format": "eslint --fix src && prettier --write src",
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc -p tsconfig.jsonc"
   },
   "dependencies": {
     "@amcharts/amcharts5": "5.3.0",
