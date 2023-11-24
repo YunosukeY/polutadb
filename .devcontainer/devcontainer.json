@@ -1,0 +1,23 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+
+  "remoteUser": "node",
+  "mounts": [
+    "source=projectname-bashhistory,target=/commandhistory,type=volume",
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+
+  "postCreateCommand": "sudo chown node node_modules && yarn install",
+  "postStartCommand": "yarn dev"
+}
