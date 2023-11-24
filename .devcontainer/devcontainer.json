@@ -17,5 +17,7 @@
     "source=projectname-bashhistory,target=/commandhistory,type=volume",
     "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
-  "postCreateCommand": "sudo chown node node_modules"
+
+  "postCreateCommand": "sudo chown node node_modules && yarn install",
+  "postStartCommand": "yarn dev"
 }
