@@ -5,8 +5,8 @@ import YouTube from '@mui/icons-material/YouTube';
 import { Singing } from '../../../data/types';
 import { useUrl, parseTime } from '../../../data/utils';
 import { Modal } from '@mui/material';
-import { useState } from 'react';
 import { useWidth } from '../../../lib/useWidth';
+import { useBool } from '../../../lib/useBool';
 
 const centering: React.CSSProperties = {
   position: 'absolute',
@@ -16,13 +16,7 @@ const centering: React.CSSProperties = {
 };
 
 export default function Thumbnail(props: { id: string; singing: Singing }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [open, handleOpen, handleClose] = useBool(false);
 
   return (
     <>

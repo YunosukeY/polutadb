@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { useWindowSize } from 'react-use';
+import { useToggle, useWindowSize } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 import HR from '../common/HR';
 import { useVideo } from '../../data/utils';
-import { useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import Pane from '../common/Pane';
@@ -50,22 +49,19 @@ const LatestRelease: FCWithChildren = ({ children }) => {
 const OldReleases: FCWithChildren = ({ children }) => {
   const classes = useStyles();
 
-  const [isHidden, setIsHidden] = useState(true);
-  const onClick = () => {
-    setIsHidden(!isHidden);
-  };
+  const [isHidden, toggleIsHidden] = useToggle(true);
 
   return (
     <Pane>
       {isHidden && (
-        <Typography variant='h4' onClick={onClick} style={{ marginBottom: 0 }}>
+        <Typography variant='h4' onClick={toggleIsHidden} style={{ marginBottom: 0 }}>
           Old Release Notes
           <ArrowDropDownIcon className={classes.icon} />
         </Typography>
       )}
       {!isHidden && (
         <>
-          <Typography variant='h4' onClick={onClick}>
+          <Typography variant='h4' onClick={toggleIsHidden}>
             Old Release Notes
             <ArrowDropUpIcon className={classes.icon} />
           </Typography>
