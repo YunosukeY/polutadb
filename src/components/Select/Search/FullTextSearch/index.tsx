@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useFormContext, useController } from 'react-hook-form';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -8,17 +7,12 @@ import { useDebounce, useMount } from 'react-use';
 import { useRouter } from 'next/router';
 import { Query } from '../../../../lib/query';
 
-export default function FullTextSearch() {
-  const { control } = useFormContext();
-  const {
-    field: { ref, ...inputProps },
-  } = useController({
-    name: 'query',
-    control,
-    defaultValue: '',
-  });
+type FullTextSearchProps = {
+  setQuery: (v: string) => void;
+};
 
-  const onChange = useOnChange(inputProps.onChange, (q, v) => (q.query = v));
+export default function FullTextSearch({ setQuery }: FullTextSearchProps) {
+  const onChange = useOnChange(setQuery, (q, v) => (q.query = v));
 
   const [input, setInput] = React.useState('');
   const qs = new Query(useRouter().query);
@@ -30,8 +24,6 @@ export default function FullTextSearch() {
   return (
     <TextField
       variant='standard'
-      inputRef={ref}
-      {...inputProps}
       value={input}
       onChange={(e) => setInput(e.target.value)}
       InputProps={{
