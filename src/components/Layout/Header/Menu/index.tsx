@@ -8,18 +8,12 @@ import StarIcon from '@mui/icons-material/Star';
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { initPageSelector } from '../../../../store/pageAtom';
+import { useBool } from '../../../../lib/useBool';
 
 export default function Menu() {
-  const [open, setOpen] = useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const [open, handleDrawerOpen, handleDrawerClose] = useBool(false);
 
   return (
     <>
