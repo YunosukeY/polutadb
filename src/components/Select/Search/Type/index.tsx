@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useFormContext, useController } from 'react-hook-form';
 import FormControl from '@mui/material/FormControl';
 
 import { useOnChange, useStyles } from '../util';
@@ -7,19 +6,15 @@ import { useTypes } from '../../../../data/utils';
 import { Autocomplete } from '@mui/material';
 import { TextField } from '@mui/material';
 
-export default function Type() {
+type TypeProps = {
+  type: number;
+  setType: (v: number) => void;
+};
+
+export default function Type({ type, setType }: TypeProps) {
   const classes = useStyles();
 
-  const { control } = useFormContext();
-  const {
-    field: { onChange, value, ...inputProps },
-  } = useController({
-    name: 'type',
-    control,
-    defaultValue: -1,
-  });
-
-  const onChangeType = useOnChange(onChange, (q, v) => (q.type = v));
+  const onChangeType = useOnChange(setType, (q, v) => (q.type = v));
 
   const types = useTypes();
   return (
@@ -27,9 +22,8 @@ export default function Type() {
       <Autocomplete
         options={types}
         onChange={(e, v) => onChangeType(v == null ? -1 : v.i)}
-        {...inputProps}
-        value={value === -1 ? { name: '', i: -1 } : types.find((v) => v.i === value)}
-        isOptionEqualToValue={(option) => option.i == value}
+        value={type === -1 ? { name: '', i: -1 } : types.find((v) => v.i === type)}
+        isOptionEqualToValue={(option) => option.i == type}
         getOptionLabel={(option) => option.name}
         renderInput={(params) => <TextField variant='standard' {...params} label='動画のタイプ' />}
       />
