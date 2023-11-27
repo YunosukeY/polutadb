@@ -15,7 +15,6 @@
     "tsc": "tsc -p tsconfig.jsonc"
   },
   "dependencies": {
-    "@amcharts/amcharts5": "5.3.0",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "@mui/icons-material": "5.11.0",
