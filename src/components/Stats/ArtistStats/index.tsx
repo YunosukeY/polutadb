@@ -27,6 +27,7 @@ const Row: React.FC<RowProps> = ({ artist, count, order }) => {
 
   return (
     <Grid item style={{ fontSize }}>
+      {/* eslint-disable-next-line no-irregular-whitespace */}
       {order}位　{artist}：{count}回
     </Grid>
   );
