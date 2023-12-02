@@ -1,3 +1,5 @@
+import { Form } from '../pages';
+
 export class Query {
   query: string;
   type: number;
@@ -27,5 +29,15 @@ export class Query {
       this.song === q.song &&
       this.artist === q.artist
     );
+  }
+
+  asForm(): Form {
+    return {
+      query: this.query,
+      type: this.type,
+      video: this.video,
+      song: this.song,
+      artist: this.artist,
+    };
   }
 }

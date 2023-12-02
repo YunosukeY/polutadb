@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { useWindowSize } from 'react-use';
+import { useToggle, useWindowSize } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 import HR from '../common/HR';
 import { useVideo } from '../../data/utils';
-import { useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import Pane from '../common/Pane';
@@ -50,22 +49,19 @@ const LatestRelease: FCWithChildren = ({ children }) => {
 const OldReleases: FCWithChildren = ({ children }) => {
   const classes = useStyles();
 
-  const [isHidden, setIsHidden] = useState(true);
-  const onClick = () => {
-    setIsHidden(!isHidden);
-  };
+  const [isHidden, toggleIsHidden] = useToggle(true);
 
   return (
     <Pane>
       {isHidden && (
-        <Typography variant='h4' onClick={onClick} style={{ marginBottom: 0 }}>
+        <Typography variant='h4' onClick={toggleIsHidden} style={{ marginBottom: 0 }}>
           Old Release Notes
           <ArrowDropDownIcon className={classes.icon} />
         </Typography>
       )}
       {!isHidden && (
         <>
-          <Typography variant='h4' onClick={onClick}>
+          <Typography variant='h4' onClick={toggleIsHidden}>
             Old Release Notes
             <ArrowDropUpIcon className={classes.icon} />
           </Typography>
@@ -78,6 +74,39 @@ const OldReleases: FCWithChildren = ({ children }) => {
 };
 
 const ReleaseArray: React.ReactNode[] = [
+  <>
+    <Date date='2023/12/02' />
+    <AddData />
+    <AddVideo videoId={200} />
+  </>,
+  <>
+    <Date date='2023/11/27' />
+    <AddData />
+    <AddVideo videoId={199} />
+  </>,
+  <>
+    <Date date='2023/11/26' />
+    <AddData />
+    <AddVideo videoId={198} />
+  </>,
+  <>
+    <Date date='2023/11/24' />
+    <AddData />
+    <AddVideo videoId={196} />
+    <AddVideo videoId={197} />
+  </>,
+  <>
+    <Date date='2023/11/12' />
+    <AddData />
+    <AddVideo videoId={195} />
+  </>,
+  <>
+    <Date date='2023/11/10' />
+    <AddData />
+    <AddVideo videoId={192} />
+    <AddVideo videoId={193} />
+    <AddVideo videoId={194} />
+  </>,
   <>
     <Date date='2023/10/20' />
     <AddData />
