@@ -78,6 +78,7 @@ const ReleaseArray: React.ReactNode[] = [
     <Date date='2023/12/24' />
     <AddData />
     <AddVideo videoId={207} />
+    <AddVideo videoId={208} />
   </>,
   <>
     <Date date='2023/12/19' />
