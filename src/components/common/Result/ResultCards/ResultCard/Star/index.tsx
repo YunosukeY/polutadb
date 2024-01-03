@@ -25,7 +25,7 @@ export default function Star(props: StarProps) {
 
   const getArtist = useGetArtist();
   const title = `『${props.singing.video}』より『${props.singing.song}』 / ${getArtist(props.singing.song)}`;
-  const label = `${title}を${props.isFavo ? 'お気に入り登録' : 'お気に入り解除'}`;
+  const label = `${title}を${props.isFavo ? 'お気に入り解除' : 'お気に入り登録'}`;
 
   return (
     <IconButton onClick={props.onClick} aria-label={label} size='large'>
