@@ -20,13 +20,8 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
 
   return (
     <>
-      <Img id={props.id} onClick={handleOpen} />
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='simple-modal-title'
-        aria-describedby='simple-modal-description'
-      >
+      <Img id={props.id} title={props.singing.video} onClick={handleOpen} />
+      <Modal open={open} onClose={handleClose}>
         <Window singing={props.singing} />
       </Modal>
     </>
@@ -35,9 +30,10 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
 
 type ImgProps = {
   id: string;
+  title: string;
   onClick: () => void;
 };
-const Img: React.FC<ImgProps> = ({ id, onClick }) => {
+const Img: React.FC<ImgProps> = ({ id, title, onClick }) => {
   const Dummy = () => (
     <div onClick={onClick} style={{ width: '100%', height: '100%', position: 'absolute', top: '0%' }} />
   );
@@ -45,7 +41,11 @@ const Img: React.FC<ImgProps> = ({ id, onClick }) => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} style={{ width: '100%' }} />
+      <img
+        src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+        style={{ width: '100%' }}
+        alt={`${title}のサムネイル`}
+      />
       <div
         style={{
           ...centering,

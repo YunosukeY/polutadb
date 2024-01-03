@@ -20,13 +20,24 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ singing, fontsize }) => {
 
   return (
     <>
-      <TwitterShareButton url={url} title={title} hashtags={hashtags} style={{ height: buttonSize, padding: padding }}>
+      <TwitterShareButton
+        url={url}
+        title={title}
+        hashtags={hashtags}
+        style={{ height: buttonSize, padding: padding }}
+        aria-label={`${title}をXでシェア`}
+      >
         <XIcon size={buttonSize - 2 * padding} round />
       </TwitterShareButton>
-      <LineShareButton url={url} title={title} style={{ height: buttonSize, padding: padding }}>
+      <LineShareButton
+        url={url}
+        title={title}
+        style={{ height: buttonSize, padding: padding }}
+        aria-label={`${title}をLINEでシェア`}
+      >
         <LineIcon size={buttonSize - 2 * padding} round />
       </LineShareButton>
-      <CopyButton target={`${title} ${url}`} iconSize={fontsize} />
+      <CopyButton title={title} url={url} iconSize={fontsize} />
     </>
   );
 };

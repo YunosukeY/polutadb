@@ -6,19 +6,20 @@ import MuiAlert from '@mui/material/Alert';
 import { useBool } from '../../../../../../../lib/useBool';
 
 type CopyButtonProps = {
-  target: string;
+  title: string;
+  url: string;
   iconSize: number;
 };
-const CopyButton: React.FC<CopyButtonProps> = ({ target, iconSize }) => {
+const CopyButton: React.FC<CopyButtonProps> = ({ title, url, iconSize }) => {
   const [open, handleOpen, handleClose] = useBool(false);
   const handleClick = useCallback(() => {
-    navigator.clipboard.writeText(target);
+    navigator.clipboard.writeText(`${title} ${url}`);
     handleOpen();
-  }, [handleOpen, target]);
+  }, [handleOpen, title, url]);
 
   return (
     <>
-      <IconButton onClick={handleClick} aria-label='Copy link' size='large'>
+      <IconButton onClick={handleClick} aria-label={`${title}のリンクをコピー`} size='large'>
         <FileCopyIcon style={{ fontSize: iconSize }} />
       </IconButton>
       <Snackbar

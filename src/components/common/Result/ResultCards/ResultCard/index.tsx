@@ -46,13 +46,13 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
             </Grid>
             {singing.time == 1 && (
               <Grid item>
-                <Chip color='primary' label='First Time!' />
+                <Chip label='First Time!' variant='outlined' />
               </Grid>
             )}
           </Grid>
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
-          <Star isFavo={isFavo} onClick={() => setFavo(!isFavo)} fontsize={fontsize} />
+          <Star singing={singing} isFavo={isFavo} onClick={() => setFavo(!isFavo)} fontsize={fontsize} />
           <ShareButtons singing={singing} fontsize={fontsize} />
         </CardActions>
       </Card>

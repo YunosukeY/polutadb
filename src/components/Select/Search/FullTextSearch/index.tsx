@@ -35,7 +35,8 @@ export default function FullTextSearch({ setQuery }: FullTextSearchProps) {
       }}
       fullWidth
       style={{ paddingTop: 16 }}
-      inputProps={{ 'aria-label': 'Full-text search' }}
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      inputProps={{ 'aria-label': '全文検索' }}
     />
   );
 }
