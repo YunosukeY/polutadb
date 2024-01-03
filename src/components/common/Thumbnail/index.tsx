@@ -3,7 +3,7 @@ import { useHover, useWindowSize } from 'react-use';
 
 import YouTube from '@mui/icons-material/YouTube';
 import { Singing } from '../../../data/types';
-import { useUrl, parseTime } from '../../../data/utils';
+import { useUrl, parseTime, useVideo, useVideoId } from '../../../data/utils';
 import { Modal } from '@mui/material';
 import { useWidth } from '../../../lib/useWidth';
 import { useBool } from '../../../lib/useBool';
@@ -20,7 +20,7 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
 
   return (
     <>
-      <Img id={props.id} onClick={handleOpen} />
+      <Img id={props.id} title={props.singing.video} onClick={handleOpen} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -35,9 +35,10 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
 
 type ImgProps = {
   id: string;
+  title: string;
   onClick: () => void;
 };
-const Img: React.FC<ImgProps> = ({ id, onClick }) => {
+const Img: React.FC<ImgProps> = ({ id, title, onClick }) => {
   const Dummy = () => (
     <div onClick={onClick} style={{ width: '100%', height: '100%', position: 'absolute', top: '0%' }} />
   );
@@ -45,7 +46,11 @@ const Img: React.FC<ImgProps> = ({ id, onClick }) => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} style={{ width: '100%' }} />
+      <img
+        src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+        style={{ width: '100%' }}
+        alt={`${title}のサムネイル`}
+      />
       <div
         style={{
           ...centering,
