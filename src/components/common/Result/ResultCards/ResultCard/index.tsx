@@ -52,7 +52,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
           </Grid>
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
-          <Star isFavo={isFavo} onClick={() => setFavo(!isFavo)} fontsize={fontsize} />
+          <Star singing={singing} isFavo={isFavo} onClick={() => setFavo(!isFavo)} fontsize={fontsize} />
           <ShareButtons singing={singing} fontsize={fontsize} />
         </CardActions>
       </Card>

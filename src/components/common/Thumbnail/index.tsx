@@ -3,7 +3,7 @@ import { useHover, useWindowSize } from 'react-use';
 
 import YouTube from '@mui/icons-material/YouTube';
 import { Singing } from '../../../data/types';
-import { useUrl, parseTime, useVideo, useVideoId } from '../../../data/utils';
+import { useUrl, parseTime } from '../../../data/utils';
 import { Modal } from '@mui/material';
 import { useWidth } from '../../../lib/useWidth';
 import { useBool } from '../../../lib/useBool';
@@ -21,12 +21,7 @@ export default function Thumbnail(props: { id: string; singing: Singing }) {
   return (
     <>
       <Img id={props.id} title={props.singing.video} onClick={handleOpen} />
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='simple-modal-title'
-        aria-describedby='simple-modal-description'
-      >
+      <Modal open={open} onClose={handleClose}>
         <Window singing={props.singing} />
       </Modal>
     </>

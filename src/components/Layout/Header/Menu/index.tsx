@@ -17,7 +17,7 @@ export default function Menu() {
 
   return (
     <>
-      <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='Menu' size='large'>
+      <IconButton color='inherit' onClick={handleDrawerOpen} aria-label='メニュー' size='large'>
         <MenuIcon />
       </IconButton>
       <MenuDrawer open={open} handleDrawerClose={handleDrawerClose} />
