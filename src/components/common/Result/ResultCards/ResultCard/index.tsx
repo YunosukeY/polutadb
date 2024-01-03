@@ -46,7 +46,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
             </Grid>
             {singing.time == 1 && (
               <Grid item>
-                <Chip color='primary' label='First Time!' />
+                <Chip label='First Time!' variant='outlined' />
               </Grid>
             )}
           </Grid>
