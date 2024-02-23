@@ -5,10 +5,13 @@ export const pageAtom = atom<number>({
   default: 1,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const initPageSelector = selector<void>({
   key: `${pageAtom.key}/initPageSelector`,
   get: () => {
     return;
   },
-  set: ({ set }) => { set(pageAtom, 1); },
+  set: ({ set }) => {
+    set(pageAtom, 1);
+  },
 });

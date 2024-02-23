@@ -18,7 +18,9 @@ export default function SongStats() {
 
   useEffect(() => {
     const root = setChart(songs, singings);
-    return () => { root.dispose(); };
+    return () => {
+      root.dispose();
+    };
   }, [singings, songs]);
 
   return (
@@ -52,7 +54,9 @@ function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
     stroke: am5.color('#fff'),
     strokeWidth: 1,
   });
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   series.appear();
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   chart.appear();
 
   return root;

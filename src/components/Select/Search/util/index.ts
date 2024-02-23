@@ -19,14 +19,15 @@ export const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const useOnChange = (onChange: (...e: any[]) => void, qUpdater: (q: Query, value: any) => void) => {
+export const useOnChange = <T>(onChange: (v: T) => void, qUpdater: (q: Query, value: T) => void) => {
   const router = useRouter();
   const query = new Query(router.query);
   const init = useSetRecoilState(initPageSelector);
-  return (value: any) => {
+  return (value: T) => {
     onChange(value);
     qUpdater(query, value);
     init();
-    router.push(`/?${query}`, undefined, { scroll: false });
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    router.push(`/?${query.toString()}`, undefined, { scroll: false });
   };
 };

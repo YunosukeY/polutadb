@@ -14,14 +14,18 @@ type SongProps = {
 export default function Song({ song, setSong }: SongProps) {
   const classes = useStyles();
 
-  const onChangeSong = useOnChange(setSong, (q, v) => (q.song = v));
+  const onChangeSong = useOnChange(setSong, (q, v) => {
+    q.song = v;
+  });
 
   const songs = useSongs();
   return (
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={songs}
-        onChange={(e, v) => { onChangeSong(v == null ? -1 : v.i); }}
+        onChange={(e, v) => {
+          onChangeSong(v == null ? -1 : v.i);
+        }}
         value={song === -1 ? { title: '', i: -1 } : songs.find((v) => v.i === song)}
         isOptionEqualToValue={(option) => option.i == song}
         getOptionLabel={(option) => option.title}

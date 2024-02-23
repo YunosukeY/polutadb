@@ -14,14 +14,18 @@ type ArtistProps = {
 export default function Artist({ artist, setArtist }: ArtistProps) {
   const classes = useStyles();
 
-  const onChangeArtist = useOnChange(setArtist, (q, v) => (q.artist = v));
+  const onChangeArtist = useOnChange(setArtist, (q, v) => {
+    q.artist = v;
+  });
 
   const artists = useArtists();
   return (
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={artists}
-        onChange={(e, v) => { onChangeArtist(v == null ? -1 : v.i); }}
+        onChange={(e, v) => {
+          onChangeArtist(v == null ? -1 : v.i);
+        }}
         value={artist === -1 ? { name: '', i: -1 } : artists.find((v) => v.i === artist)}
         isOptionEqualToValue={(option) => option.i == artist}
         getOptionLabel={(option) => option.name}

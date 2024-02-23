@@ -1,3 +1,4 @@
+import { ParsedUrlQuery } from 'querystring';
 import { Form } from '../pages';
 
 export class Query {
@@ -7,7 +8,7 @@ export class Query {
   song: number;
   artist: number;
 
-  constructor(qs: any) {
+  constructor(qs: Form | ParsedUrlQuery) {
     this.query = qs.query == null ? '' : String(qs.query);
     this.type = qs.type == null ? -1 : Number(qs.type);
     this.video = qs.video == null ? -1 : Number(qs.video);

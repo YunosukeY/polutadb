@@ -7,6 +7,7 @@ export function useSearch(query: Query, state: DataAtom, sort: number) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   let tmpres: Singing[] = JSON.parse(JSON.stringify(state.singings ?? []));
 
   const normalizedQuery = query.query.toLowerCase();

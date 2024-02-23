@@ -14,14 +14,18 @@ type VideoProps = {
 export default function Video({ video, setVideo }: VideoProps) {
   const classes = useStyles();
 
-  const onChangeVideo = useOnChange(setVideo, (q, v) => (q.video = v));
+  const onChangeVideo = useOnChange(setVideo, (q, v) => {
+    q.video = v;
+  });
 
   const videos = useVideos();
   return (
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={videos}
-        onChange={(e, v) => { onChangeVideo(v == null ? -1 : v.i); }}
+        onChange={(e, v) => {
+          onChangeVideo(v == null ? -1 : v.i);
+        }}
         value={video === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === video)}
         isOptionEqualToValue={(option) => option.i == video}
         getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}
