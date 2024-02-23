@@ -18,7 +18,7 @@ export default function SongStats() {
 
   useEffect(() => {
     const root = setChart(songs, singings);
-    return () => root.dispose();
+    return () => { root.dispose(); };
   }, [singings, songs]);
 
   return (

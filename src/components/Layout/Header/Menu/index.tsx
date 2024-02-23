@@ -65,19 +65,19 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
           </ListItemIcon>
           <ListItemText primary='Favorites' />
         </ListItem>
-        <ListItem button onClick={() => goto('/stats')}>
+        <ListItem button onClick={() => { goto('/stats'); }}>
           <ListItemIcon>
             <DonutLargeIcon />
           </ListItemIcon>
           <ListItemText primary='Statistics' />
         </ListItem>
-        <ListItem button onClick={() => goto('/releases')}>
+        <ListItem button onClick={() => { goto('/releases'); }}>
           <ListItemIcon>
             <ImportContactsIcon />
           </ListItemIcon>
           <ListItemText primary='Releases Notes' />
         </ListItem>
-        <ListItem button onClick={() => goto('/about')}>
+        <ListItem button onClick={() => { goto('/about'); }}>
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>

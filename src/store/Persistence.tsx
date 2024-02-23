@@ -8,7 +8,7 @@ function getInitialState(): [Map<number, boolean>, number] {
   let tmp;
 
   tmp = window.localStorage.getItem('favos');
-  const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : new Map<number, boolean>();
+  const favos = tmp !== null ? (new Map(JSON.parse(tmp))) : new Map<number, boolean>();
   tmp = window.localStorage.getItem('sortedBy');
   const sortedBy = tmp !== null ? Number(tmp) : 0;
 

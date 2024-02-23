@@ -21,7 +21,7 @@ export default function Type({ type, setType }: TypeProps) {
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={types}
-        onChange={(e, v) => onChangeType(v == null ? -1 : v.i)}
+        onChange={(e, v) => { onChangeType(v == null ? -1 : v.i); }}
         value={type === -1 ? { name: '', i: -1 } : types.find((v) => v.i === type)}
         isOptionEqualToValue={(option) => option.i == type}
         getOptionLabel={(option) => option.name}

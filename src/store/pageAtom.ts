@@ -10,5 +10,5 @@ export const initPageSelector = selector<void>({
   get: () => {
     return;
   },
-  set: ({ set }) => set(pageAtom, 1),
+  set: ({ set }) => { set(pageAtom, 1); },
 });

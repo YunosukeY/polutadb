@@ -21,7 +21,7 @@ export default function Artist({ artist, setArtist }: ArtistProps) {
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={artists}
-        onChange={(e, v) => onChangeArtist(v == null ? -1 : v.i)}
+        onChange={(e, v) => { onChangeArtist(v == null ? -1 : v.i); }}
         value={artist === -1 ? { name: '', i: -1 } : artists.find((v) => v.i === artist)}
         isOptionEqualToValue={(option) => option.i == artist}
         getOptionLabel={(option) => option.name}

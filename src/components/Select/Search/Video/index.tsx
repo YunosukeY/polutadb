@@ -21,7 +21,7 @@ export default function Video({ video, setVideo }: VideoProps) {
     <FormControl variant='standard' className={classes.formControl}>
       <Autocomplete
         options={videos}
-        onChange={(e, v) => onChangeVideo(v == null ? -1 : v.i)}
+        onChange={(e, v) => { onChangeVideo(v == null ? -1 : v.i); }}
         value={video === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === video)}
         isOptionEqualToValue={(option) => option.i == video}
         getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}

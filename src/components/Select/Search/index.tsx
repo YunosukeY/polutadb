@@ -24,11 +24,11 @@ const useStyles = makeStyles({
 const Search: React.FC<SearchProps> = ({ form, setForm }) => {
   const classes = useStyles();
 
-  const setQuery = useCallback((v: string) => setForm((f) => ({ ...f, query: v })), [setForm]);
-  const setType = useCallback((v: number) => setForm((f) => ({ ...f, type: v })), [setForm]);
-  const setVideo = useCallback((v: number) => setForm((f) => ({ ...f, video: v })), [setForm]);
-  const setSong = useCallback((v: number) => setForm((f) => ({ ...f, song: v })), [setForm]);
-  const setArtist = useCallback((v: number) => setForm((f) => ({ ...f, artist: v })), [setForm]);
+  const setQuery = useCallback((v: string) => { setForm((f) => ({ ...f, query: v })); }, [setForm]);
+  const setType = useCallback((v: number) => { setForm((f) => ({ ...f, type: v })); }, [setForm]);
+  const setVideo = useCallback((v: number) => { setForm((f) => ({ ...f, video: v })); }, [setForm]);
+  const setSong = useCallback((v: number) => { setForm((f) => ({ ...f, song: v })); }, [setForm]);
+  const setArtist = useCallback((v: number) => { setForm((f) => ({ ...f, artist: v })); }, [setForm]);
 
   return (
     <>
