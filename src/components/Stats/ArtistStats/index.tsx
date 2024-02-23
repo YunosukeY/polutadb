@@ -76,15 +76,17 @@ function calcArtistStats(
   // その他の計算
   let others = 0;
   artists?.forEach((artist) => {
-    if (data[artist.name] <= border) {
+    const count = data[artist.name];
+    if (count !== undefined && count <= border) {
       others++;
     }
   });
 
   let res: { artist: string; count: number }[] = [];
   artists?.forEach((artist) => {
-    if (data[artist.name] > border) {
-      res.push({ artist: artist.name, count: data[artist.name] });
+    const count = data[artist.name];
+    if (count !== undefined && count > border) {
+      res.push({ artist: artist.name, count });
     }
   });
   res = res.sort((a, b) => b.count - a.count);

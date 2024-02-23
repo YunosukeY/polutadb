@@ -69,7 +69,7 @@ export const useGetType = () => {
 export const useVideo = (videoId: number | undefined) => {
   const videos = useRecoilValue(videosSelector);
   if (videoId === undefined) return undefined;
-  return videos?.[videoId].title;
+  return videos?.[videoId]?.title;
 };
 export const useVideoId = (video: string) => {
   const videos = useRecoilValue(videosSelector);

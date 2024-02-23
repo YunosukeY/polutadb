@@ -71,15 +71,17 @@ function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefine
   // その他の計算
   let others = 0;
   songs?.forEach((song) => {
-    if (data[song.title] <= border) {
+    const count = data[song.title];
+    if (count !== undefined && count <= border) {
       others++;
     }
   });
 
   let res: { song: string; count: number }[] = [];
   songs?.forEach((song) => {
-    if (data[song.title] > border) {
-      res.push({ song: song.title, count: data[song.title] });
+    const count = data[song.title];
+    if (count !== undefined && count > border) {
+      res.push({ song: song.title, count });
     }
   });
   res = res.sort((a, b) => b.count - a.count);
