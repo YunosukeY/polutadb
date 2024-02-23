@@ -15,6 +15,7 @@ function Layout({ children }: { children: any }) {
 
 const DynamicLayout = dynamic(
   {
+    // eslint-disable-next-line @typescript-eslint/require-await
     loader: async () => Layout,
   },
   { ssr: false },

@@ -7,6 +7,7 @@ export function useSearch(query: Query, state: DataAtom, sort: number) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   let tmpres: Singing[] = JSON.parse(JSON.stringify(state.singings ?? []));
 
   const normalizedQuery = query.query.toLowerCase();
@@ -42,7 +43,7 @@ function fullTextFilter(singing: Singing, query: string, getArtist: (song: strin
   const artist = getArtist(singing.song).toLowerCase();
   const video = singing.video.toLowerCase();
 
-  return song.indexOf(query) !== -1 || artist.indexOf(query) !== -1 || video.indexOf(query) !== -1;
+  return song.includes(query) || artist.includes(query) || video.includes(query);
 }
 
 function compBySongTitle(x: Singing, y: Singing) {

@@ -8,7 +8,8 @@ function getInitialState(): [Map<number, boolean>, number] {
   let tmp;
 
   tmp = window.localStorage.getItem('favos');
-  const favos = tmp !== null ? (new Map(JSON.parse(tmp)) as Map<number, boolean>) : new Map<number, boolean>();
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  const favos = tmp !== null ? new Map<number, boolean>(JSON.parse(tmp)) : new Map<number, boolean>();
   tmp = window.localStorage.getItem('sortedBy');
   const sortedBy = tmp !== null ? Number(tmp) : 0;
 

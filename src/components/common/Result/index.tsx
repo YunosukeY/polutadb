@@ -15,7 +15,7 @@ export default function Result(props: { result: Singing[]; isFavo: boolean }) {
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {
     setPagenum(p);
-    ref?.current?.scrollIntoView({ behavior: 'smooth' });
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const displaynum = useDisplayNum();

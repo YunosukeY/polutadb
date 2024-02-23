@@ -13,6 +13,7 @@ type CopyButtonProps = {
 const CopyButton: React.FC<CopyButtonProps> = ({ title, url, iconSize }) => {
   const [open, handleOpen, handleClose] = useBool(false);
   const handleClick = useCallback(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     navigator.clipboard.writeText(`${title} ${url}`);
     handleOpen();
   }, [handleOpen, title, url]);
