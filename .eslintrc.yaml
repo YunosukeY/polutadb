@@ -54,3 +54,4 @@ rules:
     - warn
     - ignoreStateless: true
   'react/prop-types': off
+  '@typescript-eslint/restrict-template-expressions': off
