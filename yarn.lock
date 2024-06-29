@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@amcharts/amcharts5@5.8.0":
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/@amcharts/amcharts5/-/amcharts5-5.8.0.tgz#6c3ec9145ea7330e06bfcd09b669c78edae1654f"
-  integrity sha512-GeegNxcRekfionBpJ2IXedYgXZp/Cv6mr7bJ8l1/F3pRpP9hgl2vXzFDJBpToJDaJq1pignguF4hwldJ0+H1Ow==
+"@amcharts/amcharts5@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@amcharts/amcharts5/-/amcharts5-5.9.0.tgz#443a613c7bfc598ac6dca69c6bd3d8bb3996e555"
+  integrity sha512-x+NhGiX3SP4Hbu3VtIGoNZ7T5YUmofwxF6YBN6vk7rEB5DfVQ2PrLTkkszsfwabWCxA/2IQGVttJ7fSRNbo5Ag==
   dependencies:
     "@types/d3" "^7.0.0"
     "@types/d3-chord" "^3.0.0"
