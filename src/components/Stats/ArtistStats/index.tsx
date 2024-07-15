@@ -72,7 +72,12 @@ function calcArtistStats(
 
   const data: { [index: string]: number } = {};
   artists?.forEach((artist) => (data[artist.name] = 0));
-  singings?.forEach((singing) => data[getArtist(singing.song)]++);
+  singings?.forEach((singing) => {
+    const a = getArtist(singing.song);
+    if (data[a] !== undefined) {
+      data[a]++;
+    }
+  });
   // その他の計算
   let others = 0;
   artists?.forEach((artist) => {

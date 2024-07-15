@@ -67,7 +67,12 @@ function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefine
 
   const data: { [index: string]: number } = {};
   songs?.forEach((song) => (data[song.title] = 0));
-  singings?.forEach((singing) => data[singing.song]++);
+  singings?.forEach((singing) => {
+    const s = singing.song;
+    if (data[s] !== undefined) {
+      data[s]++;
+    }
+  });
   // その他の計算
   let others = 0;
   songs?.forEach((song) => {
