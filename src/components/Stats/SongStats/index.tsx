@@ -53,6 +53,10 @@ function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
     fillOpacity: 0.9,
     stroke: am5.color('#fff'),
     strokeWidth: 1,
+    tooltipText: '{category}: {value}回',
+  });
+  series.labels.template.setAll({
+    text: '{category}: {value}回',
   });
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
   series.appear();
@@ -63,7 +67,7 @@ function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
 }
 
 function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefined) {
-  const border = 8;
+  const border = 9;
 
   const data: { [index: string]: number } = {};
   songs?.forEach((song) => (data[song.title] = 0));
