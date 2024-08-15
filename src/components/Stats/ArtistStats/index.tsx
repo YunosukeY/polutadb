@@ -54,6 +54,10 @@ function setChart(artists: Artist[] | undefined, singings: Singing[] | undefined
     fillOpacity: 0.9,
     stroke: am5.color('#fff'),
     strokeWidth: 1,
+    tooltipText: '{category}: {value}回',
+  });
+  series.labels.template.setAll({
+    text: '{category}: {value}回',
   });
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
   series.appear();
@@ -68,7 +72,7 @@ function calcArtistStats(
   singings: Singing[] | undefined,
   getArtist: (song: string) => string,
 ) {
-  const border = 12;
+  const border = 13;
 
   const data: { [index: string]: number } = {};
   artists?.forEach((artist) => (data[artist.name] = 0));
