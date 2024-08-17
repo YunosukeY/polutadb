@@ -72,6 +72,10 @@ export default function PickUp() {
           id='g-K6PJi7b0o'
           singing={new Singing(0, '【ORIGINAL SONG+MV】ペルソナ - Omaru Polka【尾丸ポルカ/ホロライブ】', '', '0:00')}
         />
+        <Thumbnail
+          id='uu6s8glmifI'
+          singing={new Singing(0, '【ORIGINAL SONG+MV】Forever glow - Omaru Polka【尾丸ポルカ】', '', '0:00')}
+        />
       </ThumbnailSlider>
     </div>
   );
