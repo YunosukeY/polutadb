@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useRouter } from 'next/router';
-import IconButton from '@mui/material/IconButton';
+import DonutLargeIcon from '@mui/icons-material/DonutLarge';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import InfoIcon from '@mui/icons-material/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
-import DonutLargeIcon from '@mui/icons-material/DonutLarge';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import { useRouter } from 'next/router';
+import type * as React from 'react';
 import { useSetRecoilState } from 'recoil';
-import { initPageSelector } from '../../../../store/pageAtom';
 import { useBool } from '../../../../lib/useBool';
+import { initPageSelector } from '../../../../store/pageAtom';
 
 export default function Menu() {
   const [open, handleDrawerOpen, handleDrawerClose] = useBool(false);

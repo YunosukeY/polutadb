@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { useMount, useUpdateEffect } from 'react-use';
 import { useRecoilState } from 'recoil';
 import { favoAtom } from './favoAtom';

@@ -1,5 +1,5 @@
-import { Theme, useMediaQuery, useTheme } from '@mui/material';
-import { Breakpoint } from '@mui/material/styles';
+import { type Theme, useMediaQuery, useTheme } from '@mui/material';
+import type { Breakpoint } from '@mui/material/styles';
 
 type BreakpointOrNull = Breakpoint | null;
 

@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useToggle, useWindowSize } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import * as React from 'react';
+import { useToggle, useWindowSize } from 'react-use';
 
-import HR from '../common/HR';
-import { useVideo } from '../../data/utils';
 import { Grid, Typography } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
+import { useVideo } from '../../data/utils';
+import type { FCWithChildren } from '../../types/react';
+import HR from '../common/HR';
 import Pane from '../common/Pane';
-import { FCWithChildren } from '../../types/react';
 
 const useStyles = makeStyles({
   icon: {

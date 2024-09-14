@@ -1,12 +1,12 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import * as React from 'react';
 
-import Menu from './Menu';
+import { Button, Typography, styled } from '@mui/material';
 import { useRouter } from 'next/router';
-import { Button, styled, Typography } from '@mui/material';
 import { useSetRecoilState } from 'recoil';
 import { initPageSelector } from '../../../store/pageAtom';
+import Menu from './Menu';
 
 const Bar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
-import HR from '../common/HR';
 import { Grid, Typography } from '@mui/material';
+import HR from '../common/HR';
 import Pane from '../common/Pane';
 
 export default function About() {

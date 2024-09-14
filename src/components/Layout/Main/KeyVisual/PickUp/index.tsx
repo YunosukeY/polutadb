@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Slider, { Settings } from 'react-slick';
+import Slider, { type Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Thumbnail from '../../../../common/Thumbnail';
-import { Singing } from '../../../../../data/types';
 import { styled } from '@mui/styles';
+import { Singing } from '../../../../../data/types';
+import Thumbnail from '../../../../common/Thumbnail';
 
 const ThumbnailSlider = styled(Slider)({
   margin: '0 auto',

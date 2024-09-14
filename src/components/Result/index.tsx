@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { useRouter } from 'next/router';
+import * as React from 'react';
 import { useRecoilValue } from 'recoil';
 
-import Result from '../common/Result';
 import { Query } from '../../lib/query';
 import { useSearch } from '../../lib/search';
 import { dataAtom } from '../../store/dataAtom';
 import { sortAtom } from '../../store/sortAtom';
+import Result from '../common/Result';
 
 export default function ResultPane() {
   const state = useRecoilValue(dataAtom);

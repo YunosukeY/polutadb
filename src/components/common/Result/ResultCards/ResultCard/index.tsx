@@ -1,14 +1,14 @@
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
+import type * as React from 'react';
 
-import Star from './Star';
-import { useGetArtist, useVideoId } from '../../../../../data/utils';
-import { Singing } from '../../../../../data/types';
-import ShareButtons from './ShareButtons';
 import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
-import Thumbnail from '../../../Thumbnail';
 import { useRecoilState } from 'recoil';
+import type { Singing } from '../../../../../data/types';
+import { useGetArtist, useVideoId } from '../../../../../data/utils';
 import { favoSelector } from '../../../../../store/favoAtom';
+import Thumbnail from '../../../Thumbnail';
+import ShareButtons from './ShareButtons';
+import Star from './Star';
 
 type ResultCardProps = {
   singing: Singing;

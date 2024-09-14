@@ -1,4 +1,4 @@
-import { Data } from './types';
+import type { Data } from './types';
 
 export const fetchData = async () => {
   const deployId = 'AKfycbw5PJ8ehZkqAgMuzs4NCLiZA9zNfqKY-ILVZAcoRBoL1sInlAKdntYS1yA4QttJHhTs';

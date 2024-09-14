@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useEffect } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
-import HR from '../../common/HR';
-import { useGetArtist } from '../../../data/utils';
+import { Typography } from '@mui/material';
+import * as React from 'react';
+import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Artist, Singing } from '../../../data/types';
+import type { Artist, Singing } from '../../../data/types';
+import { useGetArtist } from '../../../data/utils';
 import { artistsSelector, singingsSelector } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
+import HR from '../../common/HR';
 import Pane from '../../common/Pane';
-import { Typography } from '@mui/material';
 
 export default function ArtistStats() {
   const artists = useRecoilValue(artistsSelector);

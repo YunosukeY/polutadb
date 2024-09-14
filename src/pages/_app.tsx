@@ -1,14 +1,14 @@
-import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import React from 'react';
 import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
+import { StyledEngineProvider, type Theme, ThemeProvider, createTheme } from '@mui/material';
+import type { AppComponent } from 'next/dist/shared/lib/router/router';
 import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';
-import { AppComponent } from 'next/dist/shared/lib/router/router';
-import { createTheme, ThemeProvider, Theme, StyledEngineProvider } from '@mui/material';
 
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

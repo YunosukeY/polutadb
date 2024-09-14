@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 
-import { Singing } from '../../../../data/types';
 import { Grid } from '@mui/material';
+import type { Singing } from '../../../../data/types';
 import ResultCard from './ResultCard';
 
 type ResultCardsProps = {
