@@ -11,7 +11,9 @@
     "start": "next start",
     "esw": "esw --watch --ext .js,.jsx,.ts,.tsx --color src",
     "test": "jest",
-    "tsc": "tsc -p tsconfig.jsonc"
+    "tsc": "tsc -p tsconfig.jsonc",
+    "biome": "biome check src",
+    "biome:write": "biome check --write src"
   },
   "dependencies": {
     "@amcharts/amcharts5": "5.8.0",
