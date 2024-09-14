@@ -1,5 +1,5 @@
 import { fetchData } from './data';
-import { Data } from './types';
+import type { Data } from './types';
 
 describe('data consistency', () => {
   let data: Data;

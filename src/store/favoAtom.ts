@@ -1,4 +1,4 @@
-import { atom, DefaultValue, selectorFamily } from 'recoil';
+import { DefaultValue, atom, selectorFamily } from 'recoil';
 
 export const favoAtom = atom<Map<number, boolean>>({
   key: 'store/favoAtom',

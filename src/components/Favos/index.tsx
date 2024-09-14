@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import Result from '../common/Result';
-import { Singing } from '../../data/types';
-import { useDisplayNum } from '../../lib/useWidth';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import type { Singing } from '../../data/types';
+import { useDisplayNum } from '../../lib/useWidth';
 import { singingsSelector } from '../../store/dataAtom';
-import { pageAtom } from '../../store/pageAtom';
 import { favoAtom } from '../../store/favoAtom';
+import { pageAtom } from '../../store/pageAtom';
+import Result from '../common/Result';
 
 export default function Favos() {
   const [pagenum, setPagenum] = useRecoilState(pageAtom);

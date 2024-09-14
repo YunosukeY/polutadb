@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
-import { IconButton } from '@mui/material';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
-import Snackbar from '@mui/material/Snackbar';
+import { IconButton } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import type React from 'react';
+import { useCallback } from 'react';
 import { useBool } from '../../../../../../../lib/useBool';
 
 type CopyButtonProps = {

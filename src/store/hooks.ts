@@ -1,7 +1,7 @@
 import { useMount } from 'react-use';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Data } from '../data/types';
-import { initializedSelector, initializeSelector } from './dataAtom';
+import type { Data } from '../data/types';
+import { initializeSelector, initializedSelector } from './dataAtom';
 
 export const useInit = (data: Data) => {
   const initialized = useRecoilValue(initializedSelector);

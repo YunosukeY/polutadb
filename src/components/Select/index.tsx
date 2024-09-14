@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
-import * as React from 'react';
+import type * as React from 'react';
 import { useWindowSize } from 'react-use';
 
+import type { Form } from '../../pages';
 import Search from './Search';
 import Sort from './Sort';
-import { Form } from '../../pages';
 
 type SelectProps = {
   form: Form;

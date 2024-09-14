@@ -1,10 +1,10 @@
-import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
+import * as React from 'react';
 
-import { useOnChange, useStyles } from '../util';
-import { useTypes } from '../../../../data/utils';
 import { Autocomplete } from '@mui/material';
 import { TextField } from '@mui/material';
+import { useTypes } from '../../../../data/utils';
+import { useOnChange, useStyles } from '../util';
 
 type TypeProps = {
   type: number;

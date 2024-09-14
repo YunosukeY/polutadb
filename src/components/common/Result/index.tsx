@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import ResultCount from './ResultCount';
-import Pagenation from './Pagenation';
-import FavoCount from './FavoCount';
-import { Singing } from '../../../data/types';
-import ResultCards from './ResultCards';
-import { useDisplayNum } from '../../../lib/useWidth';
 import { useRecoilState } from 'recoil';
+import type { Singing } from '../../../data/types';
+import { useDisplayNum } from '../../../lib/useWidth';
 import { pageAtom } from '../../../store/pageAtom';
+import FavoCount from './FavoCount';
+import Pagenation from './Pagenation';
+import ResultCards from './ResultCards';
+import ResultCount from './ResultCount';
 
 export default function Result(props: { result: Singing[]; isFavo: boolean }) {
   const [pagenum, setPagenum] = useRecoilState(pageAtom);

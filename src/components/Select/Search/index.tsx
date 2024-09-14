@@ -1,14 +1,14 @@
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
+import type * as React from 'react';
 
+import { useCallback } from 'react';
+import type { Form } from '../../../pages';
+import Artist from './Artist';
 import FullTextSearch from './FullTextSearch';
+import Song from './Song';
 import Type from './Type';
 import Video from './Video';
-import Song from './Song';
-import Artist from './Artist';
-import { Form } from '../../../pages';
-import { useCallback } from 'react';
 
 type SearchProps = {
   form: Form;

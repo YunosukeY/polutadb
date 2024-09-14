@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
-import * as React from 'react';
+import type * as React from 'react';
 import { useMount } from 'react-use';
 import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
+import type { Form } from '../../pages';
 import { initPageSelector } from '../../store/pageAtom';
-import { Form } from '../../pages';
 
 type FormUpdaterProps = {
   form: Form;

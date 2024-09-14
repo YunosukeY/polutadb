@@ -7,7 +7,7 @@ on:
     branches:
       - '*'
 jobs:
-  eslint:
+  biome:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --pure-lockfile
-      - run: yarn lint
+      - run: yarn biome
   tsc:
     runs-on: ubuntu-22.04
     steps:

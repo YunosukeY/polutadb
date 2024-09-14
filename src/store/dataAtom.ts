@@ -1,5 +1,5 @@
-import { atom, DefaultValue, selector } from 'recoil';
-import { Artist, Video, Song, Singing, Type, Data } from '../data/types';
+import { DefaultValue, atom, selector } from 'recoil';
+import { type Artist, type Data, Singing, type Song, type Type, type Video } from '../data/types';
 
 export type DataAtom = {
   artists?: Artist[];

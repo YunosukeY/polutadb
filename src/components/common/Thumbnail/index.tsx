@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useHover, useWindowSize } from 'react-use';
 
 import YouTube from '@mui/icons-material/YouTube';
-import { Singing } from '../../../data/types';
-import { useUrl, parseTime } from '../../../data/utils';
 import { Modal } from '@mui/material';
-import { useWidth } from '../../../lib/useWidth';
+import type { Singing } from '../../../data/types';
+import { parseTime, useUrl } from '../../../data/utils';
 import { useBool } from '../../../lib/useBool';
+import { useWidth } from '../../../lib/useWidth';
 
 const centering: React.CSSProperties = {
   position: 'absolute',

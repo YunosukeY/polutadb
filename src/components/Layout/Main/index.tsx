@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import { FCWithChildren } from '../../../types/react';
+import type { FCWithChildren } from '../../../types/react';
 import KeyVisual from './KeyVisual';
 
 const Main: FCWithChildren = ({ children }) => {

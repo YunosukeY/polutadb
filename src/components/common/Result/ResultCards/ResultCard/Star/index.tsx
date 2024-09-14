@@ -1,9 +1,9 @@
-import * as React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Singing } from '../../../../../../data/types';
+import * as React from 'react';
+import type { Singing } from '../../../../../../data/types';
 import { useGetArtist } from '../../../../../../data/utils';
 
 type StarProps = {

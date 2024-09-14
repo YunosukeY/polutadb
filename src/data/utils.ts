@@ -80,7 +80,7 @@ export const parseTime = (s: string) => {
   let t = 0;
   s.split(':').forEach((v) => {
     t *= 60;
-    t += parseInt(v, 10);
+    t += Number.parseInt(v, 10);
   });
   return t;
 };

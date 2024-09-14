@@ -1,11 +1,11 @@
-import * as React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import { useOnChange } from '../util';
-import { useDebounce, useMount } from 'react-use';
+import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router';
+import * as React from 'react';
+import { useDebounce, useMount } from 'react-use';
 import { Query } from '../../../../lib/query';
+import { useOnChange } from '../util';
 
 type FullTextSearchProps = {
   setQuery: (v: string) => void;

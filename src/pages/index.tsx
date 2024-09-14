@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import Select from '../components/Select';
+import type { NextPage } from 'next';
 import Result from '../components/Result';
-import { Data } from '../data/types';
-import { fetchData } from '../data/data';
-import { NextPage } from 'next';
+import Select from '../components/Select';
 import FormUpdater from '../components/sideeffect/FormUpdater';
+import { fetchData } from '../data/data';
+import type { Data } from '../data/types';
 import { useInit } from '../store/hooks';
 
 export type Form = {
