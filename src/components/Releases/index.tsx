@@ -75,29 +75,38 @@ const OldReleases: FCWithChildren = ({ children }) => {
 
 const ReleaseArray: React.ReactNode[] = [
   <>
-    <Date date='2025/01/14' />
+    <Date date='2025/01/17' />
     <AddData />
     <AddVideo videoId={260} />
   </>,
   <>
-    <Date date='2025/01/01' />
+    <Date date='2025/01/14' />
     <AddData />
     <AddVideo videoId={259} />
   </>,
   <>
-    <Date date='2024/12/27' />
+    <Date date='2025/01/01' />
     <AddData />
     <AddVideo videoId={258} />
   </>,
   <>
-    <Date date='2024/12/25' />
+    <Date date='2024/12/27' />
     <AddData />
     <AddVideo videoId={257} />
   </>,
   <>
-    <Date date='2024/12/24' />
+    <Date date='2024/12/25' />
     <AddData />
     <AddVideo videoId={256} />
+  </>,
+  <>
+    <Date date='2024/12/24' />
+    <AddData />
+    <Content
+      content={
+        '『【歌ってみたコラボ】白い雪のプリンセスは-Re:incarnation- 尾丸ポルカ&小鳩りあ【クリスマスに🩷❤】』分を追加しました'
+      }
+    />
   </>,
   <>
     <Date date='2024/12/14' />
