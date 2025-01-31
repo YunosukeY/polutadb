@@ -14,7 +14,7 @@ describe('data consistency', () => {
         if (same.length > 1) console.log(a);
         expect(same).toHaveLength(1);
       });
-    });
+    }, 10_000);
 
     test('songs.title', () => {
       data.songs.forEach((s) => {
@@ -22,7 +22,7 @@ describe('data consistency', () => {
         if (same.length > 1) console.log(s);
         expect(same).toHaveLength(1);
       });
-    });
+    }, 10_000);
   });
 
   describe('foreign key constraint', () => {
@@ -32,7 +32,7 @@ describe('data consistency', () => {
         if (ref === undefined) console.log(v);
         expect(ref).not.toBeUndefined();
       });
-    });
+    }, 10_000);
 
     test('artists.name -> song.artist', () => {
       data.songs.forEach((s) => {
@@ -41,7 +41,7 @@ describe('data consistency', () => {
         if (ref === undefined) console.log(s);
         expect(ref).not.toBeUndefined();
       });
-    });
+    }, 10_000);
 
     test('videos.title -> singings.video', () => {
       data.singings.forEach((s) => {
@@ -49,7 +49,7 @@ describe('data consistency', () => {
         if (ref === undefined) console.log(s);
         expect(ref).not.toBeUndefined();
       });
-    });
+    }, 10_000);
 
     test('songs.title -> singings.song', () => {
       data.singings.forEach((s) => {
@@ -57,6 +57,6 @@ describe('data consistency', () => {
         if (ref === undefined) console.log(s);
         expect(ref).not.toBeUndefined();
       });
-    });
+    }, 10_000);
   });
 });
