@@ -5,7 +5,7 @@ describe('data consistency', () => {
   let data: Data;
   beforeAll(async () => {
     data = await fetchData();
-  });
+  }, 10_000);
 
   describe('unique constraint', () => {
     test('artists.name', () => {
