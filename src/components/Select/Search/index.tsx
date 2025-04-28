@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
-import { makeStyles } from '@mui/styles';
-import type * as React from 'react';
+import { styled } from '@mui/material/styles';
+import * as React from 'react';
 
 import { useCallback } from 'react';
 import type { Form } from '../../../pages';
@@ -15,15 +15,15 @@ type SearchProps = {
   setForm: React.Dispatch<React.SetStateAction<Form>>;
 };
 
-const useStyles = makeStyles({
-  gridItem: {
-    paddingRight: '.75rem',
-  },
+const StyledGridItem = styled(Grid)({
+  paddingRight: '.75rem',
+});
+
+const StyledDiv = styled('div')({
+  paddingRight: '.75rem',
 });
 
 const Search: React.FC<SearchProps> = ({ form, setForm }) => {
-  const classes = useStyles();
-
   const setQuery = useCallback(
     (v: string) => {
       setForm((f) => ({ ...f, query: v }));
@@ -59,20 +59,20 @@ const Search: React.FC<SearchProps> = ({ form, setForm }) => {
     <>
       <FullTextSearch setQuery={setQuery} />
       <Grid container>
-        <Grid item xs={12} sm={12} className={classes.gridItem}>
+        <StyledGridItem item xs={12} sm={12}>
           <Type type={form.type} setType={setType} />
-        </Grid>
+        </StyledGridItem>
       </Grid>
-      <div className={classes.gridItem}>
+      <StyledDiv>
         <Video video={form.video} setVideo={setVideo} />
-      </div>
+      </StyledDiv>
       <Grid container>
-        <Grid item xs={12} sm={6} className={classes.gridItem}>
+        <StyledGridItem item xs={12} sm={6}>
           <Song song={form.song} setSong={setSong} />
-        </Grid>
-        <Grid item xs={12} sm={6} className={classes.gridItem}>
+        </StyledGridItem>
+        <StyledGridItem item xs={12} sm={6}>
           <Artist artist={form.artist} setArtist={setArtist} />
-        </Grid>
+        </StyledGridItem>
       </Grid>
     </>
   );

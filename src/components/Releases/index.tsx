@@ -3,17 +3,18 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import * as React from 'react';
 import { useToggle, useWindowSize } from 'react-use';
 
-import { Grid, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Typography, styled } from '@mui/material';
 import { useVideo } from '../../data/utils';
 import type { FCWithChildren } from '../../types/react';
 import HR from '../common/HR';
 import Pane from '../common/Pane';
 
-const useStyles = makeStyles({
-  icon: {
-    fontSize: 28,
-  },
+const StyledArrowDropDownIcon = styled(ArrowDropDownIcon)({
+  fontSize: 28,
+});
+
+const StyledArrowDropUpIcon = styled(ArrowDropUpIcon)({
+  fontSize: 28,
 });
 
 const Releases = () => {
@@ -47,8 +48,6 @@ const LatestRelease: FCWithChildren = ({ children }) => {
 };
 
 const OldReleases: FCWithChildren = ({ children }) => {
-  const classes = useStyles();
-
   const [isHidden, toggleIsHidden] = useToggle(true);
 
   return (
@@ -56,14 +55,14 @@ const OldReleases: FCWithChildren = ({ children }) => {
       {isHidden && (
         <Typography variant='h4' onClick={toggleIsHidden} style={{ marginBottom: 0 }}>
           Old Release Notes
-          <ArrowDropDownIcon className={classes.icon} />
+          <StyledArrowDropDownIcon />
         </Typography>
       )}
       {!isHidden && (
         <>
           <Typography variant='h4' onClick={toggleIsHidden}>
             Old Release Notes
-            <ArrowDropUpIcon className={classes.icon} />
+            <StyledArrowDropUpIcon />
           </Typography>
           <HR />
           {children}

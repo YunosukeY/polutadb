@@ -1,10 +1,9 @@
-import FormControl from '@mui/material/FormControl';
 import * as React from 'react';
 
 import { Autocomplete } from '@mui/material';
 import { TextField } from '@mui/material';
 import { useVideos } from '../../../../data/utils';
-import { useOnChange, useStyles } from '../util';
+import { useOnChange, StyledFormControl } from '../util';
 
 type VideoProps = {
   video: number;
@@ -12,15 +11,13 @@ type VideoProps = {
 };
 
 export default function Video({ video, setVideo }: VideoProps) {
-  const classes = useStyles();
-
   const onChangeVideo = useOnChange(setVideo, (q, v) => {
     q.video = v;
   });
 
   const videos = useVideos();
   return (
-    <FormControl variant='standard' className={classes.formControl}>
+    <StyledFormControl variant='standard'>
       <Autocomplete
         options={videos}
         onChange={(e, v) => {
@@ -31,6 +28,6 @@ export default function Video({ video, setVideo }: VideoProps) {
         getOptionLabel={(option) => (option.date && option.title ? `${option.date}: ${option.title}` : '')}
         renderInput={(params) => <TextField variant='standard' {...params} label='動画' />}
       />
-    </FormControl>
+    </StyledFormControl>
   );
 }
