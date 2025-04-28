@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import * as React from 'react';
 
 import { useArtists } from '../../../../data/utils';
-import { useOnChange, StyledFormControl } from '../util';
+import { StyledFormControl, useOnChange } from '../util';
 
 type ArtistProps = {
   artist: number;

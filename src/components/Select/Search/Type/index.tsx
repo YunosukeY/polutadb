@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Autocomplete } from '@mui/material';
 import { TextField } from '@mui/material';
 import { useTypes } from '../../../../data/utils';
-import { useOnChange, StyledFormControl } from '../util';
+import { StyledFormControl, useOnChange } from '../util';
 
 type TypeProps = {
   type: number;

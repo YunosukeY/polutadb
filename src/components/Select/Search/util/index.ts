@@ -1,8 +1,8 @@
+import FormControl from '@mui/material/FormControl';
 import type { Theme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
-import FormControl from '@mui/material/FormControl';
 
 import { Query } from '../../../../lib/query';
 import { initPageSelector } from '../../../../store/pageAtom';
