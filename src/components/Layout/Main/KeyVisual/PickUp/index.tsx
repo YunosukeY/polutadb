@@ -3,7 +3,7 @@ import Slider, { type Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { styled } from '@mui/styles';
+import { styled } from '@mui/material';
 import { Singing } from '../../../../../data/types';
 import Thumbnail from '../../../../common/Thumbnail';
 
