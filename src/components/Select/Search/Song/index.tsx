@@ -1,10 +1,9 @@
 import Autocomplete from '@mui/material/Autocomplete';
-import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 
 import { useSongs } from '../../../../data/utils';
-import { useOnChange, useStyles } from '../util';
+import { StyledFormControl, useOnChange } from '../util';
 
 type SongProps = {
   song: number;
@@ -12,15 +11,13 @@ type SongProps = {
 };
 
 export default function Song({ song, setSong }: SongProps) {
-  const classes = useStyles();
-
   const onChangeSong = useOnChange(setSong, (q, v) => {
     q.song = v;
   });
 
   const songs = useSongs();
   return (
-    <FormControl variant='standard' className={classes.formControl}>
+    <StyledFormControl variant='standard'>
       <Autocomplete
         options={songs}
         onChange={(e, v) => {
@@ -31,6 +28,6 @@ export default function Song({ song, setSong }: SongProps) {
         getOptionLabel={(option) => option.title}
         renderInput={(params) => <TextField variant='standard' {...params} label='曲' />}
       />
-    </FormControl>
+    </StyledFormControl>
   );
 }

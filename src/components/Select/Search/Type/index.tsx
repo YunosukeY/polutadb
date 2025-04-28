@@ -1,10 +1,9 @@
-import FormControl from '@mui/material/FormControl';
 import * as React from 'react';
 
 import { Autocomplete } from '@mui/material';
 import { TextField } from '@mui/material';
 import { useTypes } from '../../../../data/utils';
-import { useOnChange, useStyles } from '../util';
+import { StyledFormControl, useOnChange } from '../util';
 
 type TypeProps = {
   type: number;
@@ -12,15 +11,13 @@ type TypeProps = {
 };
 
 export default function Type({ type, setType }: TypeProps) {
-  const classes = useStyles();
-
   const onChangeType = useOnChange(setType, (q, v) => {
     q.type = v;
   });
 
   const types = useTypes();
   return (
-    <FormControl variant='standard' className={classes.formControl}>
+    <StyledFormControl variant='standard'>
       <Autocomplete
         options={types}
         onChange={(e, v) => {
@@ -31,6 +28,6 @@ export default function Type({ type, setType }: TypeProps) {
         getOptionLabel={(option) => option.name}
         renderInput={(params) => <TextField variant='standard' {...params} label='動画のタイプ' />}
       />
-    </FormControl>
+    </StyledFormControl>
   );
 }
