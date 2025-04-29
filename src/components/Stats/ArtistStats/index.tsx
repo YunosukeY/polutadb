@@ -2,19 +2,19 @@ import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import { Typography } from '@mui/material';
+import { useAtomValue } from 'jotai/react';
 import * as React from 'react';
 import { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
 import type { Artist, Singing } from '../../../data/types';
 import { useGetArtist } from '../../../data/utils';
-import { artistsSelector, singingsSelector } from '../../../store/dataAtom';
+import { artistsAtom, singingsAtom } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
 import HR from '../../common/HR';
 import Pane from '../../common/Pane';
 
 export default function ArtistStats() {
-  const artists = useRecoilValue(artistsSelector);
-  const singings = useRecoilValue(singingsSelector);
+  const artists = useAtomValue(artistsAtom);
+  const singings = useAtomValue(singingsAtom);
   const getArtist = useGetArtist();
 
   useEffect(() => {
