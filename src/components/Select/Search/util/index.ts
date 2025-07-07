@@ -1,11 +1,11 @@
 import FormControl from '@mui/material/FormControl';
 import type { Theme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
+import { useSetAtom } from 'jotai/react';
 import { useRouter } from 'next/router';
-import { useSetRecoilState } from 'recoil';
 
 import { Query } from '../../../../lib/query';
-import { initPageSelector } from '../../../../store/pageAtom';
+import { initPageAtom } from '../../../../store/pageAtom';
 
 export type EachSelectProps = { query: Query };
 
@@ -18,7 +18,7 @@ export const StyledFormControl = styled(FormControl)(({ theme }: { theme: Theme 
 export const useOnChange = <T>(onChange: (v: T) => void, qUpdater: (q: Query, value: T) => void) => {
   const router = useRouter();
   const query = new Query(router.query);
-  const init = useSetRecoilState(initPageSelector);
+  const init = useSetAtom(initPageAtom);
   return (value: T) => {
     onChange(value);
     qUpdater(query, value);
