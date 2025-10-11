@@ -2,14 +2,14 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
 import RadioGroup from '@mui/material/RadioGroup';
+import { useAtom } from 'jotai/react';
 import type * as React from 'react';
-import { useRecoilState } from 'recoil';
 
 import { sortAtom } from '../../../store/sortAtom';
 import Radio from '../Search/util/Radio';
 
 export default function Sort() {
-  const [sort, setSort] = useRecoilState(sortAtom);
+  const [sort, setSort] = useAtom(sortAtom);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSort(Number(event.target.value));

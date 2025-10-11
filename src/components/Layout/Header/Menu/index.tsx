@@ -6,11 +6,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
+import { useSetAtom } from 'jotai/react';
 import { useRouter } from 'next/router';
 import type * as React from 'react';
-import { useSetRecoilState } from 'recoil';
 import { useBool } from '../../../../lib/useBool';
-import { initPageSelector } from '../../../../store/pageAtom';
+import { initPageAtom } from '../../../../store/pageAtom';
 
 export default function Menu() {
   const [open, handleDrawerOpen, handleDrawerClose] = useBool(false);
@@ -37,7 +37,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
     router.push(url);
   };
 
-  const init = useSetRecoilState(initPageSelector);
+  const init = useSetAtom(initPageAtom);
 
   return (
     <Drawer anchor='right' open={open} onClose={handleDrawerClose}>
