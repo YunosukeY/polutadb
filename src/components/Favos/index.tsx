@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useAtom, useAtomValue } from 'jotai/react';
 import type { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
-import { singingsSelector } from '../../store/dataAtom';
+import { singingsAtom } from '../../store/dataAtom';
 import { favoAtom } from '../../store/favoAtom';
 import { pageAtom } from '../../store/pageAtom';
 import Result from '../common/Result';
 
 export default function Favos() {
-  const [pagenum, setPagenum] = useRecoilState(pageAtom);
+  const [pagenum, setPagenum] = useAtom(pageAtom);
   const favoList = useFavoList();
   const displaynum = useDisplayNum();
 
@@ -24,9 +24,9 @@ export default function Favos() {
 }
 
 function useFavoList() {
-  const singings = useRecoilValue(singingsSelector);
+  const singings = useAtomValue(singingsAtom);
 
-  const isFavo = useRecoilValue(favoAtom);
+  const isFavo = useAtomValue(favoAtom);
 
   const res = new Array<Singing>();
   singings?.forEach((singing) => {
