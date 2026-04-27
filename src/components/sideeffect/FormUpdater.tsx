@@ -1,10 +1,10 @@
+import { useSetAtom } from 'jotai/react';
 import { useRouter } from 'next/router';
 import type * as React from 'react';
 import { useMount } from 'react-use';
-import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
 import type { Form } from '../../pages';
-import { initPageSelector } from '../../store/pageAtom';
+import { initPageAtom } from '../../store/pageAtom';
 
 type FormUpdaterProps = {
   form: Form;
@@ -13,7 +13,7 @@ type FormUpdaterProps = {
 
 const FormUpdater: React.FC<FormUpdaterProps> = ({ form, setForm }) => {
   const urlQuery = new Query(useRouter().query);
-  const init = useSetRecoilState(initPageSelector);
+  const init = useSetAtom(initPageAtom);
 
   useMount(() => {
     const formQuery = new Query(form);
