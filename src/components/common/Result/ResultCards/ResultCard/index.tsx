@@ -2,10 +2,10 @@ import Grid from '@mui/material/Grid';
 import type * as React from 'react';
 
 import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import type { Singing } from '../../../../../data/types';
 import { useGetArtist, useVideoId } from '../../../../../data/utils';
-import { favoSelector } from '../../../../../store/favoAtom';
+import { favoAtomFamily } from '../../../../../store/favoAtom';
 import Thumbnail from '../../../Thumbnail';
 import ShareButtons from './ShareButtons';
 import Star from './Star';
@@ -15,7 +15,7 @@ type ResultCardProps = {
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
-  const [isFavo, setFavo] = useRecoilState(favoSelector({ singingId: singing.id }));
+  const [isFavo, setFavo] = useAtom(favoAtomFamily(singing.id));
 
   const fontsize = 32;
 

@@ -1,6 +1,3 @@
-import { atom } from 'recoil';
+import { atom } from 'jotai';
 
-export const sortAtom = atom<number>({
-  key: 'store/sortAtom',
-  default: 0,
-});
+export const sortAtom = atom<number>(0);
