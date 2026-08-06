@@ -1,6 +1,6 @@
 import type { Data } from './types';
 
-export const fetchData = async () => {
+const load = async () => {
   const deployId = 'AKfycbw5PJ8ehZkqAgMuzs4NCLiZA9zNfqKY-ILVZAcoRBoL1sInlAKdntYS1yA4QttJHhTs';
   const res = await fetch(`https://script.google.com/macros/s/${deployId}/exec`);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -18,4 +18,13 @@ export const fetchData = async () => {
   });
 
   return data;
+};
+
+// ビルド時に 4 ページの getStaticProps から呼ばれる。Apps Script は同一 IP からの
+// 連続アクセスを絞って JSON ではなく HTML を返すことがあるので、取得は 1 回に共有する
+let inflight: Promise<Data> | undefined;
+
+export const fetchData = () => {
+  inflight ??= load();
+  return inflight;
 };
