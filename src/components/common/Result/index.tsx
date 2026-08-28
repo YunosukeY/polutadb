@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai/react';
 import type { Singing } from '../../../data/types';
 import { useDisplayNum } from '../../../lib/useWidth';
 import { pageAtom } from '../../../store/pageAtom';
@@ -10,7 +10,7 @@ import ResultCards from './ResultCards';
 import ResultCount from './ResultCount';
 
 export default function Result(props: { result: Singing[]; isFavo: boolean }) {
-  const [pagenum, setPagenum] = useRecoilState(pageAtom);
+  const [pagenum, setPagenum] = useAtom(pageAtom);
 
   const ref = React.createRef<HTMLDivElement>();
   const onPageClick = (p: number) => {

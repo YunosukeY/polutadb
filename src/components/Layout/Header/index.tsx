@@ -3,9 +3,9 @@ import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
 
 import { Button, Typography, styled } from '@mui/material';
+import { useSetAtom } from 'jotai/react';
 import { useRouter } from 'next/router';
-import { useSetRecoilState } from 'recoil';
-import { initPageSelector } from '../../../store/pageAtom';
+import { initPageAtom } from '../../../store/pageAtom';
 import Menu from './Menu';
 
 const Bar = styled(AppBar)(({ theme }) => ({
@@ -15,7 +15,7 @@ const Bar = styled(AppBar)(({ theme }) => ({
 export default function Header() {
   const router = useRouter();
 
-  const init = useSetRecoilState(initPageSelector);
+  const init = useSetAtom(initPageAtom);
 
   return (
     <header>

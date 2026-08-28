@@ -1,8 +1,8 @@
-import { useRecoilValue } from 'recoil';
-import { artistsSelector, songsSelector, typesSelector, videosSelector } from '../store/dataAtom';
+import { useAtomValue } from 'jotai/react';
+import { artistsAtom, songsAtom, typesAtom, videosAtom } from '../store/dataAtom';
 
 export function useTypes() {
-  const types = useRecoilValue(typesSelector);
+  const types = useAtomValue(typesAtom);
 
   let typeNames: { name: string; i: number }[] = [];
   types?.forEach((type, i) => {
@@ -16,7 +16,7 @@ export function useTypes() {
 }
 
 export function useVideos() {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
 
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: { date: string; title: string; i: number }[] = [];
@@ -30,7 +30,7 @@ export function useVideos() {
 }
 
 export function useSongs() {
-  const songs = useRecoilValue(songsSelector);
+  const songs = useAtomValue(songsAtom);
 
   let songNames: { title: string; i: number }[] = [];
   songs?.forEach((song, i) => {
@@ -46,7 +46,7 @@ export function useSongs() {
 }
 
 export function useArtists() {
-  const artists = useRecoilValue(artistsSelector);
+  const artists = useAtomValue(artistsAtom);
 
   let artistNames: { name: string; i: number }[] = [];
   artists?.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
@@ -55,24 +55,24 @@ export function useArtists() {
 }
 
 export const useUrl = (video: string) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return videos?.find((v) => v.title === video)?.id;
 };
 export const useGetArtist = () => {
-  const songs = useRecoilValue(songsSelector);
+  const songs = useAtomValue(songsAtom);
   return (song: string) => songs?.find((s) => s.title === song)?.artist ?? '';
 };
 export const useGetType = () => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return (video: string) => videos?.find((v) => v.title === video)?.type;
 };
 export const useVideo = (videoId: number | undefined) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   if (videoId === undefined) return undefined;
   return videos?.[videoId]?.title;
 };
 export const useVideoId = (video: string) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return videos?.find((v) => v.title === video)?.id;
 };
 

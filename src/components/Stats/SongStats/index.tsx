@@ -5,16 +5,16 @@ import * as React from 'react';
 import { useEffect } from 'react';
 
 import { Typography } from '@mui/material';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai/react';
 import type { Singing, Song } from '../../../data/types';
-import { singingsSelector, songsSelector } from '../../../store/dataAtom';
+import { singingsAtom, songsAtom } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
 import HR from '../../common/HR';
 import Pane from '../../common/Pane';
 
 export default function SongStats() {
-  const songs = useRecoilValue(songsSelector);
-  const singings = useRecoilValue(singingsSelector);
+  const songs = useAtomValue(songsAtom);
+  const singings = useAtomValue(singingsAtom);
 
   useEffect(() => {
     const root = setChart(songs, singings);
