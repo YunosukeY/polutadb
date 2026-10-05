@@ -9,7 +9,7 @@ https://www.polutadb.com で公開されています。
 
 ## Requirement
 
-- Node.js (v20)
+- Node.js (v24)
 - yarn
 
 ## Usage
