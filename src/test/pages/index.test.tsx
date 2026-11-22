@@ -1,7 +1,6 @@
 /** @jest-environment jsdom */
-import Home from '.';
-import { artistOf, data, newestFirst, shareTitle, typeIndex, videoOf } from '../../e2e/fixture';
-import type { Data, RawSinging } from '../data/types';
+
+// src/pages に置くと Next.js がページとしてビルドしてしまうので、ページのテストはここに置く
 import {
   MOBILE,
   advance,
@@ -14,7 +13,10 @@ import {
   screen,
   scrollIntoView,
   within,
-} from '../test';
+} from '..';
+import { artistOf, data, newestFirst, shareTitle, typeIndex, videoOf } from '../../../e2e/fixture';
+import type { Data, RawSinging } from '../../data/types';
+import Home from '../../pages';
 
 type RenderOptions = Parameters<typeof render>[1];
 

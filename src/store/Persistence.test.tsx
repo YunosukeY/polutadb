@@ -1,4 +1,5 @@
 /** @jest-environment jsdom */
+
 import { data, newestFirst, shareTitle } from '../../e2e/fixture';
 import Favos from '../components/Favos';
 import Sort from '../components/Select/Sort';

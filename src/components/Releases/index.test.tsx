@@ -1,4 +1,5 @@
 /** @jest-environment jsdom */
+
 import Releases from '.';
 import { data } from '../../../e2e/fixture';
 import { render, screen } from '../../test';

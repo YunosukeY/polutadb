@@ -37,6 +37,7 @@ $ yarn test
 
 - 単体テスト（`*.test.ts`）: ライブラリに依存しないロジック。
 - コンポーネントのテスト（`*.test.tsx`）: 画面の仕様の細かいケースを React Testing Library と jsdom で確認します。ファイル先頭の `@jest-environment jsdom` で jsdom に切り替えます。
+  - ページ（`src/pages`）のテストは `src/test/pages` に置きます。`src/pages` に置くと Next.js がページとしてビルドしてしまうためです。
   - 描画は共通ヘルパー（`src/test`）の `render` を使います。プロバイダ、状態の初期化（データ、`localStorage`、URL、画面幅）、`next/router` と `matchMedia` のモックをまとめてあり、テスト本体は Recoil のAPIを直接使いません。
   - データは E2E と同じフィクスチャ（`e2e/fixture`）を使います。
   - `console.error` と `console.warn` が出たテストは失敗します。既知の警告は `src/test/index.tsx` で個別に許可しています。

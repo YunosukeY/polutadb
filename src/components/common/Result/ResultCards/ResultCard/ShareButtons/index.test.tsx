@@ -1,4 +1,5 @@
 /** @jest-environment jsdom */
+
 import ShareButtons from '.';
 import { data, newestFirst, shareTitle, shareUrl } from '../../../../../../../e2e/fixture';
 import { Singing } from '../../../../../../data/types';
