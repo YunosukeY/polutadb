@@ -17,10 +17,10 @@ jobs:
     env:
       E2E_TARGET: vrt
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -41,7 +41,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
           git commit -m 'test: VRTのベースラインを更新する'
           git push
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: vrt-report

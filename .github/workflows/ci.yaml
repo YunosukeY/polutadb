@@ -10,10 +10,10 @@ jobs:
   biome:
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -21,10 +21,10 @@ jobs:
   tsc:
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -32,10 +32,10 @@ jobs:
   test:
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -47,10 +47,10 @@ jobs:
     if: ${{ github.event.pull_request.user.login != 'renovate[bot]' }}
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -59,10 +59,10 @@ jobs:
     runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
@@ -71,7 +71,7 @@ jobs:
       - run: npm run e2e
       # next dev に対するスモークテスト
       - run: npm run e2e:dev
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
@@ -90,16 +90,16 @@ jobs:
     env:
       E2E_TARGET: vrt
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.x'
+          node-version: '26.x'
           cache: npm
       # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
       - run: npm ci
       # 差分が出たら、成果物のHTMLレポートで期待画像・実際の画像・差分画像を確認する
       - run: npx playwright test
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: vrt-report
