@@ -14,13 +14,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn biome
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npm run biome
   tsc:
     runs-on: ubuntu-24.04
     steps:
@@ -28,13 +25,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn tsc
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npm run tsc
   test:
     runs-on: ubuntu-24.04
     steps:
@@ -42,13 +36,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn test
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npm run test
   # 本番データ（Apps Script）の整合性チェック。リリースPRで、追加したデータの確認に使う。
   # 依存と無関係な理由（データの不整合、Apps Script の応答の不安定さ）で自動マージが
   # 止まらないよう、Renovate のPRでは実行しない（スキップされたジョブは必須チェック上は成功扱い）
@@ -60,13 +51,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn test:data
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npm run test:data
   e2e:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -75,17 +63,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn playwright install --with-deps chromium
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
       # フィクスチャを使ってビルドし、next start に対して実行する（playwright.config.ts の webServer）
-      - run: yarn e2e
+      - run: npm run e2e
       # next dev に対するスモークテスト
-      - run: yarn e2e:dev
+      - run: npm run e2e:dev
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
@@ -109,14 +94,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
       # 差分が出たら、成果物のHTMLレポートで期待画像・実際の画像・差分画像を確認する
-      - run: yarn playwright test
+      - run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

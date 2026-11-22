@@ -20,4 +20,4 @@ exec docker run --rm --init --ipc=host --platform linux/amd64 \
   -w /work \
   -e E2E_TARGET=vrt \
   "mcr.microsoft.com/playwright:v${version}-noble" \
-  sh -euc 'npm install --global --silent n && n --quiet 24 && hash -r && yarn install --pure-lockfile && yarn playwright test "$@"' sh "$@"
+  sh -euc 'npm install --global --silent n && n --quiet 24 && hash -r && npm ci && npx playwright test "$@"' sh "$@"

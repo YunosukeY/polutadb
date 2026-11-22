@@ -51,7 +51,7 @@
     "ts-node": "10.9.1",
     "typescript": "5.7.2"
   },
-  "resolutions": {
+  "overrides": {
     "@types/react": "18.2.6"
   }
 }

@@ -21,13 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --pure-lockfile
-      - run: yarn playwright test --update-snapshots
+          cache: npm
+      # ロックファイルと package.json が一致しない場合と、peer依存が衝突する場合は失敗する
+      - run: npm ci
+      - run: npx playwright test --update-snapshots
       - name: Commit and push
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"

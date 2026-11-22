@@ -13,9 +13,9 @@ const customJestConfig = {
   // @jest-environment jsdom で jsdom に切り替える
   setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
   testPathIgnorePatterns: [
-    // Playwright のテスト（yarn e2e）
+    // Playwright のテスト（npm run e2e）
     '<rootDir>/e2e/',
-    // 本番データの整合性チェック。CIでは別のジョブ（data）で yarn test:data を実行する
+    // 本番データの整合性チェック。CIでは別のジョブ（data）で npm run test:data を実行する
     '<rootDir>/src/data/data.test.ts',
   ],
 };
