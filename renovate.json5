@@ -1,20 +1,48 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:base'],
+  extends: ['config:recommended'],
 
-  ignorePresets: [':prHourlyLimit2'],
   automerge: false,
   platformAutomerge: false,
-  rebaseWhen: 'never',
-  patch: {
-    enabled: false,
-  },
+  // PRが常に最新のベースでのCI結果を持つようにする
+  rebaseWhen: 'behind-base-branch',
+  // 公開直後のリリースは取り下げや差し替えがありうるので、少し待つ
+  minimumReleaseAge: '3 days',
 
   packageRules: [
     {
+      // Docker Hub 以外のレジストリは公開日時を取れない。既定では公開日時がない更新は保留され続ける
+      matchDatasources: ['docker'],
+      minimumReleaseAgeBehaviour: 'timestamp-optional',
+    },
+    {
       // スクリーンショット比較はイメージの中のブラウザで撮るので、イメージと一緒に上げる
+      // イメージは公開日時を取れず待てないので、パッケージだけが保留されてずれないよう、どちらも待たない
       groupName: 'playwright',
       matchPackageNames: ['@playwright/test', 'mcr.microsoft.com/playwright'],
+      minimumReleaseAge: null,
+    },
+    {
+      groupName: 'react',
+      matchPackageNames: ['react', 'react-dom', '@types/react', '@types/react-dom'],
+    },
+    {
+      groupName: 'mui',
+      matchPackageNames: ['@mui/**', '@emotion/**'],
+    },
+    {
+      groupName: 'jest',
+      matchPackageNames: ['jest', 'jest-environment-jsdom', '@types/jest'],
+    },
+    {
+      groupName: 'slick',
+      matchPackageNames: ['react-slick', 'slick-carousel', '@types/react-slick'],
+    },
+    {
+      // engines の Node のメジャーに合わせる。Node を上げるときに手で上げる
+      matchPackageNames: ['@types/node'],
+      matchUpdateTypes: ['major'],
+      enabled: false,
     },
   ],
 
