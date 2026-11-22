@@ -7,9 +7,9 @@ const isDev = process.env.E2E_TARGET === 'dev';
 const isVrt = process.env.E2E_TARGET === 'vrt';
 
 // 文字の描画はOSで変わるので、スクリーンショットは Playwright 公式のDockerイメージの中でだけ撮る。
-// 手元では yarn vrt（e2e/vrt/docker.sh）がそのコンテナを起動する
+// 手元では npm run vrt（e2e/vrt/docker.sh）がそのコンテナを起動する
 if (isVrt && process.platform !== 'linux') {
-  throw new Error('スクリーンショット比較はDockerの中で実行する。yarn vrt を使う（README を参照）');
+  throw new Error('スクリーンショット比較はDockerの中で実行する。npm run vrt を使う（README を参照）');
 }
 
 const testMatch = isDev ? 'dev-smoke.spec.ts' : isVrt ? 'vrt/*.spec.ts' : '*.spec.ts';
@@ -71,7 +71,7 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command: isDev ? `yarn dev -p ${appPort}` : `yarn build && yarn start -p ${appPort}`,
+      command: isDev ? `npm run dev -- -p ${appPort}` : `npm run build && npm run start -- -p ${appPort}`,
       url: `http://localhost:${appPort}/`,
       env: appEnv,
       timeout: 180_000,

@@ -10,29 +10,29 @@ https://www.polutadb.com で公開されています。
 ## Requirement
 
 - Node.js (v24)
-- yarn
+- npm
 
 ## Usage
 
 ### To Serve in Development Mode
 
 ```
-$ yarn install
-$ yarn dev
+$ npm install
+$ npm run dev
 ```
 
 ### To Serve in Production Mode
 
 ```
-$ yarn install
-$ yarn build
-$ yarn start
+$ npm install
+$ npm run build
+$ npm start
 ```
 
 ### To Run Unit and Component Tests
 
 ```
-$ yarn test
+$ npm test
 ```
 
 - 単体テスト（`*.test.ts`）: ライブラリに依存しないロジック。
@@ -48,12 +48,12 @@ $ yarn test
 本番ビルドを実ブラウザ（Playwright）で操作するテストです。データはフィクスチャ（`e2e/fixture/data.json`）を使い、外部への通信はテスト内ですべて差し替えます。
 
 ```
-$ yarn playwright install chromium
-$ yarn e2e      # next build && next start に対して実行
-$ yarn e2e:dev  # next dev に対するスモークテスト
+$ npx playwright install chromium
+$ npm run e2e      # next build && next start に対して実行
+$ npm run e2e:dev  # next dev に対するスモークテスト
 ```
 
-本番データの整合性チェックは `yarn test:data` で実行します（CI では `data` ジョブ。Renovate のPRでは実行しません）。
+本番データの整合性チェックは `npm run test:data` で実行します（CI では `data` ジョブ。Renovate のPRでは実行しません）。
 
 ### To Run Visual Regression Tests
 
@@ -62,8 +62,8 @@ $ yarn e2e:dev  # next dev に対するスモークテスト
 文字の描画はOSによって変わるので、ベースラインの生成も比較も Playwright 公式のDockerイメージ（`mcr.microsoft.com/playwright`、linux/amd64）の中で行います。macOS で直接は実行しません。CI では `vrt` ジョブがそのコンテナで実行します。
 
 ```
-$ yarn vrt         # Docker の中で比較する
-$ yarn vrt:update  # Docker の中でベースラインを作り直す
+$ npm run vrt         # Docker の中で比較する
+$ npm run vrt:update  # Docker の中でベースラインを作り直す
 ```
 
 1ピクセルでも異なれば失敗します。画像のサイズが変わった場合も失敗します。
@@ -71,9 +71,9 @@ $ yarn vrt:update  # Docker の中でベースラインを作り直す
 #### 差分が出たとき
 
 1. CI の `vrt` ジョブが失敗し、ログに失敗した画像と異なるピクセル数が出ます。
-2. ジョブの成果物 `vrt-report` をダウンロードして `playwright-report/index.html` を開き、期待画像・実際の画像・差分画像を確認します（手元で実行した場合は `yarn playwright show-report`）。
+2. ジョブの成果物 `vrt-report` をダウンロードして `playwright-report/index.html` を開き、期待画像・実際の画像・差分画像を確認します（手元で実行した場合は `npx playwright show-report`）。
 3. 意図した変化であれば、次のどちらかでベースラインを更新してコミットします。
-   - 手元: `yarn vrt:update` を実行し、`e2e/vrt/screenshots` の変更をコミットする。
+   - 手元: `npm run vrt:update` を実行し、`e2e/vrt/screenshots` の変更をコミットする。
    - ワークフロー: GitHub の Actions で「Update VRT baselines」を、対象のブランチを選んで手動で起動する（`gh workflow run vrt-update.yaml --ref <ブランチ>`）。そのブランチの上で作り直してコミットするので、Renovate のブランチを手元に持ってこなくて済みます。
 
 注意点:
