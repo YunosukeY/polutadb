@@ -13,7 +13,7 @@ import Persistence from '../store/Persistence';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1e90ff',
+      main: '#1e80ff',
     },
     secondary: {
       main: '#ef5350',
