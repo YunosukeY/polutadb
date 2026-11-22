@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import type * as React from 'react';
 
-import { Card, CardActions, CardContent, Chip, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, Chip, Stack, Typography } from '@mui/material';
 import { useAtom } from 'jotai';
 import type { Singing } from '../../../../../data/types';
 import { useGetArtist, useVideoId } from '../../../../../data/utils';
@@ -29,27 +29,24 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
       <Card>
         <Thumbnail id={videoId} singing={singing} />
         <CardContent style={{ paddingBottom: 0 }}>
-          <Grid
-            container
-            direction='column'
-            justifyContent='center'
-            alignItems='center'
+          <Stack
+            sx={{ flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}
             style={{ minHeight: 120, maxHeight: 160 }}
           >
-            <Grid>
+            <div>
               <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
                 『{singing.song}』
               </Typography>
               <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
                 {artist}
               </Typography>
-            </Grid>
+            </div>
             {singing.time == 1 && (
-              <Grid>
+              <div>
                 <Chip label='First Time!' variant='outlined' />
-              </Grid>
+              </div>
             )}
-          </Grid>
+          </Stack>
         </CardContent>
         <CardActions style={{ justifyContent: 'center' }}>
           <Star
