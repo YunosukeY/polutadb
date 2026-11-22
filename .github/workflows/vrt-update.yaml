@@ -4,6 +4,8 @@ name: Update VRT baselines
 # 標準のトークンで作ったコミットではCIが起動しないので、プッシュされた後にCIを手動で再実行する
 on:
   workflow_dispatch:
+  push:
+    branches: [vrt-update-test]
 permissions:
   contents: write
 jobs:
