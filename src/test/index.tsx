@@ -2,16 +2,16 @@ import { format } from 'util';
 import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material';
 import { act, render as rtlRender, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Provider, createStore } from 'jotai';
 import type * as React from 'react';
-import { RecoilRoot } from 'recoil';
 import { type Data, Singing } from '../data/types';
 import Persistence from '../store/Persistence';
-import { initializeSelector } from '../store/dataAtom';
+import { initializeAtom } from '../store/dataAtom';
 import { push, readyRouter, resetRouter } from './router';
 
 // コンポーネントのテストの共通ヘルパー。
-// 状態（Recoil、localStorage、URL、画面幅）の初期化とプロバイダをここにまとめる。
-// テスト本体は Recoil のAPIを直接使わず、render のオプションと画面の操作だけで状態を作る
+// 状態（Jotai、localStorage、URL、画面幅）の初期化とプロバイダをここにまとめる。
+// テスト本体は Jotai のAPIを直接使わず、render のオプションと画面の操作だけで状態を作る
 
 export { act, screen, within } from '@testing-library/react';
 /** router.push のモック */
@@ -134,12 +134,11 @@ export const render = (ui: React.ReactElement, { url, routerReady, width, data, 
   if (sort !== undefined) window.localStorage.setItem('sortedBy', String(sort));
 
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  // テストごとに新しいストアを使い、状態を持ち越さない
+  const store = createStore();
+  if (data !== undefined) store.set(initializeAtom, data);
   const result = rtlRender(
-    <RecoilRoot
-      initializeState={({ set }) => {
-        if (data !== undefined) set(initializeSelector, data);
-      }}
-    >
+    <Provider store={store}>
       <StyledEngineProvider injectFirst>
         {/* テーマは色とフォントだけの違いなので既定のものを使う。見た目はVRTで確認する */}
         <ThemeProvider theme={createTheme()}>
@@ -147,7 +146,7 @@ export const render = (ui: React.ReactElement, { url, routerReady, width, data, 
           {ui}
         </ThemeProvider>
       </StyledEngineProvider>
-    </RecoilRoot>,
+    </Provider>,
   );
   return { user, ...result };
 };

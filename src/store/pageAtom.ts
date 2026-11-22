@@ -1,17 +1,8 @@
-import { atom, selector } from 'recoil';
+import { atom } from 'jotai';
 
-export const pageAtom = atom<number>({
-  key: 'store/pageAtom',
-  default: 1,
-});
+export const pageAtom = atom(1);
 
-// eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export const initPageSelector = selector<void>({
-  key: `${pageAtom.key}/initPageSelector`,
-  get: () => {
-    return;
-  },
-  set: ({ set }) => {
-    set(pageAtom, 1);
-  },
+/** 書き込み専用。1ページ目に戻す */
+export const initPageAtom = atom(null, (_get, set) => {
+  set(pageAtom, 1);
 });
