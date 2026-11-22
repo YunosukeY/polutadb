@@ -41,7 +41,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
           git commit -m 'test: VRTのベースラインを更新する'
           git push
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: vrt-report
