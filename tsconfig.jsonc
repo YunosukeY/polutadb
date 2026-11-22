@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "downlevelIteration": true,
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+    // TypeScript 6 から既定値が [] になったので、グローバルに使う型を明示する
+    "types": ["node", "jest", "gtag.js"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
