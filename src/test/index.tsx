@@ -1,5 +1,5 @@
 import { format } from 'util';
-import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material';
+import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
 import { act, render as rtlRender, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider, createStore } from 'jotai';

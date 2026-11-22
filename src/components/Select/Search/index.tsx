@@ -59,7 +59,7 @@ const Search: React.FC<SearchProps> = ({ form, setForm }) => {
     <>
       <FullTextSearch setQuery={setQuery} />
       <Grid container>
-        <StyledGridItem item xs={12} sm={12}>
+        <StyledGridItem size={12}>
           <Type type={form.type} setType={setType} />
         </StyledGridItem>
       </Grid>
@@ -67,10 +67,10 @@ const Search: React.FC<SearchProps> = ({ form, setForm }) => {
         <Video video={form.video} setVideo={setVideo} />
       </StyledDiv>
       <Grid container>
-        <StyledGridItem item xs={12} sm={6}>
+        <StyledGridItem size={{ xs: 12, sm: 6 }}>
           <Song song={form.song} setSong={setSong} />
         </StyledGridItem>
-        <StyledGridItem item xs={12} sm={6}>
+        <StyledGridItem size={{ xs: 12, sm: 6 }}>
           <Artist artist={form.artist} setArtist={setArtist} />
         </StyledGridItem>
       </Grid>

@@ -9,9 +9,7 @@ const Main: FCWithChildren = ({ children }) => {
       <KeyVisual />
       <div style={{ padding: 10 }}>
         <Grid container justifyContent='center'>
-          <Grid item xs={12} sm={12} md={12} lg={10}>
-            {children}
-          </Grid>
+          <Grid size={{ xs: 12, lg: 10 }}>{children}</Grid>
         </Grid>
       </div>
     </>

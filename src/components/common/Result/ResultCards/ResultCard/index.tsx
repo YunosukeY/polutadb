@@ -25,7 +25,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
   if (videoId === undefined) return null;
 
   return (
-    <Grid item xs={12} md={6} xl={4} style={{ padding: 20 }}>
+    <Grid size={{ xs: 12, md: 6, xl: 4 }} style={{ padding: 20 }}>
       <Card>
         <Thumbnail id={videoId} singing={singing} />
         <CardContent style={{ paddingBottom: 0 }}>
@@ -36,7 +36,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
             alignItems='center'
             style={{ minHeight: 120, maxHeight: 160 }}
           >
-            <Grid item>
+            <Grid>
               <Typography variant='h5' style={{ textAlign: 'center', margin: 0 }}>
                 『{singing.song}』
               </Typography>
@@ -45,7 +45,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ singing }) => {
               </Typography>
             </Grid>
             {singing.time == 1 && (
-              <Grid item>
+              <Grid>
                 <Chip label='First Time!' variant='outlined' />
               </Grid>
             )}
