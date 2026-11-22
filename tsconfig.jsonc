@@ -19,10 +19,5 @@
     "noUncheckedIndexedAccess": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "plugins": [
-    {
-      "name": "typescript-styled-plugin"
-    }
-  ]
+  "exclude": ["node_modules"]
 }
