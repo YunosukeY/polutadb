@@ -2,8 +2,10 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: ['config:recommended'],
 
-  automerge: false,
-  platformAutomerge: false,
+  // メジャーを含め、必須チェック（ブランチ保護）がすべて成功したらマージする
+  automerge: true,
+  // GitHub の自動マージに任せ、Renovate の次回実行を待たずにマージする
+  platformAutomerge: true,
   // PRが常に最新のベースでのCI結果を持つようにする
   rebaseWhen: 'behind-base-branch',
   // 公開直後のリリースは取り下げや差し替えがありうるので、少し待つ
