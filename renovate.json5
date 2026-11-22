@@ -10,6 +10,14 @@
     enabled: false,
   },
 
+  packageRules: [
+    {
+      // スクリーンショット比較はイメージの中のブラウザで撮るので、イメージと一緒に上げる
+      groupName: 'playwright',
+      matchPackageNames: ['@playwright/test', 'mcr.microsoft.com/playwright'],
+    },
+  ],
+
   labels: ['dependencies'],
 
   reviewers: ['YunosukeY'],

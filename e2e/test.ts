@@ -1,14 +1,23 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { type Page, test as base, expect } from '@playwright/test';
 
 // 外部への通信はすべてここで止めて、代わりの応答を返す。
 // ここに無い外部ホストへの通信が発生したらテストを失敗させる
 const thumbnail =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720"><rect width="1280" height="720" fill="#ccc"/></svg>';
-const stubs: { [host: string]: { contentType: string; body: string } } = {
+// Webフォント（Comfortaa）はリポジトリに置いたファイルを返す。スクリーンショット比較（e2e/vrt）で
+// 見出しの文字を毎回同じに描画するため。
+// next build が Google Fonts の CSS をHTMLに埋め込めた場合は fonts.gstatic.com だけが、
+// 埋め込めなかった場合は fonts.googleapis.com の CSS とそこから参照されるフォントが取得される
+const fontCss =
+  "@font-face{font-family:'Comfortaa';font-style:normal;font-weight:300;font-display:swap;" +
+  "src:url(https://fonts.gstatic.com/comfortaa.woff2) format('woff2')}";
+const font = readFileSync(join(__dirname, 'fixture/fonts/Comfortaa-300-latin.woff2'));
+const stubs: { [host: string]: { contentType: string; body: string | Buffer } } = {
   'img.youtube.com': { contentType: 'image/svg+xml', body: thumbnail },
-  'fonts.googleapis.com': { contentType: 'text/css', body: '' },
-  // next build が Google Fonts の CSS をHTMLに埋め込むので、フォント本体の取得が発生する
-  'fonts.gstatic.com': { contentType: 'font/woff', body: '' },
+  'fonts.googleapis.com': { contentType: 'text/css', body: fontCss },
+  'fonts.gstatic.com': { contentType: 'font/woff2', body: font },
   'www.googletagmanager.com': { contentType: 'application/javascript', body: '' },
   'www.youtube-nocookie.com': { contentType: 'text/html', body: '<!doctype html><title>stub</title>' },
   'twitter.com': { contentType: 'text/html', body: '<!doctype html><title>stub</title>' },
