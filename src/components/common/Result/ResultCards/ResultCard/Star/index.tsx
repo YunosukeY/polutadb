@@ -12,12 +12,15 @@ type StarProps = {
   fontsize: number;
 };
 
-const StyledStarIcon = styled(StarIcon)<{ fontsize: number }>(({ fontsize }) => ({
+// fontsize はスタイルの計算にだけ使い、svg には渡さない（DOMの属性として不正なため）
+const shouldForwardProp = (prop: PropertyKey) => prop !== 'fontsize';
+
+const StyledStarIcon = styled(StarIcon, { shouldForwardProp })<{ fontsize: number }>(({ fontsize }) => ({
   fontSize: fontsize,
   color: 'gold',
 }));
 
-const StyledStarBorderIcon = styled(StarBorderIcon)<{ fontsize: number }>(({ fontsize }) => ({
+const StyledStarBorderIcon = styled(StarBorderIcon, { shouldForwardProp })<{ fontsize: number }>(({ fontsize }) => ({
   fontSize: fontsize,
   color: 'gold',
 }));
