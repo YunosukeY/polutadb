@@ -9,9 +9,9 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const customJestConfig = {
-  // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  // testEnvironment: 'jest-environment-jsdom',
+  // 既定の環境は Node。コンポーネントのテスト（*.test.tsx）は、ファイル先頭の
+  // @jest-environment jsdom で jsdom に切り替える
+  setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
   testPathIgnorePatterns: [
     // Playwright のテスト（yarn e2e）
     '<rootDir>/e2e/',
