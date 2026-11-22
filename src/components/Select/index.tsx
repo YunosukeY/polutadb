@@ -15,7 +15,7 @@ export default function Select({ form, setForm }: SelectProps) {
   const width = Math.min(useWindowSize().width - 100, 1000);
 
   return (
-    <Grid container justifyContent='center'>
+    <Grid container sx={{ justifyContent: 'center' }}>
       <Grid style={{ width: width }}>
         <Search form={form} setForm={setForm} />
         <Sort />

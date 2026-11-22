@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useWindowSize } from 'react-use';
 
-import { Grid, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import HR from '../common/HR';
 import Pane from '../common/Pane';
 
@@ -9,15 +9,15 @@ export default function About() {
   const width = Math.min(useWindowSize().width - 20, 1000);
 
   return (
-    <Grid container direction='column' alignItems='center'>
-      <Grid style={{ width }}>
+    <Stack sx={{ alignItems: 'center' }}>
+      <div style={{ width }}>
         <Pane>
           <Typography variant='h4'>About</Typography>
           <HR />
           <Describe />
         </Pane>
-      </Grid>
-    </Grid>
+      </div>
+    </Stack>
   );
 }
 

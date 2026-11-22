@@ -3,7 +3,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import * as React from 'react';
 import { useToggle, useWindowSize } from 'react-use';
 
-import { Grid, Typography, styled } from '@mui/material';
+import { Stack, Typography, styled } from '@mui/material';
 import { useVideo } from '../../data/utils';
 import type { FCWithChildren } from '../../types/react';
 import HR from '../common/HR';
@@ -21,18 +21,18 @@ const Releases = () => {
   const width = Math.min(useWindowSize().width - 20, 1000);
 
   return (
-    <Grid container direction='column' alignItems='center'>
-      <Grid style={{ width }}>
+    <Stack sx={{ alignItems: 'center' }}>
+      <div style={{ width }}>
         <LatestRelease>{ReleaseArray[0]}</LatestRelease>
-      </Grid>
-      <Grid style={{ width }}>
+      </div>
+      <div style={{ width }}>
         <OldReleases>
           {ReleaseArray.slice(1).map((node, i) => (
             <React.Fragment key={i}>{node}</React.Fragment>
           ))}
         </OldReleases>
-      </Grid>
-    </Grid>
+      </div>
+    </Stack>
   );
 };
 export default Releases;
