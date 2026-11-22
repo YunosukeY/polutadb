@@ -1,8 +1,8 @@
 /** @jest-environment jsdom */
 
-import Releases from '.';
 import { data } from '../../../e2e/fixture';
 import { render, screen } from '../../test';
+import Releases from '.';
 
 // 最も古いリリースノートの文言。最新以外は「Old Release Notes」の中にある
 const oldest = '・本サイトを公開しました';

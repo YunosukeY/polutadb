@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { useHover, useWindowSize } from 'react-use';
-
 import YouTube from '@mui/icons-material/YouTube';
 import { Modal } from '@mui/material';
+import * as React from 'react';
+import { useHover, useWindowSize } from 'react-use';
 import type { Singing } from '../../../data/types';
 import { parseTime, useUrl } from '../../../data/utils';
 import { useBool } from '../../../lib/useBool';

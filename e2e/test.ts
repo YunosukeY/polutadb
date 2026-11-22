@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { type Page, test as base, expect } from '@playwright/test';
+import { test as base, expect, type Page } from '@playwright/test';
 
 // 外部への通信はすべてここで止めて、代わりの応答を返す。
 // ここに無い外部ホストへの通信が発生したらテストを失敗させる

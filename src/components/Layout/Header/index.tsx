@@ -1,10 +1,9 @@
+import { Button, styled, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import * as React from 'react';
-
-import { Button, Typography, styled } from '@mui/material';
 import { useSetAtom } from 'jotai';
 import { useRouter } from 'next/router';
+import * as React from 'react';
 import { initPageAtom } from '../../../store/pageAtom';
 import Menu from './Menu';
 

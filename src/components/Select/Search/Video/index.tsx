@@ -1,7 +1,5 @@
+import { Autocomplete, TextField } from '@mui/material';
 import * as React from 'react';
-
-import { Autocomplete } from '@mui/material';
-import { TextField } from '@mui/material';
 import { useVideos } from '../../../../data/utils';
 import { StyledFormControl, useOnChange } from '../util';
 

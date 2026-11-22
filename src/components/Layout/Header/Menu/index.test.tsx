@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 
-import Menu from '.';
 import { advance, push, render, screen } from '../../../../test';
+import Menu from '.';
 
 const items = [
   ['Search', '/'],
