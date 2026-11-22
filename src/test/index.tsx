@@ -48,8 +48,6 @@ window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
 const allowedConsoleMessages = [
   // 未選択を null ではなく空の選択肢で表している（Select/Search の各 Autocomplete）
   /^MUI: The value provided to Autocomplete is invalid/,
-  // styled に渡した fontsize がそのまま svg に渡っている（ResultCard/Star）
-  /^Warning: Invalid DOM property `fontsize`/,
 ];
 let unexpectedConsoleMessages: string[] = [];
 
