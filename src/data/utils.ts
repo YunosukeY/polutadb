@@ -1,21 +1,21 @@
-import { useRecoilValue } from 'recoil';
-import { artistsSelector, songsSelector, typesSelector, videosSelector } from '../store/dataAtom';
+import { useAtomValue } from 'jotai';
+import { artistsAtom, songsAtom, typesAtom, videosAtom } from '../store/dataAtom';
 import type { Artist, Song, Type, Video } from './types';
 
 export function useTypes() {
-  return typeOptions(useRecoilValue(typesSelector));
+  return typeOptions(useAtomValue(typesAtom));
 }
 
 export function useVideos() {
-  return videoOptions(useRecoilValue(videosSelector));
+  return videoOptions(useAtomValue(videosAtom));
 }
 
 export function useSongs() {
-  return songOptions(useRecoilValue(songsSelector));
+  return songOptions(useAtomValue(songsAtom));
 }
 
 export function useArtists() {
-  return artistOptions(useRecoilValue(artistsSelector));
+  return artistOptions(useAtomValue(artistsAtom));
 }
 
 // 以下、セレクトボックスの選択肢。i は元の配列でのインデックスで、クエリの値になる
@@ -66,24 +66,24 @@ export function artistOptions(artists: Artist[] | undefined) {
 }
 
 export const useUrl = (video: string) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return videos?.find((v) => v.title === video)?.id;
 };
 export const useGetArtist = () => {
-  const songs = useRecoilValue(songsSelector);
+  const songs = useAtomValue(songsAtom);
   return (song: string) => songs?.find((s) => s.title === song)?.artist ?? '';
 };
 export const useGetType = () => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return (video: string) => videos?.find((v) => v.title === video)?.type;
 };
 export const useVideo = (videoId: number | undefined) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   if (videoId === undefined) return undefined;
   return videos?.[videoId]?.title;
 };
 export const useVideoId = (video: string) => {
-  const videos = useRecoilValue(videosSelector);
+  const videos = useAtomValue(videosAtom);
   return videos?.find((v) => v.title === video)?.id;
 };
 

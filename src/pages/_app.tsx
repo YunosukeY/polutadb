@@ -1,8 +1,8 @@
+import { Provider } from 'jotai';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useEffect } from 'react';
-import { RecoilRoot } from 'recoil';
 
 import { StyledEngineProvider, type Theme, ThemeProvider, createTheme } from '@mui/material';
 import type { AppComponent } from 'next/dist/shared/lib/router/router';
@@ -60,7 +60,7 @@ const MyApp: AppComponent = ({ Component, pageProps }) => {
         <title>ぽるうたデータベース｜尾丸ポルカさんの歌を検索！</title>
         <meta name='viewport' content='width=device-width,initial-scale=1' />
       </Head>
-      <RecoilRoot>
+      <Provider>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
             <Persistence />
@@ -69,7 +69,7 @@ const MyApp: AppComponent = ({ Component, pageProps }) => {
             </Layout>
           </ThemeProvider>
         </StyledEngineProvider>
-      </RecoilRoot>
+      </Provider>
     </>
   );
 };

@@ -1,9 +1,9 @@
+import { useSetAtom } from 'jotai';
 import type * as React from 'react';
-import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
 import { useRouterReady } from '../../lib/useRouterReady';
 import type { Form } from '../../pages';
-import { initPageSelector } from '../../store/pageAtom';
+import { initPageAtom } from '../../store/pageAtom';
 
 type FormUpdaterProps = {
   form: Form;
@@ -11,7 +11,7 @@ type FormUpdaterProps = {
 };
 
 const FormUpdater: React.FC<FormUpdaterProps> = ({ form, setForm }) => {
-  const init = useSetRecoilState(initPageSelector);
+  const init = useSetAtom(initPageAtom);
 
   useRouterReady((query) => {
     const formQuery = new Query(form);

@@ -15,5 +15,7 @@ module.exports = {
     ];
   },
   reactStrictMode: true,
+  // jotai はESMのみ。Jest（next/jest）が変換できるようにする
+  transpilePackages: ['jotai'],
   typescript: { tsconfigPath: 'tsconfig.jsonc' },
 };

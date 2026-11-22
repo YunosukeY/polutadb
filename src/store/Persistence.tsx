@@ -1,6 +1,6 @@
+import { useAtom } from 'jotai';
 import type React from 'react';
 import { useMount, useUpdateEffect } from 'react-use';
-import { useRecoilState } from 'recoil';
 import { favoAtom } from './favoAtom';
 import { sortAtom } from './sortAtom';
 
@@ -17,8 +17,8 @@ function getInitialState(): [Map<number, boolean>, number] {
 }
 
 const Persistence: React.FC = () => {
-  const [favo, setFavo] = useRecoilState(favoAtom);
-  const [sort, setSort] = useRecoilState(sortAtom);
+  const [favo, setFavo] = useAtom(favoAtom);
+  const [sort, setSort] = useAtom(sortAtom);
 
   useMount(() => {
     const [favo, sort] = getInitialState();
