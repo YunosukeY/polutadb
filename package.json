@@ -48,7 +48,6 @@
     "@types/react-slick": "0.23.13",
     "jest": "30.5.2",
     "jest-environment-jsdom": "30.5.2",
-    "ts-node": "10.9.2",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   }
 }
