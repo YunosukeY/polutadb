@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useEffect } from 'react';
 
-import { StyledEngineProvider, type Theme, ThemeProvider, createTheme } from '@mui/material';
+import { StyledEngineProvider, type Theme, ThemeProvider, createTheme } from '@mui/material/styles';
 import type { AppComponent } from 'next/dist/shared/lib/router/router';
 import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';

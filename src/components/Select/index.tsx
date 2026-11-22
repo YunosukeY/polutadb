@@ -16,7 +16,7 @@ export default function Select({ form, setForm }: SelectProps) {
 
   return (
     <Grid container justifyContent='center'>
-      <Grid item style={{ width: width }}>
+      <Grid style={{ width: width }}>
         <Search form={form} setForm={setForm} />
         <Sort />
       </Grid>

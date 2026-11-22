@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <Grid container direction='column' alignItems='center'>
-      <Grid item style={{ width }}>
+      <Grid style={{ width }}>
         <Pane>
           <Typography variant='h4'>About</Typography>
           <HR />

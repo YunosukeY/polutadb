@@ -22,10 +22,10 @@ const Releases = () => {
 
   return (
     <Grid container direction='column' alignItems='center'>
-      <Grid item style={{ width }}>
+      <Grid style={{ width }}>
         <LatestRelease>{ReleaseArray[0]}</LatestRelease>
       </Grid>
-      <Grid item style={{ width }}>
+      <Grid style={{ width }}>
         <OldReleases>
           {ReleaseArray.slice(1).map((node, i) => (
             <React.Fragment key={i}>{node}</React.Fragment>
