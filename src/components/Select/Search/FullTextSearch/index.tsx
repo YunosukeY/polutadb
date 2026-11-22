@@ -1,10 +1,10 @@
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import { useRouter } from 'next/router';
 import * as React from 'react';
-import { useDebounce, useMount } from 'react-use';
+import { useDebounce } from 'react-use';
 import { Query } from '../../../../lib/query';
+import { useRouterReady } from '../../../../lib/useRouterReady';
 import { useOnChange } from '../util';
 
 type FullTextSearchProps = {
@@ -17,12 +17,16 @@ export default function FullTextSearch({ setQuery }: FullTextSearchProps) {
   });
 
   const [input, setInput] = React.useState('');
-  const qs = new Query(useRouter().query);
-  useMount(() => {
-    setInput(qs.query);
+  useRouterReady((query) => {
+    setInput(new Query(query).query);
   });
+  // 利用者が入力したときだけURLに反映する。
+  // マウント時の空の入力や、URLから復元した入力で反映すると、操作していないのにURLが書き換わる
+  const edited = React.useRef(false);
   useDebounce(
     () => {
+      if (!edited.current) return;
+      edited.current = false;
       onChange(input);
     },
     300,
@@ -34,6 +38,7 @@ export default function FullTextSearch({ setQuery }: FullTextSearchProps) {
       variant='standard'
       value={input}
       onChange={(e) => {
+        edited.current = true;
         setInput(e.target.value);
       }}
       InputProps={{

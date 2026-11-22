@@ -1,5 +1,5 @@
 import { data, newestFirst, seconds, shareTitle, shareUrl, videoOf } from './fixture';
-import { expect, menu, open, stars, stored, test, topUrl } from './test';
+import { expect, menu, open, stars, stored, test } from './test';
 
 // 先頭に表示されるカード
 const singing = newestFirst[0];
@@ -31,7 +31,7 @@ test('お気に入り登録がリロードとページ遷移の後も保持さ�
   await expect(unfavo).toBeVisible();
 
   await menu(page, 'Search');
-  await expect(page).toHaveURL(topUrl);
+  await expect(page).toHaveURL('/');
   await expect(unfavo).toBeVisible();
 
   // 解除も保持される

@@ -35,7 +35,6 @@ const open = async (page: Page, path: string) => {
   const ready = pages.find((p) => p.path === path)?.ready;
   if (ready === undefined) throw new Error(`${path} は pages に無い`);
   await expect(page.getByRole(ready.role, { name: ready.name, exact: true })).toBeVisible();
-  // トップページは表示の300ms後にURLを書き換える（../test.ts の topSettled）。それも済ませる
   await settle(page);
 };
 

@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router';
 import type * as React from 'react';
-import { useMount } from 'react-use';
 import { useSetRecoilState } from 'recoil';
 import { Query } from '../../lib/query';
+import { useRouterReady } from '../../lib/useRouterReady';
 import type { Form } from '../../pages';
 import { initPageSelector } from '../../store/pageAtom';
 
@@ -12,11 +11,11 @@ type FormUpdaterProps = {
 };
 
 const FormUpdater: React.FC<FormUpdaterProps> = ({ form, setForm }) => {
-  const urlQuery = new Query(useRouter().query);
   const init = useSetRecoilState(initPageSelector);
 
-  useMount(() => {
+  useRouterReady((query) => {
     const formQuery = new Query(form);
+    const urlQuery = new Query(query);
     if (!formQuery.equals(urlQuery)) {
       init();
       setForm(urlQuery.asForm());

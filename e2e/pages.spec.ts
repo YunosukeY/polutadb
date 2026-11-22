@@ -1,6 +1,6 @@
 import { data } from './fixture';
 import { pages } from './pages';
-import { expect, menu, open, resultCount, test, topUrl } from './test';
+import { expect, menu, open, resultCount, test } from './test';
 
 const lastVideo = data.videos[337];
 
@@ -80,13 +80,13 @@ test('ドロワーメニューから各ページに遷移でき、ヘッダー�
   await expect(page.getByRole('heading', { name: 'About' })).toBeVisible();
 
   await menu(page, 'Search');
-  await expect(page).toHaveURL(topUrl);
+  await expect(page).toHaveURL('/');
   await expect(resultCount(page)).toHaveText(String(data.singings.length));
 
   await menu(page, 'About');
   await expect(page).toHaveURL('/about');
   await page.getByRole('button', { name: 'PolutaDB' }).click();
-  await expect(page).toHaveURL(topUrl);
+  await expect(page).toHaveURL('/');
   await expect(resultCount(page)).toHaveText(String(data.singings.length));
 });
 
