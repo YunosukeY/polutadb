@@ -1,9 +1,26 @@
 import { useRecoilValue } from 'recoil';
 import { artistsSelector, songsSelector, typesSelector, videosSelector } from '../store/dataAtom';
+import type { Artist, Song, Type, Video } from './types';
 
 export function useTypes() {
-  const types = useRecoilValue(typesSelector);
+  return typeOptions(useRecoilValue(typesSelector));
+}
 
+export function useVideos() {
+  return videoOptions(useRecoilValue(videosSelector));
+}
+
+export function useSongs() {
+  return songOptions(useRecoilValue(songsSelector));
+}
+
+export function useArtists() {
+  return artistOptions(useRecoilValue(artistsSelector));
+}
+
+// 以下、セレクトボックスの選択肢。i は元の配列でのインデックスで、クエリの値になる
+
+export function typeOptions(types: Type[] | undefined) {
   let typeNames: { name: string; i: number }[] = [];
   types?.forEach((type, i) => {
     if (type.name !== 'その他') {
@@ -15,9 +32,7 @@ export function useTypes() {
   return typeNames;
 }
 
-export function useVideos() {
-  const videos = useRecoilValue(videosSelector);
-
+export function videoOptions(videos: Video[] | undefined) {
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: { date: string; title: string; i: number }[] = [];
   videos?.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
@@ -29,9 +44,7 @@ export function useVideos() {
   return videoNames;
 }
 
-export function useSongs() {
-  const songs = useRecoilValue(songsSelector);
-
+export function songOptions(songs: Song[] | undefined) {
   let songNames: { title: string; i: number }[] = [];
   songs?.forEach((song, i) => {
     const artist = song.artist;
@@ -45,9 +58,7 @@ export function useSongs() {
   return songNames;
 }
 
-export function useArtists() {
-  const artists = useRecoilValue(artistsSelector);
-
+export function artistOptions(artists: Artist[] | undefined) {
   let artistNames: { name: string; i: number }[] = [];
   artists?.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
   artistNames = artistNames.sort((a, b) => (a.name > b.name ? 1 : -1));

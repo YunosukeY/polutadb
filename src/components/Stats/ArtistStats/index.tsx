@@ -11,6 +11,7 @@ import { artistsSelector, singingsSelector } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
 import HR from '../../common/HR';
 import Pane from '../../common/Pane';
+import { calcArtistStats } from '../calc';
 
 export default function ArtistStats() {
   const artists = useRecoilValue(artistsSelector);
@@ -65,41 +66,4 @@ function setChart(artists: Artist[] | undefined, singings: Singing[] | undefined
   chart.appear();
 
   return root;
-}
-
-function calcArtistStats(
-  artists: Artist[] | undefined,
-  singings: Singing[] | undefined,
-  getArtist: (song: string) => string,
-) {
-  const border = 13;
-
-  const data: { [index: string]: number } = {};
-  artists?.forEach((artist) => (data[artist.name] = 0));
-  singings?.forEach((singing) => {
-    const a = getArtist(singing.song);
-    if (data[a] !== undefined) {
-      data[a]++;
-    }
-  });
-  // その他の計算
-  let others = 0;
-  artists?.forEach((artist) => {
-    const count = data[artist.name];
-    if (count !== undefined && count <= border) {
-      others++;
-    }
-  });
-
-  let res: { artist: string; count: number }[] = [];
-  artists?.forEach((artist) => {
-    const count = data[artist.name];
-    if (count !== undefined && count > border) {
-      res.push({ artist: artist.name, count });
-    }
-  });
-  res = res.sort((a, b) => b.count - a.count);
-  res.push({ artist: `その他（${border}回以下）`, count: others });
-
-  return res;
 }

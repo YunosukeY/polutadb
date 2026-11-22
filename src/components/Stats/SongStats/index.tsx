@@ -11,6 +11,7 @@ import { singingsSelector, songsSelector } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';
 import HR from '../../common/HR';
 import Pane from '../../common/Pane';
+import { calcSongStats } from '../calc';
 
 export default function SongStats() {
   const songs = useRecoilValue(songsSelector);
@@ -64,37 +65,4 @@ function setChart(songs: Song[] | undefined, singings: Singing[] | undefined) {
   chart.appear();
 
   return root;
-}
-
-function calcSongStats(songs: Song[] | undefined, singings: Singing[] | undefined) {
-  const border = 9;
-
-  const data: { [index: string]: number } = {};
-  songs?.forEach((song) => (data[song.title] = 0));
-  singings?.forEach((singing) => {
-    const s = singing.song;
-    if (data[s] !== undefined) {
-      data[s]++;
-    }
-  });
-  // その他の計算
-  let others = 0;
-  songs?.forEach((song) => {
-    const count = data[song.title];
-    if (count !== undefined && count <= border) {
-      others++;
-    }
-  });
-
-  let res: { song: string; count: number }[] = [];
-  songs?.forEach((song) => {
-    const count = data[song.title];
-    if (count !== undefined && count > border) {
-      res.push({ song: song.title, count });
-    }
-  });
-  res = res.sort((a, b) => b.count - a.count);
-  res.push({ song: `その他（${border}回以下）`, count: others });
-
-  return res;
 }

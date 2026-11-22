@@ -7,6 +7,18 @@ export function useSearch(query: Query, state: DataAtom, sort: number) {
   const getArtist = useGetArtist();
   const getType = useGetType();
 
+  return search(query, state, sort, getArtist, getType);
+}
+
+// sort: 0 = 時系列（新しい順）、1 = 曲名順、2 = アーティスト名順
+export function search(
+  query: Query,
+  state: DataAtom,
+  sort: number,
+  getArtist: (song: string) => string,
+  getType: (video: string) => string | undefined,
+) {
+  // 元の配列を変更しないよう、コピーしてから絞り込み・並べ替えをする
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   let tmpres: Singing[] = JSON.parse(JSON.stringify(state.singings ?? []));
 
