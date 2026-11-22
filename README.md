@@ -39,4 +39,4 @@ $ yarn e2e      # next build && next start に対して実行
 $ yarn e2e:dev  # next dev に対するスモークテスト
 ```
 
-本番データの整合性チェックは `yarn test:data` で実行します（CI では定期実行）。
+本番データの整合性チェックは `yarn test:data` で実行します（CI では `data` ジョブ。Renovate のPRでは実行しません）。

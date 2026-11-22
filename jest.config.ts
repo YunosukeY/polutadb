@@ -15,7 +15,7 @@ const customJestConfig = {
   testPathIgnorePatterns: [
     // Playwright のテスト（yarn e2e）
     '<rootDir>/e2e/',
-    // 本番データの整合性チェック。定期実行のワークフローから yarn test:data で実行する
+    // 本番データの整合性チェック。CIでは別のジョブ（data）で yarn test:data を実行する
     '<rootDir>/src/data/data.test.ts',
   ],
 };
