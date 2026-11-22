@@ -94,10 +94,10 @@ test('Xのシェアボタンで開くURLに文言、URL、ハッシュタグが�
   const popupPromise = page.waitForEvent('popup');
   await page.getByRole('button', { name: `${title}をXでシェア` }).click();
   const popup = await popupPromise;
-  await popup.waitForURL(/^https:\/\/twitter\.com\/intent\/tweet/);
+  await popup.waitForURL(/^https:\/\/x\.com\/intent\/post/);
 
   const url = new URL(popup.url());
-  expect(url.origin + url.pathname).toBe('https://twitter.com/intent/tweet');
+  expect(url.origin + url.pathname).toBe('https://x.com/intent/post');
   expect(url.searchParams.get('text')).toBe(title);
   expect(url.searchParams.get('url')).toBe(shareUrl(singing));
   expect(url.searchParams.get('hashtags')).toBe('ぽるうた,尾丸ポルカ');

@@ -1,5 +1,5 @@
 import type React from 'react';
-import { LineIcon, LineShareButton, TwitterShareButton, XIcon } from 'react-share';
+import { LineLegacyIcon, LineShareButton, XLegacyIcon, XShareButton } from 'react-share';
 
 import type { Singing } from '../../../../../../data/types';
 import { parseTime, useGetArtist, useUrl } from '../../../../../../data/utils';
@@ -20,22 +20,22 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ singing, fontsize }) => {
 
   return (
     <>
-      <TwitterShareButton
+      <XShareButton
         url={url}
-        title={title}
+        text={title}
         hashtags={hashtags}
         style={{ height: buttonSize, padding: padding }}
         aria-label={`${title}をXでシェア`}
       >
-        <XIcon size={buttonSize - 2 * padding} round />
-      </TwitterShareButton>
+        <XLegacyIcon size={buttonSize - 2 * padding} round />
+      </XShareButton>
       <LineShareButton
         url={url}
-        title={title}
+        text={title}
         style={{ height: buttonSize, padding: padding }}
         aria-label={`${title}をLINEでシェア`}
       >
-        <LineIcon size={buttonSize - 2 * padding} round />
+        <LineLegacyIcon size={buttonSize - 2 * padding} round />
       </LineShareButton>
       <CopyButton title={title} url={url} iconSize={fontsize} />
     </>
