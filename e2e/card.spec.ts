@@ -1,17 +1,20 @@
-import { newestFirst, seconds, shareTitle, shareUrl, videoOf } from './fixture';
-import { expect, menu, open, stars, test, topUrl } from './test';
+import { data, newestFirst, seconds, shareTitle, shareUrl, videoOf } from './fixture';
+import { expect, menu, open, stars, stored, test, topUrl } from './test';
 
 // 先頭に表示されるカード
 const singing = newestFirst[0];
 if (singing === undefined) throw new Error('fixture に歌唱データがない');
 const video = videoOf(singing);
 const title = shareTitle(singing);
+// お気に入りは歌唱データのID（古い順の連番）で保存される
+const id = data.singings.length - 1;
 
 test('お気に入り登録がリロードとページ遷移の後も保持され、/favos に表示される', async ({ page }) => {
   await open(page, '/');
   await page.getByRole('button', { name: `${title}をお気に入り登録` }).click();
   const unfavo = page.getByRole('button', { name: `${title}をお気に入り解除` });
   await expect(unfavo).toBeVisible();
+  await stored(page, 'favos').toBe(JSON.stringify([[id, true]]));
 
   await page.reload();
   await expect(unfavo).toBeVisible();
@@ -34,6 +37,7 @@ test('お気に入り登録がリロードとページ遷移の後も保持さ�
   // 解除も保持される
   await unfavo.click();
   await expect(unfavo).toHaveCount(0);
+  await stored(page, 'favos').toBe(JSON.stringify([[id, false]]));
   await page.reload();
   await expect(page.getByRole('button', { name: `${title}をお気に入り登録` })).toBeVisible();
   await menu(page, 'Favorites');

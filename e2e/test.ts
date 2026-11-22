@@ -97,3 +97,10 @@ export const stars = (page: Page) => page.getByRole('button', { name: /を(お�
 export const songHeadings = (page: Page) => page.getByRole('heading', { name: /^『.*』$/ });
 
 export const resultCount = (page: Page) => page.getByRole('heading', { name: /^\d+$/ });
+
+/**
+ * localStorage の値。お気に入りとソートは描画の後の副作用で保存されるので（src/store/Persistence.tsx）、
+ * 画面が変わった直後にリロードすると保存前の状態に戻ることがある。リロードの前にこれで保存を待つ
+ */
+export const stored = (page: Page, key: 'favos' | 'sortedBy') =>
+  expect.poll(() => page.evaluate((k) => window.localStorage.getItem(k), key), { message: `localStorage.${key}` });

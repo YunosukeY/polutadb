@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 import type { RawSinging } from '../src/data/types';
 import { artistOf, data, newestFirst, shareTitle, typeIndex, videoOf } from './fixture';
-import { expect, menu, open, resultCount, stars, test, topSettled, topUrl } from './test';
+import { expect, menu, open, resultCount, stars, stored, test, topSettled, topUrl } from './test';
 
 const total = String(data.singings.length);
 
@@ -63,19 +63,13 @@ test('Autocomplete で選択すると絞り込まれ、クリアすると戻る'
   await expect.poll(() => new URL(page.url()).searchParams.get('type')).toBe('-1');
 });
 
-test('URL直リンクの絞り込みが結果に反映される', async ({ page }) => {
-  await openTop(page, `/?type=${typeIndex(type)}`);
-
-  await expect(resultCount(page)).toHaveText(String(ofType.length));
-  await expect(stars(page)).toHaveCount(ofType.length);
-  await expectFirstCard(page, ofType.at(-1));
-  expect(new URL(page.url()).searchParams.get('type')).toBe(String(typeIndex(type)));
-});
-
 test('URL直リンクでフォームと結果が復元される', async ({ page }) => {
   // 現状のアプリでは復元されない（公開サイトでも同じ）。
-  // フォームがマウントされる時点で router.query がまだ空で、全文検索は空のまま300ms後に
-  // URLの query を消し、Autocomplete は空のまま結果だけが絞り込まれる。
+  // フォームがマウントされる時点で router.query がまだ空なので、フォームは常に空のままになる。
+  // さらに、マウントの300ms後に全文検索のデバウンスが空の入力で発火してURLを書き換える。
+  // その時点で router.query が届いていれば type などは残って結果だけ絞り込まれるが、
+  // 届いていなければ（遅い環境では）すべての絞り込みが消える。
+  // 結果がタイミングで変わるので「結果だけは絞り込まれる」ことのテストは置いていない。
   // アプリを直したらこのテストが「失敗するはずが通った」で赤くなるので、この行を外す
   test.fail();
 
@@ -106,6 +100,7 @@ test('ソートを切り替えると並びが変わり、リロード後も保�
 
   await page.getByRole('radio', { name: '曲名順' }).check();
   await expectFirstCard(page, bySong);
+  await stored(page, 'sortedBy').toBe('1');
 
   await page.reload();
   await expect(page.getByRole('radio', { name: '曲名順' })).toBeChecked();
