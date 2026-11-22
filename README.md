@@ -1,7 +1,7 @@
 # ぽるうたデータベース
 
 ![CI](https://github.com/YunosukeY/poluta-db/workflows/CI/badge.svg?branch=master)
-![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 
 PolutaDB（ぽるうたデータベース）は、ホロライブ所属の VTuber 尾丸ポルカさんの歌を検索することができる Web アプリです。

@@ -5,8 +5,7 @@
     "vscode": {
       "extensions": [
         "streetsidesoftware.code-spell-checker",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "biomejs.biome"
       ]
     }
   },
