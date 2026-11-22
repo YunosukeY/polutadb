@@ -1,8 +1,11 @@
 import type { Data } from './types';
 
+const deployId = 'AKfycbw5PJ8ehZkqAgMuzs4NCLiZA9zNfqKY-ILVZAcoRBoL1sInlAKdntYS1yA4QttJHhTs';
+// E2E ではフィクスチャを返すサーバーに差し替える（e2e/fixture/server.mjs）
+const dataUrl = process.env.DATA_URL || `https://script.google.com/macros/s/${deployId}/exec`;
+
 const load = async () => {
-  const deployId = 'AKfycbw5PJ8ehZkqAgMuzs4NCLiZA9zNfqKY-ILVZAcoRBoL1sInlAKdntYS1yA4QttJHhTs';
-  const res = await fetch(`https://script.google.com/macros/s/${deployId}/exec`);
+  const res = await fetch(dataUrl);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const data: Data = await res.json();
 

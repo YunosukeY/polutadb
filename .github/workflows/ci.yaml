@@ -49,3 +49,48 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --pure-lockfile
       - run: yarn test
+  # 本番データ（Apps Script）の整合性チェック。リリースPRで、追加したデータの確認に使う。
+  # 依存と無関係な理由（データの不整合、Apps Script の応答の不安定さ）で自動マージが
+  # 止まらないよう、Renovate のPRでは実行しない（スキップされたジョブは必須チェック上は成功扱い）
+  data:
+    if: ${{ github.event.pull_request.user.login != 'renovate[bot]' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+      - uses: actions/cache@v4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --pure-lockfile
+      - run: yarn test:data
+  e2e:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+      - uses: actions/cache@v4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --pure-lockfile
+      - run: yarn playwright install --with-deps chromium
+      # フィクスチャを使ってビルドし、next start に対して実行する（playwright.config.ts の webServer）
+      - run: yarn e2e
+      # next dev に対するスモークテスト
+      - run: yarn e2e:dev
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
