@@ -101,18 +101,37 @@ test('カルーセルのドットが9個あり、ドットと自動再生でス�
   await expect(dots).toHaveCount(9);
   await expect(current).toHaveAttribute('data-index', '0');
 
+  // react-slick は切り替えのアニメーションの後始末（animating の解除）をタイマーと setState の連鎖で行い、
+  // 解除されるまで次の切り替え（ドットのクリックも自動再生も）を無視する。React 19 はタイマー内の
+  // setState を時計を進めている最中には反映しないので、一度に進めると後始末が終わる前に次のタイマーが
+  // 発火してしまう。小刻みに進めて、その都度ブラウザに反映させる
+  const advance = async (ms: number) => {
+    for (let elapsed = 0; elapsed < ms; elapsed += 250) {
+      await page.clock.runFor(250);
+      // 時計に差し替えられていない MessageChannel で1タスク分待つ（React のスケジューラも MessageChannel を使う）
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => {
+            const channel = new MessageChannel();
+            channel.port1.onmessage = () => resolve();
+            channel.port2.postMessage(null);
+          }),
+      );
+    }
+  };
+
   // 時計を止める。止めるまでに自動再生で進んでいることがあるので、以降は止めた時点からの相対で確認する
   await page.clock.pauseAt(new Date(Date.now() + 60_000));
-  await page.clock.runFor(1000);
+  await advance(1000);
   const start = await index();
 
   const target = (start + 3) % 9;
   await dots.nth(target).getByRole('button').click();
-  await page.clock.runFor(1000);
+  await advance(1000);
   await expect(current).toHaveAttribute('data-index', String(target));
   await expect(dots.nth(target)).toHaveClass(/slick-active/);
 
-  await page.clock.runFor(6000);
+  await advance(6000);
   await expect(current).toHaveAttribute('data-index', String((target + 1) % 9));
 });
 
