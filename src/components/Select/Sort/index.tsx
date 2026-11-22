@@ -19,7 +19,7 @@ export default function Sort() {
     <FormControl variant='standard' style={{ width: '100%' }}>
       <FormLabel>ソート</FormLabel>
       <RadioGroup value={sort} onChange={handleChange}>
-        <Grid container style={{ padding: 5 }}>
+        <Grid container style={{ padding: 5, width: '100%' }}>
           <Radio value={0} label='時系列順' xs={4} sm={2} />
           <Radio value={1} label='曲名順' xs={3} sm={2} />
           <Radio value={2} label='アーティスト名順' xs={5} sm={8} />

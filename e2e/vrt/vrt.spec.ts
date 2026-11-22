@@ -103,6 +103,9 @@ test('お気に入り登録済みのカード', async ({ page }) => {
 
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: 'Favorites', exact: true }).click();
+  // ドロワーは閉じるアニメーションが終わるまで背後を aria-hidden にする（MUI 7 から）。
+  // 時計を止めているので、進めて閉じ終わらせないと見出しがロールで見つからない
+  await page.clock.runFor(1000);
   await expect(page.getByRole('heading', { name: 'Favorites', exact: true })).toBeVisible();
   await leave(page);
   await settle(page);
