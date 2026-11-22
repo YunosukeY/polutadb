@@ -12,7 +12,9 @@ export function calcArtistStats(
   const border = artistBorder;
 
   const data: { [index: string]: number } = {};
-  artists?.forEach((artist) => (data[artist.name] = 0));
+  artists?.forEach((artist) => {
+    data[artist.name] = 0;
+  });
   singings?.forEach((singing) => {
     const a = getArtist(singing.song);
     if (data[a] !== undefined) {
@@ -45,7 +47,9 @@ export function calcSongStats(songs: Song[] | undefined, singings: Singing[] | u
   const border = songBorder;
 
   const data: { [index: string]: number } = {};
-  songs?.forEach((song) => (data[song.title] = 0));
+  songs?.forEach((song) => {
+    data[song.title] = 0;
+  });
   singings?.forEach((singing) => {
     const s = singing.song;
     if (data[s] !== undefined) {

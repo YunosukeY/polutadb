@@ -33,10 +33,23 @@ type ImgProps = {
   onClick: () => void;
 };
 const Img: React.FC<ImgProps> = ({ id, title, onClick }) => {
-  const Dummy = () => (
-    <div onClick={onClick} style={{ width: '100%', height: '100%', position: 'absolute', top: '0%' }} />
+  const [hoverable, hovered] = useHover(
+    <button
+      type='button'
+      aria-label={`${title}を再生`}
+      onClick={onClick}
+      style={{
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: '0%',
+        left: 0,
+        padding: 0,
+        border: 'none',
+        background: 'transparent',
+      }}
+    />,
   );
-  const [hoverable, hovered] = useHover(Dummy);
 
   return (
     <div style={{ position: 'relative' }}>

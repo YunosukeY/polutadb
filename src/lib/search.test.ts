@@ -194,7 +194,9 @@ describe('search', () => {
 
     // 並び順も、要素そのものも、要素の中身も変わっていない
     expect(state.singings).toHaveLength(before.length);
-    state.singings?.forEach((s, i) => expect(s).toBe(before[i]));
+    state.singings?.forEach((s, i) => {
+      expect(s).toBe(before[i]);
+    });
     expect(structuredClone(state.singings)).toEqual(snapshot);
   });
 });
