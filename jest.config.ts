@@ -12,6 +12,12 @@ const customJestConfig = {
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   // testEnvironment: 'jest-environment-jsdom',
+  testPathIgnorePatterns: [
+    // Playwright のテスト（yarn e2e）
+    '<rootDir>/e2e/',
+    // 本番データの整合性チェック。定期実行のワークフローから yarn test:data で実行する
+    '<rootDir>/src/data/data.test.ts',
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

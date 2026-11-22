@@ -28,3 +28,15 @@ $ yarn install
 $ yarn build
 $ yarn start
 ```
+
+### To Run E2E Tests
+
+本番ビルドを実ブラウザ（Playwright）で操作するテストです。データはフィクスチャ（`e2e/fixture/data.json`）を使い、外部への通信はテスト内ですべて差し替えます。
+
+```
+$ yarn playwright install chromium
+$ yarn e2e      # next build && next start に対して実行
+$ yarn e2e:dev  # next dev に対するスモークテスト
+```
+
+本番データの整合性チェックは `yarn test:data` で実行します（CI では定期実行）。

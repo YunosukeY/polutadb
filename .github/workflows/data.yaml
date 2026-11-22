@@ -1,0 +1,21 @@
+# 本番データ（Apps Script）の整合性チェック。
+# 外部の応答に依存するので PR の CI には入れず、定期実行する
+name: Data
+on:
+  schedule:
+    - cron: '0 21 * * *' # 毎日 6:00 JST
+  workflow_dispatch:
+jobs:
+  consistency:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+      - uses: actions/cache@v4
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --pure-lockfile
+      - run: yarn test:data

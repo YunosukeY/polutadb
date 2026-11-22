@@ -34,3 +34,7 @@ yarn-error.log*
 .vercel
 
 tsconfig.jsonc.tsbuildinfo
+
+# playwright
+/test-results/
+/playwright-report/
