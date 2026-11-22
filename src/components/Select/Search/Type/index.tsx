@@ -1,5 +1,4 @@
 import { Autocomplete, TextField } from '@mui/material';
-import * as React from 'react';
 import { useTypes } from '../../../../data/utils';
 import { StyledFormControl, useOnChange } from '../util';
 
@@ -18,7 +17,7 @@ export default function Type({ type, setType }: TypeProps) {
     <StyledFormControl variant='standard'>
       <Autocomplete
         options={types}
-        onChange={(e, v) => {
+        onChange={(_e, v) => {
           onChangeType(v == null ? -1 : v.i);
         }}
         value={type === -1 ? { name: '', i: -1 } : types.find((v) => v.i === type)}

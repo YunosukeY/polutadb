@@ -1,9 +1,9 @@
-import { createTheme, StyledEngineProvider, type Theme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'jotai';
 import type { AppComponent } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import Persistence from '../store/Persistence';

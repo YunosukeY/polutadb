@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export default function DeformedIcon() {
   return (
     <div style={{ backgroundColor: '#fff', textAlign: 'center' }}>

@@ -1,6 +1,5 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import * as React from 'react';
 
 import { useArtists } from '../../../../data/utils';
 import { StyledFormControl, useOnChange } from '../util';
@@ -20,7 +19,7 @@ export default function Artist({ artist, setArtist }: ArtistProps) {
     <StyledFormControl variant='standard'>
       <Autocomplete
         options={artists}
-        onChange={(e, v) => {
+        onChange={(_e, v) => {
           onChangeArtist(v == null ? -1 : v.i);
         }}
         value={artist === -1 ? { name: '', i: -1 } : artists.find((v) => v.i === artist)}

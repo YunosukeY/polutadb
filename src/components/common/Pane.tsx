@@ -1,5 +1,4 @@
 import { Paper } from '@mui/material';
-import React from 'react';
 import type { FCWithChildren } from '../../types/react';
 
 const Pane: FCWithChildren = ({ children }) => (

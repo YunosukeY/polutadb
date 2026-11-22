@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 /* eslint-disable @typescript-eslint/naming-convention */
-import React from 'react';
 
 import { GA_TRACKING_ID } from '../lib/gtag';
 

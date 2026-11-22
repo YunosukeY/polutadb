@@ -1,5 +1,4 @@
 import { Autocomplete, TextField } from '@mui/material';
-import * as React from 'react';
 import { useVideos } from '../../../../data/utils';
 import { StyledFormControl, useOnChange } from '../util';
 
@@ -18,7 +17,7 @@ export default function Video({ video, setVideo }: VideoProps) {
     <StyledFormControl variant='standard'>
       <Autocomplete
         options={videos}
-        onChange={(e, v) => {
+        onChange={(_e, v) => {
           onChangeVideo(v == null ? -1 : v.i);
         }}
         value={video === -1 ? { date: '', title: '', i: -1 } : videos.find((v) => v.i === video)}

@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Result from '../components/Result';
 import Select from '../components/Select';
 import FormUpdater from '../components/sideeffect/FormUpdater';

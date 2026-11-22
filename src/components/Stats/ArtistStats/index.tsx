@@ -3,7 +3,6 @@ import * as am5percent from '@amcharts/amcharts5/percent';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import { Typography } from '@mui/material';
 import { useAtomValue } from 'jotai';
-import * as React from 'react';
 import { useEffect } from 'react';
 import type { Artist, Singing } from '../../../data/types';
 import { useGetArtist } from '../../../data/utils';

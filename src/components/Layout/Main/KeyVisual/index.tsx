@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import * as React from 'react';
 
 import DeformedIcon from './DeformedIcon';
 import PickUp from './PickUp';

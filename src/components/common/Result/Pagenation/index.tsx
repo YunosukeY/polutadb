@@ -2,7 +2,7 @@ import Pagination from '@mui/material/Pagination';
 import type * as React from 'react';
 
 export default function Pagenation(props: { pagenum: number; setPagenum: (p: number) => void; lastPageNum: number }) {
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     props.setPagenum(Number(value));
   };
 

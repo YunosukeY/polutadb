@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { NextPage } from 'next';
-import * as React from 'react';
 
 import Releases from '../components/Releases';
 import { fetchData } from '../data/data';

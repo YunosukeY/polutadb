@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useSetAtom } from 'jotai';
 import { useRouter } from 'next/router';
-import * as React from 'react';
 import { initPageAtom } from '../../../store/pageAtom';
 import Menu from './Menu';
 
