@@ -4,7 +4,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { useSetAtom } from 'jotai';
 import { useRouter } from 'next/router';
@@ -42,8 +42,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
   return (
     <Drawer anchor='right' open={open} onClose={handleDrawerClose}>
       <List>
-        <ListItem
-          button
+        <ListItemButton
           onClick={() => {
             init();
             goto('/');
@@ -53,9 +52,8 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
             <SearchIcon />
           </ListItemIcon>
           <ListItemText primary='Search' />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           onClick={() => {
             init();
             goto('/favos');
@@ -65,9 +63,8 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
             <StarIcon />
           </ListItemIcon>
           <ListItemText primary='Favorites' />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           onClick={() => {
             goto('/stats');
           }}
@@ -76,9 +73,8 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
             <DonutLargeIcon />
           </ListItemIcon>
           <ListItemText primary='Statistics' />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           onClick={() => {
             goto('/releases');
           }}
@@ -87,9 +83,8 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
             <ImportContactsIcon />
           </ListItemIcon>
           <ListItemText primary='Releases Notes' />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           onClick={() => {
             goto('/about');
           }}
@@ -98,7 +93,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ open, handleDrawerClose }) => {
             <InfoIcon />
           </ListItemIcon>
           <ListItemText primary='About' />
-        </ListItem>
+        </ListItemButton>
       </List>
     </Drawer>
   );
