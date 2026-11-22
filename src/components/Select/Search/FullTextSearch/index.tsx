@@ -41,17 +41,19 @@ export default function FullTextSearch({ setQuery }: FullTextSearchProps) {
         edited.current = true;
         setInput(e.target.value);
       }}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position='start'>
-            <SearchIcon style={{ color: '#949494' }} />
-          </InputAdornment>
-        ),
+      slotProps={{
+        input: {
+          startAdornment: (
+            <InputAdornment position='start'>
+              <SearchIcon style={{ color: '#949494' }} />
+            </InputAdornment>
+          ),
+        },
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        htmlInput: { 'aria-label': '全文検索' },
       }}
       fullWidth
       style={{ paddingTop: 16 }}
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      inputProps={{ 'aria-label': '全文検索' }}
     />
   );
 }

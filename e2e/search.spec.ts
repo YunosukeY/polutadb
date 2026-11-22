@@ -93,10 +93,10 @@ test('クエリなしで開いたときは、操作するまでURLが書き換�
 
   // 開いてすぐにページを送っても、1ページ目に巻き戻されない
   await page.getByRole('button', { name: 'Go to page 2' }).click();
-  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'page');
   await page.clock.runFor(1000);
   await expect(page).toHaveURL('/');
-  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'page');
 });
 
 test('ソートを切り替えると並びが変わり、リロード後も保持される', async ({ page }) => {
@@ -128,13 +128,13 @@ test('1ページの表示件数はPCで20件、モバイルで10件。ページ�
   await openTop(page);
   await expect(stars(page)).toHaveCount(perPage);
   await expectFirstCard(page, newestFirst[0]);
-  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'page');
   await expect(page.getByRole('button', { name: /^(Go to )?page \d+$/ })).toHaveCount(
     Math.ceil(data.singings.length / perPage),
   );
 
   await page.getByRole('button', { name: 'Go to page 2' }).click();
-  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'page');
   await expectFirstCard(page, newestFirst[perPage]);
   await expect(stars(page)).toHaveCount(perPage);
 
@@ -142,17 +142,17 @@ test('1ページの表示件数はPCで20件、モバイルで10件。ページ�
   await selectOption(page, '曲', '曲01（アーティストA）');
   const filtered = newestFirst.filter((s) => s.song === '曲01');
   await expect(resultCount(page)).toHaveText(String(filtered.length));
-  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'page');
   await expectFirstCard(page, filtered[0]);
 
   // メニューからの遷移でも1ページ目に戻る
   await openTop(page);
   await page.getByRole('button', { name: 'Go to page 2' }).click();
-  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'page');
   await menu(page, 'Favorites');
   await expect(page).toHaveURL('/favos');
   await menu(page, 'Search');
   await expect(page).toHaveURL('/');
-  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'true');
+  await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'page');
   await expectFirstCard(page, newestFirst[0]);
 });

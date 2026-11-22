@@ -101,7 +101,7 @@ export const cards = () =>
 export const pageCount = () => screen.queryAllByRole('button', { name: /page \d+$/ }).length;
 
 /** いま表示しているページのボタン */
-export const currentPage = () => screen.getByRole('button', { current: true });
+export const currentPage = () => screen.getByRole('button', { current: 'page' });
 
 /** 件数の見出し（「45 Results」「1 Favorite」など）が表示されていること */
 export const expectCount = (count: number, unit: string) => {
