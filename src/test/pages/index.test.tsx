@@ -9,6 +9,7 @@ import {
   expectCount,
   pageCount,
   push,
+  ready,
   render,
   screen,
   scrollIntoView,
@@ -20,12 +21,7 @@ import Home from '../../pages';
 
 type RenderOptions = Parameters<typeof render>[1];
 
-/** トップページを描画し、マウント直後の全文検索のデバウンス（300ms）が済んだ状態にする */
-const renderHome = (options?: RenderOptions, pageData: Data = data) => {
-  const result = render(<Home {...pageData} />, options);
-  advance(300);
-  return result;
-};
+const renderHome = (options?: RenderOptions, pageData: Data = data) => render(<Home {...pageData} />, options);
 
 type User = ReturnType<typeof render>['user'];
 
@@ -138,7 +134,6 @@ describe('全文検索', () => {
     const query = '曲10';
     const expected = newestFirst.filter((s) => s.song === query);
     const { user } = renderHome();
-    push.mockClear();
 
     await user.type(screen.getByRole('textbox', { name: '全文検索' }), query);
     advance(299);
@@ -293,15 +288,11 @@ describe('カード', () => {
 });
 
 describe('URLクエリ', () => {
-  test('描画時点のクエリからフォームと結果が復元される', () => {
-    const query = '曲01';
-    const expected = ofType.filter((s) => s.song === query);
-    expect(expected.length).toBeGreaterThan(0);
+  const query = '曲01';
+  const url = `/?query=${encodeURIComponent(query)}&type=${typeIndex(type)}`;
+  const expected = ofType.filter((s) => s.song === query);
 
-    renderHome({ url: `/?query=${encodeURIComponent(query)}&type=${typeIndex(type)}` });
-    // 復元された全文検索の入力がデバウンスを経て反映されても、他の条件は消えない
-    advance(300);
-
+  const expectRestored = () => {
     expect(screen.getByRole('textbox', { name: '全文検索' })).toHaveValue(query);
     expect(combobox('動画のタイプ')).toHaveValue(type);
     expect(combobox('動画')).toHaveValue('');
@@ -309,5 +300,61 @@ describe('URLクエリ', () => {
     expect(combobox('アーティスト')).toHaveValue('');
     expectCount(expected.length, 'Results');
     expect(cards()).toEqual(labels(expected));
+  };
+
+  test('描画時点のクエリからフォームと結果が復元され、URLは書き換わらない', () => {
+    expect(expected.length).toBeGreaterThan(0);
+
+    renderHome({ url });
+    expectRestored();
+
+    // 復元された全文検索の入力はデバウンスを経てもURLに反映されない
+    advance(1000);
+    expect(push).not.toHaveBeenCalled();
+    expectRestored();
+  });
+
+  test('クエリがあとから届いても（router.isReady）復元され、URLは書き換わらない', () => {
+    renderHome({ url, routerReady: false });
+    // クエリが届くまでフォームは空のまま。全文検索のデバウンス（300ms）を過ぎてもURLを書き換えない
+    advance(1000);
+    expect(push).not.toHaveBeenCalled();
+    expect(screen.getByRole('textbox', { name: '全文検索' })).toHaveValue('');
+    expect(combobox('動画のタイプ')).toHaveValue('');
+    expectCount(total, 'Results');
+
+    ready();
+    expectRestored();
+
+    advance(1000);
+    expect(push).not.toHaveBeenCalled();
+    expectRestored();
+  });
+
+  test('復元された条件を変えても、他の条件は残る', async () => {
+    const { user } = renderHome({ url, routerReady: false });
+    ready();
+
+    await user.type(screen.getByRole('textbox', { name: '全文検索' }), '0');
+    advance(300);
+    expect(push).toHaveBeenCalledTimes(1);
+    expect(push).toHaveBeenLastCalledWith(
+      `/?query=${query}0&type=${typeIndex(type)}&video=-1&song=-1&artist=-1`,
+      undefined,
+      {
+        scroll: false,
+      },
+    );
+    expect(combobox('動画のタイプ')).toHaveValue(type);
+  });
+
+  test('クエリなしで開いたときは、操作するまでURLを書き換えず、ページ番号も戻さない', async () => {
+    const { user } = renderHome();
+
+    // 開いてすぐにページを送っても、1ページ目に巻き戻されない
+    await user.click(screen.getByRole('button', { name: 'Go to page 2' }));
+    advance(1000);
+    expect(push).not.toHaveBeenCalled();
+    expect(currentPage()).toHaveAccessibleName('page 2');
   });
 });

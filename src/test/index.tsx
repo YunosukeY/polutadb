@@ -7,7 +7,7 @@ import { RecoilRoot } from 'recoil';
 import { type Data, Singing } from '../data/types';
 import Persistence from '../store/Persistence';
 import { initializeSelector } from '../store/dataAtom';
-import { push, resetRouter } from './router';
+import { push, readyRouter, resetRouter } from './router';
 
 // コンポーネントのテストの共通ヘルパー。
 // 状態（Recoil、localStorage、URL、画面幅）の初期化とプロバイダをここにまとめる。
@@ -79,6 +79,13 @@ afterEach(() => {
   expect(unexpectedConsoleMessages).toEqual([]);
 });
 
+/** render の routerReady を false にしたルーターに、URLのクエリを届ける */
+export const ready = () => {
+  act(() => {
+    readyRouter();
+  });
+};
+
 /** 時間を進める */
 export const advance = (ms: number) => {
   act(() => {
@@ -107,6 +114,8 @@ export const expectCount = (count: number, unit: string) => {
 type Options = {
   /** 描画時点のURL。既定は / */
   url?: string;
+  /** false にすると、ready を呼ぶまでURLのクエリが届かない（router.isReady が false）。既定は true */
+  routerReady?: boolean;
   /** 画面幅（px）。既定はPC（1ページ20件） */
   width?: number;
   /** 取得済みにしておくデータ。ページ（src/pages）は props で受け取って自分で初期化するので不要 */
@@ -118,8 +127,8 @@ type Options = {
 };
 
 /** _app.tsx と同じプロバイダで包んで描画する */
-export const render = (ui: React.ReactElement, { url, width, data, favos, sort }: Options = {}) => {
-  resetRouter(url);
+export const render = (ui: React.ReactElement, { url, routerReady, width, data, favos, sort }: Options = {}) => {
+  resetRouter(url, routerReady);
   if (width !== undefined) viewportWidth = width;
   if (favos !== undefined) window.localStorage.setItem('favos', JSON.stringify(favos.map((id) => [id, true])));
   if (sort !== undefined) window.localStorage.setItem('sortedBy', String(sort));

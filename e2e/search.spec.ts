@@ -1,13 +1,13 @@
 import type { Page } from '@playwright/test';
 import type { RawSinging } from '../src/data/types';
 import { artistOf, data, newestFirst, shareTitle, typeIndex, videoOf } from './fixture';
-import { expect, menu, open, resultCount, stars, stored, test, topSettled, topUrl } from './test';
+import { expect, menu, open, resultCount, stars, stored, test } from './test';
 
 const total = String(data.singings.length);
 
 const openTop = async (page: Page, url = '/') => {
   await open(page, url);
-  await topSettled(page);
+  await expect(page.getByRole('heading', { name: /^Results?$/ })).toBeVisible();
 };
 
 /** 先頭のカードがどの歌唱データか。お気に入りボタンの aria-label で特定する */
@@ -64,27 +64,39 @@ test('Autocomplete で選択すると絞り込まれ、クリアすると戻る'
 });
 
 test('URL直リンクでフォームと結果が復元される', async ({ page }) => {
-  // 現状のアプリでは復元されない（公開サイトでも同じ）。
-  // フォームがマウントされる時点で router.query がまだ空なので、フォームは常に空のままになる。
-  // さらに、マウントの300ms後に全文検索のデバウンスが空の入力で発火してURLを書き換える。
-  // その時点で router.query が届いていれば type などは残って結果だけ絞り込まれるが、
-  // 届いていなければ（遅い環境では）すべての絞り込みが消える。
-  // 結果がタイミングで変わるので「結果だけは絞り込まれる」ことのテストは置いていない。
-  // アプリを直したらこのテストが「失敗するはずが通った」で赤くなるので、この行を外す
-  test.fail();
-
+  await page.clock.install();
   const query = '曲01';
   const expected = ofType.filter((s) => s.song === query);
   expect(expected.length).toBeGreaterThan(0);
 
-  await openTop(page, `/?query=${encodeURIComponent(query)}&type=${typeIndex(type)}`);
+  const url = `/?query=${encodeURIComponent(query)}&type=${typeIndex(type)}`;
 
-  await expect(page.getByRole('textbox', { name: '全文検索' })).toHaveValue(query, { timeout: 2000 });
+  await openTop(page, url);
+
+  await expect(page.getByRole('textbox', { name: '全文検索' })).toHaveValue(query);
   await expect(page.getByRole('combobox', { name: '動画のタイプ' })).toHaveValue(type);
   await expect(page.getByRole('combobox', { name: '曲' })).toHaveValue('');
   await expect(resultCount(page)).toHaveText(String(expected.length));
   await expect(stars(page)).toHaveCount(expected.length);
   await expectFirstCard(page, expected.at(-1));
+
+  // 全文検索のデバウンス（300ms）を過ぎても、URLは書き換わらず、復元された状態のまま
+  await page.clock.runFor(1000);
+  await expect(page).toHaveURL(url);
+  await expect(page.getByRole('textbox', { name: '全文検索' })).toHaveValue(query);
+  await expect(resultCount(page)).toHaveText(String(expected.length));
+});
+
+test('クエリなしで開いたときは、操作するまでURLが書き換わらず、ページ番号も戻らない', async ({ page }) => {
+  await page.clock.install();
+  await openTop(page);
+
+  // 開いてすぐにページを送っても、1ページ目に巻き戻されない
+  await page.getByRole('button', { name: 'Go to page 2' }).click();
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
+  await page.clock.runFor(1000);
+  await expect(page).toHaveURL('/');
+  await expect(currentPage(page, 2)).toHaveAttribute('aria-current', 'true');
 });
 
 test('ソートを切り替えると並びが変わり、リロード後も保持される', async ({ page }) => {
@@ -140,8 +152,7 @@ test('1ページの表示件数はPCで20件、モバイルで10件。ページ�
   await menu(page, 'Favorites');
   await expect(page).toHaveURL('/favos');
   await menu(page, 'Search');
-  await expect(page).toHaveURL(topUrl);
-  await topSettled(page);
+  await expect(page).toHaveURL('/');
   await expect(currentPage(page, 1)).toHaveAttribute('aria-current', 'true');
   await expectFirstCard(page, newestFirst[0]);
 });

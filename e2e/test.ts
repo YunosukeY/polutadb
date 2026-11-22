@@ -81,19 +81,6 @@ export const open = async (page: Page, url: string) => {
   await expect(page.getByRole('button', { name: 'PolutaDB' })).toBeVisible();
 };
 
-/** トップページのURL。表示して300ms後にクエリが付く（topSettled を参照） */
-export const topUrl = /^[^?]*\/(\?query=[^/]*)?$/;
-
-/**
- * トップページは表示の300ms後に、全文検索のデバウンスが空の入力で一度発火し、
- * URLを `/?query=&type=-1&...` に書き換えてページ番号を1に戻す。
- * その前に操作すると巻き戻されるので、トップページを開いたらこれを待ってから操作する
- */
-export const topSettled = async (page: Page) => {
-  await expect(page.getByRole('heading', { name: 'Results' })).toBeVisible();
-  await expect.poll(() => new URL(page.url()).searchParams.has('artist')).toBe(true);
-};
-
 export const menu = async (page: Page, item: string) => {
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: item, exact: true }).click();
