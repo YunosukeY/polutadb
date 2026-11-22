@@ -1,11 +1,9 @@
 import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
-import * as React from 'react';
-import { useEffect } from 'react';
-
 import { Typography } from '@mui/material';
 import { useAtomValue } from 'jotai';
+import { useEffect } from 'react';
 import type { Singing, Song } from '../../../data/types';
 import { singingsAtom, songsAtom } from '../../../store/dataAtom';
 import ChartDiv from '../../common/ChartDiv';

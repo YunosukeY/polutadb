@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import * as React from 'react';
 
 export default function FavoCount(props: { favonum: number }) {
   return (

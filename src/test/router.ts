@@ -25,7 +25,9 @@ const subscribe = (listener: () => void) => {
 /** router.push のモック。呼び出しの検証に使う */
 export const push = jest.fn((url: string, _as?: string, _options?: { scroll?: boolean }) => {
   location = parse(url);
-  listeners.forEach((listener) => listener());
+  listeners.forEach((listener) => {
+    listener();
+  });
   return Promise.resolve(true);
 });
 
@@ -56,5 +58,7 @@ export const readyRouter = () => {
   if (pending === undefined) throw new Error('ルーターはすでに ready になっている');
   location = pending;
   pending = undefined;
-  listeners.forEach((listener) => listener());
+  listeners.forEach((listener) => {
+    listener();
+  });
 };

@@ -35,7 +35,9 @@ export function typeOptions(types: Type[] | undefined) {
 export function videoOptions(videos: Video[] | undefined) {
   // データは五十音順になっていないので，ソートしてから選択肢に追加する
   let videoNames: { date: string; title: string; i: number }[] = [];
-  videos?.forEach((video, i) => videoNames.push({ date: video.date, title: video.title, i: i }));
+  videos?.forEach((video, i) => {
+    videoNames.push({ date: video.date, title: video.title, i: i });
+  });
   videoNames = videoNames.sort((a, b) => {
     if (a.date > b.date) return -1;
     else if (a.date < b.date) return 1;
@@ -60,7 +62,9 @@ export function songOptions(songs: Song[] | undefined) {
 
 export function artistOptions(artists: Artist[] | undefined) {
   let artistNames: { name: string; i: number }[] = [];
-  artists?.forEach((artist, i) => artistNames.push({ name: artist.name, i: i }));
+  artists?.forEach((artist, i) => {
+    artistNames.push({ name: artist.name, i: i });
+  });
   artistNames = artistNames.sort((a, b) => (a.name > b.name ? 1 : -1));
   return artistNames;
 }

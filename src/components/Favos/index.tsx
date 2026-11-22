@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { useEffect } from 'react';
-
 import { useAtom, useAtomValue } from 'jotai';
+import { useEffect } from 'react';
 import type { Singing } from '../../data/types';
 import { useDisplayNum } from '../../lib/useWidth';
 import { singingsAtom } from '../../store/dataAtom';
@@ -28,7 +26,7 @@ function useFavoList() {
 
   const isFavo = useAtomValue(favoAtom);
 
-  const res = new Array<Singing>();
+  const res: Singing[] = [];
   singings?.forEach((singing) => {
     if (isFavo.get(singing.id)) {
       res.push(singing);

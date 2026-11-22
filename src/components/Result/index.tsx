@@ -1,6 +1,5 @@
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/router';
-import * as React from 'react';
 
 import { Query } from '../../lib/query';
 import { useSearch } from '../../lib/search';

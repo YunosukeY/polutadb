@@ -1,9 +1,9 @@
 /** @jest-environment jsdom */
 
-import ShareButtons from '.';
 import { data, newestFirst, shareTitle, shareUrl } from '../../../../../../../e2e/fixture';
 import { Singing } from '../../../../../../data/types';
 import { advance, render, screen } from '../../../../../../test';
+import ShareButtons from '.';
 
 const raw = newestFirst[0];
 if (raw === undefined) throw new Error('fixture に歌唱データがない');

@@ -1,23 +1,22 @@
 import { type Theme, useMediaQuery, useTheme } from '@mui/material';
 import type { Breakpoint } from '@mui/material/styles';
 
-type BreakpointOrNull = Breakpoint | null;
-
 /**
- * Be careful using this hook. It only works because the number of
- * breakpoints in theme is static. It will break once you change the number of
- * breakpoints. See https://reactjs.org/docs/hooks-rules.html#only-call-hooks-at-the-top-level
+ * 現在の画面幅に対応するブレークポイントを返す。
+ * フックをトップレベルで呼ぶため、MUI 既定の5つのブレークポイントを前提にしている。
  */
-export function useWidth() {
+export function useWidth(): Breakpoint {
   const theme: Theme = useTheme();
-  const keys: Breakpoint[] = [...theme.breakpoints.keys].reverse();
-  return (
-    keys.reduce((output: BreakpointOrNull, key: Breakpoint) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const matches = useMediaQuery(theme.breakpoints.up(key));
-      return !output && matches ? key : output;
-    }, null) || 'xs'
-  );
+  const xl = useMediaQuery(theme.breakpoints.up('xl'));
+  const lg = useMediaQuery(theme.breakpoints.up('lg'));
+  const md = useMediaQuery(theme.breakpoints.up('md'));
+  const sm = useMediaQuery(theme.breakpoints.up('sm'));
+
+  if (xl) return 'xl';
+  if (lg) return 'lg';
+  if (md) return 'md';
+  if (sm) return 'sm';
+  return 'xs';
 }
 
 // see ResultCard

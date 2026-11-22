@@ -1,12 +1,12 @@
-import { format } from 'util';
-import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import { act, render as rtlRender, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Provider, createStore } from 'jotai';
+import { createStore, Provider } from 'jotai';
 import type * as React from 'react';
+import { format } from 'util';
 import { type Data, Singing } from '../data/types';
-import Persistence from '../store/Persistence';
 import { initializeAtom } from '../store/dataAtom';
+import Persistence from '../store/Persistence';
 import { push, readyRouter, resetRouter } from './router';
 
 // コンポーネントのテストの共通ヘルパー。

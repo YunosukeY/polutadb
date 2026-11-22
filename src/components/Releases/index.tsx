@@ -1,9 +1,8 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import { Stack, styled, Typography } from '@mui/material';
 import * as React from 'react';
 import { useToggle, useWindowSize } from 'react-use';
-
-import { Stack, Typography, styled } from '@mui/material';
 import { useVideo } from '../../data/utils';
 import type { FCWithChildren } from '../../types/react';
 import HR from '../common/HR';

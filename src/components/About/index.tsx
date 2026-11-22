@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { useWindowSize } from 'react-use';
-
 import { Stack, Typography } from '@mui/material';
+import { useWindowSize } from 'react-use';
 import HR from '../common/HR';
 import Pane from '../common/Pane';
 

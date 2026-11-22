@@ -1,8 +1,7 @@
-import Grid from '@mui/material/Grid';
-import type * as React from 'react';
-
 import { Card, CardActions, CardContent, Chip, Stack, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import { useAtom } from 'jotai';
+import type * as React from 'react';
 import type { Singing } from '../../../../../data/types';
 import { useGetArtist, useVideoId } from '../../../../../data/utils';
 import { favoAtomFamily } from '../../../../../store/favoAtom';

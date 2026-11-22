@@ -1,8 +1,8 @@
 /** @jest-environment jsdom */
 
-import { MOBILE, cards, currentPage, expectCount, pageCount, render, screen } from '..';
 import { data, shareTitle } from '../../../e2e/fixture';
 import FavosPage from '../../pages/favos';
+import { cards, currentPage, expectCount, MOBILE, pageCount, render, screen } from '..';
 
 // お気に入りは歌唱データのID（古い順の連番）で持つ
 const title = (id: number) => {

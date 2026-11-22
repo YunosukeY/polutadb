@@ -30,7 +30,7 @@ const Persistence: React.FC = () => {
     window.localStorage.setItem('sortedBy', String(sort));
   }, [favo, sort]);
 
-  return <></>;
+  return null;
 };
 
 export default Persistence;

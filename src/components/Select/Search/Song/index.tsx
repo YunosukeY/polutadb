@@ -1,6 +1,5 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import * as React from 'react';
 
 import { useSongs } from '../../../../data/utils';
 import { StyledFormControl, useOnChange } from '../util';
@@ -20,7 +19,7 @@ export default function Song({ song, setSong }: SongProps) {
     <StyledFormControl variant='standard'>
       <Autocomplete
         options={songs}
-        onChange={(e, v) => {
+        onChange={(_e, v) => {
           onChangeSong(v == null ? -1 : v.i);
         }}
         value={song === -1 ? { title: '', i: -1 } : songs.find((v) => v.i === song)}

@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { useAtom } from 'jotai';
+import * as React from 'react';
 import type { Singing } from '../../../data/types';
 import { useDisplayNum } from '../../../lib/useWidth';
 import { pageAtom } from '../../../store/pageAtom';

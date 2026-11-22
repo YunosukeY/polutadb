@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import * as React from 'react';
 
 import Header from './Header';
 import Main from './Main';

@@ -1,4 +1,4 @@
-import { type WritableAtom, atom } from 'jotai';
+import { atom, type WritableAtom } from 'jotai';
 
 export const favoAtom = atom<Map<number, boolean>>(new Map<number, boolean>());
 
