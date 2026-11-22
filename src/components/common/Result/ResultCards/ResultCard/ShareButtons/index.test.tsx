@@ -26,7 +26,7 @@ test('Xのシェアボタンで開くURLに文言、URL、ハッシュタグが�
   await user.click(screen.getByRole('button', { name: `${title}をXでシェア` }));
 
   const shared = opened(open);
-  expect(shared.origin + shared.pathname).toBe('https://twitter.com/intent/tweet');
+  expect(shared.origin + shared.pathname).toBe('https://x.com/intent/post');
   expect(shared.searchParams.get('text')).toBe(title);
   expect(shared.searchParams.get('url')).toBe(url);
   expect(shared.searchParams.get('hashtags')).toBe('ぽるうた,尾丸ポルカ');

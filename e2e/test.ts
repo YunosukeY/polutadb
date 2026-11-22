@@ -20,7 +20,7 @@ const stubs: { [host: string]: { contentType: string; body: string | Buffer } } 
   'fonts.gstatic.com': { contentType: 'font/woff2', body: font },
   'www.googletagmanager.com': { contentType: 'application/javascript', body: '' },
   'www.youtube-nocookie.com': { contentType: 'text/html', body: '<!doctype html><title>stub</title>' },
-  'twitter.com': { contentType: 'text/html', body: '<!doctype html><title>stub</title>' },
+  'x.com': { contentType: 'text/html', body: '<!doctype html><title>stub</title>' },
 };
 
 type Fixtures = {
